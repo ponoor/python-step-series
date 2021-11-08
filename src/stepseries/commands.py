@@ -21,7 +21,7 @@ class AbstractBuilder:
         builder_dict = asdict(self)
 
         # Extract the values
-        # Code is large copy-paste from pythonosc UDPClient
+        # Code is largely copy-paste from pythonosc.UDPClient
         address = builder_dict.pop("address")
 
         builder = OscMessageBuilder(address=address)
@@ -33,6 +33,23 @@ class AbstractBuilder:
             builder.add_arg(v)
 
         return builder.build()
+
+    def stringify(self) -> str:
+        """Converts the builder to an OSC message string."""
+
+        # Convert the builder to a dictionary
+        builder_dict = asdict(self)
+
+        # Extract the values
+        address: str = builder_dict.pop("address") + " "
+
+        # Return as a message string
+        for v in builder_dict.values():
+            if isinstance(v, bool):
+                v = int(v)
+            address += str(v) + " "
+
+        return address[:-1]
 
 
 # System Settings
