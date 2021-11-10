@@ -178,6 +178,11 @@ Implement your changes
    You can also use |tox|_ to run several other pre-configured tasks in the
    repository. Try ``tox -av`` to see a list of the available checks.
 
+   ``python-step-series`` also uses `tox-conda`_ to create virtual environments
+   to test against multiple versions of Python. It is recommended to also install
+   this tox plugin (``pip install tox-conda``) if you are using some form of conda.
+   If not, then please ensure tox is able to find all required versions of Python.
+
 Submit your contribution
 ------------------------
 
@@ -308,6 +313,7 @@ on PyPI_, the following steps can be used to release a new version for
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _tox: https://tox.readthedocs.io/en/stable/
+.. _tox-conda: https://github.com/tox-dev/tox-conda
 .. _virtual environment: https://realpython.com/python-virtual-environments-a-primer/
 .. _virtualenv: https://virtualenv.pypa.io/en/stable/
 
