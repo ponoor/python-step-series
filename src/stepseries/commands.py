@@ -684,7 +684,7 @@ class GetBrakeTransitionDuration(AbstractBuilder):
 class EnableServoMode(AbstractBuilder):
     motorID: int
     enable: bool
-    address: str = "/enableServerMode"
+    address: str = "/enableServoMode"
 
 
 @dataclass
@@ -699,7 +699,7 @@ class SetServoParam(AbstractBuilder):
 @dataclass
 class GetServoParam(AbstractBuilder):
     motorID: int
-    address: str = "/getSevoParam"
+    address: str = "/getServoParam"
 
 
 @dataclass
