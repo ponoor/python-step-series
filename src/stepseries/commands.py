@@ -581,7 +581,7 @@ class GoHome(AbstractBuilder):
 @dataclass
 class GoMark(AbstractBuilder):
     motorID: int
-    address: str = " /goMark"
+    address: str = "/goMark"
 
 
 # Motor Control
