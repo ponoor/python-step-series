@@ -147,3 +147,15 @@ def test_set_release_sw_timeout() -> None:
     assert params[0] == builder.motorID
     assert params[1] == builder.timeOut
     assert osc_message_str == "/setReleaseSwTimeout 4 16999"
+
+
+def test_get_release_sw_timeout() -> None:
+    builder = commands.GetReleaseSwTimeout(2)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 1
+    assert params[0] == builder.motorID
+    assert osc_message_str == "/getReleaseSwTimeout 2"

@@ -475,6 +475,12 @@ class SetReleaseSwTimeout(AbstractBuilder):
     address: str = "/setReleaseSwTimeout"
 
 
+@dataclass
+class GetReleaseSwTimeout(AbstractBuilder):
+    motorID: int
+    address: str = "/getReleaseSwTimeout"
+
+
 # Home and Limit Sensors
 
 
