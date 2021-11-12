@@ -5,6 +5,7 @@
 
 
 import ast
+import re
 from dataclasses import dataclass as _dataclass
 from dataclasses import field
 from typing import Any, Callable, Dict, Tuple, TypeVar, Union
@@ -33,9 +34,19 @@ def dataclass(*args: Tuple[Any], **kwargs: Dict[str, Any]):
         def __init__(self, *args, **kwargs):
             # Break down the args
             if len(args) == 1 and isinstance(args[0], str):
+                # First look for custom regex strings
+                # These will be <field_name>_re
+                for i, field_name in enumerate(self.__annotations__.keys()):
+                    if field_name.endswith("_re"):
+                        match: re.Match = getattr(self, field_name).search(args[0])
+                        kwargs[field_name[:-3]] = match[0]
+                        args = (
+                            (args[0][: match.start()] + args[0][match.end() :]).strip(),
+                        )
                 args = args[0].split()
 
             # Eval positional args
+            args = list(args)
             for i, arg in enumerate(args):
                 try:
                     args[i] = ast.literal_eval(arg.capitalize())
@@ -145,6 +156,9 @@ class Version(AbstractResponse):
     firmware_name: str
     firmware_version: str
     compile_date: str
+
+    # Custom regex to breakout
+    compile_date_re: re.Pattern = re.compile(r"\w+  .+")
 
 
 @dataclass
