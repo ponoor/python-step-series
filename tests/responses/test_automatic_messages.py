@@ -59,20 +59,20 @@ def test_motor_status() -> None:
 
 def test_homing_status() -> None:
     message = "/homingStatus 1 0"
-    osc_message1 = responses.HiZ(*message.split())
-    osc_message2 = responses.HiZ(message)
+    osc_message1 = responses.HomingStatus(*message.split())
+    osc_message2 = responses.HomingStatus(message)
 
-    gospel = responses.HiZ("/homingStatus", "1", "0")
+    gospel = responses.HomingStatus("/homingStatus", "1", "0")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
 
 
 def test_uvlo() -> None:
     message = "/uvlo 255 0"
-    osc_message1 = responses.HiZ(*message.split())
-    osc_message2 = responses.HiZ(message)
+    osc_message1 = responses.Uvlo(*message.split())
+    osc_message2 = responses.Uvlo(message)
 
-    gospel = responses.HiZ("/uvlo", "255", "0")
+    gospel = responses.Uvlo("/uvlo", "255", "0")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
 

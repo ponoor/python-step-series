@@ -8,11 +8,11 @@ from stepseries import responses
 
 
 def test_sw_event() -> None:
-    message = "/homingDirection 2 1"
-    osc_message1 = responses.HomingDirection(*message.split())
-    osc_message2 = responses.HomingDirection(message)
+    message = "/swEvent 3"
+    osc_message1 = responses.SwEvent(*message.split())
+    osc_message2 = responses.SwEvent(message)
 
-    gospel = responses.HomingDirection("/homingDirection", "2", "1")
+    gospel = responses.SwEvent("/swEvent", "3")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
 
