@@ -11,7 +11,7 @@ from pythonosc.osc_message_builder import OscMessageBuilder
 
 
 @dataclass
-class AbstractBuilder:
+class OSCCommand:
     """An abstract class meant to be implemented by OSC command objects."""
 
     def build(self) -> OscMessage:
@@ -56,22 +56,22 @@ class AbstractBuilder:
 
 
 @dataclass
-class SetDestIP(AbstractBuilder):
+class SetDestIP(OSCCommand):
     address: str = "/setDestIp"
 
 
 @dataclass
-class GetVersion(AbstractBuilder):
+class GetVersion(OSCCommand):
     address: str = "/getVersion"
 
 
 @dataclass
-class GetConfigName(AbstractBuilder):
+class GetConfigName(OSCCommand):
     address: str = "/getConfigName"
 
 
 @dataclass
-class ReportError(AbstractBuilder):
+class ReportError(OSCCommand):
     address: str = "/reportError"
 
 
@@ -79,90 +79,90 @@ class ReportError(AbstractBuilder):
 
 
 @dataclass
-class SetMicrostepMode(AbstractBuilder):
+class SetMicrostepMode(OSCCommand):
     motorID: int
     STEP_SEL: int
     address: str = "/setMicrostepMode"
 
 
 @dataclass
-class GetMicrostepMode(AbstractBuilder):
+class GetMicrostepMode(OSCCommand):
     motorID: int
     address: str = "/getMicrostepMode"
 
 
 @dataclass
-class SetLowSpeedOptimizeThreshold(AbstractBuilder):
+class SetLowSpeedOptimizeThreshold(OSCCommand):
     motorID: int
     lowSpeedOptimizationThreshold: float
     address: str = "/setLowSpeedOptimizeThreshold"
 
 
 @dataclass
-class GetLowSpeedOptimizeThreshold(AbstractBuilder):
+class GetLowSpeedOptimizeThreshold(OSCCommand):
     motorID: int
     address: str = "/getLowSpeedOptimizeThreshold"
 
 
 @dataclass
-class EnableBusyReport(AbstractBuilder):
+class EnableBusyReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableBusyReport"
 
 
 @dataclass
-class GetBusy(AbstractBuilder):
+class GetBusy(OSCCommand):
     motorID: int
     address: str = "/getBusy"
 
 
 @dataclass
-class EnableHiZReport(AbstractBuilder):
+class EnableHiZReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableHizReport"
 
 
 @dataclass
-class GetHiZ(AbstractBuilder):
+class GetHiZ(OSCCommand):
     motorID: int
     address: str = "/getHiZ"
 
 
 @dataclass
-class EnableMotorStatusReport(AbstractBuilder):
+class EnableMotorStatusReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableMotorStatusReport"
 
 
 @dataclass
-class GetMotorStatus(AbstractBuilder):
+class GetMotorStatus(OSCCommand):
     motorID: int
     address: str = "/getMotorStatus"
 
 
 @dataclass
-class GetAdcVal(AbstractBuilder):
+class GetAdcVal(OSCCommand):
     motorID: int
     address: str = "/getAdcVal"
 
 
 @dataclass
-class GetStatus(AbstractBuilder):
+class GetStatus(OSCCommand):
     motorID: int
     address: str = "/getStatus"
 
 
 @dataclass
-class GetConfigRegister(AbstractBuilder):
+class GetConfigRegister(OSCCommand):
     motorID: int
     address: str = "/getConfigRegister"
 
 
 @dataclass
-class ResetMotorDriver(AbstractBuilder):
+class ResetMotorDriver(OSCCommand):
     motorID: int
     address: str = "/resetMotorDriver"
 
@@ -171,93 +171,93 @@ class ResetMotorDriver(AbstractBuilder):
 
 
 @dataclass
-class EnableUvloReport(AbstractBuilder):
+class EnableUvloReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableUvloReport"
 
 
 @dataclass
-class GetUvlo(AbstractBuilder):
+class GetUvlo(OSCCommand):
     motorID: int
     address: str = "/getUvlo"
 
 
 @dataclass
-class EnableThermalStatusReport(AbstractBuilder):
+class EnableThermalStatusReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableThermalStatusReport"
 
 
 @dataclass
-class GetThermalStatus(AbstractBuilder):
+class GetThermalStatus(OSCCommand):
     motorID: int
     address: str = "/getThermalStatus"
 
 
 @dataclass
-class EnableOverCurrentReport(AbstractBuilder):
+class EnableOverCurrentReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableOverCurrentReport"
 
 
 @dataclass
-class SetOverCurrentThreshold(AbstractBuilder):
+class SetOverCurrentThreshold(OSCCommand):
     motorID: int
     OCD_TH: int
     address: str = "/setOverCurrentThreshold"
 
 
 @dataclass
-class GetOverCurrentThreshold(AbstractBuilder):
+class GetOverCurrentThreshold(OSCCommand):
     motorID: int
     address: str = "/getOverCurrentThreshold"
 
 
 @dataclass
-class EnableStallReport(AbstractBuilder):
+class EnableStallReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableStallReport"
 
 
 @dataclass
-class SetStallThreshold(AbstractBuilder):
+class SetStallThreshold(OSCCommand):
     motorID: int
     STALL_TH: int
     address: str = "/setStallThreshold"
 
 
 @dataclass
-class GetStallThreshold(AbstractBuilder):
+class GetStallThreshold(OSCCommand):
     motorID: int
     address: str = "/getStallThreshold"
 
 
 @dataclass
-class SetProhibitMotionOnHomeSw(AbstractBuilder):
+class SetProhibitMotionOnHomeSw(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/setProhibitMotionOnHomeSw"
 
 
 @dataclass
-class GetProhibitMotionOnHomeSw(AbstractBuilder):
+class GetProhibitMotionOnHomeSw(OSCCommand):
     motorID: int
     address: str = "/getProhibitMotionOnHomeSw"
 
 
 @dataclass
-class SetProhibitMotionOnLimitSw(AbstractBuilder):
+class SetProhibitMotionOnLimitSw(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/setProhibitMotionOnLimitSw"
 
 
 @dataclass
-class GetProhibitMotionOnLimitSw(AbstractBuilder):
+class GetProhibitMotionOnLimitSw(OSCCommand):
     motorID: int
     address: str = "/getProhibitMotionOnLimitSw"
 
@@ -266,13 +266,13 @@ class GetProhibitMotionOnLimitSw(AbstractBuilder):
 
 
 @dataclass
-class SetVoltageMode(AbstractBuilder):
+class SetVoltageMode(OSCCommand):
     motorID: int
     address: str = "/setVoltageMode"
 
 
 @dataclass
-class SetKval(AbstractBuilder):
+class SetKval(OSCCommand):
     motorID: int
     holdKVAL: int
     runKVAL: int
@@ -282,13 +282,13 @@ class SetKval(AbstractBuilder):
 
 
 @dataclass
-class GetKval(AbstractBuilder):
+class GetKval(OSCCommand):
     motorID: int
     address: str = "/getKval"
 
 
 @dataclass
-class SetBemfParam(AbstractBuilder):
+class SetBemfParam(OSCCommand):
     motorID: int
     INT_SPEED: int
     ST_SLP: int
@@ -298,19 +298,19 @@ class SetBemfParam(AbstractBuilder):
 
 
 @dataclass
-class GetBemfParam(AbstractBuilder):
+class GetBemfParam(OSCCommand):
     motorID: int
     address: str = "/getBemfParam"
 
 
 @dataclass
-class SetCurrentMode(AbstractBuilder):
+class SetCurrentMode(OSCCommand):
     motorID: int
     address: str = "/setCurrentMode"
 
 
 @dataclass
-class SetTval(AbstractBuilder):
+class SetTval(OSCCommand):
     motorID: int
     holdTVAL: int
     runTVAL: int
@@ -320,13 +320,13 @@ class SetTval(AbstractBuilder):
 
 
 @dataclass
-class GetTval(AbstractBuilder):
+class GetTval(OSCCommand):
     motorID: int
     address: str = "/getTval"
 
 
 @dataclass
-class SetDecayModeParam(AbstractBuilder):
+class SetDecayModeParam(OSCCommand):
     motorID: int
     T_FAST: int
     TON_MIN: int
@@ -335,7 +335,7 @@ class SetDecayModeParam(AbstractBuilder):
 
 
 @dataclass
-class GetDecayModeParam(AbstractBuilder):
+class GetDecayModeParam(OSCCommand):
     motorID: int
     address: str = "/getDecayModeParam"
 
@@ -344,7 +344,7 @@ class GetDecayModeParam(AbstractBuilder):
 
 
 @dataclass
-class SetSpeedProfile(AbstractBuilder):
+class SetSpeedProfile(OSCCommand):
     motorID: int
     acc: float
     dec: float
@@ -353,47 +353,47 @@ class SetSpeedProfile(AbstractBuilder):
 
 
 @dataclass
-class GetSpeedProfile(AbstractBuilder):
+class GetSpeedProfile(OSCCommand):
     motorID: int
     address: str = "/getSpeedProfile"
 
 
 @dataclass
-class SetFullstepSpeed(AbstractBuilder):
+class SetFullstepSpeed(OSCCommand):
     motorID: int
     fullstepSpeed: float
     address: str = "/setFullstepSpeed"
 
 
 @dataclass
-class GetFullstepSpeed(AbstractBuilder):
+class GetFullstepSpeed(OSCCommand):
     motorID: int
     address: str = "/getFullstepSpeed"
 
 
 @dataclass
-class SetMaxSpeed(AbstractBuilder):
+class SetMaxSpeed(OSCCommand):
     motorID: int
     maxSpeed: float
     address: str = "/setMaxSpeed"
 
 
 @dataclass
-class SetAcc(AbstractBuilder):
+class SetAcc(OSCCommand):
     motorID: int
     acc: float
     address: str = "/setAcc"
 
 
 @dataclass
-class SetDec(AbstractBuilder):
+class SetDec(OSCCommand):
     motorID: int
     dec: float
     address: str = "/setDec"
 
 
 @dataclass
-class GetSpeed(AbstractBuilder):
+class GetSpeed(OSCCommand):
     motorID: int
     address: str = "/getSpeed"
 
@@ -402,45 +402,45 @@ class GetSpeed(AbstractBuilder):
 
 
 @dataclass
-class Homing(AbstractBuilder):
+class Homing(OSCCommand):
     motorID: int
     address: str = "/homing"
 
 
 @dataclass
-class GetHomingStatus(AbstractBuilder):
+class GetHomingStatus(OSCCommand):
     motorID: int
     address: str = "/getHomingStatus"
 
 
 @dataclass
-class SetHomingDirection(AbstractBuilder):
+class SetHomingDirection(OSCCommand):
     motorID: int
     direction: bool
     address: str = "/setHomingDirection"
 
 
 @dataclass
-class GetHomingDirection(AbstractBuilder):
+class GetHomingDirection(OSCCommand):
     motorID: int
     address: str = "/getHomingDirection"
 
 
 @dataclass
-class SetHomingSpeed(AbstractBuilder):
+class SetHomingSpeed(OSCCommand):
     motorID: int
     speed: float
     address: str = "/setHomingSpeed"
 
 
 @dataclass
-class GetHomingSpeed(AbstractBuilder):
+class GetHomingSpeed(OSCCommand):
     motorID: int
     address: str = "/getHomingSpeed"
 
 
 @dataclass
-class GoUntil(AbstractBuilder):
+class GoUntil(OSCCommand):
     motorID: int
     ACT: bool
     speed: float
@@ -448,20 +448,20 @@ class GoUntil(AbstractBuilder):
 
 
 @dataclass
-class SetGoUntilTimeout(AbstractBuilder):
+class SetGoUntilTimeout(OSCCommand):
     motorID: int
     timeOut: int
     address: str = "/setGoUntilTimeout"
 
 
 @dataclass
-class GetGoUntilTimeout(AbstractBuilder):
+class GetGoUntilTimeout(OSCCommand):
     motorID: int
     address: str = "/getGoUntilTimeout"
 
 
 @dataclass
-class ReleaseSw(AbstractBuilder):
+class ReleaseSw(OSCCommand):
     motorID: int
     ACT: bool
     DIR: bool
@@ -469,14 +469,14 @@ class ReleaseSw(AbstractBuilder):
 
 
 @dataclass
-class SetReleaseSwTimeout(AbstractBuilder):
+class SetReleaseSwTimeout(OSCCommand):
     motorID: int
     timeOut: int
     address: str = "/setReleaseSwTimeout"
 
 
 @dataclass
-class GetReleaseSwTimeout(AbstractBuilder):
+class GetReleaseSwTimeout(OSCCommand):
     motorID: int
     address: str = "/getReleaseSwTimeout"
 
@@ -485,60 +485,60 @@ class GetReleaseSwTimeout(AbstractBuilder):
 
 
 @dataclass
-class EnableHomeSwReport(AbstractBuilder):
+class EnableHomeSwReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableHomeSwReport"
 
 
 @dataclass
-class EnableSwEventReport(AbstractBuilder):
+class EnableSwEventReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableSwEventReport"
 
 
 @dataclass
-class GetHomeSw(AbstractBuilder):
+class GetHomeSw(OSCCommand):
     motorID: int
     address: str = "/getHomeSw"
 
 
 @dataclass
-class EnableLimitSwReport(AbstractBuilder):
+class EnableLimitSwReport(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableLimitSwReport"
 
 
 @dataclass
-class GetLimitSw(AbstractBuilder):
+class GetLimitSw(OSCCommand):
     motorID: int
     address: str = "/getLimitSw"
 
 
 @dataclass
-class SetHomeSwMode(AbstractBuilder):
+class SetHomeSwMode(OSCCommand):
     motorID: int
     SW_MODE: bool
     address: str = "/setHomeSwMode"
 
 
 @dataclass
-class GetHomeSwMode(AbstractBuilder):
+class GetHomeSwMode(OSCCommand):
     motorID: int
     address: str = "/getHomeSwMode"
 
 
 @dataclass
-class SetLimitSwMode(AbstractBuilder):
+class SetLimitSwMode(OSCCommand):
     motorID: int
     SW_MODE: bool
     address: str = "/setLimitSwMode"
 
 
 @dataclass
-class GetLimitSwMode(AbstractBuilder):
+class GetLimitSwMode(OSCCommand):
     motorID: int
     address: str = "/getLimitSwMode"
 
@@ -547,45 +547,45 @@ class GetLimitSwMode(AbstractBuilder):
 
 
 @dataclass
-class SetPosition(AbstractBuilder):
+class SetPosition(OSCCommand):
     motorID: int
     newPosition: int
     address: str = "/setPosition"
 
 
 @dataclass
-class GetPosition(AbstractBuilder):
+class GetPosition(OSCCommand):
     motorID: int
     address: str = "/getPosition"
 
 
 @dataclass
-class ResetPos(AbstractBuilder):
+class ResetPos(OSCCommand):
     motorID: int
     address: str = "/resetPos"
 
 
 @dataclass
-class SetMark(AbstractBuilder):
+class SetMark(OSCCommand):
     motorID: int
     MARK: int
     address: str = "/setMark"
 
 
 @dataclass
-class GetMark(AbstractBuilder):
+class GetMark(OSCCommand):
     motorID: int
     address: str = "/getMark"
 
 
 @dataclass
-class GoHome(AbstractBuilder):
+class GoHome(OSCCommand):
     motorID: int
     address: str = "/goHome"
 
 
 @dataclass
-class GoMark(AbstractBuilder):
+class GoMark(OSCCommand):
     motorID: int
     address: str = "/goMark"
 
@@ -594,28 +594,28 @@ class GoMark(AbstractBuilder):
 
 
 @dataclass
-class Run(AbstractBuilder):
+class Run(OSCCommand):
     motorID: int
     speed: float
     address: str = "/run"
 
 
 @dataclass
-class Move(AbstractBuilder):
+class Move(OSCCommand):
     motorID: int
     step: int
     address: str = "/move"
 
 
 @dataclass
-class GoTo(AbstractBuilder):
+class GoTo(OSCCommand):
     motorID: int
     position: int
     address: str = "/goTo"
 
 
 @dataclass
-class GoToDir(AbstractBuilder):
+class GoToDir(OSCCommand):
     motorID: int
     DIR: bool
     position: int
@@ -623,25 +623,25 @@ class GoToDir(AbstractBuilder):
 
 
 @dataclass
-class SoftStop(AbstractBuilder):
+class SoftStop(OSCCommand):
     motorID: int
     address: str = "/softStop"
 
 
 @dataclass
-class HardStop(AbstractBuilder):
+class HardStop(OSCCommand):
     motorID: int
     address: str = "/hardStop"
 
 
 @dataclass
-class SoftHiZ(AbstractBuilder):
+class SoftHiZ(OSCCommand):
     motorID: int
     address: str = "/softHiZ"
 
 
 @dataclass
-class HardHiZ(AbstractBuilder):
+class HardHiZ(OSCCommand):
     motorID: int
     address: str = "/hardHiZ"
 
@@ -650,35 +650,35 @@ class HardHiZ(AbstractBuilder):
 
 
 @dataclass
-class EnableElectromagnetBrake(AbstractBuilder):
+class EnableElectromagnetBrake(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableElectromagnetBrake"
 
 
 @dataclass
-class Activate(AbstractBuilder):
+class Activate(OSCCommand):
     motorID: int
     state: bool
     address: str = "/activate"
 
 
 @dataclass
-class Free(AbstractBuilder):
+class Free(OSCCommand):
     motorID: int
     state: bool
     address: str = "/free"
 
 
 @dataclass
-class SetBrakeTransitionDuration(AbstractBuilder):
+class SetBrakeTransitionDuration(OSCCommand):
     motorID: int
     duration: int
     address: str = "/setBrakeTransitionDuration"
 
 
 @dataclass
-class GetBrakeTransitionDuration(AbstractBuilder):
+class GetBrakeTransitionDuration(OSCCommand):
     motorID: int
     address: str = "/getBrakeTransitionDuration"
 
@@ -687,14 +687,14 @@ class GetBrakeTransitionDuration(AbstractBuilder):
 
 
 @dataclass
-class EnableServoMode(AbstractBuilder):
+class EnableServoMode(OSCCommand):
     motorID: int
     enable: bool
     address: str = "/enableServoMode"
 
 
 @dataclass
-class SetServoParam(AbstractBuilder):
+class SetServoParam(OSCCommand):
     motorID: int
     kP: float
     kI: float
@@ -703,20 +703,20 @@ class SetServoParam(AbstractBuilder):
 
 
 @dataclass
-class GetServoParam(AbstractBuilder):
+class GetServoParam(OSCCommand):
     motorID: int
     address: str = "/getServoParam"
 
 
 @dataclass
-class SetTargetPosition(AbstractBuilder):
+class SetTargetPosition(OSCCommand):
     motorID: int
     position: int
     address: str = "/setTargetPosition"
 
 
 @dataclass
-class SetTargetPositionList(AbstractBuilder):
+class SetTargetPositionList(OSCCommand):
     position1: int
     position2: int
     position3: int
