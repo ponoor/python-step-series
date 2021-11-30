@@ -18,10 +18,10 @@ def test_version() -> None:
 
 
 def test_config_name() -> None:
-    message = "/configName Default 0 0"
+    message = "/configName Default 0 0 1"
     osc_message1 = responses.ConfigName(*message.split())
     osc_message2 = responses.ConfigName(message)
 
-    gospel = responses.ConfigName("/configName", "Default", "0", "0")
+    gospel = responses.ConfigName("/configName", "Default", "0", "0", "1")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
