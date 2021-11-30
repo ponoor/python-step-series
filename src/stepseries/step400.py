@@ -137,7 +137,7 @@ class STEP400:
         for resp_type, callbacks in self._registered_callbacks.items():
             if resp.__class__ == resp_type or resp_type is None:
                 for callback in callbacks:
-                    callback(resp_type)
+                    callback(resp)
 
     def on(
         self, message_type: Union[OSCResponse, None], fn: Callable[[OSCResponse], None]
