@@ -76,15 +76,12 @@ and use Python's built-in web server for a preview in your web browser
 Code Contributions
 ==================
 
-``python-step-series`` strives to maintain a balance between reliability,
-ease-of-use and efficiency--typically in that order. If you are not
-confident in your ability to implement a feature that follows this
-philosophy, please instead open an issue and describe your proposed
-feature in as much detail as possible.
-
-Any pull-request is welcome and will be reviewed; however, it may be
-rejected for any reason. A full explanation as to why your PR may be rejected
-will always be provided.
+``python-step-series`` is open to any and all contributions. This is an open-source
+project, and as such, any ideas for bugfixes, features and changes should be
+proposed no matter how consequential to the library it may be. We try to strive
+for a balance between reliability, ease-of-use and efficiency. If you are not confident
+in your ability to implement your idea please instead open an issue and describe
+it in as much detail as possible.
 
 Submit an issue
 ---------------
@@ -121,7 +118,7 @@ Clone the repository
 
 #. You should run::
 
-    pip install -U pip setuptools -e .
+    pip install -U pip setuptools tox tox-conda -e .
 
    to be able run ``putup --help``.
 
@@ -129,9 +126,10 @@ Clone the repository
 
     pip install pre-commit
     pre-commit install
+    pre-commit autoupdate
 
    ``python-step-series`` comes with a lot of hooks configured to automatically help the
-   developer to check the code being written.
+   developer to check the code being written.pre-commit autoupdate
 
 Implement your changes
 ----------------------
