@@ -4,7 +4,7 @@
 """4 axis stepper motor driver with Ethernet interface."""
 
 
-from queue import Queue
+from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
 from .commands import OSCCommand
@@ -195,9 +195,13 @@ class STEP400:
         DEFAULT_SERVER.send(self, command)
 
         # Wait for data and reset
-        resp = self._get_queue.get()
-        self._get_request = None
-        self._get_queue.task_done()
+        try:
+            resp = self._get_queue.get(timeout=2)
+            self._get_queue.task_done()
+        except Empty:
+            raise TimeoutError("timed-out waiting for a response from the device")
+        finally:
+            self._get_request = None
 
         if resp is ParseError:
             raise resp
