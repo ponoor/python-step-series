@@ -4,7 +4,7 @@
 """OSC message builders to send to the device."""
 
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
 from pythonosc.osc_message import OscMessage
 from pythonosc.osc_message_builder import OscMessageBuilder
@@ -57,22 +57,23 @@ class OSCCommand:
 
 @dataclass
 class SetDestIP(OSCCommand):
-    address: str = "/setDestIp"
+    address: str = field(default="/setDestIp", init=False)
 
 
 @dataclass
 class GetVersion(OSCCommand):
-    address: str = "/getVersion"
+    address: str = field(default="/getVersion", init=False)
 
 
 @dataclass
 class GetConfigName(OSCCommand):
-    address: str = "/getConfigName"
+    address: str = field(default="/getConfigName", init=False)
 
 
 @dataclass
 class ReportError(OSCCommand):
-    address: str = "/reportError"
+    address: str = field(default="/reportError", init=False)
+    enable: bool
 
 
 # Motor Driver Settings
@@ -82,89 +83,89 @@ class ReportError(OSCCommand):
 class SetMicrostepMode(OSCCommand):
     motorID: int
     STEP_SEL: int
-    address: str = "/setMicrostepMode"
+    address: str = field(default="/setMicrostepMode", init=False)
 
 
 @dataclass
 class GetMicrostepMode(OSCCommand):
     motorID: int
-    address: str = "/getMicrostepMode"
+    address: str = field(default="/getMicrostepMode", init=False)
 
 
 @dataclass
 class SetLowSpeedOptimizeThreshold(OSCCommand):
     motorID: int
     lowSpeedOptimizationThreshold: float
-    address: str = "/setLowSpeedOptimizeThreshold"
+    address: str = field(default="/setLowSpeedOptimizeThreshold", init=False)
 
 
 @dataclass
 class GetLowSpeedOptimizeThreshold(OSCCommand):
     motorID: int
-    address: str = "/getLowSpeedOptimizeThreshold"
+    address: str = field(default="/getLowSpeedOptimizeThreshold", init=False)
 
 
 @dataclass
 class EnableBusyReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableBusyReport"
+    address: str = field(default="/enableBusyReport", init=False)
 
 
 @dataclass
 class GetBusy(OSCCommand):
     motorID: int
-    address: str = "/getBusy"
+    address: str = field(default="/getBusy", init=False)
 
 
 @dataclass
 class EnableHiZReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableHizReport"
+    address: str = field(default="/enableHizReport", init=False)
 
 
 @dataclass
 class GetHiZ(OSCCommand):
     motorID: int
-    address: str = "/getHiZ"
+    address: str = field(default="/getHiZ", init=False)
 
 
 @dataclass
 class EnableMotorStatusReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableMotorStatusReport"
+    address: str = field(default="/enableMotorStatusReport", init=False)
 
 
 @dataclass
 class GetMotorStatus(OSCCommand):
     motorID: int
-    address: str = "/getMotorStatus"
+    address: str = field(default="/getMotorStatus", init=False)
 
 
 @dataclass
 class GetAdcVal(OSCCommand):
     motorID: int
-    address: str = "/getAdcVal"
+    address: str = field(default="/getAdcVal", init=False)
 
 
 @dataclass
 class GetStatus(OSCCommand):
     motorID: int
-    address: str = "/getStatus"
+    address: str = field(default="/getStatus", init=False)
 
 
 @dataclass
 class GetConfigRegister(OSCCommand):
     motorID: int
-    address: str = "/getConfigRegister"
+    address: str = field(default="/getConfigRegister", init=False)
 
 
 @dataclass
 class ResetMotorDriver(OSCCommand):
     motorID: int
-    address: str = "/resetMotorDriver"
+    address: str = field(default="/resetMotorDriver", init=False)
 
 
 # Alarm Settings
@@ -174,92 +175,92 @@ class ResetMotorDriver(OSCCommand):
 class EnableUvloReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableUvloReport"
+    address: str = field(default="/enableUvloReport", init=False)
 
 
 @dataclass
 class GetUvlo(OSCCommand):
     motorID: int
-    address: str = "/getUvlo"
+    address: str = field(default="/getUvlo", init=False)
 
 
 @dataclass
 class EnableThermalStatusReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableThermalStatusReport"
+    address: str = field(default="/enableThermalStatusReport", init=False)
 
 
 @dataclass
 class GetThermalStatus(OSCCommand):
     motorID: int
-    address: str = "/getThermalStatus"
+    address: str = field(default="/getThermalStatus", init=False)
 
 
 @dataclass
 class EnableOverCurrentReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableOverCurrentReport"
+    address: str = field(default="/enableOverCurrentReport", init=False)
 
 
 @dataclass
 class SetOverCurrentThreshold(OSCCommand):
     motorID: int
     OCD_TH: int
-    address: str = "/setOverCurrentThreshold"
+    address: str = field(default="/setOverCurrentThreshold", init=False)
 
 
 @dataclass
 class GetOverCurrentThreshold(OSCCommand):
     motorID: int
-    address: str = "/getOverCurrentThreshold"
+    address: str = field(default="/getOverCurrentThreshold", init=False)
 
 
 @dataclass
 class EnableStallReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableStallReport"
+    address: str = field(default="/enableStallReport", init=False)
 
 
 @dataclass
 class SetStallThreshold(OSCCommand):
     motorID: int
     STALL_TH: int
-    address: str = "/setStallThreshold"
+    address: str = field(default="/setStallThreshold", init=False)
 
 
 @dataclass
 class GetStallThreshold(OSCCommand):
     motorID: int
-    address: str = "/getStallThreshold"
+    address: str = field(default="/getStallThreshold", init=False)
 
 
 @dataclass
 class SetProhibitMotionOnHomeSw(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/setProhibitMotionOnHomeSw"
+    address: str = field(default="/setProhibitMotionOnHomeSw", init=False)
 
 
 @dataclass
 class GetProhibitMotionOnHomeSw(OSCCommand):
     motorID: int
-    address: str = "/getProhibitMotionOnHomeSw"
+    address: str = field(default="/getProhibitMotionOnHomeSw", init=False)
 
 
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/setProhibitMotionOnLimitSw"
+    address: str = field(default="/setProhibitMotionOnLimitSw", init=False)
 
 
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCCommand):
     motorID: int
-    address: str = "/getProhibitMotionOnLimitSw"
+    address: str = field(default="/getProhibitMotionOnLimitSw", init=False)
 
 
 # Voltage and Current Mode Settings
@@ -268,7 +269,7 @@ class GetProhibitMotionOnLimitSw(OSCCommand):
 @dataclass
 class SetVoltageMode(OSCCommand):
     motorID: int
-    address: str = "/setVoltageMode"
+    address: str = field(default="/setVoltageMode", init=False)
 
 
 @dataclass
@@ -278,13 +279,13 @@ class SetKval(OSCCommand):
     runKVAL: int
     accKVAL: int
     setDecKVAL: int
-    address: str = "/setKval"
+    address: str = field(default="/setKval", init=False)
 
 
 @dataclass
 class GetKval(OSCCommand):
     motorID: int
-    address: str = "/getKval"
+    address: str = field(default="/getKval", init=False)
 
 
 @dataclass
@@ -294,19 +295,19 @@ class SetBemfParam(OSCCommand):
     ST_SLP: int
     FN_SLP_ACC: int
     FN_SLP_DEC: int
-    address: str = "/setBemfParam"
+    address: str = field(default="/setBemfParam", init=False)
 
 
 @dataclass
 class GetBemfParam(OSCCommand):
     motorID: int
-    address: str = "/getBemfParam"
+    address: str = field(default="/getBemfParam", init=False)
 
 
 @dataclass
 class SetCurrentMode(OSCCommand):
     motorID: int
-    address: str = "/setCurrentMode"
+    address: str = field(default="/setCurrentMode", init=False)
 
 
 @dataclass
@@ -316,13 +317,13 @@ class SetTval(OSCCommand):
     runTVAL: int
     accTVAL: int
     setDecTVAL: int
-    address: str = "/setTval"
+    address: str = field(default="/setTval", init=False)
 
 
 @dataclass
 class GetTval(OSCCommand):
     motorID: int
-    address: str = "/getTval"
+    address: str = field(default="/getTval", init=False)
 
 
 @dataclass
@@ -331,13 +332,13 @@ class SetDecayModeParam(OSCCommand):
     T_FAST: int
     TON_MIN: int
     TOFF_MIN: int
-    address: str = "/setDecayModeParam"
+    address: str = field(default="/setDecayModeParam", init=False)
 
 
 @dataclass
 class GetDecayModeParam(OSCCommand):
     motorID: int
-    address: str = "/getDecayModeParam"
+    address: str = field(default="/getDecayModeParam", init=False)
 
 
 # Speed Profile
@@ -349,53 +350,53 @@ class SetSpeedProfile(OSCCommand):
     acc: float
     dec: float
     maxSpeed: float
-    address: str = "/setSpeedProfile"
+    address: str = field(default="/setSpeedProfile", init=False)
 
 
 @dataclass
 class GetSpeedProfile(OSCCommand):
     motorID: int
-    address: str = "/getSpeedProfile"
+    address: str = field(default="/getSpeedProfile", init=False)
 
 
 @dataclass
 class SetFullstepSpeed(OSCCommand):
     motorID: int
     fullstepSpeed: float
-    address: str = "/setFullstepSpeed"
+    address: str = field(default="/setFullstepSpeed", init=False)
 
 
 @dataclass
 class GetFullstepSpeed(OSCCommand):
     motorID: int
-    address: str = "/getFullstepSpeed"
+    address: str = field(default="/getFullstepSpeed", init=False)
 
 
 @dataclass
 class SetMaxSpeed(OSCCommand):
     motorID: int
     maxSpeed: float
-    address: str = "/setMaxSpeed"
+    address: str = field(default="/setMaxSpeed", init=False)
 
 
 @dataclass
 class SetAcc(OSCCommand):
     motorID: int
     acc: float
-    address: str = "/setAcc"
+    address: str = field(default="/setAcc", init=False)
 
 
 @dataclass
 class SetDec(OSCCommand):
     motorID: int
     dec: float
-    address: str = "/setDec"
+    address: str = field(default="/setDec", init=False)
 
 
 @dataclass
 class GetSpeed(OSCCommand):
     motorID: int
-    address: str = "/getSpeed"
+    address: str = field(default="/getSpeed", init=False)
 
 
 # Homing
@@ -404,39 +405,39 @@ class GetSpeed(OSCCommand):
 @dataclass
 class Homing(OSCCommand):
     motorID: int
-    address: str = "/homing"
+    address: str = field(default="/homing", init=False)
 
 
 @dataclass
 class GetHomingStatus(OSCCommand):
     motorID: int
-    address: str = "/getHomingStatus"
+    address: str = field(default="/getHomingStatus", init=False)
 
 
 @dataclass
 class SetHomingDirection(OSCCommand):
     motorID: int
     direction: bool
-    address: str = "/setHomingDirection"
+    address: str = field(default="/setHomingDirection", init=False)
 
 
 @dataclass
 class GetHomingDirection(OSCCommand):
     motorID: int
-    address: str = "/getHomingDirection"
+    address: str = field(default="/getHomingDirection", init=False)
 
 
 @dataclass
 class SetHomingSpeed(OSCCommand):
     motorID: int
     speed: float
-    address: str = "/setHomingSpeed"
+    address: str = field(default="/setHomingSpeed", init=False)
 
 
 @dataclass
 class GetHomingSpeed(OSCCommand):
     motorID: int
-    address: str = "/getHomingSpeed"
+    address: str = field(default="/getHomingSpeed", init=False)
 
 
 @dataclass
@@ -444,20 +445,20 @@ class GoUntil(OSCCommand):
     motorID: int
     ACT: bool
     speed: float
-    address: str = "/goUntil"
+    address: str = field(default="/goUntil", init=False)
 
 
 @dataclass
 class SetGoUntilTimeout(OSCCommand):
     motorID: int
     timeOut: int
-    address: str = "/setGoUntilTimeout"
+    address: str = field(default="/setGoUntilTimeout", init=False)
 
 
 @dataclass
 class GetGoUntilTimeout(OSCCommand):
     motorID: int
-    address: str = "/getGoUntilTimeout"
+    address: str = field(default="/getGoUntilTimeout", init=False)
 
 
 @dataclass
@@ -465,20 +466,20 @@ class ReleaseSw(OSCCommand):
     motorID: int
     ACT: bool
     DIR: bool
-    address: str = "/releaseSw"
+    address: str = field(default="/releaseSw", init=False)
 
 
 @dataclass
 class SetReleaseSwTimeout(OSCCommand):
     motorID: int
     timeOut: int
-    address: str = "/setReleaseSwTimeout"
+    address: str = field(default="/setReleaseSwTimeout", init=False)
 
 
 @dataclass
 class GetReleaseSwTimeout(OSCCommand):
     motorID: int
-    address: str = "/getReleaseSwTimeout"
+    address: str = field(default="/getReleaseSwTimeout", init=False)
 
 
 # Home and Limit Sensors
@@ -488,59 +489,59 @@ class GetReleaseSwTimeout(OSCCommand):
 class EnableHomeSwReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableHomeSwReport"
+    address: str = field(default="/enableHomeSwReport", init=False)
 
 
 @dataclass
 class EnableSwEventReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableSwEventReport"
+    address: str = field(default="/enableSwEventReport", init=False)
 
 
 @dataclass
 class GetHomeSw(OSCCommand):
     motorID: int
-    address: str = "/getHomeSw"
+    address: str = field(default="/getHomeSw", init=False)
 
 
 @dataclass
 class EnableLimitSwReport(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableLimitSwReport"
+    address: str = field(default="/enableLimitSwReport", init=False)
 
 
 @dataclass
 class GetLimitSw(OSCCommand):
     motorID: int
-    address: str = "/getLimitSw"
+    address: str = field(default="/getLimitSw", init=False)
 
 
 @dataclass
 class SetHomeSwMode(OSCCommand):
     motorID: int
     SW_MODE: bool
-    address: str = "/setHomeSwMode"
+    address: str = field(default="/setHomeSwMode", init=False)
 
 
 @dataclass
 class GetHomeSwMode(OSCCommand):
     motorID: int
-    address: str = "/getHomeSwMode"
+    address: str = field(default="/getHomeSwMode", init=False)
 
 
 @dataclass
 class SetLimitSwMode(OSCCommand):
     motorID: int
     SW_MODE: bool
-    address: str = "/setLimitSwMode"
+    address: str = field(default="/setLimitSwMode", init=False)
 
 
 @dataclass
 class GetLimitSwMode(OSCCommand):
     motorID: int
-    address: str = "/getLimitSwMode"
+    address: str = field(default="/getLimitSwMode", init=False)
 
 
 # Position Management
@@ -550,44 +551,44 @@ class GetLimitSwMode(OSCCommand):
 class SetPosition(OSCCommand):
     motorID: int
     newPosition: int
-    address: str = "/setPosition"
+    address: str = field(default="/setPosition", init=False)
 
 
 @dataclass
 class GetPosition(OSCCommand):
     motorID: int
-    address: str = "/getPosition"
+    address: str = field(default="/getPosition", init=False)
 
 
 @dataclass
 class ResetPos(OSCCommand):
     motorID: int
-    address: str = "/resetPos"
+    address: str = field(default="/resetPos", init=False)
 
 
 @dataclass
 class SetMark(OSCCommand):
     motorID: int
     MARK: int
-    address: str = "/setMark"
+    address: str = field(default="/setMark", init=False)
 
 
 @dataclass
 class GetMark(OSCCommand):
     motorID: int
-    address: str = "/getMark"
+    address: str = field(default="/getMark", init=False)
 
 
 @dataclass
 class GoHome(OSCCommand):
     motorID: int
-    address: str = "/goHome"
+    address: str = field(default="/goHome", init=False)
 
 
 @dataclass
 class GoMark(OSCCommand):
     motorID: int
-    address: str = "/goMark"
+    address: str = field(default="/goMark", init=False)
 
 
 # Motor Control
@@ -597,21 +598,21 @@ class GoMark(OSCCommand):
 class Run(OSCCommand):
     motorID: int
     speed: float
-    address: str = "/run"
+    address: str = field(default="/run", init=False)
 
 
 @dataclass
 class Move(OSCCommand):
     motorID: int
     step: int
-    address: str = "/move"
+    address: str = field(default="/move", init=False)
 
 
 @dataclass
 class GoTo(OSCCommand):
     motorID: int
     position: int
-    address: str = "/goTo"
+    address: str = field(default="/goTo", init=False)
 
 
 @dataclass
@@ -619,31 +620,31 @@ class GoToDir(OSCCommand):
     motorID: int
     DIR: bool
     position: int
-    address: str = "/goToDir"
+    address: str = field(default="/goToDir", init=False)
 
 
 @dataclass
 class SoftStop(OSCCommand):
     motorID: int
-    address: str = "/softStop"
+    address: str = field(default="/softStop", init=False)
 
 
 @dataclass
 class HardStop(OSCCommand):
     motorID: int
-    address: str = "/hardStop"
+    address: str = field(default="/hardStop", init=False)
 
 
 @dataclass
 class SoftHiZ(OSCCommand):
     motorID: int
-    address: str = "/softHiZ"
+    address: str = field(default="/softHiZ", init=False)
 
 
 @dataclass
 class HardHiZ(OSCCommand):
     motorID: int
-    address: str = "/hardHiZ"
+    address: str = field(default="/hardHiZ", init=False)
 
 
 # Electromagnetic Brake
@@ -653,34 +654,34 @@ class HardHiZ(OSCCommand):
 class EnableElectromagnetBrake(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableElectromagnetBrake"
+    address: str = field(default="/enableElectromagnetBrake", init=False)
 
 
 @dataclass
 class Activate(OSCCommand):
     motorID: int
     state: bool
-    address: str = "/activate"
+    address: str = field(default="/activate", init=False)
 
 
 @dataclass
 class Free(OSCCommand):
     motorID: int
     state: bool
-    address: str = "/free"
+    address: str = field(default="/free", init=False)
 
 
 @dataclass
 class SetBrakeTransitionDuration(OSCCommand):
     motorID: int
     duration: int
-    address: str = "/setBrakeTransitionDuration"
+    address: str = field(default="/setBrakeTransitionDuration", init=False)
 
 
 @dataclass
 class GetBrakeTransitionDuration(OSCCommand):
     motorID: int
-    address: str = "/getBrakeTransitionDuration"
+    address: str = field(default="/getBrakeTransitionDuration", init=False)
 
 
 # Servo Mode
@@ -690,7 +691,7 @@ class GetBrakeTransitionDuration(OSCCommand):
 class EnableServoMode(OSCCommand):
     motorID: int
     enable: bool
-    address: str = "/enableServoMode"
+    address: str = field(default="/enableServoMode", init=False)
 
 
 @dataclass
@@ -699,20 +700,20 @@ class SetServoParam(OSCCommand):
     kP: float
     kI: float
     kD: float
-    address: str = "/setServoParam"
+    address: str = field(default="/setServoParam", init=False)
 
 
 @dataclass
 class GetServoParam(OSCCommand):
     motorID: int
-    address: str = "/getServoParam"
+    address: str = field(default="/getServoParam", init=False)
 
 
 @dataclass
 class SetTargetPosition(OSCCommand):
     motorID: int
     position: int
-    address: str = "/setTargetPosition"
+    address: str = field(default="/setTargetPosition", init=False)
 
 
 @dataclass
@@ -721,4 +722,4 @@ class SetTargetPositionList(OSCCommand):
     position2: int
     position3: int
     position4: int
-    address: str = "/setTargetPositionList"
+    address: str = field(default="/setTargetPositionList", init=False)

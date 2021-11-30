@@ -41,11 +41,12 @@ def test_get_config_name() -> None:
 
 
 def test_report_error() -> None:
-    builder = commands.ReportError()
+    builder = commands.ReportError(enable=True)
     osc_message = builder.build()
     osc_message_str = builder.stringify()
     params = osc_message.params
 
     assert osc_message.address == builder.address
-    assert len(params) == 0
-    assert osc_message_str == "/reportError"
+    assert params[0] == 1
+    assert len(params) == 1
+    assert osc_message_str == "/reportError 1"
