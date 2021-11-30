@@ -32,6 +32,10 @@ def dataclass(*args: Tuple[Any], **kwargs: Dict[str, Any]):
         original_init = cls.__init__
 
         def __init__(self, *args, **kwargs):
+            # Concat split string args
+            if all([isinstance(x, str) for x in args]):
+                args = (" ".join(args),)
+
             # Break down the args
             if len(args) == 1 and isinstance(args[0], str):
                 # First look for custom regex strings
@@ -45,8 +49,24 @@ def dataclass(*args: Tuple[Any], **kwargs: Dict[str, Any]):
                         )
                 args = args[0].split()
 
-            # Eval positional args
+                # Now add all to kwargs
+                field_names = [
+                    k
+                    for k in self.__annotations__.keys()
+                    if k not in kwargs and not k.endswith("_re")
+                ]
+                for i, arg in enumerate(args):
+                    field_name = field_names[i]
+                    kwargs[field_name] = arg
+                args = tuple()
+                kwargs.pop("address", None)
+
+            # Remove unnecessary address identifier
             args = list(args)
+            if args and args[0] == self.address:
+                args.pop(0)
+
+            # Eval positional args
             for i, arg in enumerate(args):
                 try:
                     args[i] = ast.literal_eval(arg.capitalize())
@@ -74,7 +94,7 @@ def dataclass(*args: Tuple[Any], **kwargs: Dict[str, Any]):
 
 
 @dataclass
-class AbstractResponse:
+class OSCResponse:
     """An abstract class meant to be implemented by OSC resp objects."""
 
     address: str
@@ -84,58 +104,68 @@ class AbstractResponse:
 
 
 @dataclass
-class Booted(AbstractResponse):
+class Booted(OSCResponse):
+    address: str = field(default="/booted", init=False)
     deviceID: int
 
 
 @dataclass
-class Error(AbstractResponse):
+class Error(OSCResponse):
+    address: str = field(default="/error", init=False)
     errorText: str
     motorID: int = None
 
 
 @dataclass
-class Busy(AbstractResponse):
+class Busy(OSCResponse):
+    address: str = field(default="/busy", init=False)
     motorID: int
 
 
 @dataclass
-class HiZ(AbstractResponse):
+class HiZ(OSCResponse):
+    address: str = field(default="/HiZ", init=False)
     motorID: int
     state: bool
 
 
 @dataclass
-class MotorStatus(AbstractResponse):
+class MotorStatus(OSCResponse):
+    address: str = field(default="/motorStatus", init=False)
     motorID: int
     MOT_STATUS: int
 
 
 @dataclass
-class HomingStatus(AbstractResponse):
+class HomingStatus(OSCResponse):
+    address: str = field(default="/homingStatus", init=False)
     motorID: int
     homingStatus: int
 
 
 @dataclass
-class Uvlo(AbstractResponse):
+class Uvlo(OSCResponse):
+    address: str = field(default="/uvlo", init=False)
     motorID: int
     state: bool
 
 
 @dataclass
-class ThermalStatus(AbstractResponse):
+class ThermalStatus(OSCResponse):
+    address: str = field(default="/thermalStatus", init=False)
     motorID: int
     thermalStatus: int
 
 
 @dataclass
-class OverCurrent(AbstractResponse):
+class OverCurrent(OSCResponse):
+    address: str = field(default="/overCurrent", init=False)
     motorID: int
 
 
 @dataclass
-class Stall(AbstractResponse):
+class Stall(OSCResponse):
+    address: str = field(default="/stall", init=False)
     motorID: int
 
 
@@ -143,7 +173,8 @@ class Stall(AbstractResponse):
 
 
 @dataclass
-class DestIP(AbstractResponse):
+class DestIP(OSCResponse):
+    address: str = field(default="/destIp", init=False)
     destIp0: int
     destIp1: int
     destIp2: int
@@ -152,51 +183,61 @@ class DestIP(AbstractResponse):
 
 
 @dataclass
-class Version(AbstractResponse):
+class Version(OSCResponse):
+    address: str = field(default="/version", init=False)
     firmware_name: str
     firmware_version: str
     compile_date: str
 
     # Custom regex to breakout
-    compile_date_re: re.Pattern = re.compile(r"\w+  .+")
+    compile_date_re: re.Pattern = field(
+        default=re.compile(r"\w+ ? \d{1,2} \d{4} .+"), init=False, repr=False
+    )
 
 
 @dataclass
-class ConfigName(AbstractResponse):
+class ConfigName(OSCResponse):
+    address: str = field(default="/configName", init=False)
     configName: str
     sdInitializeSucceeded: bool
     configFileOpenSucceeded: bool
+    configFileParseSucceeded: bool
 
 
 # Motor Driver Settings
 
 
 @dataclass
-class MicrostepMode(AbstractResponse):
+class MicrostepMode(OSCResponse):
+    address: str = field(default="/microstepMode", init=False)
     motorID: int
     STEP_SEL: int
 
 
 @dataclass
-class LowSpeedOptimizeThreshold(AbstractResponse):
+class LowSpeedOptimizeThreshold(OSCResponse):
+    address: str = field(default="/lowSpeedOptimizeThreshold", init=False)
     motorID: int
     lowSpeedOptimizeThreshold: float
 
 
 @dataclass
-class AdcVal(AbstractResponse):
+class AdcVal(OSCResponse):
+    address: str = field(default="/adcVal", init=False)
     motorID: int
     ADC_OUT: int
 
 
 @dataclass
-class Status(AbstractResponse):
+class Status(OSCResponse):
+    address: str = field(default="/status", init=False)
     motorID: int
     status: int
 
 
 @dataclass
-class ConfigRegister(AbstractResponse):
+class ConfigRegister(OSCResponse):
+    address: str = field(default="/configRegister", init=False)
     motorID: int
     CONFIG: int
 
@@ -205,25 +246,29 @@ class ConfigRegister(AbstractResponse):
 
 
 @dataclass
-class OverCurrentThreshold(AbstractResponse):
+class OverCurrentThreshold(OSCResponse):
+    address: str = field(default="/overCurrentThreshold", init=False)
     motorID: int
     overCurrentThreshold: float
 
 
 @dataclass
-class StallThreshold(AbstractResponse):
+class StallThreshold(OSCResponse):
+    address: str = field(default="/stallThreshold", init=False)
     motorID: int
     stallThreshold: float
 
 
 @dataclass
-class ProhibitMotionOnHomeSw(AbstractResponse):
+class ProhibitMotionOnHomeSw(OSCResponse):
+    address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
     enable: bool
 
 
 @dataclass
-class ProhibitMotionOnLimitSw(AbstractResponse):
+class ProhibitMotionOnLimitSw(OSCResponse):
+    address: str = field(default="/prohibitMotionOnLimitSw", init=False)
     motorID: int
     enable: bool
 
@@ -232,7 +277,8 @@ class ProhibitMotionOnLimitSw(AbstractResponse):
 
 
 @dataclass
-class Kval(AbstractResponse):
+class Kval(OSCResponse):
+    address: str = field(default="/kval", init=False)
     motorID: int
     holdKVAL: int
     runKVAL: int
@@ -241,7 +287,8 @@ class Kval(AbstractResponse):
 
 
 @dataclass
-class BemfParam(AbstractResponse):
+class BemfParam(OSCResponse):
+    address: str = field(default="/bemfParam", init=False)
     motorID: int
     INT_SPEED: int
     ST_SLP: int
@@ -250,7 +297,8 @@ class BemfParam(AbstractResponse):
 
 
 @dataclass
-class Tval(AbstractResponse):
+class Tval(OSCResponse):
+    address: str = field(default="/tval", init=False)
     motorID: int
     holdTVAL: int
     runTVAL: int
@@ -259,7 +307,8 @@ class Tval(AbstractResponse):
 
 
 @dataclass
-class DecayModeParam(AbstractResponse):
+class DecayModeParam(OSCResponse):
+    address: str = field(default="/decayModeParam", init=False)
     motorID: int
     T_FAST: int
     TON_MIN: int
@@ -270,7 +319,8 @@ class DecayModeParam(AbstractResponse):
 
 
 @dataclass
-class SpeedProfile(AbstractResponse):
+class SpeedProfile(OSCResponse):
+    address: str = field(default="/speedProfile", init=False)
     motorID: int
     acc: float
     dec: float
@@ -278,13 +328,15 @@ class SpeedProfile(AbstractResponse):
 
 
 @dataclass
-class FullstepSpeed(AbstractResponse):
+class FullstepSpeed(OSCResponse):
+    address: str = field(default="/fullstepSpeed", init=False)
     motorID: int
     fullstepSpeed: float
 
 
 @dataclass
-class Speed(AbstractResponse):
+class Speed(OSCResponse):
+    address: str = field(default="/speed", init=False)
     motorID: int
     speed: float
 
@@ -293,25 +345,29 @@ class Speed(AbstractResponse):
 
 
 @dataclass
-class HomingDirection(AbstractResponse):
+class HomingDirection(OSCResponse):
+    address: str = field(default="/homingDirection", init=False)
     motorID: int
     homingDirection: bool
 
 
 @dataclass
-class HomingSpeed(AbstractResponse):
+class HomingSpeed(OSCResponse):
+    address: str = field(default="/homingSpeed", init=False)
     motorID: int
     homingSpeed: float
 
 
 @dataclass
-class GoUntilTimeout(AbstractResponse):
+class GoUntilTimeout(OSCResponse):
+    address: str = field(default="/goUntilTimeout", init=False)
     motorID: int
     timeout: int
 
 
 @dataclass
-class ReleaseSwTimeout(AbstractResponse):
+class ReleaseSwTimeout(OSCResponse):
+    address: str = field(default="/releaseSwTimeout", init=False)
     motorID: int
     timeout: int
 
@@ -320,32 +376,37 @@ class ReleaseSwTimeout(AbstractResponse):
 
 
 @dataclass
-class SwEvent(AbstractResponse):
+class SwEvent(OSCResponse):
+    address: str = field(default="/swEvent", init=False)
     motorID: int
 
 
 @dataclass
-class HomeSw(AbstractResponse):
-    motorID: int
-    swState: bool
-    direction: bool
-
-
-@dataclass
-class LimitSw(AbstractResponse):
+class HomeSw(OSCResponse):
+    address: str = field(default="/homeSw", init=False)
     motorID: int
     swState: bool
     direction: bool
 
 
 @dataclass
-class HomeSwMode(AbstractResponse):
+class LimitSw(OSCResponse):
+    address: str = field(default="/limitSw", init=False)
+    motorID: int
+    swState: bool
+    direction: bool
+
+
+@dataclass
+class HomeSwMode(OSCResponse):
+    address: str = field(default="/homeSwMode", init=False)
     motorID: int
     swMode: bool
 
 
 @dataclass
-class LimitSwMode(AbstractResponse):
+class LimitSwMode(OSCResponse):
+    address: str = field(default="/limitSwMode", init=False)
     motorID: int
     swMode: bool
 
@@ -354,13 +415,15 @@ class LimitSwMode(AbstractResponse):
 
 
 @dataclass
-class Position(AbstractResponse):
+class Position(OSCResponse):
+    address: str = field(default="/position", init=False)
     motorID: int
     ABS_POS: int
 
 
 @dataclass
-class Mark(AbstractResponse):
+class Mark(OSCResponse):
+    address: str = field(default="/mark", init=False)
     motorID: int
     MARK: int
 
@@ -369,7 +432,8 @@ class Mark(AbstractResponse):
 
 
 @dataclass
-class BrakeTransitionDuration(AbstractResponse):
+class BrakeTransitionDuration(OSCResponse):
+    address: str = field(default="/brakeTransitionDuration", init=False)
     motorID: int
     duration: int
 
@@ -378,7 +442,8 @@ class BrakeTransitionDuration(AbstractResponse):
 
 
 @dataclass
-class ServoParam(AbstractResponse):
+class ServoParam(OSCResponse):
+    address: str = field(default="/servoParam", init=False)
     motorID: int
     kP: float
     kI: float
