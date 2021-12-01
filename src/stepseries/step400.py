@@ -132,7 +132,7 @@ class STEP400:
 
         # Return the get request
         if self._get_request:
-            if message_address == self._get_request:
+            if message_address.lower() == self._get_request:
                 self._get_queue.put(resp)
                 self._get_queue.join()
 
@@ -192,8 +192,8 @@ class STEP400:
         """
 
         # Prepare for get request
-        s = command.address.replace("get", "")
-        self._get_request = s[0] + s[1].lower() + s[2:]
+        s: str = command.address.replace("get", "")
+        self._get_request = s.lower()
 
         # Send the request
         DEFAULT_SERVER.send(self, command)
