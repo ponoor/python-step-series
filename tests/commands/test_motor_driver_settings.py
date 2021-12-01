@@ -8,7 +8,7 @@ from stepseries import commands
 
 
 def test_set_microstep_mode() -> None:
-    builder = commands.SetMicrostepMode(0, 3)
+    builder = commands.SetMicrostepMode(4, 3)
     osc_message = builder.build()
     osc_message_str = builder.stringify()
     params = osc_message.params
@@ -17,11 +17,11 @@ def test_set_microstep_mode() -> None:
     assert len(params) == 2
     assert params[0] == builder.motorID
     assert params[1] == builder.STEP_SEL
-    assert osc_message_str == "/setMicrostepMode 0 3"
+    assert osc_message_str == "/setMicrostepMode 4 3"
 
 
 def test_get_microstep_mode() -> None:
-    builder = commands.GetMicrostepMode(0)
+    builder = commands.GetMicrostepMode(4)
     osc_message = builder.build()
     osc_message_str = builder.stringify()
     params = osc_message.params
@@ -29,11 +29,24 @@ def test_get_microstep_mode() -> None:
     assert osc_message.address == builder.address
     assert len(params) == 1
     assert params[0] == builder.motorID
-    assert osc_message_str == "/getMicrostepMode 0"
+    assert osc_message_str == "/getMicrostepMode 4"
+
+
+def test_enable_low_speed_optimize() -> None:
+    builder = commands.EnableLowSpeedOptimize(2, True)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 2
+    assert params[0] == builder.motorID
+    assert params[1] == builder.enable
+    assert osc_message_str == "/enableLowSpeedOptimize 2 1"
 
 
 def test_set_low_speed_optimize_threshold() -> None:
-    builder = commands.SetLowSpeedOptimizeThreshold(0, 0.5)
+    builder = commands.SetLowSpeedOptimizeThreshold(3, 0.5)
     osc_message = builder.build()
     osc_message_str = builder.stringify()
     params = osc_message.params
@@ -42,7 +55,7 @@ def test_set_low_speed_optimize_threshold() -> None:
     assert len(params) == 2
     assert params[0] == builder.motorID
     assert params[1] == builder.lowSpeedOptimizationThreshold
-    assert osc_message_str == "/setLowSpeedOptimizeThreshold 0 0.5"
+    assert osc_message_str == "/setLowSpeedOptimizeThreshold 3 0.5"
 
 
 def test_get_low_speed_optimize_threshold() -> None:

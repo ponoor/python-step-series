@@ -93,6 +93,13 @@ class GetMicrostepMode(OSCCommand):
 
 
 @dataclass
+class EnableLowSpeedOptimize(OSCCommand):
+    motorID: int
+    enable: bool
+    address: str = field(default="/enableLowSpeedOptimize", init=False)
+
+
+@dataclass
 class SetLowSpeedOptimizeThreshold(OSCCommand):
     motorID: int
     lowSpeedOptimizationThreshold: float
