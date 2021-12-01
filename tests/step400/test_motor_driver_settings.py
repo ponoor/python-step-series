@@ -4,7 +4,7 @@
 """Ensure system commands and responses execute successfully."""
 
 
-import warnings
+from math import isclose  # Due to precision, we cannot compare floats directly
 
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
@@ -19,17 +19,13 @@ class TestMotorDriverSettings(HardwareIncremental):
         device.set(commands.SetMicrostepMode(1, 7))
 
     def test_low_speed_optimize_threshold(self, device: step400.STEP400) -> None:
-        device.set(commands.EnableLowSpeedOptimize(3, False))
-        device.set(commands.SetLowSpeedOptimizeThreshold(4, 555.55))
-        resp = device.get(commands.GetLowSpeedOptimizeThreshold(2))
+        device.set(commands.EnableLowSpeedOptimize(4, True))
+        device.set(commands.SetLowSpeedOptimizeThreshold(4, 555.5))
+        resp = device.get(commands.GetLowSpeedOptimizeThreshold(4))
         assert isinstance(resp, responses.LowSpeedOptimizeThreshold)
-        try:
-            assert resp.lowSpeedOptimizeThreshold == 555.55
-        except AssertionError:
-            warnings.warn(
-                f"lowSpeedThreshold returned {resp.lowSpeedOptimizeThreshold} instead of 555.55"
-            )
+        assert isclose(resp.lowSpeedOptimizeThreshold, 555.5, rel_tol=0.1)
         device.set(commands.SetLowSpeedOptimizeThreshold(4, 0.0))
+        device.set(commands.EnableLowSpeedOptimize(4, False))
 
     def test_busy(self, device: step400.STEP400) -> None:
         device.set(commands.EnableBusyReport(2, False))
