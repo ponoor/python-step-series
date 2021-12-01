@@ -105,12 +105,16 @@ class OSCResponse:
 
 @dataclass
 class Booted(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#booted"""  # noqa
+
     address: str = field(default="/booted", init=False)
     deviceID: int
 
 
 @dataclass
 class Error(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#errorosc"""  # noqa
+
     address: str = field(default="/error", init=False)
     errorText: str
     motorID: int = None
@@ -118,6 +122,8 @@ class Error(OSCResponse):
 
 @dataclass
 class Busy(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#busy"""  # noqa
+
     address: str = field(default="/busy", init=False)
     motorID: int
     state: bool
@@ -125,6 +131,8 @@ class Busy(OSCResponse):
 
 @dataclass
 class HiZ(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#hiz"""  # noqa
+
     address: str = field(default="/HiZ", init=False)
     motorID: int
     state: bool
@@ -132,6 +140,8 @@ class HiZ(OSCResponse):
 
 @dataclass
 class MotorStatus(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#motorstatus"""  # noqa
+
     address: str = field(default="/motorStatus", init=False)
     motorID: int
     MOT_STATUS: int
@@ -139,6 +149,8 @@ class MotorStatus(OSCResponse):
 
 @dataclass
 class HomingStatus(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#homingstatus"""  # noqa
+
     address: str = field(default="/homingStatus", init=False)
     motorID: int
     homingStatus: int
@@ -146,6 +158,8 @@ class HomingStatus(OSCResponse):
 
 @dataclass
 class Uvlo(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#uvlo"""  # noqa
+
     address: str = field(default="/uvlo", init=False)
     motorID: int
     state: bool
@@ -153,6 +167,8 @@ class Uvlo(OSCResponse):
 
 @dataclass
 class ThermalStatus(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#thermalstatus"""  # noqa
+
     address: str = field(default="/thermalStatus", init=False)
     motorID: int
     thermalStatus: int
@@ -160,12 +176,16 @@ class ThermalStatus(OSCResponse):
 
 @dataclass
 class OverCurrent(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#overcurrent"""  # noqa
+
     address: str = field(default="/overCurrent", init=False)
     motorID: int
 
 
 @dataclass
 class Stall(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#stall"""  # noqa
+
     address: str = field(default="/stall", init=False)
     motorID: int
 
@@ -175,6 +195,8 @@ class Stall(OSCResponse):
 
 @dataclass
 class DestIP(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#setdestip"""  # noqa
+
     address: str = field(default="/destIp", init=False)
     destIp0: int
     destIp1: int
@@ -185,6 +207,8 @@ class DestIP(OSCResponse):
 
 @dataclass
 class Version(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getversion"""  # noqa
+
     address: str = field(default="/version", init=False)
     firmware_name: str
     firmware_version: str
@@ -198,6 +222,8 @@ class Version(OSCResponse):
 
 @dataclass
 class ConfigName(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getconfigname"""  # noqa
+
     address: str = field(default="/configName", init=False)
     configName: str
     sdInitializeSucceeded: bool
@@ -210,6 +236,8 @@ class ConfigName(OSCResponse):
 
 @dataclass
 class MicrostepMode(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getmicrostepmode_intmotorid"""  # noqa
+
     address: str = field(default="/microstepMode", init=False)
     motorID: int
     STEP_SEL: int
@@ -217,6 +245,8 @@ class MicrostepMode(OSCResponse):
 
 @dataclass
 class LowSpeedOptimizeThreshold(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"""  # noqa
+
     address: str = field(default="/lowSpeedOptimizeThreshold", init=False)
     motorID: int
     lowSpeedOptimizeThreshold: float
@@ -225,6 +255,8 @@ class LowSpeedOptimizeThreshold(OSCResponse):
 
 @dataclass
 class AdcVal(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
+
     address: str = field(default="/adcVal", init=False)
     motorID: int
     ADC_OUT: int
@@ -232,6 +264,8 @@ class AdcVal(OSCResponse):
 
 @dataclass
 class Status(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getstatus_intmotorid"""  # noqa
+
     address: str = field(default="/status", init=False)
     motorID: int
     status: int
@@ -239,6 +273,8 @@ class Status(OSCResponse):
 
 @dataclass
 class ConfigRegister(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getconfigregister_intmotorid"""  # noqa
+
     address: str = field(default="/configRegister", init=False)
     motorID: int
     CONFIG: int
@@ -249,6 +285,8 @@ class ConfigRegister(OSCResponse):
 
 @dataclass
 class OverCurrentThreshold(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getovercurrentthreshold_intmotorid"""  # noqa
+
     address: str = field(default="/overCurrentThreshold", init=False)
     motorID: int
     overCurrentThreshold: float
@@ -256,6 +294,8 @@ class OverCurrentThreshold(OSCResponse):
 
 @dataclass
 class StallThreshold(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getstallthreshold_intmotorid"""  # noqa
+
     address: str = field(default="/stallThreshold", init=False)
     motorID: int
     stallThreshold: float
@@ -263,6 +303,8 @@ class StallThreshold(OSCResponse):
 
 @dataclass
 class ProhibitMotionOnHomeSw(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"""  # noqa
+
     address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
     enable: bool
@@ -270,6 +312,8 @@ class ProhibitMotionOnHomeSw(OSCResponse):
 
 @dataclass
 class ProhibitMotionOnLimitSw(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"""  # noqa
+
     address: str = field(default="/prohibitMotionOnLimitSw", init=False)
     motorID: int
     enable: bool
@@ -280,6 +324,8 @@ class ProhibitMotionOnLimitSw(OSCResponse):
 
 @dataclass
 class Kval(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getkval_intmotorid"""  # noqa
+
     address: str = field(default="/kval", init=False)
     motorID: int
     holdKVAL: int
@@ -290,6 +336,8 @@ class Kval(OSCResponse):
 
 @dataclass
 class BemfParam(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"""  # noqa
+
     address: str = field(default="/bemfParam", init=False)
     motorID: int
     INT_SPEED: int
@@ -300,6 +348,8 @@ class BemfParam(OSCResponse):
 
 @dataclass
 class Tval(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_intmotorid"""  # noqa
+
     address: str = field(default="/tval", init=False)
     motorID: int
     holdTVAL: int
@@ -310,6 +360,8 @@ class Tval(OSCResponse):
 
 @dataclass
 class DecayModeParam(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"""  # noqa
+
     address: str = field(default="/decayModeParam", init=False)
     motorID: int
     T_FAST: int
@@ -322,6 +374,8 @@ class DecayModeParam(OSCResponse):
 
 @dataclass
 class SpeedProfile(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeedprofile_intmotorid"""  # noqa
+
     address: str = field(default="/speedProfile", init=False)
     motorID: int
     acc: float
@@ -331,6 +385,8 @@ class SpeedProfile(OSCResponse):
 
 @dataclass
 class FullstepSpeed(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getfullstepspeed_intmotorid"""  # noqa
+
     address: str = field(default="/fullstepSpeed", init=False)
     motorID: int
     fullstepSpeed: float
@@ -338,6 +394,8 @@ class FullstepSpeed(OSCResponse):
 
 @dataclass
 class MinSpeed(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getminspeed_intmotorid"""  # noqa
+
     address: str = field(default="/minSpeed", init=False)
     motorID: int
     minSpeed: float
@@ -345,6 +403,8 @@ class MinSpeed(OSCResponse):
 
 @dataclass
 class Speed(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeed_intmotorid"""  # noqa
+
     address: str = field(default="/speed", init=False)
     motorID: int
     speed: float
@@ -355,6 +415,8 @@ class Speed(OSCResponse):
 
 @dataclass
 class HomingDirection(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingdirection_intmotorid"""  # noqa
+
     address: str = field(default="/homingDirection", init=False)
     motorID: int
     homingDirection: bool
@@ -362,6 +424,8 @@ class HomingDirection(OSCResponse):
 
 @dataclass
 class HomingSpeed(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingspeed_intmotorid"""  # noqa
+
     address: str = field(default="/homingSpeed", init=False)
     motorID: int
     homingSpeed: float
@@ -369,6 +433,8 @@ class HomingSpeed(OSCResponse):
 
 @dataclass
 class GoUntilTimeout(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#getgountiltimeout_intmotorid"""  # noqa
+
     address: str = field(default="/goUntilTimeout", init=False)
     motorID: int
     timeout: int
@@ -376,6 +442,8 @@ class GoUntilTimeout(OSCResponse):
 
 @dataclass
 class ReleaseSwTimeout(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"""  # noqa
+
     address: str = field(default="/releaseSwTimeout", init=False)
     motorID: int
     timeout: int
@@ -386,12 +454,16 @@ class ReleaseSwTimeout(OSCResponse):
 
 @dataclass
 class SwEvent(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablesweventreport_intmotorid_boolenable"""  # noqa
+
     address: str = field(default="/swEvent", init=False)
     motorID: int
 
 
 @dataclass
 class HomeSw(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomesw_intmotorid"""  # noqa
+
     address: str = field(default="/homeSw", init=False)
     motorID: int
     swState: bool
@@ -400,6 +472,8 @@ class HomeSw(OSCResponse):
 
 @dataclass
 class LimitSw(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitsw_intmotorid"""  # noqa
+
     address: str = field(default="/limitSw", init=False)
     motorID: int
     swState: bool
@@ -408,6 +482,8 @@ class LimitSw(OSCResponse):
 
 @dataclass
 class HomeSwMode(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomeswmode_intmotorid"""  # noqa
+
     address: str = field(default="/homeSwMode", init=False)
     motorID: int
     swMode: bool
@@ -415,6 +491,8 @@ class HomeSwMode(OSCResponse):
 
 @dataclass
 class LimitSwMode(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitswmode_intmotorid"""  # noqa
+
     address: str = field(default="/limitSwMode", init=False)
     motorID: int
     swMode: bool
@@ -425,6 +503,8 @@ class LimitSwMode(OSCResponse):
 
 @dataclass
 class Position(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getposition_intmotorid"""  # noqa
+
     address: str = field(default="/position", init=False)
     motorID: int
     ABS_POS: int
@@ -432,6 +512,8 @@ class Position(OSCResponse):
 
 @dataclass
 class Mark(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getmark_intmotorid"""  # noqa
+
     address: str = field(default="/mark", init=False)
     motorID: int
     MARK: int
@@ -442,6 +524,8 @@ class Mark(OSCResponse):
 
 @dataclass
 class BrakeTransitionDuration(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#getbraketransitionduration_intmotorid"""  # noqa
+
     address: str = field(default="/brakeTransitionDuration", init=False)
     motorID: int
     duration: int
@@ -452,6 +536,8 @@ class BrakeTransitionDuration(OSCResponse):
 
 @dataclass
 class ServoParam(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#getservoparam_intmotorid"""  # noqa
+
     address: str = field(default="/servoParam", init=False)
     motorID: int
     kP: float
