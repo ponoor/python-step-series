@@ -13,11 +13,11 @@ from tests.conftest import HardwareIncremental
 class TestHomingSettings(HardwareIncremental):
 
     # Presets for running homing commands
-    direction: int = 1  # forward: 1; reverse: 0
-    speed: float = 100  # 0 - 15625; default is 100 steps/secs
-    gu_timeout: int = 10000  # goUntil timeout; 0 - 65535; default is 10000ms
-    sw_timeout: int = 5000  # 0 - 65535; default is 5000ms
-    motor: int = 4  # 1 - 4
+    direction: int = None  # forward: 1; reverse: 0
+    speed: float = None  # 0 - 15625; default is 100 steps/secs
+    gu_timeout: int = None  # goUntil timeout; 0 - 65535; default is 10000ms
+    sw_timeout: int = None  # 0 - 65535; default is 5000ms
+    motor: int = None  # 1 - 4
     run_motor: bool = False  # Run the motor with the above presets
 
     def test_homing_presets(self) -> None:
