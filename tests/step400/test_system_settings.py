@@ -19,3 +19,4 @@ class TestSystemSettings(HardwareIncremental):
 
     def test_report_error(self, device: step400.STEP400) -> None:
         device.set(commands.ReportError(enable=1))
+        device.set(commands.ReportError(False))
