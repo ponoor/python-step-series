@@ -18,9 +18,9 @@ Installation
 
 There are multiple ways to install `python-step-series`. The easiest way is from PyPI:
 
-    .. code-block:: shell
+.. code-block:: shell
 
-        pip install python-step-series
+    pip install python-step-series
 
 Or you can install from source. See the `Contributing`_ guide for more information
 on how to do that.
