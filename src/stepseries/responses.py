@@ -337,6 +337,13 @@ class FullstepSpeed(OSCResponse):
 
 
 @dataclass
+class MinSpeed(OSCResponse):
+    address: str = field(default="/minSpeed", init=False)
+    motorID: int
+    minSpeed: float
+
+
+@dataclass
 class Speed(OSCResponse):
     address: str = field(default="/speed", init=False)
     motorID: int

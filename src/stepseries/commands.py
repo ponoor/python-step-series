@@ -401,6 +401,19 @@ class SetDec(OSCCommand):
 
 
 @dataclass
+class SetMinSpeed(OSCCommand):
+    motorID: int
+    minSpeed: float
+    address: str = field(default="/setMinSpeed", init=False)
+
+
+@dataclass
+class GetMinSpeed(OSCCommand):
+    motorID: int
+    address: str = field(default="/getMinSpeed", init=False)
+
+
+@dataclass
 class GetSpeed(OSCCommand):
     motorID: int
     address: str = field(default="/getSpeed", init=False)

@@ -100,6 +100,31 @@ def test_set_dec() -> None:
     assert osc_message_str == "/setAcc 4 63.8"
 
 
+def test_set_min_speed() -> None:
+    builder = commands.SetMinSpeed(2, 482.3)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 2
+    assert params[0] == builder.motorID
+    assert isclose(params[1], builder.minSpeed, rel_tol=1e-05)
+    assert osc_message_str == "/setMinSpeed 2 482.3"
+
+
+def test_get_min_speed() -> None:
+    builder = commands.GetMinSpeed(3)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 1
+    assert params[0] == builder.motorID
+    assert osc_message_str == "/getMinSpeed 3"
+
+
 def test_get_speed() -> None:
     builder = commands.GetSpeed(1)
     osc_message = builder.build()

@@ -31,6 +31,16 @@ def test_fullstep_speed() -> None:
     assert osc_message2 == gospel
 
 
+def test_min_speed() -> None:
+    message = "/minSpeed 3 19.12"
+    osc_message1 = responses.MinSpeed(*message.split())
+    osc_message2 = responses.MinSpeed(message)
+
+    gospel = responses.MinSpeed("/minSpeed", "3", "19.12")
+    assert osc_message1 == gospel
+    assert osc_message2 == gospel
+
+
 def test_speed() -> None:
     message = "/speed 4 -8152"
     osc_message1 = responses.Speed(*message.split())
