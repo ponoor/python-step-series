@@ -4,11 +4,17 @@
 """Custom exceptions raised by this library."""
 
 
+class StepSeriesException(Exception):
+    """Base exception for the library."""
+
+    original_exc: Exception = None
+
+
 class ClientNotFound(Exception):
     """The requested client could not be found."""
 
 
-class ParseError(Exception):
+class ParseError(StepSeriesException):
     """Failed to parse the message from the device."""
 
     response: str

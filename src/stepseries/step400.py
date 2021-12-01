@@ -8,7 +8,7 @@ from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
 from .commands import OSCCommand
-from .exceptions import ParseError
+from .exceptions import ParseError, StepSeriesException
 from .responses import OSCResponse
 from .server import DEFAULT_SERVER
 
@@ -116,13 +116,17 @@ class STEP400:
     ) -> None:
         # Reconstruct message as an object
         resp = None
+        raw_resp = message_address + " " + " ".join([str(x) for x in osc_args])
         for cls in OSCResponse.__subclasses__():
             if cls.address == message_address:
-                resp = cls(*(message_address, *osc_args))
+                try:
+                    resp = cls(raw_resp)
+                except (IndexError, TypeError) as exc:
+                    resp = ParseError("parsing failed to deconstruct response")
+                    resp.response = raw_resp
+                    resp.original_exc = exc
                 break
         else:
-            # Flatten the response
-            raw_resp = message_address + " ".join([str(x) for x in osc_args])
             resp = ParseError("no response object matched this message")
             resp.response = raw_resp
 
@@ -203,7 +207,10 @@ class STEP400:
         finally:
             self._get_request = None
 
-        if resp is ParseError:
+        if isinstance(resp, Exception):
+            if isinstance(resp, StepSeriesException):
+                if resp.original_exc is not None:
+                    raise resp from resp.original_exc
             raise resp
 
         return resp
