@@ -120,6 +120,7 @@ class Error(OSCResponse):
 class Busy(OSCResponse):
     address: str = field(default="/busy", init=False)
     motorID: int
+    state: bool
 
 
 @dataclass

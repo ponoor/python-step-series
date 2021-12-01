@@ -28,11 +28,11 @@ def test_error() -> None:
 
 
 def test_busy() -> None:
-    message = "/busy 4"
+    message = "/busy 4 1"
     osc_message1 = responses.Busy(*message.split())
     osc_message2 = responses.Busy(message)
 
-    gospel = responses.Busy("/busy", "4")
+    gospel = responses.Busy("/busy", "4", "1")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
 
