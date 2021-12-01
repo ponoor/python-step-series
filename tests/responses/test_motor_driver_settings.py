@@ -18,11 +18,13 @@ def test_microstep_mode() -> None:
 
 
 def test_low_speed_optimize_threshold() -> None:
-    message = "/lowSpeedOptimizeThreshold 4 1"
+    message = "/lowSpeedOptimizeThreshold 4 1 0"
     osc_message1 = responses.LowSpeedOptimizeThreshold(*message.split())
     osc_message2 = responses.LowSpeedOptimizeThreshold(message)
 
-    gospel = responses.LowSpeedOptimizeThreshold("/lowSpeedOptimizeThreshold", "4", "1")
+    gospel = responses.LowSpeedOptimizeThreshold(
+        "/lowSpeedOptimizeThreshold", "4", "1", "0"
+    )
     assert osc_message1 == gospel
     assert osc_message2 == gospel
 

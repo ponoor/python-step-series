@@ -219,6 +219,7 @@ class LowSpeedOptimizeThreshold(OSCResponse):
     address: str = field(default="/lowSpeedOptimizeThreshold", init=False)
     motorID: int
     lowSpeedOptimizeThreshold: float
+    optimizationEnabled: bool
 
 
 @dataclass
