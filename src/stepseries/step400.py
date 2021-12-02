@@ -7,7 +7,7 @@
 from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
-from .commands import OSCCommand
+from .commands import OSCCommand, OSCGetCommand, OSCSetCommand
 from .exceptions import ParseError, StepSeriesException
 from .responses import OSCResponse
 from .server import DEFAULT_SERVER
@@ -126,7 +126,9 @@ class STEP400:
 
         # Return the get request
         if self._get_request:
-            if message_address.lower() == self._get_request:
+            if message_address.lower() == self._get_request or isinstance(
+                resp, Exception
+            ):
                 self._get_queue.put(resp)
                 self._get_queue.join()
 
@@ -143,7 +145,7 @@ class STEP400:
         """Register `fn` to be executed when `message_type` is received.
 
         Args:
-            message_type (`OSCResponse`):
+            message_type (`OSCResponse`, `None`):
                 The message type to filter for. If `None`, then all
                 messages received will be sent to `fn`. Note multiple
                 `fn`s can be registered to the same type, or multiple
@@ -154,7 +156,22 @@ class STEP400:
                     Note:
                         `fn` should accept one and only one argument
                         being the message received.
+
+        Raises:
+            `TypeError`:
+                `message_type` is not an `OSCResponse`.
+                `fn` is not a callable.
         """
+
+        if message_type is not None and message_type.__base__ is not OSCResponse:
+            raise TypeError(
+                "argument 'message_type' expected to be 'OSCResponse', "
+                f"'{type(message_type).__name__}' found"
+            )
+        if not callable(fn):
+            raise TypeError(
+                "argument 'rn' expected to be callable, " f"'{type(fn).__name__}' found"
+            )
 
         try:
             if fn not in self._registered_callbacks[message_type]:
@@ -173,17 +190,27 @@ class STEP400:
     def get(self, command: OSCCommand) -> OSCResponse:
         """Send a 'get' command to the device and return the response.
 
-        The responses are also sent to each applicable callback.
-
         Note:
+            The responses are also sent to each applicable callback.
+
             If a `ParseError` is received, then it will be raised. The
             raw response can be retrieved via the `response` attribute
             of the error.
 
         Args:
             command (`OSCCommand`):
-                The builder of the command (`stepseries.commands`).
+                The completed command template (`stepseries.commands`).
+
+        Raises:
+            `TypeError`:
+                `command` is not an `OSCSetCommand`.
         """
+
+        if not isinstance(command, OSCGetCommand):
+            raise TypeError(
+                "argument 'command' expected to be 'OSCGetCommand', "
+                f"'{type(command).__name__}' found"
+            )
 
         # Prepare for get request
         s: str = command.address.replace("get", "")
@@ -209,7 +236,22 @@ class STEP400:
 
         return resp
 
-    def set(self, command: OSCCommand) -> None:
-        """Send a 'set' command to the device."""
+    def set(self, command: OSCSetCommand) -> None:
+        """Send a 'set' command to the device.
+
+        Args:
+            command (`OSCCommand`):
+                The completed command template (`stepseries.commands`).
+
+        Raises:
+            `TypeError`:
+                `command` is not an `OSCSetCommand`.
+        """
+
+        if not isinstance(command, OSCSetCommand):
+            raise TypeError(
+                "argument 'command' expected to be 'OSCSetCommand', "
+                f"'{type(command).__name__}' found"
+            )
 
         DEFAULT_SERVER.send(self, command)
