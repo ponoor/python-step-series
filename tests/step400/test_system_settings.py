@@ -17,7 +17,7 @@ class TestSystemSettings(HardwareIncremental):
     @pytest.mark.order(1)
     def test_set_dest_ip(self, device: step400.STEP400, dest_ip_success: Event) -> None:
         device.set(commands.SetDestIP())
-        assert dest_ip_success.wait(timeout=0.5)
+        assert dest_ip_success.wait(timeout=0.5), "hardware not detected"
 
     def test_get_version(self, device: step400.STEP400) -> None:
         resp = device.get(commands.GetVersion())
