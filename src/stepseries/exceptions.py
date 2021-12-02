@@ -10,7 +10,7 @@ class StepSeriesException(Exception):
     original_exc: Exception = None
 
 
-class ClientNotFound(Exception):
+class ClientNotFoundError(Exception):
     """The requested client could not be found."""
 
 
