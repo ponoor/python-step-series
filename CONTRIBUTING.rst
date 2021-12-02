@@ -77,11 +77,10 @@ Code Contributions
 ==================
 
 ``python-step-series`` is open to any and all contributions. This is an open-source
-project, and as such, any ideas for bugfixes, features and changes should be
-proposed no matter how consequential to the library it may be. We try to strive
-for a balance between reliability, ease-of-use and efficiency. If you are not confident
-in your ability to implement your idea please instead open an issue and describe
-it in as much detail as possible.
+project, so any ideas for bugfixes, features and changes can be proposed and worked on.
+We try to strive for a balance between reliability, ease-of-use and efficiency. If you
+are not confident in your ability to implement your or another's idea(s) please instead
+open an issue and describe them in as much detail as possible.
 
 Submit an issue
 ---------------
