@@ -12,7 +12,6 @@ from typing import Dict, Tuple
 
 import pytest
 
-from stepseries.commands import SetDestIP
 from stepseries.responses import DestIP
 from stepseries.step400 import STEP400
 
@@ -62,20 +61,12 @@ def pytest_runtest_setup(item):
                 pytest.xfail("previous test failed ({})".format(test_name))
 
 
-_dest_ip_success = Event()
-
-
 @pytest.mark.incremental
 class HardwareIncremental:
+    pass
 
-    # This test MUST run first to enable communication with the device
-    @pytest.mark.order(1)
-    def test_set_dest_ip(self, device: STEP400) -> None:  # noqa
-        device.set(SetDestIP())
-        try:
-            assert _dest_ip_success.wait(timeout=0.5)
-        finally:
-            _dest_ip_success.clear()
+
+_dest_ip_success = Event()
 
 
 def callback(_: DestIP) -> None:
@@ -95,3 +86,20 @@ def device() -> STEP400:
     )
     device.on(DestIP, callback)
     return device
+
+
+@pytest.fixture
+def dest_ip_success() -> Event:
+    return _dest_ip_success
+
+
+@pytest.fixture
+def device_connected() -> bool:
+    return _dest_ip_success.is_set()
+
+
+@pytest.fixture(autouse=True)
+def skip_if_disconnected(request, device_connected: bool):
+    if request.node.get_closest_marker("skip_disconnected"):
+        if not device_connected:
+            pytest.skip("hardware not detected")
