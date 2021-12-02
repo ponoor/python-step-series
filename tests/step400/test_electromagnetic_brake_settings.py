@@ -10,6 +10,7 @@ from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestElectromagneticBrakeSettings(HardwareIncremental):
 
     # Electromagnetic brake presets

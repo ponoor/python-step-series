@@ -5,12 +5,14 @@
 
 
 import time
-import warnings
+
+import pytest
 
 from stepseries import commands, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestMotorControlSettings(HardwareIncremental):
 
     # Motor presets
@@ -24,28 +26,28 @@ class TestMotorControlSettings(HardwareIncremental):
             device.set(commands.Run(3, 0))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_run: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_move(self, device: step400.STEP400) -> None:
         if self.run_motor:
             device.set(commands.Move(3, 1000))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_move: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_goto(self, device: step400.STEP400) -> None:
         if self.run_motor:
             device.set(commands.GoTo(3, 2500))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_goto: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_goto_dir(self, device: step400.STEP400) -> None:
         if self.run_motor:
             device.set(commands.GoToDir(3, 0, 1000))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_goto_dir: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_soft_stop(self, device: step400.STEP400) -> None:
         if self.run_motor:
@@ -54,7 +56,7 @@ class TestMotorControlSettings(HardwareIncremental):
             device.set(commands.SoftStop(3))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_soft_stop: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_hard_stop(self, device: step400.STEP400) -> None:
         if self.run_motor:
@@ -63,7 +65,7 @@ class TestMotorControlSettings(HardwareIncremental):
             device.set(commands.HardStop(3))
             time.sleep(1)
         else:
-            warnings.warn("skipping test_hard_stop: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_soft_hiz(self, device: step400.STEP400) -> None:
         if self.run_motor:
@@ -72,7 +74,7 @@ class TestMotorControlSettings(HardwareIncremental):
             device.set(commands.SoftHiZ(3))
             time.sleep(3)
         else:
-            warnings.warn("skipping test_soft_hiz: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_hard_hiz(self, device: step400.STEP400) -> None:
         if self.run_motor:
@@ -81,4 +83,4 @@ class TestMotorControlSettings(HardwareIncremental):
             device.set(commands.HardHiZ(3))
             time.sleep(1)
         else:
-            warnings.warn("skipping test_hard_hiz: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")

@@ -6,10 +6,13 @@
 
 from math import isclose  # Due to precision, we cannot compare floats directly
 
+import pytest
+
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestMotorDriverSettings(HardwareIncremental):
     def test_microstep_mode(self, device: step400.STEP400) -> None:
         device.set(commands.SetMicrostepMode(1, 5))

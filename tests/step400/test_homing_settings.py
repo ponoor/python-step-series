@@ -4,12 +4,13 @@
 """Ensure system commands and responses execute successfully."""
 
 
-import warnings
+import pytest
 
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestHomingSettings(HardwareIncremental):
 
     # Presets for running homing commands
@@ -61,4 +62,4 @@ class TestHomingSettings(HardwareIncremental):
         if self.run_motor:
             device.set(commands.Homing(4))
         else:
-            warnings.warn("skipping homing: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")

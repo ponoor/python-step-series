@@ -4,12 +4,13 @@
 """Ensure system commands and responses execute successfully."""
 
 
-import warnings
+import pytest
 
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestHomeLimitSensorsSettings(HardwareIncremental):
     def test_home_sw(self, device: step400.STEP400) -> None:
         device.set(commands.EnableHomeSwReport(3, True))
@@ -24,7 +25,7 @@ class TestHomeLimitSensorsSettings(HardwareIncremental):
             resp = device.get(commands.GetLimitSw(3))
             assert isinstance(resp, responses.LimitSw)
         except TimeoutError:
-            warnings.warn("test_limit_sw timed-out waiting for a response")
+            pytest.skip("timed-out waiting for a response")
 
     def test_home_sw_mode(self, device: step400.STEP400) -> None:
         device.set(commands.SetHomeSwMode(3, 1))

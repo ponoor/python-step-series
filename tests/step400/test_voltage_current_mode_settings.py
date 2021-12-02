@@ -4,10 +4,13 @@
 """Ensure system commands and responses execute successfully."""
 
 
+import pytest
+
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestVoltageCurrentModeSettings(HardwareIncremental):
     def test_set_voltage_mode(self, device: step400.STEP400) -> None:
         device.set(commands.SetVoltageMode(4))

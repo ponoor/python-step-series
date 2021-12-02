@@ -4,12 +4,13 @@
 """Ensure system commands and responses execute successfully."""
 
 
-import warnings
+import pytest
 
 from stepseries import commands, responses, step400
 from tests.conftest import HardwareIncremental
 
 
+@pytest.mark.skip_disconnected
 class TestPositionManagementSettings(HardwareIncremental):
 
     # Position presets
@@ -36,10 +37,10 @@ class TestPositionManagementSettings(HardwareIncremental):
         if self.run_motor:
             device.set(commands.GoHome(1))
         else:
-            warnings.warn("skipping test_go_home: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
 
     def test_go_mark(self, device: step400.STEP400) -> None:
         if self.run_motor:
             device.set(commands.GoMark(1))
         else:
-            warnings.warn("skipping test_go_mark: preset 'run_motor' is not set")
+            pytest.skip("preset 'run_motor' is not set")
