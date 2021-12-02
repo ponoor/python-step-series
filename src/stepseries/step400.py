@@ -18,8 +18,7 @@ class STEP400:
 
     Note:
         It is recommended to create a default message handler for this
-        driver. This driver will not be 'registered' with the server
-        until `on()` is called. Here is an example:
+        driver. Here is an example:
 
             >>> from stepseries.step400 import STEP400
             >>>
@@ -31,14 +30,20 @@ class STEP400:
 
     Args:
         id (`int`):
-            The ID set with the DIP switches on the motor driver.
+            The id set by the DIP switches on the device.
         address (`str`):
-            The IP address of the motor driver.
-        port (`int`, optional):
-            The port set on the device. If not provided, then it is
-            assumed that the port on the device is set with the equation
-            `default_port + id` where `default_port` is `50100`.
-            If `-1`, then `50100` is assumed.
+            The ip address of the device. Defaults to `10.0.0.100`.
+        port (`int`):
+            The local port the device is listening on. Defaults to
+            `50000`.
+        server_address (`str`):
+            The ip address of the server (this machine). Should always
+            be `0.0.0.0`. Defaults to `0.0.0.0`.
+        server_port (`int`):
+            The port the server is listening on. Defaults to `50100`.
+        add_id_to_args (`bool`):
+            Whether to add `id` to `address` and `server_port`
+            (the default behavior on the device). Defaults to `True`.
     """
 
     _id: int
@@ -58,7 +63,7 @@ class STEP400:
         id: int,
         address: str = "10.0.0.100",
         port: int = 50000,
-        server_address: str = "10.0.0.10",
+        server_address: str = "0.0.0.0",
         server_port: int = 50100,
         add_id_to_args: bool = True,
     ) -> None:
