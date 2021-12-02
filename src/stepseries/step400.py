@@ -85,12 +85,6 @@ class STEP400:
         # Bind this device
         DEFAULT_SERVER.add_device(self)
 
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *args) -> None:
-        pass
-
     @property
     def address(self) -> str:
         """The local IP address of the client."""
