@@ -13,7 +13,7 @@ from pythonosc.osc_server import ThreadingOSCUDPServer
 from pythonosc.udp_client import SimpleUDPClient
 
 from stepseries.commands import OSCCommand
-from stepseries.exceptions import ClientNotFound
+from stepseries.exceptions import ClientNotFoundError
 
 # Work around for this circular import; allows annotations while
 # writing code and doesn't break when running it.
@@ -33,23 +33,42 @@ class Manager:
         # Shutdown hook to ensure servers are properly closed
         atexit.register(self.shutdown)
 
+    def _handle_incoming_message(
+        self,
+        client_address: Tuple[str, int],
+        message_address: str,
+        *osc_args: Tuple[Any]
+    ) -> None:
+        # Find the device bound to this address
+        address, _ = client_address
+        for (device, _, _, _) in self._bound_devices:
+            if device.address == address:
+                device._handle_incoming_message(message_address, *osc_args)
+
     def add_device(self, device: STEP400) -> None:
         """
         For internal use only. Add a device to send data to when it is
         received.
         """
-        if not any([device == c[0] for c in self._bound_devices]):
-            # Create a new server and client, then bind them to the
-            # device
-            dispatcher = Dispatcher()
-            dispatcher.set_default_handler(device._handle_incoming_message)
-            server = ThreadingOSCUDPServer(
-                (device.server_address, device.server_port), dispatcher
-            )
-            client = SimpleUDPClient(device.address, device.port)
-            thread = Thread(target=server.serve_forever, daemon=True)
-            thread.start()
-            self._bound_devices.append((device, client, server, thread))
+        # Check if the device wants to bind to a pre-existing server
+        # Bind the device to that server if needed
+        client = SimpleUDPClient(device.address, device.port)
+        for (_, _, server, _) in self._bound_devices:
+            if (device.server_address, device.server_port) == server.server_address:
+                self._bound_devices.append((device, client, server, None))
+                return
+
+        # Create a new server and bind the device to it
+        dispatcher = Dispatcher()
+        dispatcher.set_default_handler(self._handle_incoming_message, True)
+        server = ThreadingOSCUDPServer(
+            (device.server_address, device.server_port), dispatcher
+        )
+        thread = Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+
+        # Only add the thread to this list to keep a reference to it
+        self._bound_devices.append((device, client, server, thread))
 
     def remove_device(self, device: STEP400) -> None:
         """
@@ -79,7 +98,7 @@ class Manager:
                 client = c
                 break
         else:
-            raise ClientNotFound("device is not registered with a server")
+            raise ClientNotFoundError("device is not registered with a server")
 
         client.send(message.build())
 
