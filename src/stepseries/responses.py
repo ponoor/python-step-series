@@ -112,10 +112,19 @@ class Booted(OSCResponse):
 
 
 @dataclass
-class Error(OSCResponse):
+class ErrorCommand(OSCResponse, Exception):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#errorcommand"""  # noqa
+
+    address: str = field(default="/error/command", init=False)
+    errorText: str
+    motorID: int = None
+
+
+@dataclass
+class ErrorOSC(OSCResponse, Exception):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#errorosc"""  # noqa
 
-    address: str = field(default="/error", init=False)
+    address: str = field(default="/error/osc", init=False)
     errorText: str
     motorID: int = None
 

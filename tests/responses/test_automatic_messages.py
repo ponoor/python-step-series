@@ -4,6 +4,8 @@
 """Ensure OSC responses from the controller build correctly."""
 
 
+import pytest
+
 from stepseries import responses
 
 
@@ -17,14 +19,30 @@ def test_booted() -> None:
     assert osc_message2 == gospel
 
 
-def test_error() -> None:
-    message = "/error/osc messageNotMatch"
-    osc_message1 = responses.Error(*message.split())
-    osc_message2 = responses.Error(message)
+def test_error_command() -> None:
+    message = "/error/command HomeSwActivating"
+    osc_message1 = responses.ErrorCommand(*message.split())
+    osc_message2 = responses.ErrorCommand(message)
 
-    gospel = responses.Error("/error/osc", "messageNotMatch")
+    gospel = responses.ErrorCommand("/error/command", "HomeSwActivating")
     assert osc_message1 == gospel
     assert osc_message2 == gospel
+
+    with pytest.raises(responses.ErrorCommand):
+        raise osc_message1
+
+
+def test_error_osc() -> None:
+    message = "/error/osc messageNotMatch"
+    osc_message1 = responses.ErrorOSC(*message.split())
+    osc_message2 = responses.ErrorOSC(message)
+
+    gospel = responses.ErrorOSC("/error/osc", "messageNotMatch")
+    assert osc_message1 == gospel
+    assert osc_message2 == gospel
+
+    with pytest.raises(responses.ErrorOSC):
+        raise osc_message1
 
 
 def test_busy() -> None:
