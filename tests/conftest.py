@@ -1,11 +1,4 @@
-"""
-    Dummy conftest.py for stepseries.
-
-    If you don't know what this is for, just leave it empty.
-    Read more about conftest.py under:
-    - https://docs.pytest.org/en/stable/fixture.html
-    - https://docs.pytest.org/en/stable/writing_plugins.html
-"""
+"""conftest.py for stepseries."""
 
 from threading import Event
 from typing import Dict, Tuple
@@ -99,7 +92,7 @@ def device_connected() -> bool:
 
 
 @pytest.fixture(autouse=True)
-def skip_if_disconnected(request, device_connected: bool):
+def skip_if_disconnected(request, device_connected: bool) -> None:
     if request.node.get_closest_marker("skip_disconnected"):
         if not device_connected:
             pytest.skip("hardware not detected")
