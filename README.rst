@@ -77,11 +77,11 @@ First-steps Example
 Making Changes & Contributing
 =============================
 
-Any ideas on how to improve this library is welcome. Please see the `Contributing`_ guide for
+Any ideas on how to improve this library are welcome. Please see the `Contributing`_ guide for
 a full run-down on how to contribute to this project as well as some tips for
 making sure your idea is added.
 
-We thank you in-advance for your contributions, no matter the size.
+We thank you in-advance for your contributions.
 
 Note
 ====
