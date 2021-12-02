@@ -16,7 +16,7 @@ see what this library has to offer.
 Installation
 ============
 
-There are multiple ways to install `python-step-series`. The easiest way is from PyPI:
+There are multiple ways to install `python-step-series`. The easiest way is from PyPI (coming soon):
 
 .. code-block:: shell
 
@@ -25,6 +25,7 @@ There are multiple ways to install `python-step-series`. The easiest way is from
 Or you can install from source. See the `Contributing`_ guide for more information
 on how to do that.
 
+`python-step-series` requires Python >=3.7.
 
 First-steps Example
 ===================
