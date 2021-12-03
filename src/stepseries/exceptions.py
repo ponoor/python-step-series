@@ -14,6 +14,10 @@ class ClientNotFoundError(Exception):
     """The requested client could not be found."""
 
 
+class InvalidCommandError(Exception):
+    """The command cannot be executed."""
+
+
 class ParseError(StepSeriesException):
     """Failed to parse the message from the device."""
 
