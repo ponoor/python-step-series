@@ -22,7 +22,7 @@ class TestSystemSettings:
         # Verify the device is a STEP400
         firmware: responses.Version = device.get(commands.GetVersion())
         try:
-            assert firmware.firmware_name == "STEP400"
+            assert firmware.firmware_name == "STEP800"
         except AssertionError:
             dest_ip_success.clear()
             raise
