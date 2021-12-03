@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestAlarmSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestAlarmSettings:
     def test_uvlo(self, device: step400.STEP400) -> None:
         device.set(commands.EnableUvloReport(4, False))
         resp = device.get(commands.GetUvlo(4))

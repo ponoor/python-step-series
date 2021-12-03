@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestVoltageCurrentModeSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestVoltageCurrentModeSettings:
     def test_set_voltage_mode(self, device: step400.STEP400) -> None:
         device.set(commands.SetVoltageMode(4))
 

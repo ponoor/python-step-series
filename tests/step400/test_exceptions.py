@@ -9,7 +9,7 @@ import pytest
 from stepseries import commands, responses, step400
 
 
-@pytest.mark.skip_disconnected
+@pytest.mark.skip_400_disconnected
 def test_device_errors(device: step400.STEP400) -> None:
     with pytest.raises(TypeError):
         device.set(commands.GetVersion())

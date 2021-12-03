@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestHomeLimitSensorsSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestHomeLimitSensorsSettings:
     def test_home_sw(self, device: step400.STEP400) -> None:
         device.set(commands.EnableHomeSwReport(3, True))
         device.set(commands.EnableSwEventReport(3, True))

@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestServoModeSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestServoModeSettings:
     def test_enable_servo_mode(self, device: step400.STEP400) -> None:
         device.set(commands.EnableServoMode(2, True))
 

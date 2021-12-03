@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestPositionManagementSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestPositionManagementSettings:
 
     # Position presets
     run_motor: bool = False

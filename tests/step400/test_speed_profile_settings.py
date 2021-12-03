@@ -7,11 +7,10 @@
 import pytest
 
 from stepseries import commands, responses, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestSpeedProfileSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestSpeedProfileSettings:
     def test_speed_profile(self, device: step400.STEP400) -> None:
         device.set(commands.SetSpeedProfile(4, 5555, 4444, 3333))
         resp = device.get(commands.GetSpeedProfile(4))

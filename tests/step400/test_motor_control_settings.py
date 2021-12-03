@@ -9,11 +9,10 @@ import time
 import pytest
 
 from stepseries import commands, step400
-from tests.conftest import HardwareIncremental
 
 
-@pytest.mark.skip_disconnected
-class TestMotorControlSettings(HardwareIncremental):
+@pytest.mark.skip_400_disconnected
+class TestMotorControlSettings:
 
     # Motor presets
     # Note: This test suite assumes a motor of 200 steps/rev
