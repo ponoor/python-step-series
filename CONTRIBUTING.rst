@@ -265,6 +265,14 @@ on PyPI_, the following steps can be used to release a new version for
 #. Run ``tox -e publish -- --repository pypi`` and check that everything was
    uploaded to PyPI_ correctly.
 
+.. tip::
+   Instead of typing in the API key and username for uploading to PyPI each time,
+   ``twine`` allows us to configure ``keyring`` to store the credentials.
+   Follow the `Keyring Support`_ guide for setting this up
+   (``your-username`` should be set to ``__token__``).
+
+   **Linux users**: Additional setup is required. The steps to enable this
+   can be vague, so run the following command: ``sudo apt-get install python-dbus``
 
 
 .. [#contrib1] Even though these resources focus on open source projects and
@@ -299,6 +307,7 @@ on PyPI_, the following steps can be used to release a new version for
 .. _git: https://git-scm.com
 .. _GitHub's fork and pull request workflow: https://guides.github.com/activities/forking/
 .. _guide created by FreeCodeCamp: https://github.com/FreeCodeCamp/how-to-contribute-to-open-source
+.. _Keyring Support: https://twine.readthedocs.io/en/stable/#keyring-support
 .. _Miniconda: https://docs.conda.io/en/latest/miniconda.html
 .. _MyST: https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html
 .. _other kinds of contributions: https://opensource.guide/how-to-contribute
