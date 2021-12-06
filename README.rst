@@ -1,3 +1,23 @@
+.. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
+    :alt: Project generated with PyScaffold
+    :target: https://pyscaffold.org/
+.. image:: https://img.shields.io/github/contributors/ponoor/python-step-series.svg?style=for-the-badge
+    :alt: Contributors: N/A
+    :target: https://github.com/ponoor/python-step-series
+.. image:: https://img.shields.io/github/forks/ponoor/python-step-series.svg?style=for-the-badge
+    :alt: Forks: N/A
+    :target: https://github.com/ponoor/python-step-series/network/members
+.. image:: https://img.shields.io/github/stars/ponoor/python-step-series.svg?style=for-the-badge
+    :alt: Stars: N/A
+    :target: https://github.com/ponoor/python-step-series/stargazers
+.. image:: https://img.shields.io/github/issues/ponoor/python-step-series.svg?style=for-the-badge
+    :alt: Issues: N/A
+    :target: https://github.com/ponoor/python-step-series/issues
+.. image:: https://img.shields.io/github/license/ponoor/python-step-series.svg?style=for-the-badge
+    :alt: License: MIT
+    :target: https://github.com/ponoor/python-step-series/blob/main/LICENSE.txt
+
+
 ==================
 python-step-series
 ==================
