@@ -16,16 +16,16 @@ class TestSystemSettings:
     # This test MUST run first to enable communication with the device
     @pytest.mark.order(1)
     def test_set_dest_ip(self, device: step400.STEP400, dest_ip_success: Event) -> None:
-        device.set(commands.SetDestIP())
-        assert dest_ip_success.wait(timeout=0.5), "hardware not detected"
-
-        # Verify the device is a STEP400
-        firmware: responses.Version = device.get(commands.GetVersion())
         try:
+            device.set(commands.SetDestIP())
+            assert dest_ip_success.wait(timeout=0.5)
+
+            # Verify the device is a STEP400
+            firmware: responses.Version = device.get(commands.GetVersion())
             assert firmware.firmware_name == "STEP400"
         except AssertionError:
             dest_ip_success.clear()
-            raise
+            pytest.xfail("hardware not detected")
 
     def test_get_version(self, device: step400.STEP400) -> None:
         resp = device.get(commands.GetVersion())
