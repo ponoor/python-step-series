@@ -17,6 +17,16 @@ def test_position() -> None:
     assert osc_message2 == gospel
 
 
+def test_el_pos() -> None:
+    message = "/elPos 4 2 122"
+    osc_message1 = responses.ElPos(*message.split())
+    osc_message2 = responses.ElPos(message)
+
+    gospel = responses.ElPos("/elPos", "4", "2", "122")
+    assert osc_message1 == gospel
+    assert osc_message2 == gospel
+
+
 def test_mark() -> None:
     message = "/mark 3 74585"
     osc_message1 = responses.Mark(*message.split())

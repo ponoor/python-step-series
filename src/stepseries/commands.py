@@ -783,6 +783,24 @@ class ResetPos(OSCSetCommand):
 
 
 @dataclass
+class SetElPos(OSCSetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#setelpos_intmotorid_intnewfullstep_intnewmicrostep"""  # noqa
+
+    address: str = field(default="/setElPos", init=False)
+    motorID: int
+    newFullstep: int
+    newMicrostep: int
+
+
+@dataclass
+class GetElPos(OSCGetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
+
+    address: str = field(default="/getElPos", init=False)
+    motorID: int
+
+
+@dataclass
 class SetMark(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#setmark_intmotorid_intmark"""  # noqa
 

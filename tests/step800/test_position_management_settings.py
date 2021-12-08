@@ -26,6 +26,13 @@ class TestPositionManagementSettings:
         resp: responses.Position = device.get(commands.GetPosition(1))
         assert resp.ABS_POS == 0
 
+    def test_el_pos(self, device: step800.STEP800) -> None:
+        device.set(commands.SetElPos(3, 2, 66))
+        resp = device.get(commands.GetElPos(3))
+        assert isinstance(resp, responses.ElPos)
+        assert resp.fullstep == 2
+        assert resp.microstep == 66
+
     def test_mark(self, device: step800.STEP800) -> None:
         device.set(commands.SetMark(1, 123456))
         resp = device.get(commands.GetMark(1))

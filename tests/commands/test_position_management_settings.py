@@ -44,6 +44,32 @@ def test_reset_pos() -> None:
     assert osc_message_str == "/resetPos 1"
 
 
+def test_set_el_pos() -> None:
+    builder = commands.SetElPos(3, 2, 99)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 3
+    assert params[0] == builder.motorID
+    assert params[1] == builder.newFullstep
+    assert params[2] == builder.newMicrostep
+    assert osc_message_str == "/setElPos 3 2 99"
+
+
+def test_get_el_pos() -> None:
+    builder = commands.GetElPos(4)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 1
+    assert params[0] == builder.motorID
+    assert osc_message_str == "/getElPos 4"
+
+
 def test_set_mark() -> None:
     builder = commands.SetMark(255, 5904)
     osc_message = builder.build()

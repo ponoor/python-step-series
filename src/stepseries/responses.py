@@ -541,6 +541,16 @@ class Position(OSCResponse):
 
 
 @dataclass
+class ElPos(OSCResponse):
+    """Documentation https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
+
+    address: str = field(default="/elPos", init=False)
+    motorID: int
+    fullstep: int
+    microstep: int
+
+
+@dataclass
 class Mark(OSCResponse):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getmark_intmotorid"""  # noqa
 
