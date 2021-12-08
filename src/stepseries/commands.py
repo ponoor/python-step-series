@@ -775,6 +775,13 @@ class GetPosition(OSCGetCommand):
 
 
 @dataclass
+class GetPositionList(OSCGetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getpositionlist"""  # noqa
+
+    address: str = field(default="/getPositionList", init=False)
+
+
+@dataclass
 class ResetPos(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#resetpos_intmotorid"""  # noqa
 

@@ -21,6 +21,14 @@ class TestPositionManagementSettings:
         assert isinstance(resp, responses.Position)
         assert resp.ABS_POS == -99999
 
+    def test_position_list(self, device: step800.STEP800) -> None:
+        resp = device.get(commands.GetPositionList())
+        assert isinstance(resp, responses.PositionList)
+        assert resp.position1 == -99999
+        assert resp.position2 == 0
+        assert resp.position3 == 0
+        assert resp.position4 == 0
+
     def test_reset_pos(self, device: step800.STEP800) -> None:
         device.set(commands.ResetPos(1))
         resp: responses.Position = device.get(commands.GetPosition(1))

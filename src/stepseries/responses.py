@@ -541,6 +541,17 @@ class Position(OSCResponse):
 
 
 @dataclass
+class PositionList(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getpositionlist"""  # noqa
+
+    address: str = field(default="/positionList", init=False)
+    position1: int
+    position2: int
+    position3: int
+    position4: int
+
+
+@dataclass
 class ElPos(OSCResponse):
     """Documentation https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
 

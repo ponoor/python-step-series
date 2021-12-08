@@ -32,6 +32,17 @@ def test_get_position() -> None:
     assert osc_message_str == "/getPosition 2"
 
 
+def test_get_position_list() -> None:
+    builder = commands.GetPositionList()
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 0
+    assert osc_message_str == "/getPositionList"
+
+
 def test_reset_pos() -> None:
     builder = commands.ResetPos(1)
     osc_message = builder.build()
