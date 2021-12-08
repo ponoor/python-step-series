@@ -50,3 +50,14 @@ def test_report_error() -> None:
     assert params[0] == 1
     assert len(params) == 1
     assert osc_message_str == "/reportError 1"
+
+
+def test_device_reset() -> None:
+    builder = commands.ResetDevice()
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 0
+    assert osc_message_str == "/resetDevice"
