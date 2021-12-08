@@ -15,10 +15,10 @@ Version 0.0.2, 2021-12-XX
     - GetTvalmA (``/getTval_mA``)
     - GetDir (``/getDir``)
     - EnableDirReport (``/enableDirReport``)
-    - EnablePositionReport (``enablePositionReport``)
-    - EnablePositionListReport (``enablePositionListReport``)
-    - GetElPos (``getElPos``)
-    - SetElPos (``setElPos``)
+    - SetPositionReportInterval (``/setPositionReportInterval``)
+    - SetPositionListReportInterval (``/setPositionListReportInterval``)
+    - GetElPos (``/getElPos``)
+    - SetElPos (``/setElPos``)
     - ResetDevice (``/resetDevice``)
 
 
