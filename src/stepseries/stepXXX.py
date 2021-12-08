@@ -40,11 +40,14 @@ class STEPXXX:
     _server_address: str
     _server_port: int
 
+    _boards_to_n_motors: Dict[str, int]
     _registered_callbacks: Dict[
         Union[OSCResponse, None], List[Callable[[OSCResponse], None]]
     ]
     _get_request: str
     _get_queue: Queue
+    _is_multiple_response: bool
+    _multiple_responses: List[OSCResponse]
 
     def __init__(
         self,
@@ -71,9 +74,12 @@ class STEPXXX:
             # Add id to server port
             self._server_port += id
 
-        self._registered_callbacks = {}
+        self._boards_to_n_motors = {"STEP400": 4, "STEP800": 8}
+        self._registered_callbacks = dict()
         self._get_request = None
         self._get_queue = Queue()
+        self._is_multiple_response = False
+        self._multiple_responses = list()
 
         # Bind this device
         DEFAULT_SERVER.add_device(self)
@@ -117,20 +123,40 @@ class STEPXXX:
             resp = ParseError("no response object matched this message")
             resp.response = raw_resp
 
-        # Return the get request
-        if self._get_request:
-            if message_address.lower() == self._get_request or isinstance(
-                resp, Exception
-            ):
-                self._get_queue.put(resp)
-                self._get_queue.join()
+        # Support multiple responses
+        if self._is_multiple_response:
+            if not isinstance(resp, Exception):
+                if resp.address.lower() == self._get_request:
+                    self._multiple_responses.append(resp)
+                    if (
+                        len(self._multiple_responses)
+                        < self._boards_to_n_motors[self.__class__.__name__]
+                    ):
+                        return
+            else:
+                if self._get_request:
+                    if resp.address.lower() == self._get_request:
+                        self._get_queue.put(resp)
+                        self._get_queue.join()
 
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
         for resp_type, callbacks in self._registered_callbacks.items():
             if resp.__class__ == resp_type or resp_type is None:
                 for callback in callbacks:
-                    callback(resp)
+                    if self._multiple_responses:
+                        callback(self._multiple_responses)
+                    else:
+                        callback(resp)
+
+        # Return the get request
+        if self._get_request:
+            if resp.address.lower() == self._get_request or isinstance(resp, Exception):
+                if self._multiple_responses:
+                    self._get_queue.put(self._multiple_responses)
+                else:
+                    self._get_queue.put(resp)
+                self._get_queue.join()
 
     def on(
         self, message_type: Union[OSCResponse, None], fn: Callable[[OSCResponse], None]
@@ -180,7 +206,7 @@ class STEPXXX:
                 if callback == fn:
                     self._registered_callbacks[k].remove(fn)
 
-    def get(self, command: OSCGetCommand) -> OSCResponse:
+    def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response."""
         raise NotImplementedError
 
