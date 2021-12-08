@@ -29,6 +29,16 @@ def test_low_speed_optimize_threshold() -> None:
     assert osc_message2 == gospel
 
 
+def test_dir() -> None:
+    message = "/dir 3 0"
+    osc_message1 = responses.Dir(*message.split())
+    osc_message2 = responses.Dir(message)
+
+    gospel = responses.Dir("/dir", "3", "0")
+    assert osc_message1 == gospel
+    assert osc_message2 == gospel
+
+
 def test_adc_val() -> None:
     message = "/adcVal 2 16"
     osc_message1 = responses.AdcVal(*message.split())

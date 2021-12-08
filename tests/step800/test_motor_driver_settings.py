@@ -42,6 +42,9 @@ class TestMotorDriverSettings:
 
     def test_dir(self, device: step800.STEP800) -> None:
         device.set(commands.EnableDirReport(3, True))
+        resp = device.get(commands.GetDir(3))
+        assert isinstance(resp, responses.Dir)
+        assert resp.direction == 0
         device.set(commands.EnableDirReport(3, False))
 
     def test_motor_status(self, device: step800.STEP800) -> None:

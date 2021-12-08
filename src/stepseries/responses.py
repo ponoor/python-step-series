@@ -263,6 +263,15 @@ class LowSpeedOptimizeThreshold(OSCResponse):
 
 
 @dataclass
+class Dir(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getdir_intmotorid"""  # noqa
+
+    address: str = field(default="/dir", init=False)
+    motorID: int
+    direction: bool
+
+
+@dataclass
 class AdcVal(OSCResponse):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
 

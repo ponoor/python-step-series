@@ -191,6 +191,14 @@ class EnableDirReport(OSCSetCommand):
 
 
 @dataclass
+class GetDir(OSCGetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getdir_intmotorid"""  # noqa
+
+    address: str = field(default="/getDir", init=False)
+    motorID: int
+
+
+@dataclass
 class EnableMotorStatusReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablemotorstatusreport_intmotorid_boolenable"""  # noqa
 
