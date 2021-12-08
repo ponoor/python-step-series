@@ -94,6 +94,13 @@ class ReportError(OSCSetCommand):
     enable: bool
 
 
+@dataclass
+class ResetDevice(OSCSetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#resetdevice"""  # noqa
+
+    address: str = field(default="/resetDevice", init=False)
+
+
 # Motor Driver Settings
 
 

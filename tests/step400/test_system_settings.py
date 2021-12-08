@@ -38,3 +38,11 @@ class TestSystemSettings:
     def test_report_error(self, device: step400.STEP400) -> None:
         device.set(commands.ReportError(enable=1))
         device.set(commands.ReportError(False))
+
+    @pytest.mark.order(-2)
+    def test_reset_device(self, device: step400.STEP400) -> None:
+        booted = Event()
+        device.on(responses.Booted, lambda x: booted.set())
+        device.set(commands.ResetDevice())
+
+        assert booted.wait(timeout=5)
