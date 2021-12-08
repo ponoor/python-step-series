@@ -433,6 +433,14 @@ class GetTval(OSCGetCommand):
 
 
 @dataclass
+class GetTval_mA(OSCGetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"""  # noqa
+
+    address: str = field(default="/getTval_mA", init=False)
+    motorID: int
+
+
+@dataclass
 class SetDecayModeParam(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setdecaymodeparam_intmotorid_intt_fast_intton_min_inttoff_min"""  # noqa
 

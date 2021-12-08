@@ -73,7 +73,7 @@ class STEP800(STEPXXX):
             commands.SetCurrentMode,
             commands.SetTval,
             commands.GetTval,
-            # commands.GetTvalMA,  # TODO
+            commands.GetTval_mA,
             commands.SetDecayModeParam,
             commands.GetDecayModeParam,
             commands.EnableLimitSwReport,

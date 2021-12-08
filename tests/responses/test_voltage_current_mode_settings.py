@@ -37,6 +37,16 @@ def test_tval() -> None:
     assert osc_message2 == gospel
 
 
+def test_tval_mA() -> None:
+    message = "/tval_mA 3 890 1250 1760 2120"
+    osc_message1 = responses.Tval_mA(*message.split())
+    osc_message2 = responses.Tval_mA(message)
+
+    gospel = responses.Tval_mA("/tval_mA", "3", "890", "1250", "1760", "2120")
+    assert osc_message1 == gospel
+    assert osc_message2 == gospel
+
+
 def test_decay_mode_param() -> None:
     message = "/decayModeParam 2 5 88 192"
     osc_message1 = responses.DecayModeParam(*message.split())

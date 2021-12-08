@@ -115,6 +115,18 @@ def test_get_tval() -> None:
     assert osc_message_str == "/getTval 4"
 
 
+def test_get_tval_mA() -> None:
+    builder = commands.GetTval_mA(3)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 1
+    assert params[0] == builder.motorID
+    assert osc_message_str == "/getTval_mA 3"
+
+
 def test_set_decay_mode_param() -> None:
     builder = commands.SetDecayModeParam(4, 50, 55, 60)
     osc_message = builder.build()

@@ -47,6 +47,14 @@ class TestVoltageCurrentModeSettings:
         assert resp.decTVAL == 40
         device.set(commands.SetTval(4, 0, 16, 16, 16))
 
+    def test_get_tval_mA(self, device: step400.STEP400) -> None:
+        resp = device.get(commands.GetTval_mA(3))
+        assert isinstance(resp, responses.Tval_mA)
+        assert resp.holdTVAL_mA == 78.125
+        assert resp.runTVAL_mA == 1328.125
+        assert resp.accTVAL_mA == 1328.125
+        assert resp.decTVAL_mA == 1328.125
+
     def test_decay_mode_param(self, device: step400.STEP400) -> None:
         device.set(commands.SetDecayModeParam(4, 100, 90, 80))
         resp = device.get(commands.GetDecayModeParam(4))

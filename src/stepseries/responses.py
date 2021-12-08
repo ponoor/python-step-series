@@ -368,6 +368,18 @@ class Tval(OSCResponse):
 
 
 @dataclass
+class Tval_mA(OSCResponse):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"""  # noqa
+
+    address: str = field(default="/tval_mA", init=False)
+    motorID: int
+    holdTVAL_mA: float
+    runTVAL_mA: float
+    accTVAL_mA: float
+    decTVAL_mA: float
+
+
+@dataclass
 class DecayModeParam(OSCResponse):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"""  # noqa
 

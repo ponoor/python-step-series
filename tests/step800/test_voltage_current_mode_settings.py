@@ -46,6 +46,10 @@ class TestVoltageCurrentModeSettings:
         with pytest.raises(exceptions.InvalidCommandError):
             device.get(commands.GetTval(4))
 
+    def test_get_tval_mA(self, device: step800.STEP800) -> None:
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.get(commands.GetTval_mA(3))
+
     def test_decay_mode_param(self, device: step800.STEP800) -> None:
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetDecayModeParam(4, 100, 90, 80))
