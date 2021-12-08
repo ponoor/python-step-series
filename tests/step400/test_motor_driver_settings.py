@@ -40,6 +40,10 @@ class TestMotorDriverSettings:
         assert isinstance(resp, responses.HiZ)
         device.set(commands.EnableHiZReport(1, False))
 
+    def test_dir(self, device: step400.STEP400) -> None:
+        device.set(commands.EnableDirReport(3, True))
+        device.set(commands.EnableDirReport(3, False))
+
     def test_motor_status(self, device: step400.STEP400) -> None:
         device.set(commands.EnableMotorStatusReport(4, False))
         resp = device.get(commands.GetMotorStatus(4))

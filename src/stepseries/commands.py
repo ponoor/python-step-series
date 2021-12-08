@@ -182,6 +182,15 @@ class GetHiZ(OSCGetCommand):
 
 
 @dataclass
+class EnableDirReport(OSCSetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enabledirreport_intmotorid_boolenable"""  # noqa
+
+    address: str = field(default="/enableDirReport", init=False)
+    motorID: int
+    enable: bool
+
+
+@dataclass
 class EnableMotorStatusReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablemotorstatusreport_intmotorid_boolenable"""  # noqa
 

@@ -120,6 +120,19 @@ def test_get_hiz() -> None:
     assert osc_message_str == "/getHiZ 1"
 
 
+def test_enable_dir_report() -> None:
+    builder = commands.EnableDirReport(4, False)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 2
+    assert params[0] == builder.motorID
+    assert params[1] == builder.enable
+    assert osc_message_str == "/enableDirReport 4 0"
+
+
 def test_enable_motor_status_report() -> None:
     builder = commands.EnableMotorStatusReport(2, True)
     osc_message = builder.build()
