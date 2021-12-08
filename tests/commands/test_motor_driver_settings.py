@@ -170,6 +170,31 @@ def test_get_motor_status() -> None:
     assert osc_message_str == "/getMotorStatus 2"
 
 
+def test_set_position_report_interval() -> None:
+    builder = commands.SetPositionReportInterval(4, 150)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 2
+    assert params[0] == builder.motorID
+    assert params[1] == builder.interval
+    assert osc_message_str == "/setPositionReportInterval 4 150"
+
+
+def test_set_position_list_report_interval() -> None:
+    builder = commands.SetPositionListReportInterval(10)
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 1
+    assert params[0] == builder.interval
+    assert osc_message_str == "/setPositionListReportInterval 10"
+
+
 def test_get_adc_val() -> None:
     builder = commands.GetAdcVal(3)
     osc_message = builder.build()

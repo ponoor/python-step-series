@@ -5,6 +5,7 @@
 
 
 from math import isclose  # Due to precision, we cannot compare floats directly
+from threading import Event
 
 import pytest
 
@@ -51,6 +52,24 @@ class TestMotorDriverSettings:
         device.set(commands.EnableMotorStatusReport(4, False))
         resp = device.get(commands.GetMotorStatus(4))
         assert isinstance(resp, responses.MotorStatus)
+
+    def test_set_position_report_interval(self, device: step400.STEP400) -> None:
+        report_received = Event()
+        device.on(responses.Position, lambda x: report_received.set())
+        device.set(commands.SetPositionReportInterval(3, 1000))
+        try:
+            assert report_received.wait(timeout=2)
+        finally:
+            device.set(commands.SetPositionReportInterval(3, 0))
+
+    def test_set_position_list_report_interval(self, device: step400.STEP400) -> None:
+        report_received = Event()
+        device.on(responses.PositionList, lambda x: report_received.set())
+        device.set(commands.SetPositionListReportInterval(1000))
+        try:
+            assert report_received.wait(timeout=2)
+        finally:
+            device.set(commands.SetPositionListReportInterval(0))
 
     def test_get_adc_val(self, device: step400.STEP400) -> None:
         resp = device.get(commands.GetAdcVal(2))

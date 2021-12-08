@@ -216,6 +216,23 @@ class GetMotorStatus(OSCGetCommand):
 
 
 @dataclass
+class SetPositionReportInterval(OSCSetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionreportinterval_intmotorid_intinterval"""  # noqa
+
+    address: str = field(default="/setPositionReportInterval", init=False)
+    motorID: int
+    interval: int
+
+
+@dataclass
+class SetPositionListReportInterval(OSCSetCommand):
+    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionlistreportinterval_intinterval"""  # noqa
+
+    address: str = field(default="/setPositionListReportInterval", init=False)
+    interval: int
+
+
+@dataclass
 class GetAdcVal(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
 
