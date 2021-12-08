@@ -5,6 +5,7 @@
 
 
 from queue import Empty
+from typing import List, Union
 
 from .commands import OSCGetCommand, OSCSetCommand
 from .exceptions import StepSeriesException
@@ -46,7 +47,7 @@ class STEP400(STEPXXX):
             (the default behavior on the device). Defaults to `True`.
     """
 
-    def get(self, command: OSCGetCommand) -> OSCResponse:
+    def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 
         Note:
@@ -74,6 +75,9 @@ class STEP400(STEPXXX):
         # Prepare for get request
         s: str = command.address.replace("get", "")
         self._get_request = s.lower()
+        if hasattr(command, "motorID"):
+            if command.motorID == 255:
+                self._is_multiple_response = True
 
         # Send the request
         DEFAULT_SERVER.send(self, command)
@@ -86,6 +90,8 @@ class STEP400(STEPXXX):
             raise TimeoutError("timed-out waiting for a response from the device")
         finally:
             self._get_request = None
+            self._multiple_responses = list()
+            self._is_multiple_response = False
 
         if isinstance(resp, Exception):
             if isinstance(resp, StepSeriesException):

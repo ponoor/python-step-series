@@ -6,7 +6,7 @@
 
 import pytest
 
-from stepseries import commands, exceptions, server, step400
+from stepseries import commands, exceptions, responses, server, step400
 
 
 def test_get_errors(device: step400.STEP400, monkeypatch) -> None:
@@ -29,3 +29,14 @@ def test_get_errors(device: step400.STEP400, monkeypatch) -> None:
     # in device.get
     with pytest.raises(exceptions.ParseError):
         device.get(commands.GetVersion())
+
+
+@pytest.mark.skip_800_disconnected
+def test_get_multiple_responses(device: step400.STEP400) -> None:
+    resp = device.get(commands.GetMicrostepMode(255))
+    assert isinstance(resp, list)
+    assert len(resp) == 4
+    assert isinstance(resp[0], responses.MicrostepMode)
+    assert isinstance(resp[1], responses.MicrostepMode)
+    assert isinstance(resp[2], responses.MicrostepMode)
+    assert isinstance(resp[3], responses.MicrostepMode)
