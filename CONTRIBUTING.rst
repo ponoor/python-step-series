@@ -36,6 +36,17 @@ Please try also to simplify the reproduction steps to a very minimal example
 that still illustrates the problem you are facing. By removing other factors,
 you help us to identify the root cause of the issue.
 
+.. note:: For contributors that have the permissions to close issues:
+   Please do not close issues until the user has confirmed their issue has been
+   addressed properly or until an extended period of time has lapsed with no
+   response. Nothing is more irritating than having your issue prematurely closed
+   while your problem still persists.
+
+   Addressing an issue properly can mean anything from fixing a bug to giving an
+   explanation why the user's issue is an upstream problem or otherwise won't be
+   addressed by this project. We all volunteer our time to this project, so let's
+   dedicate it to ensuring the experience for our users is as painless as possible.
+
 
 Documentation Improvements
 ==========================
