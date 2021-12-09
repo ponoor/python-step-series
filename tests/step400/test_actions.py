@@ -31,7 +31,7 @@ def test_get_errors(device: step400.STEP400, monkeypatch) -> None:
         device.get(commands.GetVersion())
 
 
-@pytest.mark.skip_800_disconnected
+@pytest.mark.skip_400_disconnected
 def test_get_multiple_responses(device: step400.STEP400) -> None:
     resp = device.get(commands.GetMicrostepMode(255))
     assert isinstance(resp, list)
