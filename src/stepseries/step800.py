@@ -81,6 +81,8 @@ class STEP800(STEPXXX):
             commands.SetLimitSwMode,
             commands.GetLimitSwMode,
             commands.GetAdcVal,
+            commands.GetProhibitMotionOnLimitSw,
+            commands.SetProhibitMotionOnLimitSw,
         ]
 
     def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
