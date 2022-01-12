@@ -7,7 +7,7 @@
 from queue import Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
-from .commands import OSCGetCommand, OSCSetCommand
+from .commands import OSCGetCommand, OSCSetCommand, ResetDevice
 from .exceptions import ParseError
 from .responses import OSCResponse
 from .server import DEFAULT_SERVER
@@ -167,7 +167,7 @@ class STEPXXX:
             message_type (`OSCResponse`, `None`):
                 The message type to filter for. If `None`, then all
                 messages received will be sent to `fn`. Note multiple
-                `fn`s can be registered to the same type, or multiple
+                `fn`s can be registered to the same type or multiple
                 types.
             fn (`callable`):
                 The callable to be executed when `message_type` is
@@ -205,6 +205,13 @@ class STEPXXX:
             for callback in callbacks:
                 if callback == fn:
                     self._registered_callbacks[k].remove(fn)
+
+    def reset(self) -> None:
+        """Resets the device.
+
+        Note: This function may return before the device is ready.
+        """
+        self.set(ResetDevice())
 
     def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response."""
