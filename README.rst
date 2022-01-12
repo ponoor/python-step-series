@@ -29,8 +29,8 @@ python-step-series
 Welcome to ``python-step-series``, a Python library to stupidly simplify communication
 with ponoor's Step-series devices.
 
-To get started, follow the simple example below or read the `documentation`_ to truly
-see what this library has to offer.
+To get started, follow the simple example below and read the `documentation`_ to truly
+see what the Step-series devices have to offer.
 
 
 Installation
@@ -94,6 +94,66 @@ First-steps Example
         version: Version = device.get(GetVersion())
 
 
+Commands & Responses
+====================
+
+`python-step-series` does its best to maintain a simple, yet intuitive API interface
+regardless of a developer's experience level. As an example, the library provides a
+template for each command in a nice `dataclass` object. So, instead of writing
+
+.. code-block:: python
+
+    device.set("/setBemfParam 2 1500 200 127 43")
+
+which might be prone to typing errors like mispelling or putting a
+parameter in the wrong spot, you instead write
+
+.. code-block:: python
+
+    from stepseries.commands import SetBemfParam
+
+    device.set(
+        SetBemfParam(
+            motorID=2,
+            INT_SPEED=1500,
+            ST_SLP=200,
+            FN_SLP_ACC=127,
+            FN_SLP_DEC=43
+        )
+    )
+
+Also, the library will convert the response from the device into a usable
+`dataclass` object. For example, instead of a raw string response like
+
+.. code-block:: python
+
+    from stepseries.commands import GetBemfParam
+
+    resp = device.get(GetBemfParam(1))
+    print(resp)
+
+    >>> /bemfParam 1 1032 25 41 41
+
+which you will then have to later interpolate, you will instead receive a
+response like
+
+.. code-block:: python
+
+    from stepseries.commands import GetBemfParam
+    from stepseries.responses import BemfParam
+
+    resp: BemfParam = device.get(GetBemfParam(1))
+    print(resp.INT_SPEED)
+    print(resp.FN_SLP_ACC)
+    print(resp)
+
+    >>> 1032
+    >>> 41
+    >>> BemfParam(motorID=1, INT_SPEED=1032, ST_SLP=25, FN_SLP_ACC=41, FN_SLP_DEC=41)
+
+where all the interpolation has already been completed for you.
+
+
 Making Changes & Contributing
 =============================
 
@@ -111,5 +171,5 @@ information on PyScaffold see https://pyscaffold.org/.
 
 
 .. TODO: Point link at RTD
-.. _documentation: https://www.google.com/
+.. _documentation: https://ponoor.com/en/docs/step-series/
 .. _Contributing: https://github.com/ponoor/python-step-series/blob/main/CONTRIBUTING.rst
