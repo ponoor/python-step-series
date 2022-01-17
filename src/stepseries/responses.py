@@ -549,6 +549,10 @@ class PositionList(OSCResponse):
     position2: int
     position3: int
     position4: int
+    position5: int = None
+    position6: int = None
+    position7: int = None
+    position8: int = None
 
 
 @dataclass
