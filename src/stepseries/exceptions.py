@@ -14,6 +14,10 @@ class ClientNotFoundError(Exception):
     """The requested client could not be found."""
 
 
+class ClientClosedError(Exception):
+    """The client's connection is not open."""
+
+
 class InvalidCommandError(Exception):
     """The command cannot be executed."""
 
