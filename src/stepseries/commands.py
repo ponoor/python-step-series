@@ -5,9 +5,12 @@
 
 
 from dataclasses import asdict, dataclass, field
+from typing import Callable, Optional, Tuple
 
 from pythonosc.osc_message import OscMessage
 from pythonosc.osc_message_builder import OscMessageBuilder
+
+from . import responses
 
 
 @dataclass
@@ -23,6 +26,8 @@ class OSCCommand:
         # Extract the values
         # Code is largely copy-paste from pythonosc.UDPClient
         address = builder_dict.pop("address")
+        builder_dict.pop("callback", None)
+        builder_dict.pop("response_cls", None)
 
         builder = OscMessageBuilder(address=address)
 
@@ -70,6 +75,7 @@ class SetDestIP(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#setdestip"""  # noqa
 
     address: str = field(default="/setDestIp", init=False)
+    response_cls: responses.DestIP = field(default=responses.DestIP, init=False)
 
 
 @dataclass
@@ -77,6 +83,7 @@ class GetVersion(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getversion"""  # noqa
 
     address: str = field(default="/getVersion", init=False)
+    response_cls: responses.Version = field(default=responses.Version, init=False)
 
 
 @dataclass
@@ -84,6 +91,7 @@ class GetConfigName(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getconfigname"""  # noqa
 
     address: str = field(default="/getConfigName", init=False)
+    response_cls: responses.ConfigName = field(default=responses.ConfigName, init=False)
 
 
 @dataclass
@@ -91,7 +99,11 @@ class ReportError(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#reporterror_boolenable"""  # noqa
 
     address: str = field(default="/reportError", init=False)
+    response_cls: Tuple[responses.ErrorCommand, responses.ErrorOSC] = field(
+        default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False
+    )
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -99,6 +111,7 @@ class ResetDevice(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#resetdevice"""  # noqa
 
     address: str = field(default="/resetDevice", init=False)
+    response_cls: responses.Booted = field(default=responses.Booted, init=False)
 
 
 # Motor Driver Settings
@@ -118,6 +131,7 @@ class GetMicrostepMode(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setmicrostepmode_intmotorid_intstep_sel"""  # noqa
 
     address: str = field(default="/getMicrostepMode", init=False)
+    response_cls: responses.MicrostepMode = field(default=responses.MicrostepMode, init=False)
     motorID: int
 
 
@@ -126,6 +140,9 @@ class EnableLowSpeedOptimize(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablelowspeedoptimize_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableLowSpeedOptimize", init=False)
+    response_cls: responses.LowSpeedOptimizeThreshold = field(
+        default=responses.LowSpeedOptimizeThreshold, init=False
+    )
     motorID: int
     enable: bool
 
@@ -144,6 +161,9 @@ class GetLowSpeedOptimizeThreshold(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"""  # noqa
 
     address: str = field(default="/getLowSpeedOptimizeThreshold", init=False)
+    response_cls: responses.LowSpeedOptimizeThreshold = field(
+        default=responses.LowSpeedOptimizeThreshold, init=False
+    )
     motorID: int
 
 
@@ -152,8 +172,10 @@ class EnableBusyReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablebusyreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableBusyReport", init=False)
+    response_cls: responses.Busy = field(default=responses.Busy, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -161,6 +183,7 @@ class GetBusy(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getbusy_intmotorid"""  # noqa
 
     address: str = field(default="/getBusy", init=False)
+    response_cls: responses.Busy = field(default=responses.Busy, init=False)
     motorID: int
 
 
@@ -169,8 +192,10 @@ class EnableHiZReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablehizreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableHizReport", init=False)
+    response_cls: responses.HiZ = field(default=responses.HiZ, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -178,6 +203,7 @@ class GetHiZ(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#gethiz_intmotorid"""  # noqa
 
     address: str = field(default="/getHiZ", init=False)
+    response_cls: responses.HiZ = field(default=responses.HiZ, init=False)
     motorID: int
 
 
@@ -186,8 +212,10 @@ class EnableDirReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enabledirreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableDirReport", init=False)
+    response_cls: responses.Dir = field(default=responses.Dir, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -195,6 +223,7 @@ class GetDir(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getdir_intmotorid"""  # noqa
 
     address: str = field(default="/getDir", init=False)
+    response_cls: responses.Dir = field(default=responses.Dir, init=False)
     motorID: int
 
 
@@ -203,8 +232,10 @@ class EnableMotorStatusReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablemotorstatusreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableMotorStatusReport", init=False)
+    response_cls: responses.MotorStatus = field(default=responses.MotorStatus, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -212,6 +243,7 @@ class GetMotorStatus(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getmotorstatus_intmotorid"""  # noqa
 
     address: str = field(default="/getMotorStatus", init=False)
+    response_cls: responses.MotorStatus = field(default=responses.MotorStatus, init=False)
     motorID: int
 
 
@@ -220,8 +252,10 @@ class SetPositionReportInterval(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionreportinterval_intmotorid_intinterval"""  # noqa
 
     address: str = field(default="/setPositionReportInterval", init=False)
+    response_cls: responses.Position = field(default=responses.Position, init=False)
     motorID: int
     interval: int
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -229,7 +263,9 @@ class SetPositionListReportInterval(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionlistreportinterval_intinterval"""  # noqa
 
     address: str = field(default="/setPositionListReportInterval", init=False)
+    response_cls: responses.PositionList = field(default=responses.PositionList, init=False)
     interval: int
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -237,6 +273,7 @@ class GetAdcVal(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
 
     address: str = field(default="/getAdcVal", init=False)
+    response_cls: responses.AdcVal = field(default=responses.AdcVal, init=False)
     motorID: int
 
 
@@ -245,6 +282,7 @@ class GetStatus(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getstatus_intmotorid"""  # noqa
 
     address: str = field(default="/getStatus", init=False)
+    response_cls: responses.Status = field(default=responses.Status, init=False)
     motorID: int
 
 
@@ -253,6 +291,7 @@ class GetConfigRegister(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getconfigregister_intmotorid"""  # noqa
 
     address: str = field(default="/getConfigRegister", init=False)
+    response_cls: responses.ConfigRegister = field(default=responses.ConfigRegister, init=False)
     motorID: int
 
 
@@ -272,8 +311,10 @@ class EnableUvloReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enableuvloreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableUvloReport", init=False)
+    response_cls: responses.Uvlo = field(default=responses.Uvlo, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -281,6 +322,7 @@ class GetUvlo(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getuvlo_intmotorid"""  # noqa
 
     address: str = field(default="/getUvlo", init=False)
+    response_cls: responses.Uvlo = field(default=responses.Uvlo, init=False)
     motorID: int
 
 
@@ -289,8 +331,10 @@ class EnableThermalStatusReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enablethermalstatusreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableThermalStatusReport", init=False)
+    response_cls: responses.ThermalStatus = field(default=responses.ThermalStatus, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -298,6 +342,7 @@ class GetThermalStatus(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getthermalstatus_intmotorid"""  # noqa
 
     address: str = field(default="/getThermalStatus", init=False)
+    response_cls: responses.ThermalStatus = field(default=responses.ThermalStatus, init=False)
     motorID: int
 
 
@@ -306,8 +351,10 @@ class EnableOverCurrentReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enableovercurrentreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableOverCurrentReport", init=False)
+    response_cls: responses.OverCurrent = field(default=responses.OverCurrent, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -324,6 +371,7 @@ class GetOverCurrentThreshold(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getovercurrentthreshold_intmotorid"""  # noqa
 
     address: str = field(default="/getOverCurrentThreshold", init=False)
+    response_cls: responses.OverCurrent = field(default=responses.OverCurrent, init=False)
     motorID: int
 
 
@@ -332,8 +380,10 @@ class EnableStallReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enablestallreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableStallReport", init=False)
+    response_cls: responses.Stall = field(default=responses.Stall, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -350,6 +400,7 @@ class GetStallThreshold(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getstallthreshold_intmotorid"""  # noqa
 
     address: str = field(default="/getStallThreshold", init=False)
+    response_cls: responses.Stall = field(default=responses.Stall, init=False)
     motorID: int
 
 
@@ -367,6 +418,9 @@ class GetProhibitMotionOnHomeSw(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"""  # noqa
 
     address: str = field(default="/getProhibitMotionOnHomeSw", init=False)
+    response_cls: responses.ProhibitMotionOnHomeSw = field(
+        default=responses.ProhibitMotionOnHomeSw, init=False
+    )
     motorID: int
 
 
@@ -384,6 +438,9 @@ class GetProhibitMotionOnLimitSw(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"""  # noqa
 
     address: str = field(default="/getProhibitMotionOnLimitSw", init=False)
+    response_cls: responses.ProhibitMotionOnLimitSw = field(
+        default=responses.ProhibitMotionOnLimitSw, init=False
+    )
     motorID: int
 
 
@@ -415,6 +472,7 @@ class GetKval(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getkval_intmotorid"""  # noqa
 
     address: str = field(default="/getKval", init=False)
+    response_cls: responses.Kval = field(default=responses.Kval, init=False)
     motorID: int
 
 
@@ -435,6 +493,7 @@ class GetBemfParam(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"""  # noqa
 
     address: str = field(default="/getBemfParam", init=False)
+    response_cls: responses.BemfParam = field(default=responses.BemfParam, init=False)
     motorID: int
 
 
@@ -463,6 +522,7 @@ class GetTval(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_intmotorid"""  # noqa
 
     address: str = field(default="/getTval", init=False)
+    response_cls: responses.Tval = field(default=responses.Tval, init=False)
     motorID: int
 
 
@@ -471,6 +531,7 @@ class GetTval_mA(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"""  # noqa
 
     address: str = field(default="/getTval_mA", init=False)
+    response_cls: responses.Tval_mA = field(default=responses.Tval_mA, init=False)
     motorID: int
 
 
@@ -490,6 +551,7 @@ class GetDecayModeParam(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"""  # noqa
 
     address: str = field(default="/getDecayModeParam", init=False)
+    response_cls: responses.DecayModeParam = field(default=responses.DecayModeParam, init=False)
     motorID: int
 
 
@@ -512,6 +574,7 @@ class GetSpeedProfile(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeedprofile_intmotorid"""  # noqa
 
     address: str = field(default="/getSpeedProfile", init=False)
+    response_cls: responses.SpeedProfile = field(default=responses.SpeedProfile, init=False)
     motorID: int
 
 
@@ -529,6 +592,7 @@ class GetFullstepSpeed(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getfullstepspeed_intmotorid"""  # noqa
 
     address: str = field(default="/getFullstepSpeed", init=False)
+    response_cls: responses.FullstepSpeed = field(default=responses.FullstepSpeed, init=False)
     motorID: int
 
 
@@ -573,6 +637,7 @@ class GetMinSpeed(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getminspeed_intmotorid"""  # noqa
 
     address: str = field(default="/getMinSpeed", init=False)
+    response_cls: responses.MinSpeed = field(default=responses.MinSpeed, init=False)
     motorID: int
 
 
@@ -581,6 +646,7 @@ class GetSpeed(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeed_intmotorid"""  # noqa
 
     address: str = field(default="/getSpeed", init=False)
+    response_cls: responses.Speed = field(default=responses.Speed, init=False)
     motorID: int
 
 
@@ -600,6 +666,7 @@ class GetHomingStatus(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#sethomingdirection_intmotorid_booldirection"""  # noqa
 
     address: str = field(default="/getHomingStatus", init=False)
+    response_cls: responses.HomingStatus = field(default=responses.HomingStatus, init=False)
     motorID: int
 
 
@@ -617,6 +684,7 @@ class GetHomingDirection(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingdirection_intmotorid"""  # noqa
 
     address: str = field(default="/getHomingDirection", init=False)
+    response_cls: responses.HomingDirection = field(default=responses.HomingDirection, init=False)
     motorID: int
 
 
@@ -634,6 +702,7 @@ class GetHomingSpeed(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingspeed_intmotorid"""  # noqa
 
     address: str = field(default="/getHomingSpeed", init=False)
+    response_cls: responses.HomingSpeed = field(default=responses.HomingSpeed, init=False)
     motorID: int
 
 
@@ -661,6 +730,7 @@ class GetGoUntilTimeout(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#getgountiltimeout_intmotorid"""  # noqa
 
     address: str = field(default="/getGoUntilTimeout", init=False)
+    response_cls: responses.GoUntilTimeout = field(default=responses.GoUntilTimeout, init=False)
     motorID: int
 
 
@@ -688,6 +758,7 @@ class GetReleaseSwTimeout(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"""  # noqa
 
     address: str = field(default="/getReleaseSwTimeout", init=False)
+    response_cls: responses.ReleaseSwTimeout = field(default=responses.ReleaseSwTimeout, init=False)
     motorID: int
 
 
@@ -699,8 +770,10 @@ class EnableHomeSwReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablehomeswreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableHomeSwReport", init=False)
+    response_cls: responses.HomeSw = field(default=responses.HomeSw, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -708,8 +781,10 @@ class EnableSwEventReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablesweventreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableSwEventReport", init=False)
+    response_cls: responses.SwEvent = field(default=responses.SwEvent, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -717,6 +792,7 @@ class GetHomeSw(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomesw_intmotorid"""  # noqa
 
     address: str = field(default="/getHomeSw", init=False)
+    response_cls: responses.HomeSw = field(default=responses.HomeSw, init=False)
     motorID: int
 
 
@@ -725,8 +801,10 @@ class EnableLimitSwReport(OSCSetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablelimitswreport_intmotorid_boolenable"""  # noqa
 
     address: str = field(default="/enableLimitSwReport", init=False)
+    response_cls: responses.LimitSw = field(default=responses.LimitSw, init=False)
     motorID: int
     enable: bool
+    callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
@@ -734,6 +812,7 @@ class GetLimitSw(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitsw_intmotorid"""  # noqa
 
     address: str = field(default="/getLimitSw", init=False)
+    response_cls: responses.LimitSw = field(default=responses.LimitSw, init=False)
     motorID: int
 
 
@@ -751,6 +830,7 @@ class GetHomeSwMode(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomeswmode_intmotorid"""  # noqa
 
     address: str = field(default="/getHomeSwMode", init=False)
+    response_cls: responses.HomeSwMode = field(default=responses.HomeSwMode, init=False)
     motorID: int
 
 
@@ -768,6 +848,7 @@ class GetLimitSwMode(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitswmode_intmotorid"""  # noqa
 
     address: str = field(default="/getLimitSwMode", init=False)
+    response_cls: responses.LimitSwMode = field(default=responses.LimitSwMode, init=False)
     motorID: int
 
 
@@ -788,6 +869,7 @@ class GetPosition(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getposition_intmotorid"""  # noqa
 
     address: str = field(default="/getPosition", init=False)
+    response_cls: responses.Position = field(default=responses.Position, init=False)
     motorID: int
 
 
@@ -796,6 +878,7 @@ class GetPositionList(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getpositionlist"""  # noqa
 
     address: str = field(default="/getPositionList", init=False)
+    response_cls: responses.PositionList = field(default=responses.PositionList, init=False)
 
 
 @dataclass
@@ -821,6 +904,7 @@ class GetElPos(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
 
     address: str = field(default="/getElPos", init=False)
+    response_cls: responses.ElPos = field(default=responses.ElPos, init=False)
     motorID: int
 
 
@@ -838,6 +922,7 @@ class GetMark(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getmark_intmotorid"""  # noqa
 
     address: str = field(default="/getMark", init=False)
+    response_cls: responses.Mark = field(default=responses.Mark, init=False)
     motorID: int
 
 
@@ -973,6 +1058,9 @@ class GetBrakeTransitionDuration(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#getbraketransitionduration_intmotorid"""  # noqa
 
     address: str = field(default="/getBrakeTransitionDuration", init=False)
+    response_cls: responses.BrakeTransitionDuration = field(
+        default=responses.BrakeTransitionDuration, init=False
+    )
     motorID: int
 
 
@@ -1004,6 +1092,7 @@ class GetServoParam(OSCGetCommand):
     """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#getservoparam_intmotorid"""  # noqa
 
     address: str = field(default="/getServoParam", init=False)
+    response_cls: responses.ServoParam = field(default=responses.ServoParam, init=False)
     motorID: int
 
 
