@@ -1,9 +1,14 @@
 """conftest.py for stepseries."""
 
 
+from queue import Empty, Queue
 from typing import Dict, Tuple
 
 import pytest
+
+from stepseries.stepXXX import STEPXXX
+from stepseries.commands import OSCCommand, OSCGetCommand
+from stepseries.responses import OSCResponse
 
 # store history of failures per test class name and per index in parametrize (if parametrize used)
 _test_failed_incremental: Dict[str, Dict[Tuple[int, ...], str]] = {}
@@ -49,3 +54,35 @@ def pytest_runtest_setup(item):
             # if name found, test has failed for the combination of class name & test name
             if test_name is not None:
                 pytest.xfail("previous test failed ({})".format(test_name))
+
+
+@pytest.fixture
+def wait_for() -> None:
+    def wrapper(device: STEPXXX, command: OSCCommand, response_cls: OSCResponse, timeout=10):
+        # A device that allows us to return the response from the device
+        waiter = Queue()
+
+        # The callback responsible for intercepting the correct response
+        def callback(message: OSCResponse) -> None:
+            waiter.put(message)
+
+        # Register the callback
+        device.on(response_cls, callback)
+
+        # Send the command
+        if isinstance(command, OSCGetCommand):
+            device.get(command, wait=False)
+        else:
+            device.set(command)
+
+        try:
+            # Wait for the response until timeout
+            return waiter.get(timeout=timeout)
+        except Empty:
+            raise TimeoutError("no response was returned")
+        finally:
+            # Regardless if the response is received, unregister the
+            # callback
+            device.remove(callback)
+
+    return wrapper
