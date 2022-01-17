@@ -56,7 +56,7 @@ def pytest_runtest_setup(item):
                 pytest.xfail("previous test failed ({})".format(test_name))
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def wait_for() -> None:
     def wrapper(device: STEPXXX, command: OSCCommand, response_cls: OSCResponse, timeout=10):
         # A device that allows us to return the response from the device

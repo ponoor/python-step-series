@@ -1,9 +1,8 @@
 import random
-import time
 
 import pytest
 
-from stepseries import commands
+from stepseries import commands, responses
 from stepseries.step800 import STEP800
 
 
@@ -27,16 +26,19 @@ class TestPresets:
 
     # The singular motor ID to test on (1 - 8, 255)
     # 255 means run the command on all motors
-    # Keep at None to randomize per test
+    # Keep at None to randomize (once per session)
     motor_id: int = None
 
     # Allow motors to be physically ran
     # Do not make True if you have no motor(s) connected
     enable_motors: bool = False
 
+    # Are you using a config file?
+    using_config_file: bool = False
+
 
 @pytest.fixture(scope="package")
-def device() -> STEP800:
+def device(wait_for) -> STEP800:
     device = STEP800(
         TestPresets.id,
         TestPresets.address,
@@ -47,15 +49,15 @@ def device() -> STEP800:
     )
 
     # Send the start-up command
-    device.set(commands.SetDestIP())
-
-    # Allow the device to start
-    time.sleep(3)
+    try:
+        wait_for(device, commands.SetDestIP(), responses.DestIP)
+    except TimeoutError:
+        pass
 
     return device
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def motor_id() -> int:
     if not TestPresets.motor_id:
         valid_ids = list(range(1, 9)) + [255]
@@ -76,3 +78,15 @@ def skip_if_motors_disabled(request):
     if request.node.get_closest_marker("skip_motors_disabled"):
         if not TestPresets.enable_motors:
             pytest.skip("motors are disabled")
+
+
+@pytest.fixture(autouse=True)
+def skip_if_not_configured(request):
+    if request.node.get_closest_marker("skip_not_configured"):
+        if not TestPresets.is_configured:
+            pytest.skip("presets not configured")
+
+
+@pytest.fixture
+def presets():
+    return TestPresets
