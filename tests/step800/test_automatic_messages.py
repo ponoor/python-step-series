@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Verify alarm-related commands execute successfully."""
+"""Verify automatic messages parse successfully."""
 
 
 import pytest

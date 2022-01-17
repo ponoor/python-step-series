@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Verify alarm-related commands execute successfully."""
+"""Verify system-related commands execute successfully."""
 
 
 import pytest
@@ -18,6 +18,7 @@ class TestSystemMessages:
         # machine
         def my_ip() -> str:
             import socket
+
             try:
                 # Connect to DT34 and query the connection for the local IP address
                 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -27,11 +28,16 @@ class TestSystemMessages:
                 sock.close()
 
         # Send the command and wait for the device's response
-        response: responses.DestIP = wait_for(device, commands.SetDestIP(), responses.DestIP)
+        response: responses.DestIP = wait_for(
+            device, commands.SetDestIP(), responses.DestIP
+        )
 
         # Verify the IP address of the device matches the preset IP
         assert isinstance(response, responses.DestIP)
-        assert f"{response.destIp0}.{response.destIp1}.{response.destIp2}.{response.destIp3}" == my_ip()
+        assert (
+            f"{response.destIp0}.{response.destIp1}.{response.destIp2}.{response.destIp3}"
+            == my_ip()
+        )
 
     def test_get_version(self, device: STEP800) -> None:
         # Send the command and wait for the device's response
@@ -101,6 +107,7 @@ class TestSystemMessages:
 
         # Test the reset using the shortcut
         from threading import Event
+
         device_booted = Event()
 
         def reset_callback(_) -> None:
