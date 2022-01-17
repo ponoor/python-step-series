@@ -18,14 +18,14 @@ from stepseries.exceptions import ClientNotFoundError
 # Work around for this circular import; allows annotations while
 # writing code and doesn't break when running it.
 try:
-    from .step400 import STEP400
+    from .stepXXX import STEPXXX
 except ImportError:
-    STEP400 = Any
+    STEPXXX = Any
 
 
 class Manager:
 
-    _bound_devices: List[Tuple[STEP400, SimpleUDPClient, ThreadingOSCUDPServer, Thread]]
+    _bound_devices: List[Tuple[STEPXXX, SimpleUDPClient, ThreadingOSCUDPServer, Thread]]
 
     def __init__(self) -> None:
         self._bound_devices = list()
@@ -45,7 +45,7 @@ class Manager:
             if device.address == address:
                 device._handle_incoming_message(message_address, *osc_args)
 
-    def add_device(self, device: STEP400) -> None:
+    def add_device(self, device: STEPXXX) -> None:
         """
         For internal use only. Add a device to send data to when it is
         received.
@@ -70,7 +70,7 @@ class Manager:
         # Only add the thread to this list to keep a reference to it
         self._bound_devices.append((device, client, server, thread))
 
-    def remove_device(self, device: STEP400) -> None:
+    def remove_device(self, device: STEPXXX) -> None:
         """
         For internal use only. Remove a tracked device to stop sending
         data to it.
@@ -79,6 +79,7 @@ class Manager:
             if d == device:
                 self._bound_devices.pop(i)
                 s.shutdown()
+                d._is_closed = True
                 break
 
     def shutdown(self) -> None:
@@ -88,7 +89,7 @@ class Manager:
             s.shutdown()
         self._bound_devices = list()
 
-    def send(self, device: STEP400, message: OSCCommand) -> None:
+    def send(self, device: STEPXXX, message: OSCCommand) -> None:
         """Send `message` to the `device`."""
 
         # Get the client bound to this device
