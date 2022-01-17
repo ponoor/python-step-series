@@ -8,9 +8,9 @@ from queue import Empty
 from typing import List, Union
 
 from . import commands
-from .commands import OSCGetCommand, OSCSetCommand
+from .commands import OSCGetCommand, OSCSetCommand, ReportError, SetDestIP
 from .exceptions import InvalidCommandError, StepSeriesException
-from .responses import OSCResponse
+from .responses import ErrorCommand, ErrorOSC, OSCResponse
 from .server import DEFAULT_SERVER
 from .stepXXX import STEPXXX
 
@@ -85,7 +85,9 @@ class STEP800(STEPXXX):
             commands.SetProhibitMotionOnLimitSw,
         ]
 
-    def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
+    def get(
+        self, command: OSCGetCommand, with_callback: bool = True
+    ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 
         Note:
@@ -98,6 +100,9 @@ class STEP800(STEPXXX):
         Args:
             command (`OSCGetCommand`):
                 The completed command template (`stepseries.commands`).
+            with_callback (`bool`):
+                Send the response to callbacks as well
+                (defaults to `True`).
 
         Raises:
             `TypeError`:
@@ -120,9 +125,12 @@ class STEP800(STEPXXX):
                 + "\n\nFor more information, see: https://ponoor.com/en/docs/step-series/osc-command-reference/differences-between-step400-and-step800/"  # noqa
             )
 
+        self._check_status()
+
         # Prepare for get request
         s: str = command.address.replace("get", "")
         self._get_request = s.lower()
+        self._get_with_callback = with_callback
         if hasattr(command, "motorID"):
             if command.motorID == 255:
                 self._is_multiple_response = True
@@ -138,6 +146,7 @@ class STEP800(STEPXXX):
             raise TimeoutError("timed-out waiting for a response from the device")
         finally:
             self._get_request = None
+            self._get_with_callback = True
             self._multiple_responses = list()
             self._is_multiple_response = False
 
@@ -174,5 +183,15 @@ class STEP800(STEPXXX):
                 + "\n".join(["\t  - " + c.__name__ for c in self._invalid_commands])
                 + "\n\nFor more information, see: https://ponoor.com/en/docs/step-series/osc-command-reference/differences-between-step400-and-step800/"  # noqa
             )
+
+        if not isinstance(command, SetDestIP):
+            self._check_status()
+
+        if command.__dict__.get("callback", None):
+            if isinstance(command, ReportError):
+                self.on(ErrorCommand, command.callback)
+                self.on(ErrorOSC, command.callback)
+            else:
+                self.on(command.response_cls, command.callback)
 
         DEFAULT_SERVER.send(self, command)
