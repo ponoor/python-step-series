@@ -86,7 +86,7 @@ class STEP800(STEPXXX):
         ]
 
     def get(
-        self, command: OSCGetCommand, with_callback: bool = True
+        self, command: OSCGetCommand, with_callback: bool = True, wait: bool = True
     ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 
@@ -103,6 +103,10 @@ class STEP800(STEPXXX):
             with_callback (`bool`):
                 Send the response to callbacks as well
                 (defaults to `True`).
+            wait (`bool`):
+                Wait for a response from the device if `True`, otherwise
+                return without waiting for a response (defaults to
+                `True`).
 
         Raises:
             `TypeError`:
@@ -125,7 +129,7 @@ class STEP800(STEPXXX):
                 + "\n\nFor more information, see: https://ponoor.com/en/docs/step-series/osc-command-reference/differences-between-step400-and-step800/"  # noqa
             )
 
-        return super().get(command, with_callback)
+        return super().get(command, with_callback, wait)
 
     def set(self, command: OSCSetCommand) -> None:
         """Send a 'set' command to the device.
