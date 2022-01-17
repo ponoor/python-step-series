@@ -8,8 +8,8 @@ from queue import Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
 from .commands import OSCGetCommand, OSCSetCommand, ResetDevice
-from .exceptions import ParseError
-from .responses import OSCResponse
+from .exceptions import ClientClosedError, ParseError
+from .responses import DestIP, OSCResponse
 from .server import DEFAULT_SERVER
 
 
@@ -45,7 +45,9 @@ class STEPXXX:
         Union[OSCResponse, None], List[Callable[[OSCResponse], None]]
     ]
     _get_request: str
+    _get_with_callback: bool
     _get_queue: Queue
+    _is_closed: bool
     _is_multiple_response: bool
     _multiple_responses: List[OSCResponse]
 
@@ -77,7 +79,9 @@ class STEPXXX:
         self._boards_to_n_motors = {"STEP400": 4, "STEP800": 8}
         self._registered_callbacks = dict()
         self._get_request = None
+        self._get_with_callback = True
         self._get_queue = Queue()
+        self._is_closed = True
         self._is_multiple_response = False
         self._multiple_responses = list()
 
@@ -104,6 +108,11 @@ class STEPXXX:
         """The remote port on the server."""
         return self._server_port
 
+    @property
+    def is_closed(self) -> bool:
+        """Is the connection to the device closed."""
+        return self._is_closed
+
     def _handle_incoming_message(
         self, message_address: str, *osc_args: Tuple[Any]
     ) -> None:
@@ -123,6 +132,10 @@ class STEPXXX:
             resp = ParseError("no response object matched this message")
             resp.response = raw_resp
 
+        # Set the flag that the connection is open
+        if isinstance(resp, DestIP):
+            self._is_closed = False
+
         # Support multiple responses
         if self._is_multiple_response:
             if not isinstance(resp, Exception):
@@ -141,22 +154,44 @@ class STEPXXX:
 
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
-        for resp_type, callbacks in self._registered_callbacks.items():
-            if resp.__class__ == resp_type or resp_type is None:
-                for callback in callbacks:
-                    if self._multiple_responses:
-                        callback(self._multiple_responses)
-                    else:
-                        callback(resp)
+        if (
+            isinstance(resp, ParseError)
+            or resp.address.lower() != self._get_request
+            or self._get_with_callback
+        ):
+            for resp_type, callbacks in self._registered_callbacks.items():
+                if resp.__class__ == resp_type or resp_type is None:
+                    for callback in callbacks:
+                        if self._multiple_responses:
+                            callback(self._multiple_responses)
+                        else:
+                            callback(resp)
 
         # Return the get request
         if self._get_request:
-            if resp.address.lower() == self._get_request or isinstance(resp, Exception):
+            if isinstance(resp, Exception) or resp.address.lower() == self._get_request:
                 if self._multiple_responses:
                     self._get_queue.put(self._multiple_responses)
                 else:
                     self._get_queue.put(resp)
                 self._get_queue.join()
+
+    def _check_status(self) -> None:
+        if self.is_closed:
+            raise ClientClosedError(
+                "the connection to this client is closed. "
+                "Send the command 'SetDestIP' to open the connection "
+                "or check your configurations"
+            )
+
+    def close(self) -> None:
+        """Close the connection to the stepseries device.
+
+        Note: No other command after this one should be called on the
+        device.
+        """
+        DEFAULT_SERVER.remove_device(self)
+        self._is_closed = True
 
     def on(
         self, message_type: Union[OSCResponse, None], fn: Callable[[OSCResponse], None]
@@ -182,7 +217,7 @@ class STEPXXX:
                 `fn` is not a callable.
         """
 
-        if message_type is not None and message_type.__base__ is not OSCResponse:
+        if message_type is not None and OSCResponse not in message_type.__bases__:
             raise TypeError(
                 "argument 'message_type' expected to be 'OSCResponse', "
                 f"'{type(message_type).__name__}' found"
@@ -211,9 +246,12 @@ class STEPXXX:
 
         Note: This function may return before the device is ready.
         """
+        self._check_status()
         self.set(ResetDevice())
 
-    def get(self, command: OSCGetCommand) -> Union[OSCResponse, List[OSCResponse]]:
+    def get(
+        self, command: OSCGetCommand, with_callback: bool = True
+    ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response."""
         raise NotImplementedError
 
