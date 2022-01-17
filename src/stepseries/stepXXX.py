@@ -155,7 +155,7 @@ class STEPXXX:
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
         if (
-            isinstance(resp, ParseError)
+            isinstance(resp, Exception)
             or resp.address.lower() != self._get_request
             or self._get_with_callback
         ):
