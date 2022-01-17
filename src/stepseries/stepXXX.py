@@ -250,7 +250,7 @@ class STEPXXX:
         self.set(ResetDevice())
 
     def get(
-        self, command: OSCGetCommand, with_callback: bool = True
+        self, command: OSCGetCommand, with_callback: bool = True, wait: bool = True
     ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 
@@ -267,6 +267,10 @@ class STEPXXX:
             with_callback (`bool`):
                 Send the response to callbacks as well
                 (defaults to `True`).
+            wait (`bool`):
+                Wait for a response from the device if `True`, otherwise
+                return without waiting for a response (defaults to
+                `True`).
 
         Raises:
             `TypeError`:
@@ -283,7 +287,8 @@ class STEPXXX:
 
         # Prepare for get request
         s: str = command.address.replace("get", "")
-        self._get_request = s.lower()
+        if wait:
+            self._get_request = s.lower()
         self._get_with_callback = with_callback
         if hasattr(command, "motorID"):
             if command.motorID == 255:
@@ -294,8 +299,11 @@ class STEPXXX:
 
         # Wait for data and reset
         try:
-            resp = self._get_queue.get(timeout=2)
-            self._get_queue.task_done()
+            if wait:
+                resp = self._get_queue.get(timeout=2)
+                self._get_queue.task_done()
+            else:
+                resp = None
         except Empty:
             raise TimeoutError("timed-out waiting for a response from the device")
         finally:
