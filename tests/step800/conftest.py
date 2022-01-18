@@ -36,6 +36,10 @@ class TestPresets:
     # Are you using a config file?
     using_config_file: bool = False
 
+    # Motor Driver Settings
+    microstep_mode: int = 7
+    low_speed_optimize_threshold: int = 20
+
 
 @pytest.fixture(scope="package")
 def device(wait_for) -> STEP800:
@@ -45,7 +49,7 @@ def device(wait_for) -> STEP800:
         TestPresets.port,
         TestPresets.server_address,
         TestPresets.server_port,
-        TestPresets.add_id_to_args
+        TestPresets.add_id_to_args,
     )
 
     # Send the start-up command
@@ -60,10 +64,22 @@ def device(wait_for) -> STEP800:
 @pytest.fixture(scope="package")
 def motor_id() -> int:
     if not TestPresets.motor_id:
-        valid_ids = list(range(1, 9)) + [255]
+        valid_ids = list(range(1, 9))
         return valid_ids[random.randint(0, len(valid_ids) - 1)]
 
     return TestPresets.motor_id
+
+
+@pytest.fixture(scope="class", autouse=True)
+def reset_device(request, device: STEP800, wait_for) -> None:
+    if request.node.get_closest_marker("reset_800_device"):
+        yield
+
+        # Reset the entire device
+        wait_for(device, commands.ResetDevice(), responses.Booted)
+
+        # Re-Initialize the device
+        wait_for(device, commands.SetDestIP(), responses.DestIP)
 
 
 @pytest.fixture(autouse=True)
@@ -74,15 +90,17 @@ def skip_if_disconnected(request, device: STEP800):
 
 
 @pytest.fixture(autouse=True)
-def skip_if_motors_disabled(request):
-    if request.node.get_closest_marker("skip_motors_disabled"):
+def check_motors(request):
+    if request.node.get_closest_marker("check_800_motors"):
+        if not TestPresets.is_configured:
+            pytest.skip("presets not configured")
         if not TestPresets.enable_motors:
             pytest.skip("motors are disabled")
 
 
 @pytest.fixture(autouse=True)
 def skip_if_not_configured(request):
-    if request.node.get_closest_marker("skip_not_configured"):
+    if request.node.get_closest_marker("skip_800_not_configured"):
         if not TestPresets.is_configured:
             pytest.skip("presets not configured")
 

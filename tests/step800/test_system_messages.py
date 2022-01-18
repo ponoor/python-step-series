@@ -49,7 +49,7 @@ class TestSystemMessages:
         assert response.firmware_name
         assert response.firmware_version
 
-    @pytest.mark.skip_not_configured
+    @pytest.mark.skip_800_not_configured
     def test_get_config_name(self, device: STEP800, presets) -> None:
         # Send the command and wait for the device's response
         response: responses.ConfigName = device.get(commands.GetConfigName())
