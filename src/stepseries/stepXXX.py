@@ -8,7 +8,7 @@ from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
 from .commands import OSCGetCommand, OSCSetCommand, ReportError, ResetDevice, SetDestIP
-from .exceptions import StepSeriesException, ClientClosedError, ParseError
+from .exceptions import ClientClosedError, ParseError, StepSeriesException
 from .responses import DestIP, ErrorCommand, ErrorOSC, OSCResponse
 from .server import DEFAULT_SERVER
 
@@ -340,6 +340,9 @@ class STEPXXX:
 
         if not isinstance(command, SetDestIP):
             self._check_status()
+
+        if isinstance(command, ResetDevice):
+            self._is_closed = True
 
         if command.__dict__.get("callback", None):
             if isinstance(command, ReportError):
