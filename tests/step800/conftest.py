@@ -51,6 +51,19 @@ class TestPresets:
     bemf_fn_slp_acc: int = 234
     bemf_fn_slp_dec: int = 234
 
+    # Speed Profile Settings
+    acc: float = 2000
+    dec: float = 2000
+    max_speed: float = 620
+
+    # These are defaults pre-set on the device
+    # They may need to be changed depending on the above you set
+    default_acc: float = 1000
+    default_dec: float = 1000
+    default_max_speed: float = 650
+
+    fullstep_speed: float = 14625
+
 
 @pytest.fixture(scope="package")
 def device(wait_for) -> STEP800:
