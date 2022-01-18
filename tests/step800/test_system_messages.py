@@ -11,7 +11,6 @@ from stepseries.step800 import STEP800
 
 
 @pytest.mark.skip_800_disconnected
-@pytest.mark.order(2)
 class TestSystemMessages:
     def test_set_dest_ip(self, device: STEP800, wait_for) -> None:
         # A utility function to easily get the IP address of the local

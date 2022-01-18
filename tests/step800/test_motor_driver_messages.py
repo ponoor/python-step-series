@@ -12,7 +12,6 @@ from stepseries import commands, exceptions, responses
 from stepseries.step800 import STEP800
 
 
-@pytest.mark.order(3)
 @pytest.mark.skip_800_disconnected
 @pytest.mark.reset_800_device
 class TestMotorDriverMessages:
