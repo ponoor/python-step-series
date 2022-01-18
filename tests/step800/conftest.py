@@ -40,6 +40,17 @@ class TestPresets:
     microstep_mode: int = 7
     low_speed_optimize_threshold: int = 20
 
+    # Voltage & Current Mode Settings
+    kval_hold: int = 119
+    kval_run: int = 238
+    kval_acc: int = 238
+    kval_dec: int = 238
+
+    bemf_int_speed: int = 7895
+    bemf_st_slp: int = 106
+    bemf_fn_slp_acc: int = 234
+    bemf_fn_slp_dec: int = 234
+
 
 @pytest.fixture(scope="package")
 def device(wait_for) -> STEP800:
@@ -72,9 +83,8 @@ def motor_id() -> int:
 
 @pytest.fixture(scope="class", autouse=True)
 def reset_device(request, device: STEP800, wait_for) -> None:
+    yield
     if request.node.get_closest_marker("reset_800_device"):
-        yield
-
         # Reset the entire device
         wait_for(device, commands.ResetDevice(), responses.Booted)
 
