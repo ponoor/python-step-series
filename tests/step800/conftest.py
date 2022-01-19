@@ -43,6 +43,8 @@ class TestPresets:
     using_config_file: bool = False
 
     # Is there a homing switch connected?
+    # Also keep this False if you do not wish to run homing tests
+    # or tests that require the home switch
     homesw_exists: bool = False
 
     # Is the EM-brake connected?
@@ -75,6 +77,10 @@ class TestPresets:
     default_max_speed: float = 650
 
     fullstep_speed: float = 14625
+
+    # Homing Settings
+    homing_direction: int = 1  # 0 or 1
+    homing_speed: float = 620.0
 
 
 @pytest.fixture(scope="package")
