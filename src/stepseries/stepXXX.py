@@ -154,11 +154,7 @@ class STEPXXX:
 
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
-        if (
-            isinstance(resp, Exception)
-            or resp.address.lower() != self._get_request
-            or self._get_with_callback
-        ):
+        if resp.address.lower() != self._get_request or self._get_with_callback:
             for resp_type, callbacks in self._registered_callbacks.items():
                 if resp.__class__ == resp_type or resp_type is None:
                     for callback in callbacks:
@@ -169,7 +165,7 @@ class STEPXXX:
 
         # Return the get request
         if self._get_request:
-            if isinstance(resp, Exception) or resp.address.lower() == self._get_request:
+            if resp.address.lower() == self._get_request:
                 if self._multiple_responses:
                     self._get_queue.put(self._multiple_responses)
                 else:
