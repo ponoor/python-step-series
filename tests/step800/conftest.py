@@ -45,6 +45,9 @@ class TestPresets:
     # Is there a homing switch connected?
     homesw_exists: bool = False
 
+    # Is the EM-brake connected?
+    embrake_exists: bool = False
+
     # Motor Driver Settings
     microstep_mode: int = 7
     low_speed_optimize_threshold: int = 20
@@ -113,8 +116,8 @@ def reset_device(request, device: STEP800, wait_for) -> None:
         # Re-Initialize the device
         wait_for(device, commands.SetDestIP(), responses.DestIP)
 
-    # Small delay to allow processes to boot
-    time.sleep(0.1)
+        # Small delay to allow processes to boot
+        time.sleep(0.1)
 
 
 @pytest.fixture(autouse=True)
@@ -140,6 +143,15 @@ def check_homing_switch(request):
             pytest.skip("presets not configured")
         if not TestPresets.homesw_exists:
             pytest.skip("no homing switch is connected")
+
+
+@pytest.fixture(autouse=True)
+def check_embrake(request):
+    if request.node.get_closest_marker("check_800_embrake"):
+        if not TestPresets.is_configured:
+            pytest.skip("presets not configured")
+        if not TestPresets.embrake_exists:
+            pytest.skip("no electromagnetic brake is connected")
 
 
 @pytest.fixture(autouse=True)
