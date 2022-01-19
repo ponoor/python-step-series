@@ -29,6 +29,7 @@ class TestElectromagneticBrakeCommands:
         # Verify the brake is engaged, the API will raise an error
         try:
             wait_for(device, commands.Move(motor_id, 1000), responses.ErrorCommand)
+            assert False, "EM-brake not activated"
         except responses.ErrorCommand:
             pass
 
