@@ -1,4 +1,5 @@
 import random
+import time
 
 import pytest
 
@@ -111,6 +112,9 @@ def reset_device(request, device: STEP800, wait_for) -> None:
 
         # Re-Initialize the device
         wait_for(device, commands.SetDestIP(), responses.DestIP)
+
+    # Small delay to allow processes to boot
+    time.sleep(0.1)
 
 
 @pytest.fixture(autouse=True)
