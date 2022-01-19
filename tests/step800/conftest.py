@@ -41,6 +41,9 @@ class TestPresets:
     # Are you using a config file?
     using_config_file: bool = False
 
+    # Is there a homing switch connected?
+    homesw_exists: bool = False
+
     # Motor Driver Settings
     microstep_mode: int = 7
     low_speed_optimize_threshold: int = 20
@@ -124,6 +127,15 @@ def check_motors(request):
             pytest.skip("presets not configured")
         if not TestPresets.enable_motors:
             pytest.skip("motors are disabled")
+
+
+@pytest.fixture(autouse=True)
+def check_homing_switch(request):
+    if request.node.get_closest_marker("check_800_homesw"):
+        if not TestPresets.is_configured:
+            pytest.skip("presets not configured")
+        if not TestPresets.homesw_exists:
+            pytest.skip("no homing switch is connected")
 
 
 @pytest.fixture(autouse=True)
