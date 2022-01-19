@@ -5,7 +5,6 @@ import pytest
 from stepseries import commands, responses
 from stepseries.step800 import STEP800
 
-
 # Test configurations
 # Please configure these presets before running the tests. Ensure to set
 # "is_configured" to True, otherwise these tests will be skipped.
@@ -13,6 +12,12 @@ from stepseries.step800 import STEP800
 # 12V stepper motor. Change the configurations as needed to match your
 # motor. Examples for a variety of steppers can be found here:
 # https://github.com/ponoor/step-series-support/tree/main/configGenerator
+
+# Secondly, these tests do require the board to be powered via the
+# barrel plug or screw terminal with at least 8V. USB power is not
+# enough to power the drivers so some tests will fail.
+
+
 class TestPresets:
     is_configured: bool = False
 
