@@ -32,6 +32,11 @@ class TestElectromagneticBrakeCommands:
         # Release the brake
         device.set(commands.Activate(motor_id, True))
 
+        # Wait a short time to allow the brake to transition
+        # (required, otherwise the get commands below will likely raise
+        # a CommandError)
+        time.sleep(0.2)
+
         # Verify the brake is disengaged, the API will not raise an
         # error
         device.set(commands.Move(motor_id, 1000))
