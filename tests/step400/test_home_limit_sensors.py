@@ -6,7 +6,7 @@
 
 import pytest
 
-from stepseries import commands, exceptions, responses
+from stepseries import commands, responses
 from stepseries.step400 import STEP400
 
 
@@ -69,17 +69,39 @@ class TestHomeLimitSwitchCommands:
         assert isinstance(response, responses.HomeSwMode)
         assert not response.swMode
 
-    def test_limit_sw(self, device: STEP400, motor_id: int) -> None:
-        # There is no limit switch port on the STEP400, so the API will
-        # raise an error for the following commands
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.set(commands.EnableLimitSwReport(motor_id, True))
+    @pytest.mark.check_400_limitsw
+    def test_limit_sw_report(self, device: STEP400, motor_id: int, wait_for) -> None:
+        # NOTE: This test may require user interaction
+        try:
+            # Enable switch reporting
+            wait_for(
+                device,
+                commands.EnableLimitSwReport(motor_id, True),
+                responses.LimitSw,
+                120,
+            )
+        except TimeoutError:
+            pytest.warns(
+                UserWarning, "No switch input was detected for the limit sw report"
+            )
+        finally:
+            # Disable reporting
+            device.set(commands.EnableLimitSwReport(motor_id, False))
 
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.get(commands.GetLimitSw(motor_id))
+    @pytest.mark.check_400_limitsw
+    def test_get_limit_sw(self, device: STEP400, motor_id: int) -> None:
+        # Send the command and get the response
+        response: responses.LimitSw = device.get(commands.GetLimitSw(motor_id))
 
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.set(commands.SetLimitSwMode(motor_id, True))
+        # Verify the response
+        assert isinstance(response, responses.LimitSw)
 
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.get(commands.GetLimitSwMode(motor_id))
+    @pytest.mark.check_400_limitsw
+    def test_limit_sw_mode(self, device: STEP400, motor_id: int) -> None:
+        # Send the set command
+        device.set(commands.SetLimitSwMode(motor_id, False))
+
+        # Verify the set command
+        response: responses.LimitSwMode = device.get(commands.GetLimitSwMode(motor_id))
+        assert isinstance(response, responses.LimitSwMode)
+        assert not response.swMode
