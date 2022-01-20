@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from stepseries import commands, responses
+from stepseries import commands, exceptions, responses
 from stepseries.step400 import STEP400
 
 # Test configurations
@@ -57,18 +57,28 @@ class TestPresets:
 
     # Motor Driver Settings
     microstep_mode: int = 7
-    low_speed_optimize_threshold: int = 20
+    low_speed_optimize_threshold: int = 15
 
     # Voltage & Current Mode Settings
-    kval_hold: int = 119
-    kval_run: int = 238
-    kval_acc: int = 238
-    kval_dec: int = 238
+    kval_hold: int = 60
+    kval_run: int = 119
+    kval_acc: int = 119
+    kval_dec: int = 119
 
     bemf_int_speed: int = 7895
-    bemf_st_slp: int = 106
-    bemf_fn_slp_acc: int = 234
-    bemf_fn_slp_dec: int = 234
+    bemf_st_slp: int = 53
+    bemf_fn_slp_acc: int = 117
+    bemf_fn_slp_dec: int = 117
+
+    tval_hold: int = 2
+    tval_run: int = 5
+    tval_acc: int = 5
+    tval_dec: int = 5
+
+    # Decay Mode Params (seen as T_* in the configs)
+    dmp_fast: int = 25
+    dmp_onmin: int = 41
+    dmp_offmin: int = 41
 
     # Speed Profile Settings
     acc: float = 2000
@@ -81,7 +91,7 @@ class TestPresets:
     default_dec: float = 1000
     default_max_speed: float = 650
 
-    fullstep_speed: float = 14625
+    fullstep_speed: float = 15625
 
     # Homing Settings
     homing_direction: int = 1  # 0 or 1
@@ -102,8 +112,13 @@ def device(wait_for) -> STEP400:
     # Send the start-up command
     try:
         wait_for(device, commands.SetDestIP(), responses.DestIP)
-    except TimeoutError:
-        pass
+
+        # Verify the device type through the firmware
+        version: responses.Version = device.get(commands.GetVersion())
+        if "STEP400" not in version.firmware_name:
+            device.close()
+    except (TimeoutError, exceptions.ClientClosedError):
+        device.close()
 
     return device
 
@@ -121,14 +136,17 @@ def motor_id() -> int:
 def reset_device(request, device: STEP400, wait_for) -> None:
     yield
     if request.node.get_closest_marker("reset_400_device"):
-        # Reset the entire device
-        wait_for(device, commands.ResetDevice(), responses.Booted)
+        try:
+            # Reset the entire device
+            wait_for(device, commands.ResetDevice(), responses.Booted)
 
-        # Re-Initialize the device
-        wait_for(device, commands.SetDestIP(), responses.DestIP)
+            # Re-Initialize the device
+            wait_for(device, commands.SetDestIP(), responses.DestIP)
 
-        # Small delay to allow processes to boot
-        time.sleep(0.5)
+            # Small delay to allow processes to boot
+            time.sleep(0.5)
+        except (TimeoutError, exceptions.ClientClosedError):
+            device.close()
 
 
 @pytest.fixture(autouse=True)

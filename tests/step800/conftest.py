@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from stepseries import commands, responses
+from stepseries import commands, exceptions, responses
 from stepseries.step800 import STEP800
 
 # Test configurations
@@ -97,8 +97,13 @@ def device(wait_for) -> STEP800:
     # Send the start-up command
     try:
         wait_for(device, commands.SetDestIP(), responses.DestIP)
-    except TimeoutError:
-        pass
+
+        # Verify the device type through the firmware
+        version: responses.Version = device.get(commands.GetVersion())
+        if "STEP800" not in version.firmware_name:
+            device.close()
+    except (TimeoutError, exceptions.ClientClosedError):
+        device.close()
 
     return device
 
@@ -116,14 +121,17 @@ def motor_id() -> int:
 def reset_device(request, device: STEP800, wait_for) -> None:
     yield
     if request.node.get_closest_marker("reset_800_device"):
-        # Reset the entire device
-        wait_for(device, commands.ResetDevice(), responses.Booted)
+        try:
+            # Reset the entire device
+            wait_for(device, commands.ResetDevice(), responses.Booted)
 
-        # Re-Initialize the device
-        wait_for(device, commands.SetDestIP(), responses.DestIP)
+            # Re-Initialize the device
+            wait_for(device, commands.SetDestIP(), responses.DestIP)
 
-        # Small delay to allow processes to boot
-        time.sleep(0.5)
+            # Small delay to allow processes to boot
+            time.sleep(0.5)
+        except (TimeoutError, exceptions.ClientClosedError):
+            device.close()
 
 
 @pytest.fixture(autouse=True)
