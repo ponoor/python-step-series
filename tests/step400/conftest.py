@@ -47,6 +47,11 @@ class TestPresets:
     # or tests that require the home switch
     homesw_exists: bool = False
 
+    # Is there a limit switch connected?
+    # Also keep this False if you do not wish to run tests that require
+    # the limit switch
+    limitsw_exists: bool = False
+
     # Is the EM-brake connected?
     embrake_exists: bool = False
 
@@ -106,7 +111,7 @@ def device(wait_for) -> STEP400:
 @pytest.fixture(scope="package")
 def motor_id() -> int:
     if not TestPresets.motor_id:
-        valid_ids = list(range(1, 9))
+        valid_ids = list(range(1, 5))
         return valid_ids[random.randint(0, len(valid_ids) - 1)]
 
     return TestPresets.motor_id
@@ -149,6 +154,15 @@ def check_homing_switch(request):
             pytest.skip("presets not configured")
         if not TestPresets.homesw_exists:
             pytest.skip("no homing switch is connected")
+
+
+@pytest.fixture(autouse=True)
+def check_limit_switch(request):
+    if request.node.get_closest_marker("check_400_limitsw"):
+        if not TestPresets.is_configured:
+            pytest.skip("presets not configured")
+        if not TestPresets.limitsw_exists:
+            pytest.skip("no limit switch is connected")
 
 
 @pytest.fixture(autouse=True)
