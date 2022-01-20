@@ -4,7 +4,7 @@ import time
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 # Test configurations
 # Please configure these presets before running the tests. Ensure to set
@@ -24,7 +24,7 @@ class TestPresets:
 
     # Device networking settings
     id: int = 0
-    address: str = "10.1.16.20"
+    address: str = "10.1.16.21"
     port: int = 50000
     server_address: str = "0.0.0.0"
     server_port: int = 50100
@@ -84,8 +84,8 @@ class TestPresets:
 
 
 @pytest.fixture(scope="package")
-def device(wait_for) -> STEP800:
-    device = STEP800(
+def device(wait_for) -> STEP400:
+    device = STEP400(
         TestPresets.id,
         TestPresets.address,
         TestPresets.port,
@@ -113,9 +113,9 @@ def motor_id() -> int:
 
 
 @pytest.fixture(scope="class", autouse=True)
-def reset_device(request, device: STEP800, wait_for) -> None:
+def reset_device(request, device: STEP400, wait_for) -> None:
     yield
-    if request.node.get_closest_marker("reset_800_device"):
+    if request.node.get_closest_marker("reset_400_device"):
         # Reset the entire device
         wait_for(device, commands.ResetDevice(), responses.Booted)
 
@@ -127,15 +127,15 @@ def reset_device(request, device: STEP800, wait_for) -> None:
 
 
 @pytest.fixture(autouse=True)
-def skip_if_disconnected(request, device: STEP800):
-    if request.node.get_closest_marker("skip_800_disconnected"):
+def skip_if_disconnected(request, device: STEP400):
+    if request.node.get_closest_marker("skip_400_disconnected"):
         if device.is_closed:
             pytest.skip("hardware not detected")
 
 
 @pytest.fixture(autouse=True)
 def check_motors(request):
-    if request.node.get_closest_marker("check_800_motors"):
+    if request.node.get_closest_marker("check_400_motors"):
         if not TestPresets.is_configured:
             pytest.skip("presets not configured")
         if not TestPresets.enable_motors:
@@ -144,7 +144,7 @@ def check_motors(request):
 
 @pytest.fixture(autouse=True)
 def check_homing_switch(request):
-    if request.node.get_closest_marker("check_800_homesw"):
+    if request.node.get_closest_marker("check_400_homesw"):
         if not TestPresets.is_configured:
             pytest.skip("presets not configured")
         if not TestPresets.homesw_exists:
@@ -153,7 +153,7 @@ def check_homing_switch(request):
 
 @pytest.fixture(autouse=True)
 def check_embrake(request):
-    if request.node.get_closest_marker("check_800_embrake"):
+    if request.node.get_closest_marker("check_400_embrake"):
         if not TestPresets.is_configured:
             pytest.skip("presets not configured")
         if not TestPresets.embrake_exists:
@@ -162,7 +162,7 @@ def check_embrake(request):
 
 @pytest.fixture(autouse=True)
 def skip_if_not_configured(request):
-    if request.node.get_closest_marker("skip_800_not_configured"):
+    if request.node.get_closest_marker("skip_400_not_configured"):
         if not TestPresets.is_configured:
             pytest.skip("presets not configured")
 

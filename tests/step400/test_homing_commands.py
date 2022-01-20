@@ -9,13 +9,13 @@ import time
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestHomingCommands:
-    def test_get_homing_status(self, device: STEP800, motor_id: int) -> None:
+    def test_get_homing_status(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the resposne
         response: responses.HomingStatus = device.get(
             commands.GetHomingStatus(motor_id)
@@ -24,7 +24,7 @@ class TestHomingCommands:
         assert isinstance(response, responses.HomingStatus)
         assert response.homingStatus == 0
 
-    def test_homing_direction(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_homing_direction(self, device: STEP400, motor_id: int, presets) -> None:
         # Set the direction
         device.set(commands.SetHomingDirection(motor_id, presets.homing_direction))
 
@@ -35,7 +35,7 @@ class TestHomingCommands:
         assert isinstance(response, responses.HomingDirection)
         assert response.homingDirection == presets.homing_direction
 
-    def test_homing_speed(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_homing_speed(self, device: STEP400, motor_id: int, presets) -> None:
         # Set the speed
         device.set(commands.SetHomingSpeed(motor_id, presets.homing_speed))
 
@@ -44,7 +44,7 @@ class TestHomingCommands:
         assert isinstance(response, responses.HomingSpeed)
         assert response.homingSpeed == presets.homing_speed
 
-    def test_go_until_timeout(self, device: STEP800, motor_id: int) -> None:
+    def test_go_until_timeout(self, device: STEP400, motor_id: int) -> None:
         # Set the timeout
         device.set(commands.SetGoUntilTimeout(motor_id, 20000))
 
@@ -55,7 +55,7 @@ class TestHomingCommands:
         assert isinstance(response, responses.GoUntilTimeout)
         assert response.timeout == 20000
 
-    def test_release_sw_timeout(self, device: STEP800, motor_id: int) -> None:
+    def test_release_sw_timeout(self, device: STEP400, motor_id: int) -> None:
         # Set the timeout
         device.set(commands.SetReleaseSwTimeout(motor_id, 20000))
 
@@ -66,9 +66,9 @@ class TestHomingCommands:
         assert isinstance(response, responses.ReleaseSwTimeout)
         assert response.timeout == 20000
 
-    @pytest.mark.check_800_motors
-    @pytest.mark.check_800_homesw
-    def test_release_sw(self, device: STEP800, motor_id: int, presets) -> None:
+    @pytest.mark.check_400_motors
+    @pytest.mark.check_400_homesw
+    def test_release_sw(self, device: STEP400, motor_id: int, presets) -> None:
         # Go until the HOME sw fires
         device.set(commands.ReleaseSw(motor_id, 1, presets.homing_direction))
 
@@ -79,9 +79,9 @@ class TestHomingCommands:
                 break
             time.sleep(0.1)
 
-    @pytest.mark.check_800_motors
-    @pytest.mark.check_800_homesw
-    def test_go_until(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_motors
+    @pytest.mark.check_400_homesw
+    def test_go_until(self, device: STEP400, motor_id: int) -> None:
         # Go until the HOME sw fires
         device.set(commands.GoUntil(motor_id, 1, 400))
 
@@ -92,9 +92,9 @@ class TestHomingCommands:
                 break
             time.sleep(0.1)
 
-    @pytest.mark.check_800_motors
-    @pytest.mark.check_800_homesw
-    def test_homing(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_motors
+    @pytest.mark.check_400_homesw
+    def test_homing(self, device: STEP400, motor_id: int) -> None:
         # NOTE: This test may require user interaction
         # Start homing
         device.set(commands.SetHomingSpeed(motor_id, 620))

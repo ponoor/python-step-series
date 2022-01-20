@@ -7,14 +7,14 @@
 import pytest
 
 from stepseries import commands, exceptions, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestHomeLimitSwitchCommands:
-    @pytest.mark.check_800_homesw
-    def test_home_sw_report(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_homesw
+    def test_home_sw_report(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         try:
             # Enable switch reporting
@@ -32,8 +32,8 @@ class TestHomeLimitSwitchCommands:
             # Disable reporting
             device.set(commands.EnableHomeSwReport(motor_id, False))
 
-    @pytest.mark.check_800_homesw
-    def test_sw_event_report(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_homesw
+    def test_sw_event_report(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         try:
             # Enable switch reporting
@@ -51,16 +51,16 @@ class TestHomeLimitSwitchCommands:
             # Disable reporting
             device.set(commands.EnableSwEventReport(motor_id, False))
 
-    @pytest.mark.check_800_homesw
-    def test_get_home_sw(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_homesw
+    def test_get_home_sw(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.HomeSw = device.get(commands.GetHomeSw(motor_id))
 
         # Verify the response
         assert isinstance(response, responses.HomeSw)
 
-    @pytest.mark.check_800_homesw
-    def test_home_sw_mode(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_homesw
+    def test_home_sw_mode(self, device: STEP400, motor_id: int) -> None:
         # Send the set command
         device.set(commands.SetHomeSwMode(motor_id, False))
 
@@ -69,8 +69,8 @@ class TestHomeLimitSwitchCommands:
         assert isinstance(response, responses.HomeSwMode)
         assert not response.swMode
 
-    def test_limit_sw(self, device: STEP800, motor_id: int) -> None:
-        # There is no limit switch port on the STEP800, so the API will
+    def test_limit_sw(self, device: STEP400, motor_id: int) -> None:
+        # There is no limit switch port on the STEP400, so the API will
         # raise an error for the following commands
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.EnableLimitSwReport(motor_id, True))

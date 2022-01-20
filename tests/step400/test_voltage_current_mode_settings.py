@@ -10,19 +10,19 @@ successfully.
 import pytest
 
 from stepseries import commands, exceptions, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestVoltageCurrentMessages:
-    def test_set_voltage_mode(self, device: STEP800, motor_id: int) -> None:
-        # Not a valid command on the STEP800, the API will raise an
+    def test_set_voltage_mode(self, device: STEP400, motor_id: int) -> None:
+        # Not a valid command on the STEP400, the API will raise an
         # error
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetVoltageMode(motor_id))
 
-    def test_kval(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_kval(self, device: STEP400, motor_id: int, presets) -> None:
         # Send the set command
         device.set(
             commands.SetKval(
@@ -42,7 +42,7 @@ class TestVoltageCurrentMessages:
         assert response.accKVAL == presets.kval_acc
         assert response.setDecKVAL == presets.kval_dec
 
-    def test_bemf_param(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_bemf_param(self, device: STEP400, motor_id: int, presets) -> None:
         # Verify the motor is in a HiZ state
         device.set(commands.HardHiZ(motor_id))
 
@@ -68,14 +68,14 @@ class TestVoltageCurrentMessages:
         assert response.FN_SLP_ACC == presets.bemf_fn_slp_acc
         assert response.FN_SLP_DEC == presets.bemf_fn_slp_dec
 
-    def test_set_current_mode(self, device: STEP800, motor_id: int) -> None:
-        # Not a valid command on the STEP800, the API will raise an
+    def test_set_current_mode(self, device: STEP400, motor_id: int) -> None:
+        # Not a valid command on the STEP400, the API will raise an
         # error
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetCurrentMode(motor_id))
 
-    def test_tval(self, device: STEP800, motor_id: int) -> None:
-        # Not a valid command on the STEP800, the API will raise an
+    def test_tval(self, device: STEP400, motor_id: int) -> None:
+        # Not a valid command on the STEP400, the API will raise an
         # error
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetTval(motor_id, 0, 0, 0, 0))
@@ -86,8 +86,8 @@ class TestVoltageCurrentMessages:
         with pytest.raises(exceptions.InvalidCommandError):
             device.get(commands.GetTval_mA(motor_id))
 
-    def test_decay_mode_param(self, device: STEP800, motor_id: int) -> None:
-        # Not a valid command on the STEP800, the API will raise an
+    def test_decay_mode_param(self, device: STEP400, motor_id: int) -> None:
+        # Not a valid command on the STEP400, the API will raise an
         # error
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetDecayModeParam(motor_id, 0, 0, 0))

@@ -9,16 +9,16 @@ import time
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.check_800_embrake
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.check_400_embrake
+@pytest.mark.reset_400_device
 class TestElectromagneticBrakeCommands:
-    @pytest.mark.check_800_motors
+    @pytest.mark.check_400_motors
     def test_enable_activate_free_embrake(
-        self, device: STEP800, motor_id: int, wait_for
+        self, device: STEP400, motor_id: int, wait_for
     ) -> None:
         # Enable the brake
         device.set(commands.EnableElectromagnetBrake(motor_id, True))
@@ -51,7 +51,7 @@ class TestElectromagneticBrakeCommands:
         # Disengage both the motor and the brake
         device.set(commands.Free(motor_id, True))
 
-    def test_brake_transition_duration(self, device: STEP800, motor_id: int) -> None:
+    def test_brake_transition_duration(self, device: STEP400, motor_id: int) -> None:
         # Set the duration
         device.set(commands.SetBrakeTransitionDuration(motor_id, 1000))
 

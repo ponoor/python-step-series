@@ -7,13 +7,13 @@
 import pytest
 
 from stepseries import commands, exceptions, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestAlarmMessages:
-    def test_uvlo(self, device: STEP800, motor_id: int) -> None:
+    def test_uvlo(self, device: STEP400, motor_id: int) -> None:
         # NOTE: We skip testing automatic uvlo reporting
         # Send the command and get the response
         response: responses.Uvlo = device.get(commands.GetUvlo(motor_id))
@@ -22,7 +22,7 @@ class TestAlarmMessages:
         assert isinstance(response, responses.Uvlo)
         assert not response.state
 
-    def test_thermal_status(self, device: STEP800, motor_id: int) -> None:
+    def test_thermal_status(self, device: STEP400, motor_id: int) -> None:
         # NOTE: We skip testing automatic thermal status reporting
         # Send the command and get the response
         response: responses.ThermalStatus = device.get(
@@ -33,7 +33,7 @@ class TestAlarmMessages:
         assert isinstance(response, responses.ThermalStatus)
         assert not response.thermalStatus  # temperature is normal
 
-    def test_over_current(self, device: STEP800, motor_id: int) -> None:
+    def test_over_current(self, device: STEP400, motor_id: int) -> None:
         # NOTE: We skip testing automatic over current reporting
         # Set the threshold
         device.set(commands.SetOverCurrentThreshold(motor_id, 0))
@@ -50,7 +50,7 @@ class TestAlarmMessages:
         # Reset the threshold
         device.set(commands.SetOverCurrentThreshold(motor_id, 7))
 
-    def test_stall_threshold(self, device: STEP800, motor_id: int) -> None:
+    def test_stall_threshold(self, device: STEP400, motor_id: int) -> None:
         # NOTE: We skip testing automatic stall reporting
         # Set the threshold
         device.set(commands.SetStallThreshold(motor_id, 0))
@@ -67,7 +67,7 @@ class TestAlarmMessages:
         # Reset the threshold
         device.set(commands.SetStallThreshold(motor_id, 127))
 
-    def test_prohibit_motion_on_home_sw(self, device: STEP800, motor_id: int) -> None:
+    def test_prohibit_motion_on_home_sw(self, device: STEP400, motor_id: int) -> None:
         # Disable motion in the direction of the switch
         device.set(commands.SetProhibitMotionOnHomeSw(motor_id, True))
 
@@ -81,8 +81,8 @@ class TestAlarmMessages:
         # Enable motion in the direction of the switch
         device.set(commands.SetProhibitMotionOnHomeSw(motor_id, False))
 
-    def test_prohibit_motion_on_limit_sw(self, device: STEP800, motor_id: int) -> None:
-        # There is no limit switch capability on the STEP800, so the API
+    def test_prohibit_motion_on_limit_sw(self, device: STEP400, motor_id: int) -> None:
+        # There is no limit switch capability on the STEP400, so the API
         # should raise an error
         with pytest.raises(exceptions.InvalidCommandError):
             device.set(commands.SetProhibitMotionOnLimitSw(motor_id, True))

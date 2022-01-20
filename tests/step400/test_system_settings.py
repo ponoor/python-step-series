@@ -7,12 +7,12 @@
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
+@pytest.mark.skip_400_disconnected
 class TestSystemMessages:
-    def test_set_dest_ip(self, device: STEP800, wait_for) -> None:
+    def test_set_dest_ip(self, device: STEP400, wait_for) -> None:
         # A utility function to easily get the IP address of the local
         # machine
         def my_ip() -> str:
@@ -38,7 +38,7 @@ class TestSystemMessages:
             == my_ip()
         )
 
-    def test_get_version(self, device: STEP800) -> None:
+    def test_get_version(self, device: STEP400) -> None:
         # Send the command and wait for the device's response
         response: responses.Version = device.get(commands.GetVersion())
 
@@ -48,8 +48,8 @@ class TestSystemMessages:
         assert response.firmware_name
         assert response.firmware_version
 
-    @pytest.mark.skip_800_not_configured
-    def test_get_config_name(self, device: STEP800, presets) -> None:
+    @pytest.mark.skip_400_not_configured
+    def test_get_config_name(self, device: STEP400, presets) -> None:
         # Send the command and wait for the device's response
         response: responses.ConfigName = device.get(commands.GetConfigName())
 
@@ -59,7 +59,7 @@ class TestSystemMessages:
         assert response.configFileParseSucceeded == presets.using_config_file
         assert response.sdInitializeSucceeded == presets.using_config_file
 
-    def test_report_error(self, device: STEP800) -> None:
+    def test_report_error(self, device: STEP400) -> None:
         # Enable error reporting from the device
         device.set(commands.ReportError(True))
 
@@ -97,7 +97,7 @@ class TestSystemMessages:
         device.set(commands.ReportError(True))
 
     @pytest.mark.order(-1)
-    def test_reset_device(self, device: STEP800, wait_for) -> None:
+    def test_reset_device(self, device: STEP400, wait_for) -> None:
         # Send the command and wait for the response
         wait_for(device, commands.ResetDevice(), responses.Booted)
 

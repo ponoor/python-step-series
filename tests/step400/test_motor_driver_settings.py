@@ -9,14 +9,14 @@ import time
 import pytest
 
 from stepseries import commands, exceptions, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestMotorDriverMessages:
-    @pytest.mark.skip_800_not_configured
-    def test_microstep_mode(self, device: STEP800, motor_id: int, presets) -> None:
+    @pytest.mark.skip_400_not_configured
+    def test_microstep_mode(self, device: STEP400, motor_id: int, presets) -> None:
         # Ensure the motor is in a high-z state
         if not device.get(commands.GetHiZ(motor_id)).state:
             device.set(commands.HardHiZ(motor_id))
@@ -34,9 +34,9 @@ class TestMotorDriverMessages:
         assert isinstance(response, responses.MicrostepMode)
         assert response.STEP_SEL == presets.microstep_mode
 
-    @pytest.mark.skip_800_not_configured
+    @pytest.mark.skip_400_not_configured
     def test_low_speed_optimize_threshold(
-        self, device: STEP800, motor_id: int, presets
+        self, device: STEP400, motor_id: int, presets
     ) -> None:
         # Set the low speed optimize threshold at the preset defined
         device.set(
@@ -54,7 +54,7 @@ class TestMotorDriverMessages:
             response.lowSpeedOptimizeThreshold == presets.low_speed_optimize_threshold
         )
 
-    def test_get_busy(self, device: STEP800, motor_id: int) -> None:
+    def test_get_busy(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.Busy = device.get(commands.GetBusy(motor_id))
 
@@ -63,8 +63,8 @@ class TestMotorDriverMessages:
         assert response.motorID == motor_id
         assert not response.state
 
-    @pytest.mark.check_800_motors
-    def test_enable_busy_report(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_motors
+    def test_enable_busy_report(self, device: STEP400, motor_id: int, wait_for) -> None:
         # Enable the reporting
         device.set(commands.EnableBusyReport(motor_id, True))
 
@@ -89,7 +89,7 @@ class TestMotorDriverMessages:
         # Disable the reporting
         device.set(commands.EnableBusyReport(motor_id, False))
 
-    def test_get_hiz(self, device: STEP800, motor_id: int) -> None:
+    def test_get_hiz(self, device: STEP400, motor_id: int) -> None:
         # Put the motor into a HiZ state
         device.set(commands.HardHiZ(motor_id))
 
@@ -101,8 +101,8 @@ class TestMotorDriverMessages:
         assert response.motorID == motor_id
         assert response.state
 
-    @pytest.mark.check_800_motors
-    def test_enable_hiz_report(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_motors
+    def test_enable_hiz_report(self, device: STEP400, motor_id: int, wait_for) -> None:
         # Enable the reporting
         device.set(commands.EnableHiZReport(motor_id, True))
 
@@ -130,7 +130,7 @@ class TestMotorDriverMessages:
         # Disable the reporting
         device.set(commands.EnableHiZReport(motor_id, False))
 
-    def test_get_dir(self, device: STEP800, motor_id: int) -> None:
+    def test_get_dir(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.Dir = device.get(commands.GetDir(motor_id))
 
@@ -138,8 +138,8 @@ class TestMotorDriverMessages:
         assert isinstance(response, responses.Dir)
         assert response.motorID == motor_id
 
-    @pytest.mark.check_800_motors
-    def test_enable_dir_report(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_motors
+    def test_enable_dir_report(self, device: STEP400, motor_id: int, wait_for) -> None:
         # Enable the reporting
         device.set(commands.EnableDirReport(motor_id, True))
 
@@ -183,7 +183,7 @@ class TestMotorDriverMessages:
         # Disable the reporting
         device.set(commands.EnableDirReport(motor_id, False))
 
-    def test_get_motor_status(self, device: STEP800, motor_id: int) -> None:
+    def test_get_motor_status(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.MotorStatus = device.get(commands.GetMotorStatus(motor_id))
 
@@ -192,9 +192,9 @@ class TestMotorDriverMessages:
         assert response.motorID == motor_id
         assert not response.MOT_STATUS  # Motor stopped
 
-    @pytest.mark.check_800_motors
+    @pytest.mark.check_400_motors
     def test_enable_status_report(
-        self, device: STEP800, motor_id: int, wait_for
+        self, device: STEP400, motor_id: int, wait_for
     ) -> None:
         # Enable the reporting
         device.set(commands.EnableMotorStatusReport(motor_id, True))
@@ -233,7 +233,7 @@ class TestMotorDriverMessages:
         device.set(commands.EnableMotorStatusReport(motor_id, False))
 
     def test_set_position_report_interval(
-        self, device: STEP800, motor_id: int, wait_for
+        self, device: STEP400, motor_id: int, wait_for
     ) -> None:
         # Enable periodic position reporting
         device.set(commands.SetPositionReportInterval(motor_id, 1000))
@@ -249,7 +249,7 @@ class TestMotorDriverMessages:
         # Disable the reporting
         device.set(commands.SetPositionReportInterval(motor_id, 0))
 
-    def test_set_position_list_report_interval(self, device: STEP800, wait_for) -> None:
+    def test_set_position_list_report_interval(self, device: STEP400, wait_for) -> None:
         # Enable periodic position list reporting
         device.set(commands.SetPositionListReportInterval(1000))
 
@@ -264,20 +264,20 @@ class TestMotorDriverMessages:
         # Disable the reporting
         device.set(commands.SetPositionListReportInterval(0))
 
-    def test_get_adc_val(self, device: STEP800, motor_id: int) -> None:
-        # This command cannot run on a STEP800, so the library raises
+    def test_get_adc_val(self, device: STEP400, motor_id: int) -> None:
+        # This command cannot run on a STEP400, so the library raises
         # an error
         with pytest.raises(exceptions.InvalidCommandError):
             device.get(commands.GetAdcVal(motor_id))
 
-    def test_get_status(self, device: STEP800, motor_id: int) -> None:
+    def test_get_status(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.Status = device.get(commands.GetStatus(motor_id))
 
         # Verify the response
         assert isinstance(response, responses.Status)
 
-    def test_get_config_register(self, device: STEP800, motor_id: int) -> None:
+    def test_get_config_register(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
         response: responses.ConfigRegister = device.get(
             commands.GetConfigRegister(motor_id)
@@ -286,7 +286,7 @@ class TestMotorDriverMessages:
         # Verify the response
         assert isinstance(response, responses.ConfigRegister)
 
-    def test_reset_motor_driver(self, device: STEP800, motor_id: int, wait_for) -> None:
+    def test_reset_motor_driver(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: Command is likely deprecated
         # Send the command
         device.set(commands.ResetMotorDriver(motor_id))

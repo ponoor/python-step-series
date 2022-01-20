@@ -9,14 +9,14 @@ import time
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.check_800_motors
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.check_400_motors
+@pytest.mark.reset_400_device
 class TestMotorControlCommands:
-    def test_run(self, device: STEP800, motor_id: int) -> None:
+    def test_run(self, device: STEP400, motor_id: int) -> None:
         # Send the run command
         device.set(commands.Run(motor_id, 300))
 
@@ -37,7 +37,7 @@ class TestMotorControlCommands:
                 break
             time.sleep(0.1)
 
-    def test_move(self, device: STEP800, motor_id: int) -> None:
+    def test_move(self, device: STEP400, motor_id: int) -> None:
         # Verify the motor is stopped
         device.set(commands.HardHiZ(motor_id))
 
@@ -54,7 +54,7 @@ class TestMotorControlCommands:
                 break
             time.sleep(0.1)
 
-    def test_go_to(self, device: STEP800, motor_id: int) -> None:
+    def test_go_to(self, device: STEP400, motor_id: int) -> None:
         # Send the move command
         device.set(commands.GoTo(motor_id, 0))
 
@@ -69,7 +69,7 @@ class TestMotorControlCommands:
         response: responses.Position = device.get(commands.GetPosition(motor_id))
         assert response.ABS_POS == 0
 
-    def test_go_to_dir(self, device: STEP800, motor_id: int) -> None:
+    def test_go_to_dir(self, device: STEP400, motor_id: int) -> None:
         # NOTE: This test is dependent on how the motor's coils are
         # wired. This test is not meant to take more than a few seconds,
         # so please invert the direction below if needed
@@ -89,7 +89,7 @@ class TestMotorControlCommands:
         response: responses.Position = device.get(commands.GetPosition(motor_id))
         assert response.ABS_POS == 10000
 
-    def test_stop(self, device: STEP800, motor_id: int) -> None:
+    def test_stop(self, device: STEP400, motor_id: int) -> None:
         # Verify the motor is stopped
         device.set(commands.HardHiZ(motor_id))
 
@@ -128,7 +128,7 @@ class TestMotorControlCommands:
                 break
             time.sleep(0.1)
 
-    def test_hiz(self, device: STEP800, motor_id: int) -> None:
+    def test_hiz(self, device: STEP400, motor_id: int) -> None:
         # Send a move command
         device.set(commands.Run(motor_id, 400))
 

@@ -9,13 +9,13 @@ import time
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestPositionManagementCommands:
-    def test_position(self, device: STEP800, motor_id: int) -> None:
+    def test_position(self, device: STEP400, motor_id: int) -> None:
         # Verify the motor is stopped
         response: responses.Busy = device.get(commands.GetBusy(motor_id))
         assert not response.state
@@ -28,7 +28,7 @@ class TestPositionManagementCommands:
         assert isinstance(response, responses.Position)
         assert response.ABS_POS == 125000
 
-    def test_position_list(self, device: STEP800) -> None:
+    def test_position_list(self, device: STEP400) -> None:
         # Send the command and get the response
         response: responses.PositionList = device.get(commands.GetPositionList())
         assert isinstance(response, responses.PositionList)
@@ -44,7 +44,7 @@ class TestPositionManagementCommands:
         ]
         assert position_list.count(125000) == 1
 
-    def test_reset_pos(self, device: STEP800, motor_id: int) -> None:
+    def test_reset_pos(self, device: STEP400, motor_id: int) -> None:
         # Send the set command
         device.set(commands.ResetPos(motor_id))
 
@@ -52,8 +52,8 @@ class TestPositionManagementCommands:
         response: responses.Position = device.get(commands.GetPosition(motor_id))
         assert response.ABS_POS == 0
 
-    @pytest.mark.check_800_motors
-    def test_el_pos(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_motors
+    def test_el_pos(self, device: STEP400, motor_id: int) -> None:
         # Verify the motor is in a HiZ state
         device.set(commands.HardHiZ(motor_id))
 
@@ -69,9 +69,9 @@ class TestPositionManagementCommands:
         assert response.fullstep == 3
         assert response.microstep == 104
 
-    @pytest.mark.check_800_motors
-    @pytest.mark.check_800_homesw
-    def test_go_home(self, device: STEP800, motor_id: int, wait_for) -> None:
+    @pytest.mark.check_400_motors
+    @pytest.mark.check_400_homesw
+    def test_go_home(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         # Verify the motor is in a HiZ state
         device.set(commands.HardHiZ(motor_id))
@@ -91,8 +91,8 @@ class TestPositionManagementCommands:
         # Send the motor home
         wait_for(device, commands.GoHome(motor_id), responses.HomeSw, 120)
 
-    @pytest.mark.check_800_motors
-    def test_go_mark(self, device: STEP800, motor_id: int) -> None:
+    @pytest.mark.check_400_motors
+    def test_go_mark(self, device: STEP400, motor_id: int) -> None:
         # Verify the motor is in a HiZ state
         device.set(commands.HardHiZ(motor_id))
 

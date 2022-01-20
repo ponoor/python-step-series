@@ -7,13 +7,13 @@
 import pytest
 
 from stepseries import commands, responses
-from stepseries.step800 import STEP800
+from stepseries.step400 import STEP400
 
 
-@pytest.mark.skip_800_disconnected
-@pytest.mark.reset_800_device
+@pytest.mark.skip_400_disconnected
+@pytest.mark.reset_400_device
 class TestSpeedProfileMessages:
-    def test_speed_profile(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_speed_profile(self, device: STEP400, motor_id: int, presets) -> None:
         # Send the set command
         device.set(
             commands.SetSpeedProfile(
@@ -30,7 +30,7 @@ class TestSpeedProfileMessages:
         assert abs(response.dec - presets.default_dec) > 10
         assert abs(response.maxSpeed - presets.default_max_speed) > 10
 
-    def test_fullstep_speed(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_fullstep_speed(self, device: STEP400, motor_id: int, presets) -> None:
         # Send the set command
         device.set(commands.SetFullstepSpeed(motor_id, presets.fullstep_speed))
 
@@ -42,7 +42,7 @@ class TestSpeedProfileMessages:
         assert response.fullstepSpeed < 15000
 
     def test_maxminspeed_acc_dec(
-        self, device: STEP800, motor_id: int, presets, wait_for
+        self, device: STEP400, motor_id: int, presets, wait_for
     ) -> None:
         # Reset the device to provide a clean slate
         wait_for(device, commands.ResetDevice(), responses.Booted)
@@ -66,7 +66,7 @@ class TestSpeedProfileMessages:
         assert isinstance(min_speed, responses.MinSpeed)
         assert 0 < min_speed.minSpeed < 16
 
-    def test_get_speed(self, device: STEP800, motor_id: int) -> None:
+    def test_get_speed(self, device: STEP400, motor_id: int) -> None:
         # Ensure the min speed is 0
         device.set(commands.SetMinSpeed(motor_id, 0.0))
 
