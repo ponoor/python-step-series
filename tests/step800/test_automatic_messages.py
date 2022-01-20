@@ -17,4 +17,4 @@ def test_booted(device: STEP800, wait_for) -> None:
     wait_for(device, commands.ResetDevice(), responses.Booted)
 
     # Make sure to re-initialize the device
-    device.set(commands.SetDestIP())
+    wait_for(device, commands.SetDestIP(), responses.DestIP)
