@@ -8,7 +8,7 @@ import time
 
 import pytest
 
-from stepseries import commands, exceptions, responses
+from stepseries import commands, responses
 from stepseries.step400 import STEP400
 
 
@@ -265,10 +265,12 @@ class TestMotorDriverMessages:
         device.set(commands.SetPositionListReportInterval(0))
 
     def test_get_adc_val(self, device: STEP400, motor_id: int) -> None:
-        # This command cannot run on a STEP400, so the library raises
-        # an error
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.get(commands.GetAdcVal(motor_id))
+        # Send the command and get the response
+        response: responses.AdcVal = device.get(commands.GetAdcVal(motor_id))
+
+        # Verify the response
+        assert isinstance(response, responses.AdcVal)
+        assert response.ADC_OUT == 31
 
     def test_get_status(self, device: STEP400, motor_id: int) -> None:
         # Send the command and get the response
