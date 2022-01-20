@@ -1,51 +1,79 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Ensure system commands and responses execute successfully."""
+"""Verify speed profile-related commands execute successfully."""
 
 
 import pytest
 
-from stepseries import commands, responses, step400
+from stepseries import commands, responses
+from stepseries.step800 import STEP800
 
 
-@pytest.mark.skip_400_disconnected
-class TestSpeedProfileSettings:
-    def test_speed_profile(self, device: step400.STEP400) -> None:
-        device.set(commands.SetSpeedProfile(4, 5555, 4444, 3333))
-        resp = device.get(commands.GetSpeedProfile(4))
-        assert isinstance(resp, responses.SpeedProfile)
-        # TODO: Debug why the device returns values less than set here
-        # assert resp.acc == 5555
-        # assert resp.dec == 4444
-        # assert resp.maxSpeed == 3333
-        device.set(commands.SetSpeedProfile(4, 2000, 2000, 620))
+@pytest.mark.skip_800_disconnected
+@pytest.mark.reset_800_device
+class TestSpeedProfileMessages:
+    def test_speed_profile(self, device: STEP800, motor_id: int, presets) -> None:
+        # Send the set command
+        device.set(
+            commands.SetSpeedProfile(
+                motor_id, presets.acc, presets.dec, presets.max_speed
+            )
+        )
 
-    def test_fullstep_speed(self, device: step400.STEP400) -> None:
-        device.set(commands.SetFullstepSpeed(3, 9206.46))
-        resp = device.get(commands.GetFullstepSpeed(3))
-        assert isinstance(resp, responses.FullstepSpeed)
-        # TODO: Debug why the device returns values less than set here
-        # assert resp.fullstepSpeed == 9206.46
-        device.set(commands.SetFullstepSpeed(3, 15625))
+        # Verify the set command
+        response: responses.SpeedProfile = device.get(
+            commands.GetSpeedProfile(motor_id)
+        )
+        assert isinstance(response, responses.SpeedProfile)
+        assert abs(response.acc - presets.default_acc) > 10
+        assert abs(response.dec - presets.default_dec) > 10
+        assert abs(response.maxSpeed - presets.default_max_speed) > 10
 
-    def test_set_max_speed(self, device: step400.STEP400) -> None:
-        device.set(commands.SetMaxSpeed(2, 1240))
+    def test_fullstep_speed(self, device: STEP800, motor_id: int, presets) -> None:
+        # Send the set command
+        device.set(commands.SetFullstepSpeed(motor_id, presets.fullstep_speed))
 
-    def test_set_acc(self, device: step400.STEP400) -> None:
-        device.set(commands.SetAcc(1, 6002))
+        # Verify the set command
+        response: responses.FullstepSpeed = device.get(
+            commands.GetFullstepSpeed(motor_id)
+        )
+        assert isinstance(response, responses.FullstepSpeed)
+        assert response.fullstepSpeed < 15000
 
-    def test_set_dec(self, device: step400.STEP400) -> None:
-        device.set(commands.SetDec(4, 155))
+    def test_maxminspeed_acc_dec(
+        self, device: STEP800, motor_id: int, presets, wait_for
+    ) -> None:
+        # Reset the device to provide a clean slate
+        wait_for(device, commands.ResetDevice(), responses.Booted)
+        wait_for(device, commands.SetDestIP(), responses.DestIP)
 
-    def test_min_speed(self, device: step400.STEP400) -> None:
-        device.set(commands.SetMinSpeed(3, 9206.46))
-        resp = device.get(commands.GetMinSpeed(3))
-        assert isinstance(resp, responses.MinSpeed)
-        # TODO: Debug why the device returns values less than set here
-        # assert resp.minSpeed == 9206.46
-        device.set(commands.SetMinSpeed(3, 0))
+        # Send the set commands
+        device.set(commands.SetMaxSpeed(motor_id, 15.25))
+        device.set(commands.SetMinSpeed(motor_id, 15.25))
+        device.set(commands.SetAcc(motor_id, 15.25))
+        device.set(commands.SetDec(motor_id, 15.25))
 
-    def test_get_speed(self, device: step400.STEP400) -> None:
-        resp = device.get(commands.GetSpeed(2))
-        assert isinstance(resp, responses.Speed)
+        # Verify the commands
+        response: responses.SpeedProfile = device.get(
+            commands.GetSpeedProfile(motor_id)
+        )
+        assert response.acc < 16
+        assert response.dec < 16
+        assert response.maxSpeed < 16
+
+        min_speed: responses.MinSpeed = device.get(commands.GetMinSpeed(motor_id))
+        assert isinstance(min_speed, responses.MinSpeed)
+        assert 0 < min_speed.minSpeed < 16
+
+    def test_get_speed(self, device: STEP800, motor_id: int) -> None:
+        # Ensure the min speed is 0
+        device.set(commands.SetMinSpeed(motor_id, 0.0))
+
+        response: responses.MinSpeed = device.get(commands.GetMinSpeed(motor_id))
+        assert response.minSpeed == 0.0
+
+        # Send the command and get the response
+        response: responses.Speed = device.get(commands.GetSpeed(motor_id))
+        assert isinstance(response, responses.Speed)
+        assert response.speed == 0.0

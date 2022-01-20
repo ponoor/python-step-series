@@ -1,55 +1,91 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Ensure system commands and responses execute successfully."""
+"""Verify motor alarm-related commands execute successfully."""
 
 
 import pytest
 
-from stepseries import commands, responses, step400
+from stepseries import commands, exceptions, responses
+from stepseries.step800 import STEP800
 
 
-@pytest.mark.skip_400_disconnected
-class TestAlarmSettings:
-    def test_uvlo(self, device: step400.STEP400) -> None:
-        device.set(commands.EnableUvloReport(4, False))
-        resp = device.get(commands.GetUvlo(4))
-        assert isinstance(resp, responses.Uvlo)
+@pytest.mark.skip_800_disconnected
+@pytest.mark.reset_800_device
+class TestAlarmMessages:
+    def test_uvlo(self, device: STEP800, motor_id: int) -> None:
+        # NOTE: We skip testing automatic uvlo reporting
+        # Send the command and get the response
+        response: responses.Uvlo = device.get(commands.GetUvlo(motor_id))
 
-    def test_thermal_status(self, device: step400.STEP400) -> None:
-        device.set(commands.EnableThermalStatusReport(3, True))
-        resp = device.get(commands.GetThermalStatus(3))
-        assert isinstance(resp, responses.ThermalStatus)
-        device.set(commands.EnableThermalStatusReport(3, False))
+        # Verify the response
+        assert isinstance(response, responses.Uvlo)
+        assert not response.state
 
-    def test_over_current(self, device: step400.STEP400) -> None:
-        device.set(commands.EnableOverCurrentReport(2, True))
-        device.set(commands.SetOverCurrentThreshold(2, 18))
-        resp = device.get(commands.GetOverCurrentThreshold(2))
-        assert isinstance(resp, responses.OverCurrentThreshold)
-        assert resp.overCurrentThreshold == 5937.5
-        device.set(commands.SetOverCurrentThreshold(2, 15))
-        device.set(commands.EnableOverCurrentReport(2, False))
+    def test_thermal_status(self, device: STEP800, motor_id: int) -> None:
+        # NOTE: We skip testing automatic thermal status reporting
+        # Send the command and get the response
+        response: responses.ThermalStatus = device.get(
+            commands.GetThermalStatus(motor_id)
+        )
 
-    def test_stall_report(self, device: step400.STEP400) -> None:
-        device.set(commands.EnableStallReport(1, True))
-        device.set(commands.SetStallThreshold(1, 6))
-        resp = device.get(commands.GetStallThreshold(1))
-        assert isinstance(resp, responses.StallThreshold)
-        assert resp.stallThreshold == 2187.5
-        device.set(commands.SetStallThreshold(1, 31))
-        device.set(commands.EnableStallReport(1, False))
+        # Verify the response
+        assert isinstance(response, responses.ThermalStatus)
+        assert not response.thermalStatus  # temperature is normal
 
-    def test_prohibit_motion_on_home_sw(self, device: step400.STEP400) -> None:
-        device.set(commands.SetProhibitMotionOnHomeSw(4, True))
-        resp = device.get(commands.GetProhibitMotionOnHomeSw(4))
-        assert isinstance(resp, responses.ProhibitMotionOnHomeSw)
-        assert resp.enable is True
-        device.set(commands.SetProhibitMotionOnHomeSw(4, False))
+    def test_over_current(self, device: STEP800, motor_id: int) -> None:
+        # NOTE: We skip testing automatic over current reporting
+        # Set the threshold
+        device.set(commands.SetOverCurrentThreshold(motor_id, 0))
 
-    def test_prohibit_motion_on_limit_sw(self, device: step400.STEP400) -> None:
-        device.set(commands.SetProhibitMotionOnLimitSw(4, True))
-        resp = device.get(commands.GetProhibitMotionOnLimitSw(4))
-        assert isinstance(resp, responses.ProhibitMotionOnLimitSw)
-        assert resp.enable is True
-        device.set(commands.SetProhibitMotionOnLimitSw(4, False))
+        # Get the threshold
+        response: responses.OverCurrentThreshold = device.get(
+            commands.GetOverCurrentThreshold(motor_id)
+        )
+
+        # Verify the response
+        assert isinstance(response, responses.OverCurrentThreshold)
+        assert response.overCurrentThreshold == 375.0
+
+        # Reset the threshold
+        device.set(commands.SetOverCurrentThreshold(motor_id, 7))
+
+    def test_stall_threshold(self, device: STEP800, motor_id: int) -> None:
+        # NOTE: We skip testing automatic stall reporting
+        # Set the threshold
+        device.set(commands.SetStallThreshold(motor_id, 0))
+
+        # Get the threshold
+        response: responses.StallThreshold = device.get(
+            commands.GetStallThreshold(motor_id)
+        )
+
+        # Verify the response
+        assert isinstance(response, responses.StallThreshold)
+        assert response.stallThreshold == 31.25
+
+        # Reset the threshold
+        device.set(commands.SetStallThreshold(motor_id, 127))
+
+    def test_prohibit_motion_on_home_sw(self, device: STEP800, motor_id: int) -> None:
+        # Disable motion in the direction of the switch
+        device.set(commands.SetProhibitMotionOnHomeSw(motor_id, True))
+
+        # Verify the motion is disabled
+        response: responses.ProhibitMotionOnHomeSw = device.get(
+            commands.GetProhibitMotionOnHomeSw(motor_id)
+        )
+        assert isinstance(response, responses.ProhibitMotionOnHomeSw)
+        assert response.enable
+
+        # Enable motion in the direction of the switch
+        device.set(commands.SetProhibitMotionOnHomeSw(motor_id, False))
+
+    def test_prohibit_motion_on_limit_sw(self, device: STEP800, motor_id: int) -> None:
+        # There is no limit switch capability on the STEP800, so the API
+        # should raise an error
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.set(commands.SetProhibitMotionOnLimitSw(motor_id, True))
+
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.get(commands.GetProhibitMotionOnLimitSw(motor_id))

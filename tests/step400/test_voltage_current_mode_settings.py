@@ -1,65 +1,96 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Ensure system commands and responses execute successfully."""
+"""
+Verify motor voltage and current mode-related commands execute
+successfully.
+"""
 
 
 import pytest
 
-from stepseries import commands, responses, step400
+from stepseries import commands, exceptions, responses
+from stepseries.step800 import STEP800
 
 
-@pytest.mark.skip_400_disconnected
-class TestVoltageCurrentModeSettings:
-    def test_set_voltage_mode(self, device: step400.STEP400) -> None:
-        device.set(commands.SetVoltageMode(4))
+@pytest.mark.skip_800_disconnected
+@pytest.mark.reset_800_device
+class TestVoltageCurrentMessages:
+    def test_set_voltage_mode(self, device: STEP800, motor_id: int) -> None:
+        # Not a valid command on the STEP800, the API will raise an
+        # error
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.set(commands.SetVoltageMode(motor_id))
 
-    def test_kval(self, device: step400.STEP400) -> None:
-        device.set(commands.SetKval(3, 127, 128, 129, 130))
-        resp = device.get(commands.GetKval(3))
-        assert isinstance(resp, responses.Kval)
-        assert resp.holdKVAL == 127
-        assert resp.runKVAL == 128
-        assert resp.accKVAL == 129
-        assert resp.setDecKVAL == 130
-        device.set(commands.SetKval(3, 16, 16, 16, 16))
+    def test_kval(self, device: STEP800, motor_id: int, presets) -> None:
+        # Send the set command
+        device.set(
+            commands.SetKval(
+                motor_id,
+                presets.kval_hold,
+                presets.kval_run,
+                presets.kval_acc,
+                presets.kval_dec,
+            )
+        )
 
-    def test_bemf_param(self, device: step400.STEP400) -> None:
-        device.set(commands.SetBemfParam(2, 1422, 253, 254, 255))
-        resp = device.get(commands.GetBemfParam(2))
-        assert isinstance(resp, responses.BemfParam)
-        assert resp.INT_SPEED == 1422
-        assert resp.ST_SLP == 253
-        assert resp.FN_SLP_ACC == 254
-        assert resp.FN_SLP_DEC == 255
-        device.set(commands.SetBemfParam(2, 1032, 25, 41, 41))
+        # Verify the set command
+        response: responses.Kval = device.get(commands.GetKval(motor_id))
+        assert isinstance(response, responses.Kval)
+        assert response.holdKVAL == presets.kval_hold
+        assert response.runKVAL == presets.kval_run
+        assert response.accKVAL == presets.kval_acc
+        assert response.setDecKVAL == presets.kval_dec
 
-    def test_set_current_mode(self, device: step400.STEP400) -> None:
-        device.set(commands.SetCurrentMode(1))
+    def test_bemf_param(self, device: STEP800, motor_id: int, presets) -> None:
+        # Verify the motor is in a HiZ state
+        device.set(commands.HardHiZ(motor_id))
 
-    def test_tval(self, device: step400.STEP400) -> None:
-        device.set(commands.SetTval(4, 10, 20, 30, 40))
-        resp = device.get(commands.GetTval(4))
-        assert isinstance(resp, responses.Tval)
-        assert resp.holdTVAL == 10
-        assert resp.runTVAL == 20
-        assert resp.accTVAL == 30
-        assert resp.decTVAL == 40
-        device.set(commands.SetTval(4, 0, 16, 16, 16))
+        response: responses.HiZ = device.get(commands.GetHiZ(motor_id))
+        assert response.state
 
-    def test_get_tval_mA(self, device: step400.STEP400) -> None:
-        resp = device.get(commands.GetTval_mA(3))
-        assert isinstance(resp, responses.Tval_mA)
-        assert resp.holdTVAL_mA == 78.125
-        assert resp.runTVAL_mA == 1328.125
-        assert resp.accTVAL_mA == 1328.125
-        assert resp.decTVAL_mA == 1328.125
+        # Send the BEMF set command
+        device.set(
+            commands.SetBemfParam(
+                motor_id,
+                presets.bemf_int_speed,
+                presets.bemf_st_slp,
+                presets.bemf_fn_slp_acc,
+                presets.bemf_fn_slp_dec,
+            )
+        )
 
-    def test_decay_mode_param(self, device: step400.STEP400) -> None:
-        device.set(commands.SetDecayModeParam(4, 100, 90, 80))
-        resp = device.get(commands.GetDecayModeParam(4))
-        assert isinstance(resp, responses.DecayModeParam)
-        assert resp.T_FAST == 100
-        assert resp.TON_MIN == 90
-        assert resp.TOFF_MIN == 80
-        device.set(commands.SetDecayModeParam(4, 25, 41, 41))
+        # Verify the set command was successful
+        response: responses.BemfParam = device.get(commands.GetBemfParam(motor_id))
+        assert isinstance(response, responses.BemfParam)
+        assert response.INT_SPEED == presets.bemf_int_speed
+        assert response.ST_SLP == presets.bemf_st_slp
+        assert response.FN_SLP_ACC == presets.bemf_fn_slp_acc
+        assert response.FN_SLP_DEC == presets.bemf_fn_slp_dec
+
+    def test_set_current_mode(self, device: STEP800, motor_id: int) -> None:
+        # Not a valid command on the STEP800, the API will raise an
+        # error
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.set(commands.SetCurrentMode(motor_id))
+
+    def test_tval(self, device: STEP800, motor_id: int) -> None:
+        # Not a valid command on the STEP800, the API will raise an
+        # error
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.set(commands.SetTval(motor_id, 0, 0, 0, 0))
+
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.get(commands.GetTval(motor_id))
+
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.get(commands.GetTval_mA(motor_id))
+
+    def test_decay_mode_param(self, device: STEP800, motor_id: int) -> None:
+        # Not a valid command on the STEP800, the API will raise an
+        # error
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.set(commands.SetDecayModeParam(motor_id, 0, 0, 0))
+
+        with pytest.raises(exceptions.InvalidCommandError):
+            device.get(commands.GetDecayModeParam(motor_id))
