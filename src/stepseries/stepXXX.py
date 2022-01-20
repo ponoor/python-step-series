@@ -154,7 +154,11 @@ class STEPXXX:
 
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
-        if resp.address.lower() != self._get_request or self._get_with_callback:
+        if (
+            resp.address.lower() != self._get_request
+            or self._get_with_callback
+            or isinstance(resp, Exception)
+        ):
             for resp_type, callbacks in self._registered_callbacks.items():
                 if resp.__class__ == resp_type or resp_type is None:
                     for callback in callbacks:
@@ -165,7 +169,7 @@ class STEPXXX:
 
         # Return the get request
         if self._get_request:
-            if resp.address.lower() == self._get_request:
+            if resp.address.lower() == self._get_request or isinstance(resp, Exception):
                 if self._multiple_responses:
                     self._get_queue.put(self._multiple_responses)
                 else:
@@ -282,6 +286,7 @@ class STEPXXX:
         self._check_status()
 
         # Prepare for get request
+        # TODO: Change to use registered cls with command
         s: str = command.address.replace("get", "")
         if wait:
             self._get_request = s.lower()
