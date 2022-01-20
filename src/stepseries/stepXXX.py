@@ -44,7 +44,7 @@ class STEPXXX:
     _registered_callbacks: Dict[
         Union[OSCResponse, None], List[Callable[[OSCResponse], None]]
     ]
-    _get_request: str
+    _get_request: OSCResponse
     _get_with_callback: bool
     _get_queue: Queue
     _is_closed: bool
@@ -139,7 +139,7 @@ class STEPXXX:
         # Support multiple responses
         if self._is_multiple_response:
             if not isinstance(resp, Exception):
-                if resp.address.lower() == self._get_request:
+                if isinstance(resp, self._get_request):
                     self._multiple_responses.append(resp)
                     if (
                         len(self._multiple_responses)
@@ -148,14 +148,14 @@ class STEPXXX:
                         return
             else:
                 if self._get_request:
-                    if resp.address.lower() == self._get_request:
+                    if isinstance(resp, self._get_request):
                         self._get_queue.put(resp)
                         self._get_queue.join()
 
         # Send the message to all required callbacks
         # TODO: Look at thread pooling this process
         if (
-            resp.address.lower() != self._get_request
+            not isinstance(resp, self._get_request or type(None))
             or self._get_with_callback
             or isinstance(resp, Exception)
         ):
@@ -169,7 +169,7 @@ class STEPXXX:
 
         # Return the get request
         if self._get_request:
-            if resp.address.lower() == self._get_request or isinstance(resp, Exception):
+            if isinstance(resp, self._get_request) or isinstance(resp, Exception):
                 if self._multiple_responses:
                     self._get_queue.put(self._multiple_responses)
                 else:
@@ -286,10 +286,8 @@ class STEPXXX:
         self._check_status()
 
         # Prepare for get request
-        # TODO: Change to use registered cls with command
-        s: str = command.address.replace("get", "")
         if wait:
-            self._get_request = s.lower()
+            self._get_request = command.response_cls
         self._get_with_callback = with_callback
         if hasattr(command, "motorID"):
             if command.motorID == 255:
