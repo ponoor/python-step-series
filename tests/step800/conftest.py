@@ -123,7 +123,7 @@ def reset_device(request, device: STEP800, wait_for) -> None:
         wait_for(device, commands.SetDestIP(), responses.DestIP)
 
         # Small delay to allow processes to boot
-        time.sleep(0.1)
+        time.sleep(0.5)
 
 
 @pytest.fixture(autouse=True)
