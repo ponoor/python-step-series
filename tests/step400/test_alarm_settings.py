@@ -6,7 +6,7 @@
 
 import pytest
 
-from stepseries import commands, exceptions, responses
+from stepseries import commands, responses
 from stepseries.step400 import STEP400
 
 
@@ -45,7 +45,7 @@ class TestAlarmMessages:
 
         # Verify the response
         assert isinstance(response, responses.OverCurrentThreshold)
-        assert response.overCurrentThreshold == 375.0
+        assert response.overCurrentThreshold == 312.5
 
         # Reset the threshold
         device.set(commands.SetOverCurrentThreshold(motor_id, 7))
@@ -62,7 +62,7 @@ class TestAlarmMessages:
 
         # Verify the response
         assert isinstance(response, responses.StallThreshold)
-        assert response.stallThreshold == 31.25
+        assert response.stallThreshold == 312.5
 
         # Reset the threshold
         device.set(commands.SetStallThreshold(motor_id, 127))
@@ -82,10 +82,15 @@ class TestAlarmMessages:
         device.set(commands.SetProhibitMotionOnHomeSw(motor_id, False))
 
     def test_prohibit_motion_on_limit_sw(self, device: STEP400, motor_id: int) -> None:
-        # There is no limit switch capability on the STEP400, so the API
-        # should raise an error
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.set(commands.SetProhibitMotionOnLimitSw(motor_id, True))
+        # Disable motion in the direction of the switch
+        device.set(commands.SetProhibitMotionOnLimitSw(motor_id, True))
 
-        with pytest.raises(exceptions.InvalidCommandError):
-            device.get(commands.GetProhibitMotionOnLimitSw(motor_id))
+        # Verify the motion is disabled
+        response: responses.ProhibitMotionOnLimitSw = device.get(
+            commands.GetProhibitMotionOnLimitSw(motor_id)
+        )
+        assert isinstance(response, responses.ProhibitMotionOnLimitSw)
+        assert response.enable
+
+        # Enable motion in the direction of the switch
+        device.set(commands.SetProhibitMotionOnLimitSw(motor_id, False))
