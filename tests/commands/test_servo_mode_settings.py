@@ -75,3 +75,26 @@ def test_set_target_position_list() -> None:
     assert params[2] == builder.position3
     assert params[3] == builder.position4
     assert osc_message_str == "/setTargetPositionList -4321 1234 5678 -8765"
+
+    # Test the command for 8 arguments
+    builder = commands.SetTargetPositionList(
+        -4321, 1234, 5678, -8765, 4321, -1234, -5678, 8765
+    )
+    osc_message = builder.build()
+    osc_message_str = builder.stringify()
+    params = osc_message.params
+
+    assert osc_message.address == builder.address
+    assert len(params) == 8
+    assert params[0] == builder.position1
+    assert params[1] == builder.position2
+    assert params[2] == builder.position3
+    assert params[3] == builder.position4
+    assert params[4] == builder.position5
+    assert params[5] == builder.position6
+    assert params[6] == builder.position7
+    assert params[7] == builder.position8
+    assert (
+        osc_message_str
+        == "/setTargetPositionList -4321 1234 5678 -8765 4321 -1234 -5678 8765"
+    )
