@@ -31,15 +31,20 @@ class TestSpeedProfileMessages:
         assert abs(response.maxSpeed - presets.default_max_speed) > 10
 
     def test_fullstep_speed(self, device: STEP400, motor_id: int, presets) -> None:
+        # Get the current fullstep speed
+        response1: responses.FullstepSpeed = device.get(
+            commands.GetFullstepSpeed(motor_id)
+        )
+        assert isinstance(response1, responses.FullstepSpeed)
+
         # Send the set command
         device.set(commands.SetFullstepSpeed(motor_id, presets.fullstep_speed))
 
         # Verify the set command
-        response: responses.FullstepSpeed = device.get(
+        response2: responses.FullstepSpeed = device.get(
             commands.GetFullstepSpeed(motor_id)
         )
-        assert isinstance(response, responses.FullstepSpeed)
-        assert response.fullstepSpeed < 15000
+        assert response2.fullstepSpeed != response1.fullstepSpeed
 
     def test_maxminspeed_acc_dec(
         self, device: STEP400, motor_id: int, presets, wait_for
