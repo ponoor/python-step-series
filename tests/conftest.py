@@ -6,9 +6,9 @@ from typing import Dict, Tuple
 
 import pytest
 
-from stepseries.stepXXX import STEPXXX
 from stepseries.commands import OSCCommand, OSCGetCommand
 from stepseries.responses import OSCResponse
+from stepseries.stepXXX import STEPXXX
 
 # store history of failures per test class name and per index in parametrize (if parametrize used)
 _test_failed_incremental: Dict[str, Dict[Tuple[int, ...], str]] = {}
@@ -58,7 +58,9 @@ def pytest_runtest_setup(item):
 
 @pytest.fixture(scope="package")
 def wait_for() -> None:
-    def wrapper(device: STEPXXX, command: OSCCommand, response_cls: OSCResponse, timeout=10):
+    def wrapper(
+        device: STEPXXX, command: OSCCommand, response_cls: OSCResponse, timeout=10
+    ):
         # A device that allows us to return the response from the device
         waiter = Queue()
 
