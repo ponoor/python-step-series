@@ -4,14 +4,12 @@
 """4 axis stepper motor driver with Ethernet interface."""
 
 
-from queue import Empty
 from typing import List, Union
 
 from . import commands
-from .commands import OSCGetCommand, OSCSetCommand, ReportError, SetDestIP
-from .exceptions import InvalidCommandError, StepSeriesException
-from .responses import ErrorCommand, ErrorOSC, OSCResponse
-from .server import DEFAULT_SERVER
+from .commands import OSCGetCommand, OSCSetCommand
+from .exceptions import InvalidCommandError
+from .responses import OSCResponse
 from .stepXXX import STEPXXX
 
 
