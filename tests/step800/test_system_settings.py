@@ -75,6 +75,7 @@ class TestSystemMessages:
         @dataclass
         class GetDummy(commands.OSCGetCommand):
             address: str = "/getDummy"
+            response_cls = responses.Version
 
         # Send the command
         # There exists no such command as this, so the device should
