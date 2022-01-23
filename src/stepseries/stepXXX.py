@@ -29,9 +29,6 @@ class STEPXXX:
             be `0.0.0.0`. Defaults to `0.0.0.0`.
         server_port (`int`):
             The port the server is listening on. Defaults to `50100`.
-        add_id_to_args (`bool`):
-            Whether to add `id` to `address` and `server_port`
-            (the default behavior on the device). Defaults to `True`.
     """
 
     _id: int
@@ -58,23 +55,12 @@ class STEPXXX:
         port: int = 50000,
         server_address: str = "0.0.0.0",
         server_port: int = 50100,
-        add_id_to_args: bool = True,
     ) -> None:
         self._id = id
         self._address = address
         self._port = port
         self._server_address = server_address
         self._server_port = server_port
-
-        if add_id_to_args:
-            # Add id to address
-            address_split = self._address.split(".")
-            last_octet = int(address_split[-1])
-            address_split[-1] = str(last_octet + id)
-            self._address = ".".join(address_split)
-
-            # Add id to server port
-            self._server_port += id
 
         self._boards_to_n_motors = {"STEP400": 4, "STEP800": 8}
         self._registered_callbacks = dict()
