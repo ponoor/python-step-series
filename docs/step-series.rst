@@ -512,6 +512,54 @@ Dip Switch Settings
     the local IP address and expected server port number. The ID is set in binary with more
     information provided by `Soundhouse's Documentation`_.
 
+----------------
+Network Settings
+----------------
+
+^^^^^^^^^^^^^^^^
+Initial Settings
+^^^^^^^^^^^^^^^^
+
++--------------------+-------------------------------------+
+|Item                |Initial Value                        |
++====================+=====================================+
+|IP Address          |10.0.0.100+ID                        |
++--------------------+-------------------------------------+
+|MAC Address         |0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID|
++--------------------+-------------------------------------+
+|Server IP Address   |10.0.0.10                            |
++--------------------+-------------------------------------+
+|Local Port          |50000                                |
++--------------------+-------------------------------------+
+|Expected Server Port|50100+ID                             |
++--------------------+-------------------------------------+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IP Address and Expected Server Port
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In its initial state, an ID will be added to IP address's final octet and the expected server port.
+With this mechanism, you are able to operate multiple devices with the same firmware and settings
+file. On the server, if you are able to retrieve the IP address of the device, you can configure the
+device to not add its ID to the expected server port.
+
+This feature can be disabled via the microSD card configuration.
+
+^^^^^^^^^^^
+MAC Address
+^^^^^^^^^^^
+
+A unique MAC address is assigned to the device; however, its initial value is set as seen in the
+table above. The unique MAC address is printed on the sticker on the bottom of the device beneath
+another sticker that should contain the device's serial number. To use the assigned MAC address,
+please generate the settings file from the `Configuration Tool`_ and load it onto the microSD card.
+
+.. tip:: A variety of settings can be preconfigured on the microSD card. See
+    :ref:`microSD Card Setup`.
+
+
+
+
 
 
 
