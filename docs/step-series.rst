@@ -100,7 +100,7 @@ The STEP400 and STEP800 both have differing power ratings. These devices also ha
 power input terminals. While the USB-C jack can be considered a power input terminal, it's primary,
 and arguably sole purpose, is to provide USB communication. By design, the USB protocol can only
 supply of maximum of 5V which is not enough to fully power the board. It is, however, safe to power
-either device through either primary input (4 and 5 in the picture below) and have USB connected,
+both devices through either primary input (4 and 5 in the picture below) and have USB connected,
 but **do not** connect power to both primary inputs.
 
 .. note:: Again, make sure not to power the device. You may connect the supply, but make sure it is
@@ -130,14 +130,15 @@ input.
 +----------+----------------------+-----------+--------------+
 |Controller|Board Max Power Rating|Barrel Jack|Screw Terminal|
 +==========+======================+===========+==============+
-|STEP400   |12V-76V @ 5A          |24V @ 5A   |76V @ 5A      |
+|STEP400   |12V-76V @ 20A         |24V @ 5A   |76V @ 20A     |
 +----------+----------------------+-----------+--------------+
-|STEP800   |9V-36V @ 2A           |24V @ 2A   |36V @ 2A      |
+|STEP800   |9V-36V @ 16A          |24V @ 5A   |36V @ 16A     |
 +----------+----------------------+-----------+--------------+
 
-.. note:: The amps listed here reflect the cumulative maximum phase current draw of all motors, not
-    the maximum current capacity of the power supply. Look at :ref:`Current Capacity` for more
-    information.
+The amps listed here reflect the cumulative maximum phase current draw of all motors, not the
+maximum current capacity of the power supply. Look at :ref:`Current Capacity` for more information.
+The STEP800 has a maximum phase current draw of 2A per motor whereas the STEP400 has a maximum of
+5A. Please keep these limits in mind when choosing you motor.
 
 ^^^^^^^^^^^^^^
 DC Barrel Plug
@@ -179,7 +180,7 @@ Overcoming the Tradeoff
 
 To overcome this tradeoff, you need to use a power supply with a high voltage rating. Remember, both
 boards have their maximum voltages, so keep that in mind when choosing a supply. This may seem
-contradictory to the voltage rating of motor, but when the motor is driven, it will not be able to
+contradictory to the voltage rating of the motor, but when the motor is driven, it will not be able to
 maintain its torque rating at that voltage. Hence the need for a high voltage supply.
 
 To better articulate this point, see the following graph and note the correlation between a higher
@@ -198,8 +199,8 @@ produce high torque in a small form factor and vice versa with a large form fact
 imperative you review your motor's voltage and current ratings.**
 
 The STEP400 does work with a minimum of 12V; however, since that is its on-board DC-DC converter's
-minimum required voltage, there may be cases the STEP400 resets on a slight voltage drop. This is
-especially the case during a motor's inrush current. Therefore we do not recommend a 12V power
+minimum required voltage, there may be cases wjere the STEP400 resets on a slight voltage drop. This
+is especially the case during a motor's inrush current, therefore we do not recommend a 12V power
 supply unless if you are driving a small motor at a low load.
 
 .. figure:: img/update-48V-configuration-800x533.jpg
