@@ -88,7 +88,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "python-step-series"
-copyright = "2021, Julian_Orteil"
+copyright = "2021, Ponoor Experiments"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -246,7 +246,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ("index", "user_guide.tex", "python-step-series Documentation", "Julian_Orteil", "manual")
+    ("index", "user_guide.tex", "python-step-series Documentation", "Ponoor Experiments", "manual")
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
