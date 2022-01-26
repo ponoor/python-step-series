@@ -352,11 +352,11 @@ For example, to run an ``SM-42BYG011-25`` at 1 RPS, the command ``/run 1 200`` c
     device.set(commands.Run(1, 200))
 
 Is the motor now slowly spinning? If there is an issue, or you would like to stop it, set the speed
-to 0 using the ``/run`` command or send:
+to 0 using the ``/run`` command or send  ``/hardHiZ 255``:
 
 .. code-block:: python
 
-    # /hardHiZ 255
+    # For python-step-series
     device.set(commands.HardHiZ(255))
 
 .. warning:: Do **not** disconnect the motor while it is active and running. This will damage your
@@ -389,30 +389,30 @@ Each parameter in the ``/setKVAL`` command has a unique function.
 |decKVAL |Deceleration KVAL  |16           |
 +--------+-------------------+-------------+
 
-Let's adjust these values while the motor is running:
+Let's adjust these values while the motor is running. Send the command ``/run 1 200``.
 
 .. code-block:: python
 
-    # Start running the motor
-    # /run 1 200
+    # For python-step-series
     device.set(commands.Run(1, 200))
 
 You can set individual KVAL parameters using commands like ``/setRunKval``, but we are going to set
 all 4 parameters at once. Let's set ``holdKVAL`` to ``0`` and then gradually increase each of the
-other three simultaneously:
+other three simultaneously. To do this, send the command ``/setKval 1 0 24 24 24``. The syntax of
+the command is ``/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)decKVAL``.
 
 .. code-block:: python
 
-    # Syntax: /setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)decKVAL
-    # /setKval 1 0 24 24 24
+    # For python-step-series
     device.set(commands.SetKval(1, 0, 24, 24, 24))
 
 This message specifies the first motor's ``holdKval`` as 0 and the rest at 24 (approximately 9% of
-your power supply voltage). Gradually increase the values until the motor begins to turn quietly:
+your power supply voltage). Gradually increase the values until the motor begins to turn quietly.
+For example: ``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc.
 
 .. code-block:: python
 
-    # /setKval 1 0 32 32 32
+    # For python-step-series
     device.set(commands.SetKval(1, 0, 32, 32, 32))
 
     # then
@@ -556,12 +556,6 @@ please generate the settings file from the `Configuration Tool`_ and load it ont
 
 .. tip:: A variety of settings can be preconfigured on the microSD card. See
     :ref:`microSD Card Setup`.
-
-
-
-
-
-
 
 
 .. _powerSTEP01: https://www.st.com/en/motor-drivers/powerstep01.html
