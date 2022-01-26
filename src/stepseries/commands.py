@@ -481,7 +481,23 @@ class SetVoltageMode(OSCSetCommand):
 
 @dataclass
 class SetKval(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setkval_intmotorid_intholdkval_intrunkval_intacckval_intsetdeckval"""  # noqa
+    """Sets the configuration for all four kval parameters.
+
+    Arguments:
+        motorID (`int`):
+            The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
+            for STEP800.
+        holdKVAL (`int`):
+            The holding kval. Possible values are 0-255.
+        runKVAL (`int`):
+            The kval while running. Possible values are 0-255.
+        accKVAL (`int`):
+            The kval during acceleration. Possible values are 0-255.
+        setDecKVAL (`int`):
+            The kval during deceleration. Possible values are 0-255.
+
+    Executable Timing: Always
+    """
 
     address: str = field(default="/setKval", init=False)
     motorID: int
@@ -493,7 +509,19 @@ class SetKval(OSCSetCommand):
 
 @dataclass
 class GetKval(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getkval_intmotorid"""  # noqa
+    """Retrieves the four kval parameters for a specified motor.
+
+    Note:
+        The attribute `response_cls` is provided here for your
+        convenience.
+
+    Arguments:
+        motorID (`int`):
+            The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
+            for STEP800.
+
+    Executable Timing: Always
+    """
 
     address: str = field(default="/getKval", init=False)
     response_cls: responses.Kval = field(default=responses.Kval, init=False)
