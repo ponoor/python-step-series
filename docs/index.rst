@@ -11,6 +11,16 @@ application or to learn more about the controllers themselves.
     :Caption: Contents:
 
     step-series
+    python-step-series
+
+.. autoclass:: stepseries.commands.SetKval
+    :members:
+    :undoc-members:
+
+.. autoclass:: stepseries.commands.GetKval
+    :members:
+    :undoc-members:
+
 
 Indices and Tables
 ==================
