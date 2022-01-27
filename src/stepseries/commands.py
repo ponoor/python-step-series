@@ -518,7 +518,7 @@ class GetKval(OSCGetCommand):
             The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
             for STEP800.
     
-    OSC Command Syntax: `/getKval (int)motorID`
+    OSC Command Syntax: ``/getKval (int)motorID``
 
     Executable Timing: Always
     """
