@@ -496,7 +496,7 @@ class SetKval(OSCSetCommand):
         setDecKVAL (`int`):
             The kval during deceleration. Possible values are 0-255.
 
-    OSC Command Syntax: `/getKval (int)motorID`
+    OSC Command Syntax: `/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL`
     Executable Timing: Always
     """
 
