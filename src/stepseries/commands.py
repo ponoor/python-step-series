@@ -497,6 +497,7 @@ class SetKval(OSCSetCommand):
             The kval during deceleration. Possible values are 0-255.
 
     OSC Command Syntax: `/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL`
+
     Executable Timing: Always
     """
 
@@ -513,6 +514,7 @@ class GetKval(OSCGetCommand):
     """Retrieves the four kval parameters for a specified motor.
 
     OSC Command Syntax: `/getKval (int)motorID`
+
     Executable Timing: Always
 
     Note:
