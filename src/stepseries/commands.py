@@ -496,7 +496,7 @@ class SetKval(OSCSetCommand):
         setDecKVAL (`int`):
             The kval during deceleration. Possible values are 0-255.
 
-    OSC Command Syntax: `/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL`
+    OSC Command Syntax: ``/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL``
 
     Executable Timing: Always
     """
@@ -512,19 +512,15 @@ class SetKval(OSCSetCommand):
 @dataclass
 class GetKval(OSCGetCommand):
     """Retrieves the four kval parameters for a specified motor.
-
-    OSC Command Syntax: `/getKval (int)motorID`
-
-    Executable Timing: Always
-
-    Note:
-        The attribute `response_cls` is provided here for your
-        convenience.
-
+    
     Arguments:
         motorID (`int`):
             The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
             for STEP800.
+    
+    OSC Command Syntax: `/getKval (int)motorID`
+
+    Executable Timing: Always
     """
 
     address: str = field(default="/getKval", init=False)
