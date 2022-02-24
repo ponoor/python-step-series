@@ -1,10 +1,9 @@
-``python-step-series``: The Official Ponoor Experiments Step-Series API
-=======================================================================
+``Step-Series Docs``: Ponoor Experiments Official Documentation
+===============================================================
 
-Welcome to ``python-step-series``, the official API for communicating with
-Ponoor Experiments's Step-Series motor controllers. To begin, choose one
-of the links below to learn how to install and configure your first Python
-application or to learn more about the controllers themselves.
+Welcome to Ponoor Experiments's Step-Series motor controller
+documentation. To begin, choose one of the links below to learn how to
+setup and operate your device, and to use the official Python API.
 
 .. toctree::
     :maxdepth: 2
@@ -12,14 +11,6 @@ application or to learn more about the controllers themselves.
 
     step-series
     python-step-series
-
-.. autoclass:: stepseries.commands.SetKval
-    :members:
-    :undoc-members:
-
-.. autoclass:: stepseries.commands.GetKval
-    :members:
-    :undoc-members:
 
 
 Indices and Tables
