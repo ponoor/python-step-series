@@ -138,7 +138,7 @@ input.
 The amps listed here reflect the cumulative maximum phase current draw of all motors, not the
 maximum current capacity of the power supply. Look at :ref:`Current Capacity` for more information.
 The STEP800 has a maximum phase current draw of 2A per motor whereas the STEP400 has a maximum of
-5A. Please keep these limits in mind when choosing you motor.
+5A. Please keep these limits in mind when choosing your motor.
 
 ^^^^^^^^^^^^^^
 DC Barrel Plug
@@ -179,12 +179,9 @@ Overcoming the Tradeoff
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 To overcome this tradeoff, you need to use a power supply with a high voltage rating. Remember, both
-boards have their maximum voltages, so keep that in mind when choosing a supply. This may seem
-contradictory to the voltage rating of the motor, but when the motor is driven, it will not be able to
-maintain its torque rating at that voltage. Hence the need for a high voltage supply.
-
-To better articulate this point, see the following graph and note the correlation between a higher
-voltage providing higher current (aka torque) and a higher maximum speed.
+boards have their maximum voltages, so keep that in mind when choosing a supply. To better
+articulate this point, see the following graph and note the correlation between a higher voltage
+providing higher current (aka torque) and a higher maximum speed.
 
 .. image:: img/motor_current_example_graph-800x570.png
 
@@ -216,8 +213,8 @@ it may draw a high amount of current that may exceed the capacity of the power s
 cause the overload protection circuit on the supply to trigger (if there is one) forcing the supply
 to shut down. Typically, you will likely need to only supply a few amps to drive small motors at low
 speeds. But large motors at high speeds often do require high voltage with high current (especially
-if they are under load). Depending on the quantity of motors, their usecases as well as your circuit
-protection settings, we recommend a supply with at least 10A-20A capacity.
+if they are under load). Depending on the quantity of motors, their usecases, as well as your
+circuit protection settings, we recommend a supply with at least 10A-20A capacity.
 
 ==========
 Networking
@@ -231,7 +228,8 @@ Both devices do have a microSD card slot included on the board. Using this slot,
 completely configure the device using our convenient `Configuration Tool`_. This tool is a webpage,
 that can be accessed through your browser--so no third party software is required.
 
-This tutorial uses default settings, so we not be using the microSD card. Just leave the slot empty.
+This tutorial uses default settings, so we will not be using the microSD card. Just leave the slot
+empty.
 
 .. note:: If you are connecting the board through a network switch that is connected to an existing
     VLAN, you may need to use the configuration tool to pre-configure the device's network settings
@@ -364,7 +362,8 @@ to 0 using the ``/run`` command or send  ``/hardHiZ 255``:
 
 
 If everything succeeded, then congratulations! You've successfully ran your first motor. But, you
-may have noticed the motor ran a little rough--lots of vibration and possibly noisy.
+may have noticed the motor ran a little rough--lots of vibration and possibly noisy. This is where
+``KVAL`` and ``TVAL`` come in.
 
 ------------
 Setting KVAL
@@ -423,6 +422,10 @@ For example: ``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc.
 As you increase each parameter, the motor's torque will also increase; however, the motor will also
 begin to vibrate more and produce more heat. Be sure to set the parameters appropriately for your
 load.
+
+.. tip:: Remember: we've already calculated `configuration files`_ for a variety of motors for you
+    if you would like to use them.
+
 
 ******************************
 Other Connections and Settings
@@ -483,15 +486,15 @@ are looking at your board. We assume you are viewing the board with the board's 
 and the power/ethernet ports at the top. This table is for the left-side ports; the right-side ports
 will be inverted as they are upside-down.
 
-+---+------------------+
-|Pin|Function          |
-+===+==================+
-|1  |5V Output         |
-+---+------------------+
-|2  |3v3 (Switch Input)|
-+---+------------------+
-|3  |GND               |
-+---+------------------+
++-------------------+------------------+
+|Pin (left-to-right)|Function          |
++===================+==================+
+|1                  |5V Output         |
++-------------------+------------------+
+|2                  |3v3 (Switch Input)|
++-------------------+------------------+
+|3                  |GND               |
++-------------------+------------------+
 
 .. tip:: They are also printed on the bottom of the boards for your convenience.
 
