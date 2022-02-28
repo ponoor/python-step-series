@@ -55,7 +55,6 @@ class STEP800(STEPXXX):
         port: int = 50000,
         server_address: str = "0.0.0.0",
         server_port: int = 50100,
-        add_id_to_args: bool = True,
     ) -> None:
         super().__init__(
             id,
@@ -63,7 +62,6 @@ class STEP800(STEPXXX):
             port=port,
             server_address=server_address,
             server_port=server_port,
-            add_id_to_args=add_id_to_args,
         )
 
         self._invalid_commands = [

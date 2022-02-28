@@ -28,7 +28,6 @@ class TestPresets:
     port: int = 50000
     server_address: str = "0.0.0.0"
     server_port: int = 50100
-    add_id_to_args: bool = True
 
     # The singular motor ID to test on (1 - 8, 255)
     # 255 means run the command on all motors
@@ -105,8 +104,7 @@ def device(wait_for) -> STEP400:
         TestPresets.address,
         TestPresets.port,
         TestPresets.server_address,
-        TestPresets.server_port,
-        TestPresets.add_id_to_args,
+        TestPresets.server_port
     )
 
     # Send the start-up command
