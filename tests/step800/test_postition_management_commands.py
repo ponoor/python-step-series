@@ -71,7 +71,7 @@ class TestPositionManagementCommands:
 
     @pytest.mark.check_800_motors
     @pytest.mark.check_800_homesw
-    def test_go_home(self, device: STEP800, motor_id: int, wait_for) -> None:
+    def test_go_home_ui(self, device: STEP800, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         # Verify the motor is in a HiZ state
         device.set(commands.HardHiZ(motor_id))

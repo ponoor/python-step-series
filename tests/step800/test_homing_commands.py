@@ -94,7 +94,7 @@ class TestHomingCommands:
 
     @pytest.mark.check_800_motors
     @pytest.mark.check_800_homesw
-    def test_homing(self, device: STEP800, motor_id: int) -> None:
+    def test_homing_ui(self, device: STEP800, motor_id: int) -> None:
         # NOTE: This test may require user interaction
         # Start homing
         device.set(commands.SetHomingSpeed(motor_id, 620))

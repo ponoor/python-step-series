@@ -14,7 +14,7 @@ from stepseries.step400 import STEP400
 @pytest.mark.reset_400_device
 class TestHomeLimitSwitchCommands:
     @pytest.mark.check_400_homesw
-    def test_home_sw_report(self, device: STEP400, motor_id: int, wait_for) -> None:
+    def test_home_sw_report_ui(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         try:
             # Enable switch reporting
@@ -33,7 +33,7 @@ class TestHomeLimitSwitchCommands:
             device.set(commands.EnableHomeSwReport(motor_id, False))
 
     @pytest.mark.check_400_homesw
-    def test_sw_event_report(self, device: STEP400, motor_id: int, wait_for) -> None:
+    def test_sw_event_report_ui(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         try:
             # Enable switch reporting
@@ -70,7 +70,7 @@ class TestHomeLimitSwitchCommands:
         assert not response.swMode
 
     @pytest.mark.check_400_limitsw
-    def test_limit_sw_report(self, device: STEP400, motor_id: int, wait_for) -> None:
+    def test_limit_sw_report_ui(self, device: STEP400, motor_id: int, wait_for) -> None:
         # NOTE: This test may require user interaction
         try:
             # Enable switch reporting
