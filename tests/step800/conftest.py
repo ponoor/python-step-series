@@ -22,12 +22,18 @@ from stepseries.step800 import STEP800
 class TestPresets:
     is_configured: bool = False
 
+    # The ip address of your PC. Not to be confused with server_address
+    # below, this setting is the assigned IP of your PC.
+    # Typically a 192.168.X.X or 10.X.X.X address
+    my_ip: str = "10.0.0.10"
+
     # Device networking settings
     id: int = 0
-    address: str = "10.1.16.20"
+    address: str = "10.0.0.100"
     port: int = 50000
     server_address: str = "0.0.0.0"
     server_port: int = 50100
+
 
     # The singular motor ID to test on (1 - 8, 255)
     # 255 means run the command on all motors
@@ -35,7 +41,7 @@ class TestPresets:
     motor_id: int = None
 
     # Allow motors to be physically ran
-    # Do not make True if you have no motor(s) connected
+    # Do not set to True if you have no motor(s) connected
     enable_motors: bool = False
 
     # Are you using a config file?

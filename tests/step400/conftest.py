@@ -20,11 +20,17 @@ from stepseries.step400 import STEP400
 
 
 class TestPresets:
+    # After configuring your settings below, set this to True
     is_configured: bool = False
+
+    # The ip address of your PC. Not to be confused with server_address
+    # below, this setting is the assigned IP of your PC.
+    # Typically a 192.168.X.X or 10.X.X.X address
+    my_ip: str = "10.0.0.10"
 
     # Device networking settings
     id: int = 0
-    address: str = "10.1.16.21"
+    address: str = "10.0.0.100"
     port: int = 50000
     server_address: str = "0.0.0.0"
     server_port: int = 50100
@@ -35,7 +41,7 @@ class TestPresets:
     motor_id: int = None
 
     # Allow motors to be physically ran
-    # Do not make True if you have no motor(s) connected
+    # Do not set to True if you have no motor(s) connected
     enable_motors: bool = False
 
     # Are you using a config file?

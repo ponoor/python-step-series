@@ -12,20 +12,7 @@ from stepseries.step400 import STEP400
 
 @pytest.mark.skip_400_disconnected
 class TestSystemMessages:
-    def test_set_dest_ip(self, device: STEP400, wait_for) -> None:
-        # A utility function to easily get the IP address of the local
-        # machine
-        def my_ip() -> str:
-            import socket
-
-            try:
-                # Connect to DT34 and query the connection for the local IP address
-                sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                sock.connect(("10.1.1.34", 80))
-                return sock.getsockname()[0]
-            finally:
-                sock.close()
-
+    def test_set_dest_ip(self, device: STEP400, wait_for, presets) -> None:
         # Send the command and wait for the device's response
         response: responses.DestIP = wait_for(
             device, commands.SetDestIP(), responses.DestIP
@@ -35,7 +22,7 @@ class TestSystemMessages:
         assert isinstance(response, responses.DestIP)
         assert (
             f"{response.destIp0}.{response.destIp1}.{response.destIp2}.{response.destIp3}"
-            == my_ip()
+            == presets.my_ip
         )
 
     def test_get_version(self, device: STEP400) -> None:
