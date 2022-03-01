@@ -68,7 +68,8 @@ class TestHomingCommands:
 
     @pytest.mark.check_800_motors
     @pytest.mark.check_800_homesw
-    def test_release_sw(self, device: STEP800, motor_id: int, presets) -> None:
+    def test_release_sw_ui(self, device: STEP800, motor_id: int, presets) -> None:
+        # NOTE: This test may require user interaction
         # Go until the HOME sw fires
         device.set(commands.ReleaseSw(motor_id, 1, presets.homing_direction))
 
@@ -81,7 +82,8 @@ class TestHomingCommands:
 
     @pytest.mark.check_800_motors
     @pytest.mark.check_800_homesw
-    def test_go_until(self, device: STEP800, motor_id: int) -> None:
+    def test_go_until_ui(self, device: STEP800, motor_id: int) -> None:
+        # NOTE: This test may require user interaction
         # Go until the HOME sw fires
         device.set(commands.GoUntil(motor_id, 1, 400))
 
