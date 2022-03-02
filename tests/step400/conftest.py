@@ -21,10 +21,15 @@ from stepseries.step400 import STEP400
 
 class TestPresets:
     # After configuring your settings below, set this to True
+    # This setting acts as a final confirmation that you have verified
+    # your settings below. Please do that now if you haven't.
+    # If this is False, then most tests and all that require motor or
+    # switch movement/interaction will be skipped.
     is_configured: bool = False
 
     # The ip address of your PC. Not to be confused with server_address
-    # below, this setting is the assigned IP of your PC.
+    # below, this setting is the assigned IP of your PC the device will
+    # be communicating with.
     # Typically a 192.168.X.X or 10.X.X.X address
     my_ip: str = "10.0.0.10"
 
@@ -32,10 +37,10 @@ class TestPresets:
     id: int = 0
     address: str = "10.0.0.100"
     port: int = 50000
-    server_address: str = "0.0.0.0"
+    server_address: str = "0.0.0.0"  # Do not change
     server_port: int = 50100
 
-    # The singular motor ID to test on (1 - 8, 255)
+    # The singular motor ID to test on (1 - 4, 255)
     # 255 means run the command on all motors
     # Keep at None to randomize (once per session)
     motor_id: int = None
