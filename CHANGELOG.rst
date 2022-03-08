@@ -6,6 +6,14 @@ Changelog
 Development version
 ===================
 
+Version 1.0.0, 2022-04-XX
+-------------------------
+
+- Documentation
+
+Current versions
+================
+
 Version 0.0.2, 2022-01-21
 -------------------------
 
@@ -26,10 +34,6 @@ Version 0.0.2, 2022-01-21
 
 - Fixed an issue with ``STEPXXX.get`` only returning 1 response when there are multiple (`#1`_)
 - Refractored tests to make them more robust and intelligent
-
-
-Current versions
-================
 
 Version 0.0.1, 2021-12-03
 -------------------------
