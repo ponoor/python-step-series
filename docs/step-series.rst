@@ -20,9 +20,9 @@ STMicroelectronics's `powerSTEP01`_ as its stepper driver chip whereas the STEP8
 STMicroelectronics's `L6470`_. It is recommended to review the datasheets for both chips to better
 understand how they work and what each command is doing.
 
-Both devices use the exact same commands save for a few which are marked in the API Reference. So,
-unless you see ``STEP400 Only`` or ``STEP800 Only``, assume the command is compatible with both
-devices.
+Both devices use the exact same commands save for a select few which are marked in the API
+Reference. So, unless you see ``STEP400 Only`` or ``STEP800 Only``, assume the command is compatible
+with both devices.
 
 ********
 Tutorial
