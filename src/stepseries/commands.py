@@ -114,6 +114,8 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
     +-----------------+--------------------+
     |Initial Value    |10.0.0.10           |
     +-----------------+--------------------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
     """
 
     address: str = field(default="/setDestIp", init=False)
