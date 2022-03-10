@@ -99,7 +99,7 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
     computer. Upon receipt, the device will reply with a
     ``responses.DestIP`` object.
 
-    Until this command is sent, to OSC messages will be sent from the
+    Until this command is sent, no OSC messages will be sent from the
     device with the exception being ``responses.Booted``. The
     `Config Tool`_ allows you to configure whether the device should
     wait for this command.
