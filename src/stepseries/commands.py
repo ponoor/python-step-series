@@ -1,7 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""OSC message builders to send to the device."""
+"""OSC message builders to send to the device.
+
+This module provides dataclass objects that act as templates for you to
+'fill in' with data. This allows you to focus on WHAT to send, not how.
+
+Some commands will have an extra ``response_cls`` attribute to allow
+quick access to the class object that will be returned by the device
+when the command is sent. This attribute only provides a static class,
+not the response sent by the device. That is already returned by the
+``get`` function of the device.
+
+All commands that control automatic reporting of the device's internal
+state changes have an extra ``callback`` attribute. This attribute is a
+shortcut to automatically register a callback to handle incoming
+responses from the device.
+"""
 
 
 from dataclasses import asdict, dataclass, field
@@ -14,12 +29,14 @@ from . import responses
 
 
 @dataclass
-class OSCCommand:
-    """An abstract class meant to be implemented by OSC command objects."""
+class OSCCommand(object):
+    """An abstract class meant to be implemented by OSC command objects.
+
+    If implementing your own command, it must inherit this class.
+    """
 
     def build(self) -> OscMessage:
         """Converts the builder to a usable OSC message."""
-
         # Convert the builder to a dictionary
         builder_dict = asdict(self)
 
@@ -41,7 +58,6 @@ class OSCCommand:
 
     def stringify(self) -> str:
         """Converts the builder to an OSC message string."""
-
         # Convert the builder to a dictionary
         builder_dict = asdict(self)
         builder_dict.pop("callback", None)
@@ -68,15 +84,37 @@ class OSCSetCommand(OSCCommand):
 
 @dataclass
 class OSCGetCommand(OSCCommand):
-    """A commands that only performs get functions on the device."""
+    """A command that only performs get functions on the device."""
 
 
 # System Settings
 
 
 @dataclass
-class SetDestIP(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#setdestip"""  # noqa
+class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
+    """Set the destination IP address for the device's responses.
+
+    Query replies, internal state reports, or command errors are sent to
+    this destination IP. Typically this is the IP address of your
+    computer. Upon receipt, the device will reply with a
+    ``responses.DestIP`` object.
+
+    Until this command is sent, to OSC messages will be sent from the
+    device with the exception being ``responses.Booted``. The
+    `Config Tool`_ allows you to configure whether the device should
+    wait for this command.
+
+    Note: The library will return before ``responses.DestIP`` is
+    received. This behavior will be changed in a future update.
+
+    +-----------------+--------------------+
+    |Response         |``responses.DestIP``|
+    +-----------------+--------------------+
+    |Executable Timing|Always              |
+    +-----------------+--------------------+
+    |Initial Value    |10.0.0.10           |
+    +-----------------+--------------------+
+    """
 
     address: str = field(default="/setDestIp", init=False)
     response_cls: responses.DestIP = field(default=responses.DestIP, init=False)
@@ -84,7 +122,14 @@ class SetDestIP(OSCSetCommand):
 
 @dataclass
 class GetVersion(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getversion"""  # noqa
+    """Retrieve the current firmware version of the controller.
+
+    +-----------------+---------------------+
+    |Response         |``responses.Version``|
+    +-----------------+---------------------+
+    |Executable Timing|Always               |
+    +-----------------+---------------------+
+    """
 
     address: str = field(default="/getVersion", init=False)
     response_cls: responses.Version = field(default=responses.Version, init=False)
@@ -92,7 +137,14 @@ class GetVersion(OSCGetCommand):
 
 @dataclass
 class GetConfigName(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getconfigname"""  # noqa
+    """Retrieve the status of the microSD config file on the controller.
+
+    +-----------------+------------------------+
+    |Response         |``responses.ConfigName``|
+    +-----------------+------------------------+
+    |Executable Timing|Always                  |
+    +-----------------+------------------------+
+    """
 
     address: str = field(default="/getConfigName", init=False)
     response_cls: responses.ConfigName = field(default=responses.ConfigName, init=False)
@@ -100,11 +152,19 @@ class GetConfigName(OSCGetCommand):
 
 @dataclass
 class ReportError(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#reporterror_boolenable"""  # noqa
+    """Enable or disable automatic reports for command errors.
+
+    Attributes:
+        enable: If True, enable error reports.
+
+    +-----------------+------------------------+
+    |Executable Timing|Always                  |
+    +-----------------+------------------------+
+    """
 
     address: str = field(default="/reportError", init=False)
     response_cls: Tuple[responses.ErrorCommand, responses.ErrorOSC] = field(
-        default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False
+        default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False,
     )
     enable: bool
     callback: Optional[Callable[..., None]] = None
@@ -112,7 +172,14 @@ class ReportError(OSCSetCommand):
 
 @dataclass
 class ResetDevice(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#resetdevice"""  # noqa
+    """Resets the entire device.
+
+    A programmatic version of physically pressing the RESET button.
+
+    +-----------------+------------------------+
+    |Executable Timing|Always                  |
+    +-----------------+------------------------+
+    """
 
     address: str = field(default="/resetDevice", init=False)
     response_cls: responses.Booted = field(default=responses.Booted, init=False)
