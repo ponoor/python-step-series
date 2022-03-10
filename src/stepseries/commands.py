@@ -154,9 +154,6 @@ class GetConfigName(OSCGetCommand):
 class ReportError(OSCSetCommand):
     """Enable or disable automatic reports for command errors.
 
-    Attributes:
-        enable: If True, enable error reports.
-
     +-----------------+------------------------+
     |Executable Timing|Always                  |
     +-----------------+------------------------+
@@ -167,6 +164,7 @@ class ReportError(OSCSetCommand):
         default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False,
     )
     enable: bool
+    """If True, enable error reports."""
     callback: Optional[Callable[..., None]] = None
 
 
