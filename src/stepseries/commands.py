@@ -359,7 +359,7 @@ class GetLowSpeedOptimizeThreshold(OSCGetCommand):
 
 @dataclass
 class EnableBusyReport(OSCSetCommand):
-    """Enable or disable the automatic reporting of status changes.
+    """Enable or disable the automatic reporting of busy status changes.
 
     The reporting for each motor can be independently enabled or
     disabled using this command.
@@ -412,22 +412,55 @@ class GetBusy(OSCGetCommand):
 
 @dataclass
 class EnableHiZReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablehizreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of HiZ status changes.
+
+    The reporting for each motor can be independently enabled or
+    disabled using this command.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableHizReport", init=False)
     response_cls: responses.HiZ = field(default=responses.HiZ, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetHiZ(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#gethiz_intmotorid"""  # noqa
+    """Retrieve the busy status of a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHiZ", init=False)
     response_cls: responses.HiZ = field(default=responses.HiZ, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
