@@ -291,7 +291,7 @@ class EnableLowSpeedOptimize(OSCSetCommand):
     +-------+--------+
     """
     enable: bool
-    """True or False.
+    """If True, enable the optimizer.
 
     +-------+-----+
     |Default|False|
@@ -329,6 +329,8 @@ class SetLowSpeedOptimizeThreshold(OSCSetCommand):
     +-----------+---------------------+
     |Valid Range|0.0 - 976.3 [steps/s]|
     +-----------+---------------------+
+    |Default    |0                    |
+    +-----------+---------------------+
     """
 
 
@@ -357,22 +359,55 @@ class GetLowSpeedOptimizeThreshold(OSCGetCommand):
 
 @dataclass
 class EnableBusyReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablebusyreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of status changes.
+
+    The reporting for each motor can be independently enabled or
+    disabled using this command.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableBusyReport", init=False)
     response_cls: responses.Busy = field(default=responses.Busy, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetBusy(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getbusy_intmotorid"""  # noqa
+    """Retrieve the busy status of a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getBusy", init=False)
     response_cls: responses.Busy = field(default=responses.Busy, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
