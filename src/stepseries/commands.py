@@ -141,11 +141,11 @@ class GetVersion(OSCGetCommand):
 class GetConfigName(OSCGetCommand):
     """Retrieve the status of the microSD config file on the controller.
 
-    +-----------------+------------------------+
-    |Response         |``responses.ConfigName``|
-    +-----------------+------------------------+
-    |Executable Timing|Always                  |
-    +-----------------+------------------------+
+    +-----------------+-------------------------------------------+
+    |Response         |:py:class:`stepseries.responses.ConfigName`|
+    +-----------------+-------------------------------------------+
+    |Executable Timing|Always                                     |
+    +-----------------+-------------------------------------------+
     """
 
     address: str = field(default="/getConfigName", init=False)
