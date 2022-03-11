@@ -6,11 +6,9 @@
 This module provides dataclass objects that act as templates for you to
 'fill in' with data. This allows you to focus on WHAT to send, not how.
 
-Some commands will have an extra ``response_cls`` attribute to allow
-quick access to the class object that will be returned by the device
-when the command is sent. This attribute only provides a static class,
-not the response sent by the device. That is already returned by the
-``get`` function of the device.
+Some commands will have an extra ``response_cls`` attribute. This
+attribute is used internally in the library, but may be useful for you.
+It holds the response type, not the actual device response.
 
 All commands that control automatic reporting of the device's internal
 state changes have an extra ``callback`` attribute. This attribute is a
@@ -164,7 +162,12 @@ class ReportError(OSCSetCommand):
         default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False,
     )
     enable: bool
-    """If True, enable error reports."""
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
@@ -516,26 +519,62 @@ class GetDir(OSCGetCommand):
 
 @dataclass
 class EnableMotorStatusReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablemotorstatusreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of motor op changes.
+
+    The reports are sent when the motor changes its current op like
+    acceleration, constant speed, deceleration or stopping.
+
+    The reporting for each motor can be independently enabled or
+    disabled using this command.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableMotorStatusReport", init=False)
     response_cls: responses.MotorStatus = field(
         default=responses.MotorStatus, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetMotorStatus(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getmotorstatus_intmotorid"""  # noqa
+    """Retrieve the current op status of a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getMotorStatus", init=False)
     response_cls: responses.MotorStatus = field(
         default=responses.MotorStatus, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
