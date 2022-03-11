@@ -142,8 +142,6 @@ class GetConfigName(OSCGetCommand):
     """Retrieve the status of the microSD config file on the controller.
 
     +-----------------+-------------------------------------------+
-    |Response         |:py:class:`stepseries.responses.ConfigName`|
-    +-----------------+-------------------------------------------+
     |Executable Timing|Always                                     |
     +-----------------+-------------------------------------------+
     """
