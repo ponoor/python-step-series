@@ -139,9 +139,9 @@ class GetVersion(OSCGetCommand):
 class GetConfigName(OSCGetCommand):
     """Retrieve the status of the microSD config file on the controller.
 
-    +-----------------+-------------------------------------------+
-    |Executable Timing|Always                                     |
-    +-----------------+-------------------------------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/getConfigName", init=False)
