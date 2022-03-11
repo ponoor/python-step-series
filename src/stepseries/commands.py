@@ -202,7 +202,13 @@ class SetMicrostepMode(OSCSetCommand):
 
     address: str = field(default="/setMicrostepMode", init=False)
     motorID: int
-    """The motor's id. 1-4, 255 on the STEP400, 1-8, 255 on the STEP800."""
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     STEP_SEL: int
     """
     The microstep mode to run the motor at.
