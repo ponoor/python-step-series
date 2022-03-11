@@ -241,34 +241,95 @@ class SetMicrostepMode(OSCSetCommand):
 
 @dataclass
 class GetMicrostepMode(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setmicrostepmode_intmotorid_intstep_sel"""  # noqa
+    """Retrieves the configured microstepping mode for a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getMicrostepMode", init=False)
     response_cls: responses.MicrostepMode = field(
         default=responses.MicrostepMode, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class EnableLowSpeedOptimize(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#enablelowspeedoptimize_intmotorid_boolenable"""  # noqa
+    """Enable or disable low speed optimization.
+
+    At very low speeds with minimal drive voltage, motors tend to have
+    difficulty maintaining smooth operation due to phase current
+    distortion. This optimizer attempts to compensate for that. When
+    enabled, the minimum speed of the speed profile is forced to zero.
+
+    See the datasheet for more details.
+
+    +-----------------+----------------+
+    |Executable Timing|Motor is stopped|
+    +-----------------+----------------+
+    """
 
     address: str = field(default="/enableLowSpeedOptimize", init=False)
     response_cls: responses.LowSpeedOptimizeThreshold = field(
         default=responses.LowSpeedOptimizeThreshold, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """True or False.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class SetLowSpeedOptimizeThreshold(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setlowspeedoptimizethreshold_intmotorid_floatlowspeedoptimizationthreshold"""  # noqa
+    """Set the threshold for phase current distortion compensation.
+
+    At very low speeds with minimal drive voltage, motors tend to have
+    difficulty maintaining smooth operation due to phase current
+    distortion. This optimizer attempts to compensate for that.
+
+    .. note:: Make sure to enable this optimizer with
+        :py:class:`commands.EnableLowSpeedOptimize`.
+
+    +-----------------+----------------+
+    |Executable Timing|Motor is stopped|
+    +-----------------+----------------+
+    """
 
     address: str = field(default="/setLowSpeedOptimizeThreshold", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     lowSpeedOptimizationThreshold: float
+    """
+    +-----------+---------------------+
+    |Valid Range|0.0 - 976.3 [steps/s]|
+    +-----------+---------------------+
+    """
 
 
 @dataclass
