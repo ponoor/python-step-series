@@ -8,46 +8,46 @@ stepseries.commands module
 --------------------------
 
 .. automodule:: stepseries.commands
-   :members:
+    :members:
 
 stepseries.exceptions module
 ----------------------------
 
 .. automodule:: stepseries.exceptions
-   :members:
+    :members:
 
 stepseries.responses module
 ---------------------------
 
 .. automodule:: stepseries.responses
-   :members:
+    :members:
 
 stepseries.server module
 ------------------------
 
 .. automodule:: stepseries.server
-   :members:
+    :members:
 
 stepseries.step400 module
 -------------------------
 
 .. automodule:: stepseries.step400
-   :members:
+    :members:
 
 stepseries.step800 module
 -------------------------
 
 .. automodule:: stepseries.step800
-   :members:
+    :members:
 
 stepseries.stepXXX module
 -------------------------
 
 .. automodule:: stepseries.stepXXX
-   :members:
+    :members:
 
 Module contents
 ---------------
 
 .. automodule:: stepseries
-   :members:
+    :members:
