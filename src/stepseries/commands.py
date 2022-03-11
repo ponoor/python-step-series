@@ -156,9 +156,9 @@ class GetConfigName(OSCGetCommand):
 class ReportError(OSCSetCommand):
     """Enable or disable automatic reports for command errors.
 
-    +-----------------+------------------------+
-    |Executable Timing|Always                  |
-    +-----------------+------------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/reportError", init=False)
@@ -176,9 +176,9 @@ class ResetDevice(OSCSetCommand):
 
     A programmatic version of physically pressing the RESET button.
 
-    +-----------------+------------------------+
-    |Executable Timing|Always                  |
-    +-----------------+------------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/resetDevice", init=False)
@@ -195,9 +195,9 @@ class SetMicrostepMode(OSCSetCommand):
     Voltage mode allows microstepping up to 1/128 which is also the
     default. Current mode only allows microstepping up to 1/16.
 
-    +-----------------+------------------------+
-    |Executable Timing|Always                  |
-    +-----------------+------------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/setMicrostepMode", init=False)
@@ -207,9 +207,9 @@ class SetMicrostepMode(OSCSetCommand):
     """
     The microstep mode to run the motor at.
 
-    +========+=========================+
+    +--------+-------------------------+
     |STEP_SEL|Mode Description         |
-    +========+=========================+
+    +--------+-------------------------+
     |0       |1/1 microstep (full-step)|
     +--------+-------------------------+
     |1       |1/2 microstep            |
@@ -227,9 +227,9 @@ class SetMicrostepMode(OSCSetCommand):
     |7       |1/128 microstep          |
     +--------+-------------------------+
 
-    +-------+------------------------+
-    |Default|1/128 microstep         |
-    +-------+------------------------+
+    +-------+---------------+
+    |Default|1/128 microstep|
+    +-------+---------------+
     """
 
 
