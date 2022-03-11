@@ -308,7 +308,7 @@ class SetLowSpeedOptimizeThreshold(OSCSetCommand):
     distortion. This optimizer attempts to compensate for that.
 
     .. note:: Make sure to enable this optimizer with
-        :py:class:`commands.EnableLowSpeedOptimize`.
+        :py:class:`stepseries.commands.EnableLowSpeedOptimize`.
 
     +-----------------+----------------+
     |Executable Timing|Motor is stopped|
