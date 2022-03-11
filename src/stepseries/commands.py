@@ -334,13 +334,25 @@ class SetLowSpeedOptimizeThreshold(OSCSetCommand):
 
 @dataclass
 class GetLowSpeedOptimizeThreshold(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"""  # noqa
+    """Retrieve the low speed optimization threshold.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getLowSpeedOptimizeThreshold", init=False)
     response_cls: responses.LowSpeedOptimizeThreshold = field(
         default=responses.LowSpeedOptimizeThreshold, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
