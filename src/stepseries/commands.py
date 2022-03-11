@@ -647,39 +647,99 @@ class SetPositionListReportInterval(OSCSetCommand):
 
 @dataclass
 class GetAdcVal(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
+    """Retrieves ``ADC_OUT`` register values for a motor.
+
+    ``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the
+    ADC pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ
+    resistor wired directly to the LIMITSW connector.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    ``STEP400 Only``
+    """
 
     address: str = field(default="/getAdcVal", init=False)
     response_cls: responses.AdcVal = field(default=responses.AdcVal, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetStatus(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getstatus_intmotorid"""  # noqa
+    """Retrieves the status of the motor driver chip on the device.
+
+    This status includes the op status of the motor, alarms and,
+    switches.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getStatus", init=False)
     response_cls: responses.Status = field(default=responses.Status, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetConfigRegister(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getconfigregister_intmotorid"""  # noqa
+    """Retrieves the CONFIG register values for a motor.
+
+    This register stores information about motor, alaram, and switch
+    statuses.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getConfigRegister", init=False)
     response_cls: responses.ConfigRegister = field(
         default=responses.ConfigRegister, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class ResetMotorDriver(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#resetmotordriver_intmotorid"""  # noqa
+    """Resets the specified motor driver chip and resets defaults.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    ``Deprecated``
+    """
 
     address: str = field(default="/resetMotorDriver", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Alarm Settings
