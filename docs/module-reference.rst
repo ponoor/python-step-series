@@ -1,5 +1,5 @@
-``python-step-series``
-======================
+``python-step-series``: Module Reference
+========================================
 
 Submodules
 ----------
