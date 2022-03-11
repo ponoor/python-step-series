@@ -190,11 +190,47 @@ class ResetDevice(OSCSetCommand):
 
 @dataclass
 class SetMicrostepMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setmicrostepmode_intmotorid_intstep_sel"""  # noqa
+    """Sets the microstepping mode.
+
+    Voltage mode allows microstepping up to 1/128 which is also the
+    default. Current mode only allows microstepping up to 1/16.
+
+    +-----------------+------------------------+
+    |Executable Timing|Always                  |
+    +-----------------+------------------------+
+    """
 
     address: str = field(default="/setMicrostepMode", init=False)
     motorID: int
+    """The motor's id. 1-4, 255 on the STEP400, 1-8, 255 on the STEP800."""
     STEP_SEL: int
+    """
+    The microstep mode to run the motor at.
+
+    +========+=========================+
+    |STEP_SEL|Mode Description         |
+    +========+=========================+
+    |0       |1/1 microstep (full-step)|
+    +--------+-------------------------+
+    |1       |1/2 microstep            |
+    +--------+-------------------------+
+    |2       |1/4 microstep            |
+    +--------+-------------------------+
+    |3       |1/8 microstep            |
+    +--------+-------------------------+
+    |4       |1/16 microstep           |
+    +--------+-------------------------+
+    |5       |1/32 microstep           |
+    +--------+-------------------------+
+    |6       |1/64 microstep           |
+    +--------+-------------------------+
+    |7       |1/128 microstep          |
+    +--------+-------------------------+
+
+    +-------+------------------------+
+    |Default|1/128 microstep         |
+    +-------+------------------------+
+    """
 
 
 @dataclass
