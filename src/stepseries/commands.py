@@ -579,24 +579,69 @@ class GetMotorStatus(OSCGetCommand):
 
 @dataclass
 class SetPositionReportInterval(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionreportinterval_intmotorid_intinterval"""  # noqa
+    """Periodically send the current position of a motor.
+
+    When enabled,
+    :py:class:`stepseries.commands.SetPositionListReportInterval` will
+    be disabled.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setPositionReportInterval", init=False)
     response_cls: responses.Position = field(default=responses.Position, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     interval: int
+    """Time interval between reports.
+
+    When set to 0, this reporting is disabled.
+
+    +-----------+---------------------+
+    |Valid Range|0-2147483647 [ms]    |
+    +-----------+---------------------+
+    |Default    |0                    |
+    +-----------+---------------------+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class SetPositionListReportInterval(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#setpositionlistreportinterval_intinterval"""  # noqa
+    """Periodically send the current positions of all motors.
+
+    When enabled,
+    :py:class:`stepseries.commands.SetPositionReportInterval` will
+    be disabled.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setPositionListReportInterval", init=False)
     response_cls: responses.PositionList = field(
         default=responses.PositionList, init=False
     )
     interval: int
+    """Time interval between reports.
+
+    When set to 0, this reporting is disabled.
+
+    +-----------+---------------------+
+    |Valid Range|0-2147483647 [ms]    |
+    +-----------+---------------------+
+    |Default    |0                    |
+    +-----------+---------------------+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
