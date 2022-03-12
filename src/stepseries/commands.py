@@ -997,17 +997,17 @@ class SetOverCurrentThreshold(OSCSetCommand):
     +-------+---------+
     |OCD_TH |Threshold|
     +-------+---------+
-    |0      |312.5 mA|
+    |0      |312.5 mA |
     +-------+---------+
-    |1      |625 mA  |
+    |1      |625 mA   |
     +-------+---------+
-    |...    |...     |
+    |...    |...      |
     +-------+---------+
-    |30     |9.6875 A|
+    |30     |9.6875 A |
     +-------+---------+
-    |31     |10 A    |
+    |31     |10 A     |
     +-------+---------+
-    |Default|15 (5A) |
+    |Default|15 (5A)  |
     +-------+---------+
 
     **STEP800:**
@@ -1108,7 +1108,8 @@ class SetStallThreshold(OSCSetCommand):
     """
     STALL_TH: int
     """
-    **STEP400**
+    **STEP400:**
+
     +---------+---------+
     |STALL_TH |Threshold|
     +---------+---------+
@@ -1125,7 +1126,8 @@ class SetStallThreshold(OSCSetCommand):
     |Default  |31 (10A) |
     +---------+---------+
 
-    **STEP800**
+    **STEP800:**
+
     +---------+---------+
     |STALL_TH |Threshold|
     +---------+---------+
