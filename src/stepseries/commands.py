@@ -747,150 +747,534 @@ class ResetMotorDriver(OSCSetCommand):
 
 @dataclass
 class EnableUvloReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enableuvloreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of undervoltage events.
+
+    Undervoltage lockouts (UVLO) occur when the voltage supply to the
+    motor falls below the UVLO turn-off threshold. In this state, the
+    motor cannot be operated. UVLO will be reset when the voltage supply
+    again rises above that threshold.
+
+    The reporting for each motor can be independently enabled or
+    disabled using this command.
+
+    This report is enabled by default.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableUvloReport", init=False)
     response_cls: responses.Uvlo = field(default=responses.Uvlo, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+----+
+    |Default|True|
+    +-------+----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetUvlo(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getuvlo_intmotorid"""  # noqa
+    """Retrieves the current state of UVLO.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getUvlo", init=False)
     response_cls: responses.Uvlo = field(default=responses.Uvlo, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class EnableThermalStatusReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enablethermalstatusreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of thermal statuses.
+
+    Thermal status events are sent whenever the motor driver exceeds
+    certain temperature thresholds. Note that these thresholds are
+    different between the STEP400 and STEP800.
+
+    Two thresholds will automatically shut down the driver or device
+    when crossed and the corresponding motor(s) will be placed into a
+    HiZ state with or without notification. It is HIGHLY recommended to
+    put the included heatsinks on each motor driver chip to avoid
+    hitting these thermal thresholds.
+
+    The reporting for each motor can be independently enabled or
+    disabled using this command.
+
+    This report is enabled by default.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    **STEP400**
+    +---------+---------------+----------------+-----------------+
+    |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
+    +---------+---------------+----------------+-----------------+
+    |0        |Normal         |-               |-                |
+    +---------+---------------+----------------+-----------------+
+    |1        |Warning        |135°C           |125°C            |
+    +---------+---------------+----------------+-----------------+
+    |2        |Bridge shutdown|155°C           |145°C            |
+    +---------+---------------+----------------+-----------------+
+    |3        |Device shutdown|170°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+
+    **STEP800**
+    +---------+---------------+----------------+-----------------+
+    |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
+    +---------+---------------+----------------+-----------------+
+    |0        |Normal         |-               |-                |
+    +---------+---------------+----------------+-----------------+
+    |1        |Warning        |130°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+    |2        |Bridge shutdown|160°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+    """
 
     address: str = field(default="/enableThermalStatusReport", init=False)
     response_cls: responses.ThermalStatus = field(
         default=responses.ThermalStatus, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+----+
+    |Default|True|
+    +-------+----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetThermalStatus(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getthermalstatus_intmotorid"""  # noqa
+    """Retrieves the thermal status of motor.
+
+    Note that these thresholds are different between the STEP400 and
+    STEP800.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    **STEP400**
+    +---------+---------------+----------------+-----------------+
+    |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
+    +---------+---------------+----------------+-----------------+
+    |0        |Normal         |-               |-                |
+    +---------+---------------+----------------+-----------------+
+    |1        |Warning        |135°C           |125°C            |
+    +---------+---------------+----------------+-----------------+
+    |2        |Bridge shutdown|155°C           |145°C            |
+    +---------+---------------+----------------+-----------------+
+    |3        |Device shutdown|170°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+
+    **STEP800**
+    +---------+---------------+----------------+-----------------+
+    |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
+    +---------+---------------+----------------+-----------------+
+    |0        |Normal         |-               |-                |
+    +---------+---------------+----------------+-----------------+
+    |1        |Warning        |130°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+    |2        |Bridge shutdown|160°C           |130°C            |
+    +---------+---------------+----------------+-----------------+
+    """
 
     address: str = field(default="/getThermalStatus", init=False)
     response_cls: responses.ThermalStatus = field(
         default=responses.ThermalStatus, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class EnableOverCurrentReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enableovercurrentreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of overcurrent events.
+
+    Overcurrent events are sent whenever the motor driver exceeds the
+    configured threshold. This threshold can be set using
+    :py:class:`stepseries.commands.SetOverCurrentThreshold`.
+
+    When overcurrent draw is detected, the device automatically enters a
+    HiZ state with or without notification.
+
+    This report is enabled by default.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableOverCurrentReport", init=False)
     response_cls: responses.OverCurrent = field(
         default=responses.OverCurrent, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+----+
+    |Default|True|
+    +-------+----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class SetOverCurrentThreshold(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setovercurrentthreshold_intmotorid_intocd_th"""  # noqa
+    """Sets the overcurrent detection threshold.
+
+    Note that these thresholds are different between the STEP400 and
+    STEP800.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setOverCurrentThreshold", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     OCD_TH: int
+    """
+    **STEP400**
+    +-------+---------+
+    |OCD_TH |Threshold|
+    +-------+---------+
+    |0      |312.5 mA|
+    +-------+---------+
+    |1      |625 mA  |
+    +-------+---------+
+    |...    |...     |
+    +-------+---------+
+    |30     |9.6875 A|
+    +-------+---------+
+    |31     |10 A    |
+    +-------+---------+
+    |Default|15 (5A) |
+    +-------+---------+
+
+    **STEP800**
+    +-------+---------+
+    |OCD_TH |Threshold|
+    +-------+---------+
+    |0     |375 mA    |
+    +-------+---------+
+    |1     |750 mA    |
+    +-------+---------+
+    |...   |...       |
+    +-------+---------+
+    |30    |5.625 A   |
+    +-------+---------+
+    |31    |6 A       |
+    +-------+---------+
+    |Default|7 (3A)   |
+    +-------+---------+
+    """
 
 
 @dataclass
 class GetOverCurrentThreshold(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getovercurrentthreshold_intmotorid"""  # noqa
+    """Retrieve the overcurrent threshold for a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getOverCurrentThreshold", init=False)
     response_cls: responses.OverCurrentThreshold = field(
         default=responses.OverCurrentThreshold, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class EnableStallReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#enablestallreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of stall events.
+
+    The threshold can be set with
+    :py:class:`stepseries.commands.SetStallThreshold`.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableStallReport", init=False)
     response_cls: responses.Stall = field(default=responses.Stall, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class SetStallThreshold(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setstallthreshold_intmotorid_intstall_th"""  # noqa
+    """Sets the stall detection threshold.
+
+    Note that these thresholds are different between the STEP400 and
+    STEP800.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setStallThreshold", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     STALL_TH: int
+    """
+    **STEP400**
+    +---------+---------+
+    |STALL_TH |Threshold|
+    +---------+---------+
+    |0        |312.5 mA |
+    +---------+---------+
+    |1        |625 mA   |
+    +---------+---------+
+    |...      |...      |
+    +---------+---------+
+    |30       |9.6875 A |
+    +---------+---------+
+    |31       |10 A     |
+    +---------+---------+
+    |Default  |31 (10A) |
+    +---------+---------+
+
+    **STEP800**
+    +---------+---------+
+    |STALL_TH |Threshold|
+    +---------+---------+
+    |0        |31.25 mA |
+    +---------+---------+
+    |1        |62.5 mA  |
+    +---------+---------+
+    |...      |...      |
+    +---------+---------+
+    |126      |3.969 A  |
+    +---------+---------+
+    |127      |4 A      |
+    +---------+---------+
+    |Default  |7 (4A)   |
+    +---------+---------+
+    """
 
 
 @dataclass
 class GetStallThreshold(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getstallthreshold_intmotorid"""  # noqa
+    """Retrieve the stall threshold for a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getStallThreshold", init=False)
     response_cls: responses.StallThreshold = field(
         default=responses.StallThreshold, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetProhibitMotionOnHomeSw(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setprohibitmotiononhomesw_intmotorid_boolenable"""  # noqa
+    """Prohibit motion to the origin when the home sensor is activated.
+
+    The direction to the origin point can be configured using the
+    `Config Tool`_ or with
+    :py:class:`stepseries.commands.SetHomingDirection`.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setProhibitMotionOnHomeSw", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class GetProhibitMotionOnHomeSw(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"""  # noqa
+    """
+    Retrieve if motion towards the origin point is disabled when the
+    home switch is activated.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getProhibitMotionOnHomeSw", init=False)
     response_cls: responses.ProhibitMotionOnHomeSw = field(
         default=responses.ProhibitMotionOnHomeSw, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setprohibitmotiononlimitsw_intmotorid_boolenable"""  # noqa
+    """Prohibit motion to the origin when the limit sensor is activated.
+
+    The direction to the origin point can be configured using the
+    `Config Tool`_ or with
+    :py:class:`stepseries.commands.SetHomingDirection`.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setProhibitMotionOnLimitSw", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"""  # noqa
+    """
+    Retrieve if motion towards the origin point is disabled when the
+    limit switch is activated.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getProhibitMotionOnLimitSw", init=False)
     response_cls: responses.ProhibitMotionOnLimitSw = field(
         default=responses.ProhibitMotionOnLimitSw, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 # Voltage and Current Mode Settings
