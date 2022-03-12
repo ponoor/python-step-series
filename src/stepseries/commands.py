@@ -828,7 +828,8 @@ class EnableThermalStatusReport(OSCSetCommand):
     |Executable Timing|Always|
     +-----------------+------+
 
-    **STEP400**
+    **STEP400:**
+
     +---------+---------------+----------------+-----------------+
     |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
     +---------+---------------+----------------+-----------------+
@@ -841,7 +842,8 @@ class EnableThermalStatusReport(OSCSetCommand):
     |3        |Device shutdown|170°C           |130°C            |
     +---------+---------------+----------------+-----------------+
 
-    **STEP800**
+    **STEP800:**
+
     +---------+---------------+----------------+-----------------+
     |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
     +---------+---------------+----------------+-----------------+
@@ -886,7 +888,8 @@ class GetThermalStatus(OSCGetCommand):
     |Executable Timing|Always|
     +-----------------+------+
 
-    **STEP400**
+    **STEP400:**
+
     +---------+---------------+----------------+-----------------+
     |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
     +---------+---------------+----------------+-----------------+
@@ -899,7 +902,8 @@ class GetThermalStatus(OSCGetCommand):
     |3        |Device shutdown|170°C           |130°C            |
     +---------+---------------+----------------+-----------------+
 
-    **STEP800**
+    **STEP800:**
+
     +---------+---------------+----------------+-----------------+
     |TH_STATUS|Description    |Enable Threshold|Disable Threshold|
     +---------+---------------+----------------+-----------------+
@@ -988,7 +992,8 @@ class SetOverCurrentThreshold(OSCSetCommand):
     """
     OCD_TH: int
     """
-    **STEP400**
+    **STEP400:**
+
     +-------+---------+
     |OCD_TH |Threshold|
     +-------+---------+
@@ -1005,7 +1010,8 @@ class SetOverCurrentThreshold(OSCSetCommand):
     |Default|15 (5A) |
     +-------+---------+
 
-    **STEP800**
+    **STEP800:**
+
     +-------+---------+
     |OCD_TH |Threshold|
     +-------+---------+
