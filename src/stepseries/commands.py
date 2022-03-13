@@ -1141,7 +1141,7 @@ class SetStallThreshold(OSCSetCommand):
     +---------+---------+
     |127      |4 A      |
     +---------+---------+
-    |Default  |7 (4A)   |
+    |Default  |127 (4A) |
     +---------+---------+
     """
 
