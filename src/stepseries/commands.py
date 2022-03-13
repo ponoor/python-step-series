@@ -1108,7 +1108,8 @@ class SetStallThreshold(OSCSetCommand):
     +-------+--------+
     """
     STALL_TH: int
-    """
+    """The stall threshold.
+
     **STEP400:**
 
     +---------+---------+
