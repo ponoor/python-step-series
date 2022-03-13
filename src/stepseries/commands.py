@@ -636,11 +636,11 @@ class SetPositionListReportInterval(OSCSetCommand):
 
     When set to 0, this reporting is disabled.
 
-    +-----------+---------------------+
-    |Valid Range|0-2147483647 [ms]    |
-    +-----------+---------------------+
-    |Default    |0                    |
-    +-----------+---------------------+
+    +-----------+-----------------+
+    |Valid Range|0-2147483647 [ms]|
+    +-----------+-----------------+
+    |Default    |0                |
+    +-----------+-----------------+
     """
     callback: Optional[Callable[..., None]] = None
 
@@ -1290,140 +1290,386 @@ class GetProhibitMotionOnLimitSw(OSCGetCommand):
 
 @dataclass
 class SetVoltageMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setvoltagemode_intmotorid"""  # noqa
+    """Switch a specific motor into voltage mode.
+
+    ``STEP400 Only``
+
+    .. note:: The STEP800 is always in voltage mode and cannot be
+        switched.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setVoltageMode", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetKval(OSCSetCommand):
-    """Sets the configuration for all four kval parameters.
+    """Sets the configuration for all four KVAL parameters.
 
-    Arguments:
-        motorID (`int`):
-            The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
-            for STEP800.
-        holdKVAL (`int`):
-            The holding kval. Possible values are 0-255.
-        runKVAL (`int`):
-            The kval while running. Possible values are 0-255.
-        accKVAL (`int`):
-            The kval during acceleration. Possible values are 0-255.
-        setDecKVAL (`int`):
-            The kval during deceleration. Possible values are 0-255.
+    KVAL only applies when the motor controller is in voltage mode. This
+    goes without saying KVAL always applies on the STEP800.
 
-    OSC Command Syntax: ``/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL``
-
-    Executable Timing: Always
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/setKval", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     holdKVAL: int
+    """KVAL for holding the motor's position.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     runKVAL: int
+    """KVAL for maintaining the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     accKVAL: int
+    """KVAL for accelerating the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     setDecKVAL: int
+    """KVAL for decelerating the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
 
 
 @dataclass
 class GetKval(OSCGetCommand):
-    """Retrieves the four kval parameters for a specified motor.
-    
-    Arguments:
-        motorID (`int`):
-            The motor id to configure. 1-4, 255 for STEP400 and 1-8, 255
-            for STEP800.
-    
-    OSC Command Syntax: ``/getKval (int)motorID``
+    """Retrieves the four KVAL parameters for a specified motor.
 
-    Executable Timing: Always
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/getKval", init=False)
     response_cls: responses.Kval = field(default=responses.Kval, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetBemfParam(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setbemfparam_intmotorid_intint_speed_intst_slp_intfn_slp_acc_intfn_slp_dec"""  # noqa
+    """Sets the BEMF compensation register.
+
+    BEMF only applies when the motor controller is in voltage mode. This
+    goes without saying BEMF always applies on the STEP800.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setBemfParam", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     INT_SPEED: int
+    """INT_SPEED register.
+
+    +-----------+-------+
+    |Valid Range|0-16383|
+    +-----------+-------+
+    |Default    |1032   |
+    +-----------+-------+
+    """
     ST_SLP: int
+    """ST_SLP register.
+
+    +-----------+-------+
+    |Valid Range|0-255  |
+    +-----------+-------+
+    |Default    |25     |
+    +-----------+-------+
+    """
     FN_SLP_ACC: int
+    """FN_SLP_ACC register.
+
+    +-----------+-------+
+    |Valid Range|0-255  |
+    +-----------+-------+
+    |Default    |41     |
+    +-----------+-------+
+    """
     FN_SLP_DEC: int
+    """FN_SLP_DEC register.
+
+    +-----------+-------+
+    |Valid Range|0-255  |
+    +-----------+-------+
+    |Default    |41     |
+    +-----------+-------+
+    """
 
 
 @dataclass
 class GetBemfParam(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"""  # noqa
+    """Retrieves the BEMF compensation register.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getBemfParam", init=False)
     response_cls: responses.BemfParam = field(default=responses.BemfParam, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetCurrentMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setcurrentmode_intmotorid"""  # noqa
+    """Switch a specific motor into current mode.
+
+    ``STEP400 Only``
+
+    .. note:: The STEP800 is always in voltage mode and cannot be
+        switched.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setCurrentMode", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetTval(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#settval_intmotorid_intholdtval_intruntval_intacctval_intsetdectval"""  # noqa
+    """Sets the configuration for all four TVAL parameters.
+
+    ``STEP400 Only``
+
+    TVAL only applies when the motor controller is in current mode. This
+    goes without saying TVAL never applies on the STEP800.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setTval", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
     holdTVAL: int
+    """TVAL for holding the motor's position.
+
+    +-----------+-----+
+    |Valid Range|0-127|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     runTVAL: int
+    """TVAL for maintaining the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-127|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     accTVAL: int
+    """TVAL for accelerating the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-127|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
     setDecTVAL: int
+    """TVAL for decelerating the motor's speed.
+
+    +-----------+-----+
+    |Valid Range|0-127|
+    +-----------+-----+
+    |Default    |16   |
+    +-----------+-----+
+    """
 
 
 @dataclass
 class GetTval(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_intmotorid"""  # noqa
+    """Retrieves the configuration for all four TVAL parameters.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getTval", init=False)
     response_cls: responses.Tval = field(default=responses.Tval, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetTval_mA(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"""  # noqa
+    """Retrieves the configuration for all four TVAL parameters.
+
+    Unlike :py:class:`stepseries.commands.GetTval`, this returns the
+    actual current values (in mA), not the register values.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getTval_mA", init=False)
     response_cls: responses.Tval_mA = field(default=responses.Tval_mA, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetDecayModeParam(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setdecaymodeparam_intmotorid_intt_fast_intton_min_inttoff_min"""  # noqa
+    """Sets the current control algorithm parameters.
+
+    ``STEP400 Only``
+
+    Decay mode only applies when the motor controller is in current
+    mode. This goes without saying decay mode never applies on the
+    STEP800.
+
+    +-----------------+---+
+    |Executable Timing|HiZ|
+    +-----------------+---+
+    """
 
     address: str = field(default="/setDecayModeParam", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
     T_FAST: int
+    """T_FAST register value.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |25   |
+    +-----------+-----+
+    """
     TON_MIN: int
+    """TON_MIN register value.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |41   |
+    +-----------+-----+
+    """
     TOFF_MIN: int
+    """TOFF_MIN register value.
+
+    +-----------+-----+
+    |Valid Range|0-255|
+    +-----------+-----+
+    |Default    |41   |
+    +-----------+-----+
+    """
 
 
 @dataclass
 class GetDecayModeParam(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"""  # noqa
+    """Retrieves the current control algorithm parameters.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getDecayModeParam", init=False)
     response_cls: responses.DecayModeParam = field(
         default=responses.DecayModeParam, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 # Speed Profile
