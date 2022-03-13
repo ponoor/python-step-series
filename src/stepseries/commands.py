@@ -991,7 +991,7 @@ class SetOverCurrentThreshold(OSCSetCommand):
     +-------+--------+
     """
     OCD_TH: int
-    """
+    """The overcurrent threshold.
 
     **STEP400:**
 
