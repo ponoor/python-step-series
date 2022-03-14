@@ -274,9 +274,9 @@ class EnableLowSpeedOptimize(OSCSetCommand):
 
     See the datasheet for more details.
 
-    +-----------------+----------------+
-    |Executable Timing|Motor is stopped|
-    +-----------------+----------------+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
     """
 
     address: str = field(default="/enableLowSpeedOptimize", init=False)
@@ -1679,98 +1679,291 @@ class GetDecayModeParam(OSCGetCommand):
 
 @dataclass
 class SetSpeedProfile(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setspeedprofile_intmotorid_floatacc_floatdec_floatmaxspeed"""  # noqa
+    """Sets multiple speed profile settings at once.
+
+    Acceleration, deceleration and max speed can all be set at once
+    using this command.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setSpeedProfile", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     acc: float
+    """Acceleration.
+
+    +-----------+-------------------------+
+    |Valid Range|14.55 - 59590 [steps/s/s]|
+    +-----------+-------------------------+
+    |Default    |2000 [steps/s/s]         |
+    +-----------+-------------------------+
+    """
     dec: float
+    """Deceleration.
+
+    +-----------+-------------------------+
+    |Valid Range|14.55 - 59590 [steps/s/s]|
+    +-----------+-------------------------+
+    |Default    |2000 [steps/s/s]         |
+    +-----------+-------------------------+
+    """
     maxSpeed: float
+    """Maximum speed.
+
+    +-----------+-----------------------+
+    |Valid Range|15.25 - 15610 [steps/s]|
+    +-----------+-----------------------+
+    |Default    |620 [steps/s]          |
+    +-----------+-----------------------+
+    """
 
 
 @dataclass
 class GetSpeedProfile(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeedprofile_intmotorid"""  # noqa
+    """Retrieves all three speed profile settings.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getSpeedProfile", init=False)
     response_cls: responses.SpeedProfile = field(
         default=responses.SpeedProfile, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetFullstepSpeed(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setfullstepspeed_intmotorid_floatfullstepspeed"""  # noqa
+    """Sets the threshold when microstepping switches to full stepping.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setFullstepSpeed", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     fullstepSpeed: float
+    """Full-step speed.
+
+    +-----------+----------------------+
+    |Valid Range|7.63 - 15625 [steps/s]|
+    +-----------+----------------------+
+    |Default    |15625 [steps/s]       |
+    +-----------+----------------------+
+    """
 
 
 @dataclass
 class GetFullstepSpeed(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getfullstepspeed_intmotorid"""  # noqa
+    """Retrieves the switch threshold of microstepping to fullstepping.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getFullstepSpeed", init=False)
     response_cls: responses.FullstepSpeed = field(
         default=responses.FullstepSpeed, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetMaxSpeed(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setmaxspeed_intmotorid_floatmaxspeed"""  # noqa
+    """Set the maximum speed of the speed profile.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setMaxSpeed", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     maxSpeed: float
+    """Maximum speed.
+
+    +-----------+-----------------------+
+    |Valid Range|15.25 - 15610 [steps/s]|
+    +-----------+-----------------------+
+    |Default    |620 [steps/s]          |
+    +-----------+-----------------------+
+    """
 
 
 @dataclass
 class SetAcc(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setacc_intmotorid_floatacc"""  # noqa
+    """Sets the acceleration of the speed profile.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setAcc", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     acc: float
+    """Acceleration.
+
+    +-----------+-------------------------+
+    |Valid Range|14.55 - 59590 [steps/s/s]|
+    +-----------+-------------------------+
+    |Default    |2000 [steps/s/s]         |
+    +-----------+-------------------------+
+    """
 
 
 @dataclass
 class SetDec(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setdec_intmotorid_floatdec"""  # noqa
+    """Sets the deceleration of the speed profile.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setDec", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     dec: float
+    """Deceleration.
+
+    +-----------+-------------------------+
+    |Valid Range|14.55 - 59590 [steps/s/s]|
+    +-----------+-------------------------+
+    |Default    |2000 [steps/s/s]         |
+    +-----------+-------------------------+
+    """
 
 
 @dataclass
 class SetMinSpeed(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#setminspeed_intmotorid_floatminspeed"""  # noqa
+    """Sets the minimum speed of the speed profile.
+
+    Also used for the motor speed of
+    :py:class:`stepseries.commands.ReleaseSw`.
+
+    If :py:class:`stepseries.commands.EnableLowSpeedOptimize` is
+    enabled, the this is automatically set to zero.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setMinSpeed", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     minSpeed: float
+    """Minimum speed.
+
+    +-----------+-------------------+
+    |Valid Range|0 - 976.3 [steps/s]|
+    +-----------+-------------------+
+    |Default    |0 [steps/s]        |
+    +-----------+-------------------+
+    """
 
 
 @dataclass
 class GetMinSpeed(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getminspeed_intmotorid"""  # noqa
+    """Retrieve the minimum speed of the speed profile.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getMinSpeed", init=False)
     response_cls: responses.MinSpeed = field(default=responses.MinSpeed, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetSpeed(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeed_intmotorid"""  # noqa
+    """Retrieve the current motor speed.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getSpeed", init=False)
     response_cls: responses.Speed = field(default=responses.Speed, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Homing
