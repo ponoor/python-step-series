@@ -95,22 +95,19 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
     Query replies, internal state reports, or command errors are sent to
     this destination IP. Typically this is the IP address of your
     computer. Upon receipt, the device will reply with a
-    ``responses.DestIP`` object.
+    :py:class:`stepseries.responses.DestIP`. object.
 
     Until this command is sent, no OSC messages will be sent from the
     device with the exception being ``responses.Booted``. The
     `Config Tool`_ allows you to configure whether the device should
     wait for this command.
 
-    Note: The library will return before ``responses.DestIP`` is
-    received. This behavior will be changed in a future update.
+    Note: The library will return before
+    :py:class:`stepseries.responses.DestIP` is received. This behavior
+    will be changed in a future update.
 
     +-----------------+--------------------+
-    |Response         |``responses.DestIP``|
-    +-----------------+--------------------+
     |Executable Timing|Always              |
-    +-----------------+--------------------+
-    |Initial Value    |10.0.0.10           |
     +-----------------+--------------------+
 
     .. _Config Tool: http://ponoor.com/tools/step400-config/
@@ -124,8 +121,6 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
 class GetVersion(OSCGetCommand):
     """Retrieve the current firmware version of the controller.
 
-    +-----------------+---------------------+
-    |Response         |``responses.Version``|
     +-----------------+---------------------+
     |Executable Timing|Always               |
     +-----------------+---------------------+
@@ -362,9 +357,6 @@ class GetLowSpeedOptimizeThreshold(OSCGetCommand):
 class EnableBusyReport(OSCSetCommand):
     """Enable or disable the automatic reporting of busy status changes.
 
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
-
     +-----------------+------+
     |Executable Timing|Always|
     +-----------------+------+
@@ -415,9 +407,6 @@ class GetBusy(OSCGetCommand):
 class EnableHiZReport(OSCSetCommand):
     """Enable or disable the automatic reporting of HiZ status changes.
 
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
-
     +-----------------+------+
     |Executable Timing|Always|
     +-----------------+------+
@@ -467,9 +456,6 @@ class GetHiZ(OSCGetCommand):
 @dataclass
 class EnableDirReport(OSCSetCommand):
     """Enable or disable the automatic reporting of direction changes.
-
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
 
     +-----------------+------+
     |Executable Timing|Always|
@@ -523,9 +509,6 @@ class EnableMotorStatusReport(OSCSetCommand):
 
     The reports are sent when the motor changes its current op like
     acceleration, constant speed, deceleration or stopping.
-
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
 
     +-----------------+------+
     |Executable Timing|Always|
@@ -754,9 +737,6 @@ class EnableUvloReport(OSCSetCommand):
     motor cannot be operated. UVLO will be reset when the voltage supply
     again rises above that threshold.
 
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
-
     This report is enabled by default.
 
     +-----------------+------+
@@ -818,9 +798,6 @@ class EnableThermalStatusReport(OSCSetCommand):
     HiZ state with or without notification. It is HIGHLY recommended to
     put the included heatsinks on each motor driver chip to avoid
     hitting these thermal thresholds.
-
-    The reporting for each motor can be independently enabled or
-    disabled using this command.
 
     This report is enabled by default.
 
