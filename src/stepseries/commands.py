@@ -653,11 +653,11 @@ class GetAdcVal(OSCGetCommand):
     ADC pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ
     resistor wired directly to the LIMITSW connector.
 
+    ``STEP400 Only``
+
     +-----------------+------+
     |Executable Timing|Always|
     +-----------------+------+
-
-    ``STEP400 Only``
     """
 
     address: str = field(default="/getAdcVal", init=False)
