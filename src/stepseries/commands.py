@@ -106,9 +106,9 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
     :py:class:`stepseries.responses.DestIP` is received. This behavior
     will be changed in a future update.
 
-    +-----------------+--------------------+
-    |Executable Timing|Always              |
-    +-----------------+--------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
 
     .. _Config Tool: http://ponoor.com/tools/step400-config/
     """
@@ -325,7 +325,7 @@ class SetLowSpeedOptimizeThreshold(OSCSetCommand):
     +-----------+---------------------+
     |Valid Range|0.0 - 976.3 [steps/s]|
     +-----------+---------------------+
-    |Default    |0                    |
+    |Default    |0 [steps/s]          |
     +-----------+---------------------+
     """
 
@@ -591,7 +591,7 @@ class SetPositionReportInterval(OSCSetCommand):
     +-----------+---------------------+
     |Valid Range|0-2147483647 [ms]    |
     +-----------+---------------------+
-    |Default    |0                    |
+    |Default    |0 [ms]               |
     +-----------+---------------------+
     """
     callback: Optional[Callable[..., None]] = None
@@ -622,7 +622,7 @@ class SetPositionListReportInterval(OSCSetCommand):
     +-----------+-----------------+
     |Valid Range|0-2147483647 [ms]|
     +-----------+-----------------+
-    |Default    |0                |
+    |Default    |0 [ms]           |
     +-----------+-----------------+
     """
     callback: Optional[Callable[..., None]] = None
@@ -1948,121 +1948,396 @@ class GetSpeed(OSCGetCommand):
 
 @dataclass
 class Homing(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#homing_intmotorid"""  # noqa
+    """Start homing the motor.
+
+    The motor will start moving towards the origin point and then stop
+    when the HOME switch activates. The motor will then slowly reverse
+    until the HOME switch releases. The home point will be set to this
+    point.
+
+    This command is essentially the combined functionality of
+    :py:class:`stepseries.commands.GoUntil` and
+    :py:class:`stepseries.commands.ReleaseSw`.
+
+    Homing direction and speed can be set with
+    :py:class:`stepseries.commands.SetHomingDirection` and
+    :py:class:`stepseries.commands.SetHomingSpeed`, respectively; or
+    configured with the `Config Tool`_.
+
+    If the motor does not reach the HOME switch before
+    :py:class:`stepseries.commands.SetGoUntilTimeout` or release the
+    HOME switch before
+    :py:class:`stepseries.commands.SetReleaseSwTimeout`, then the
+    controller will halt the motor's movements.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/homing", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetHomingStatus(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#sethomingdirection_intmotorid_booldirection"""  # noqa
+    """Retrieve the homing status of a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHomingStatus", init=False)
     response_cls: responses.HomingStatus = field(
         default=responses.HomingStatus, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetHomingDirection(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#sethomingspeed_intmotorid_floatspeed"""  # noqa
+    """Sets the homing direction for homing.
+
+    Can also be configured with the `Config Tool`_.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setHomingDirection", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     direction: bool
+    """True or False, depending on your environment.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class GetHomingDirection(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingdirection_intmotorid"""  # noqa
+    """Retrieve the homing direction for a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHomingDirection", init=False)
     response_cls: responses.HomingDirection = field(
         default=responses.HomingDirection, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetHomingSpeed(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#sethomingspeed_intmotorid_floatspeed"""  # noqa
+    """Set the homing speed for a motor.
+
+    Can also be configured with the `Config Tool`_.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setHomingSpeed", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     speed: float
+    """Speed to run at.
+
+    +-----------+-----------------------+
+    |Valid Range|0.0 - 15625.0 [steps/s]|
+    +-----------+-----------------------+
+    |Default    |100.0 [steps/s]        |
+    +-----------+-----------------------+
+    """
 
 
 @dataclass
 class GetHomingSpeed(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingspeed_intmotorid"""  # noqa
+    """Retrieve the homing speed for a motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHomingSpeed", init=False)
     response_cls: responses.HomingSpeed = field(
         default=responses.HomingSpeed, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GoUntil(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gountil_intmotorid_boolact_floatspeed"""  # noqa
+    """Run a motor until the HOME switch activates or times out.
+
+    The motor will run at the speed and direction according to the
+    ``speed`` parameter.
+
+    By default, the motor will soft stop unless if
+    :py:class:`stepseries.commands.SetSwMode` is set to 0.
+
+    The timeout for this command can be set using
+    :py:class:`stepseries.commands.SetGoUntilTimeout`.
+
+    This command is not influenced by
+    :py:class:`stepseries.commands.SetHomingSpeed` or
+    :py:class:`stepseries.commands.SetHomingDirection`.
+
+    The motor is kept in a BUSY state until this command finishes.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/goUntil", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     ACT: bool
+    """The action to take when the HOME switch activates.
+
+    +-------+----------------------------------------------+
+    |0      |Set the origin (home) position here           |
+    +-------+----------------------------------------------+
+    |1      |Copy the current position to the MARK register|
+    +-------+----------------------------------------------+
+    """
     speed: float
+    """The direction and speed to run.
+
+    Direction can be set by specifying a positive or negative value.
+
+    +-----------+----------------------------+
+    |Valid Range|-15625.0 - 15625.0 [steps/s]|
+    +-----------+----------------------------+
+    |Default    |100 [steps/s]               |
+    +-----------+----------------------------+
+    """
 
 
 @dataclass
 class SetGoUntilTimeout(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setgountiltimeout_intmotorid_inttimeout"""  # noqa
+    """Set the timeout for :py:class:`stepseries.commands.GoUntil`.
+
+    If the HOME switch is not activated before this timeout, then the
+    controller stops the motor's movements. Specify 0 to disable the
+    timeout.
+
+    Can also be configured with the `Config Tool`_.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setGoUntilTimeout", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     timeOut: int
+    """How long to wait for the HOME switch to activate.
+
+    +-----------+--------------+
+    |Valid Range|0 - 65535 [ms]|
+    +-----------+--------------+
+    |Default    |10000 [ms]    |
+    +-----------+--------------+
+    """
 
 
 @dataclass
 class GetGoUntilTimeout(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#getgountiltimeout_intmotorid"""  # noqa
+    """Retrieve the timeout for :py:class:`stepseries.commands.GoUntil`.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getGoUntilTimeout", init=False)
     response_cls: responses.GoUntilTimeout = field(
         default=responses.GoUntilTimeout, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class ReleaseSw(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#releasesw_intmotorid_boolact_booldir"""  # noqa
+    """Move at a minimum speed until the HOME switch releases.
+
+    On release, the controller will hard stop the motor and then process
+    the motor's position according to ``ACT``.
+
+    The timeout for this command can be set using
+    :py:class:`stepseries.commands.SetReleaseSwTimeout`.
+
+    This command is not influenced by
+    :py:class:`stepseries.commands.SetHomingSpeed` or
+    :py:class:`stepseries.commands.SetHomingDirection`.
+
+    The motor is kept in a BUSY state until this command finishes.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/releaseSw", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     ACT: bool
+    """The action to take when the HOME switch releases.
+
+    +-------+----------------------------------------------+
+    |0      |Set the origin (home) position here           |
+    +-------+----------------------------------------------+
+    |1      |Copy the current position to the MARK register|
+    +-------+----------------------------------------------+
+    """
     DIR: bool
+    """True or False, depending on your environment."""
 
 
 @dataclass
 class SetReleaseSwTimeout(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"""  # noqa
+    """Set the timeout for :py:class:`stepseries.commands.ReleaseSw`.
+
+    If the HOME switch is not releaseed before this timeout, then the
+    controller stops the motor's movements. Specify 0 to disable the
+    timeout.
+
+    Can also be configured with the `Config Tool`_.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/setReleaseSwTimeout", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     timeOut: int
+    """How long to wait for the HOME switch to activate.
+
+    +-----------+--------------+
+    |Valid Range|0 - 65535 [ms]|
+    +-----------+--------------+
+    |Default    |10000 [ms]    |
+    +-----------+--------------+
+    """
 
 
 @dataclass
 class GetReleaseSwTimeout(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"""  # noqa
+    """
+    Retrieve the timeout for :py:class:`stepseries.commands.ReleaseSw`.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getReleaseSwTimeout", init=False)
     response_cls: responses.ReleaseSwTimeout = field(
         default=responses.ReleaseSwTimeout, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Home and Limit Sensors
