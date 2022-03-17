@@ -3071,49 +3071,150 @@ class HardHiZ(OSCSetCommand):
 
 @dataclass
 class EnableElectromagnetBrake(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#enableelectromagnetbrake_intmotorid_boolenable"""  # noqa
+    """Enable or disable electromagnetic brake operation.
+
+    Not to be confused with :py:class:`stepseries.commands.Activate`
+    which activates or deactivates the brake.
+
+    While enabled, the controller will reply with
+    ``ERROR_BRAKE_ENGAGED`` if a movement command is sent without
+    releasing the brake.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableElectromagnetBrake", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the brake.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class Activate(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#activate_intmotorid_boolstate"""  # noqa
+    """Enables or disables the electromagnetic brake.
+
+    :py:class:`stepseries.commands.EnableElectromagnetBrake` must be
+    enabled for this command to have an effect.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/activate", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     state: bool
+    """
+    +-+-----------------------------+
+    |0|Motor engaged, brake released|
+    +-+-----------------------------+
+    |1|Motor released, brake engaged|
+    +-+-----------------------------+
+    """
 
 
 @dataclass
 class Free(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#free_intmotorid_boolstate"""  # noqa
+    """Releases both the motor and brake.
+
+    .. warning:: If **any** load is attached to the motor, it will no
+        longer be held when this command is sent.
+
+    :py:class:`stepseries.commands.EnableElectromagnetBrake` must be
+    enabled for this command to have an effect.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/free", init=False)
     motorID: int
-    state: bool
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetBrakeTransitionDuration(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#setbraketransitionduration_intmotorid_intduration"""  # noqa
+    """Duration to keep the motor activated while the brake transitions.
+
+    Due to the physical transition time of the brake, the motor needs to
+    be engaged to cover this period.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setBrakeTransitionDuration", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     duration: int
+    """
+    +-----------+-------------+
+    |Valid Range|0-10000  [ms]|
+    +-----------+-------------+
+    |Default    |100 [ms]     |
+    +-----------+-------------+
+    """
 
 
 @dataclass
 class GetBrakeTransitionDuration(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#getbraketransitionduration_intmotorid"""  # noqa
+    """Retrieve the brake transition duration.
+
+    Due to the physical transition time of the brake, the motor needs to
+    be engaged to cover this period which this command retrieves.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getBrakeTransitionDuration", init=False)
     response_cls: responses.BrakeTransitionDuration = field(
         default=responses.BrakeTransitionDuration, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Servo Mode
