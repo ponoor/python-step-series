@@ -1173,7 +1173,7 @@ class SetProhibitMotionOnHomeSw(OSCSetCommand):
     +-------+--------+
     """
     enable: bool
-    """If True, enable the reporting.
+    """If True, disable motion in the origin direction.
 
     +-------+-----+
     |Default|False|
@@ -1231,7 +1231,7 @@ class SetProhibitMotionOnLimitSw(OSCSetCommand):
     +-------+--------+
     """
     enable: bool
-    """If True, enable the reporting.
+    """If True, disable motion in the LIMIT switch direction.
 
     +-------+-----+
     |Default|False|
