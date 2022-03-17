@@ -2345,91 +2345,246 @@ class GetReleaseSwTimeout(OSCGetCommand):
 
 @dataclass
 class EnableHomeSwReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablehomeswreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of home switch changes.
+
+    Also see :py:class:`stepseries.responses.EnableSwEventReport`.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableHomeSwReport", init=False)
     response_cls: responses.HomeSw = field(default=responses.HomeSw, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class EnableSwEventReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablesweventreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable the automatic reporting of home switch changes.
+
+    While very similar to
+    :py:class:`stepseries.responses.EnableHomeSwReport` which polls the
+    motor driver for the status of the home switch, this report
+    essentially "listens" for a notification from the motor driver chip.
+    This report is able to detect the closure of the home switch in
+    under 1ms.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableSwEventReport", init=False)
     response_cls: responses.SwEvent = field(default=responses.SwEvent, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetHomeSw(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomesw_intmotorid"""  # noqa
+    """Retrieve the status of the home switch.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHomeSw", init=False)
     response_cls: responses.HomeSw = field(default=responses.HomeSw, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class EnableLimitSwReport(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablelimitswreport_intmotorid_boolenable"""  # noqa
+    """Enable or disable automatic reporting of limit switch changes.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableLimitSwReport", init=False)
     response_cls: responses.LimitSw = field(default=responses.LimitSw, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable the reporting.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
     callback: Optional[Callable[..., None]] = None
 
 
 @dataclass
 class GetLimitSw(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitsw_intmotorid"""  # noqa
+    """Retrieve the status of the limit switch.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getLimitSw", init=False)
     response_cls: responses.LimitSw = field(default=responses.LimitSw, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetHomeSwMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#sethomeswmode_intmotorid_boolsw_mode"""  # noqa
+    """Configure whether to stop immediately on home switch release.
+
+    +-----------------+---+
+    |Executable Timing|HiZ|
+    +-----------------+---+
+    """
 
     address: str = field(default="/setHomeSwMode", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     SW_MODE: bool
+    """If True, do not stop.
+
+    +-------+-------------------+
+    |False  |Hard stop the motor|
+    +-------+-------------------+
+    |True   |Do not stop        |
+    +-------+-------------------+
+    |Default|True               |
+    +-------+-------------------+
+    """
 
 
 @dataclass
 class GetHomeSwMode(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomeswmode_intmotorid"""  # noqa
+    """Retrieve the configured mode for the home switch.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getHomeSwMode", init=False)
     response_cls: responses.HomeSwMode = field(default=responses.HomeSwMode, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetLimitSwMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#setlimitswmode_intmotorid_boolsw_mode"""  # noqa
+    """Configure whether to stop immediately on limit switch activated.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setLimitSwMode", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
     SW_MODE: bool
+    """If True, do not stop.
+
+    +-------+-------------------+
+    |False  |Hard stop the motor|
+    +-------+-------------------+
+    |True   |Do not stop        |
+    +-------+-------------------+
+    |Default|True               |
+    +-------+-------------------+
+    """
 
 
 @dataclass
 class GetLimitSwMode(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitswmode_intmotorid"""  # noqa
+    """Retrieve the configured mode for the limit switch.
+
+    ``STEP400 Only``
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getLimitSwMode", init=False)
     response_cls: responses.LimitSwMode = field(
         default=responses.LimitSwMode, init=False
     )
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    """
 
 
 # Position Management
