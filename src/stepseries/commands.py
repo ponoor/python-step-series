@@ -2592,25 +2592,68 @@ class GetLimitSwMode(OSCGetCommand):
 
 @dataclass
 class SetPosition(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#setposition_intmotorid_intnewposition"""  # noqa
+    """Overwrites the motor's current position.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setPosition", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     newPosition: int
+    """Position to set to.
+
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
 
 
 @dataclass
 class GetPosition(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getposition_intmotorid"""  # noqa
+    """Retrieve the current position of the motor.
+
+    Alternatively,
+    :py:class:`stepseries.responses.SetPositionReportInterval` can be
+    configured to periodically send the current position.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getPosition", init=False)
     response_cls: responses.Position = field(default=responses.Position, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GetPositionList(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getpositionlist"""  # noqa
+    """Retrieve the current positions for ALL motors.
+
+    Alternatively,
+    :py:class:`stepseries.responses.SetPositionListReportInterval` can
+    be configured to periodically send the current position.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getPositionList", init=False)
     response_cls: responses.PositionList = field(
@@ -2620,63 +2663,164 @@ class GetPositionList(OSCGetCommand):
 
 @dataclass
 class ResetPos(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#resetpos_intmotorid"""  # noqa
+    """Resets the motor's position to 0.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/resetPos", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetElPos(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#setelpos_intmotorid_intnewfullstep_intnewmicrostep"""  # noqa
+    """Set the electrical position of the motor.
+
+    Microstepping is expressed as step/128 and the value must match the
+    current microstep mode.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/setElPos", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     newFullstep: int
+    """
+    +-----------+-----+
+    |Valid Range|0 - 3|
+    +-----------+-----+
+    """
     newMicrostep: int
+    """
+    +-----------+-------+
+    |Valid Range|0 - 127|
+    +-----------+-------+
+    """
 
 
 @dataclass
 class GetElPos(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
+    """Retrieve the current electrical position of the motor.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getElPos", init=False)
     response_cls: responses.ElPos = field(default=responses.ElPos, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetMark(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#setmark_intmotorid_intmark"""  # noqa
+    """Set the MARK register to an arbitrary position.
+
+    This register allows you store one position. Each write overwrites
+    the last position set to this register.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setMark", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     MARK: int
+    """Point to be set."""
 
 
 @dataclass
 class GetMark(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getmark_intmotorid"""  # noqa
+    """Retrieve the MARK position.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getMark", init=False)
     response_cls: responses.Mark = field(default=responses.Mark, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GoHome(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#gohome_intmotorid"""  # noqa
+    """Send this motor to its origin (zero) point.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/goHome", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class GoMark(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#gomark_intmotorid"""  # noqa
+    """Send this motor to its MARK positon.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/goMark", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Motor Control
