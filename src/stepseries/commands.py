@@ -2347,7 +2347,7 @@ class GetReleaseSwTimeout(OSCGetCommand):
 class EnableHomeSwReport(OSCSetCommand):
     """Enable or disable the automatic reporting of home switch changes.
 
-    Also see :py:class:`stepseries.responses.EnableSwEventReport`.
+    Also see :py:class:`stepseries.commands.EnableSwEventReport`.
 
     +-----------------+------+
     |Executable Timing|Always|
@@ -2379,7 +2379,7 @@ class EnableSwEventReport(OSCSetCommand):
     """Enable or disable the automatic reporting of home switch changes.
 
     While very similar to
-    :py:class:`stepseries.responses.EnableHomeSwReport` which polls the
+    :py:class:`stepseries.commands.EnableHomeSwReport` which polls the
     motor driver for the status of the home switch, this report
     essentially "listens" for a notification from the motor driver chip.
     This report is able to detect the closure of the home switch in
@@ -2622,7 +2622,7 @@ class GetPosition(OSCGetCommand):
     """Retrieve the current position of the motor.
 
     Alternatively,
-    :py:class:`stepseries.responses.SetPositionReportInterval` can be
+    :py:class:`stepseries.commands.SetPositionReportInterval` can be
     configured to periodically send the current position.
 
     +-----------------+------+
@@ -2647,7 +2647,7 @@ class GetPositionList(OSCGetCommand):
     """Retrieve the current positions for ALL motors.
 
     Alternatively,
-    :py:class:`stepseries.responses.SetPositionListReportInterval` can
+    :py:class:`stepseries.commands.SetPositionListReportInterval` can
     be configured to periodically send the current position.
 
     +-----------------+------+
@@ -2787,9 +2787,9 @@ class GetMark(OSCGetCommand):
 class GoHome(OSCSetCommand):
     """Send this motor to its origin (zero) point.
 
-    +-----------------+-------+
-    |Executable Timing|Stopped|
-    +-----------------+-------+
+    +-----------------+--------+
+    |Executable Timing|Not Busy|
+    +-----------------+--------+
     """
 
     address: str = field(default="/goHome", init=False)
@@ -2807,9 +2807,9 @@ class GoHome(OSCSetCommand):
 class GoMark(OSCSetCommand):
     """Send this motor to its MARK positon.
 
-    +-----------------+-------+
-    |Executable Timing|Stopped|
-    +-----------------+-------+
+    +-----------------+--------+
+    |Executable Timing|Not Busy|
+    +-----------------+--------+
     """
 
     address: str = field(default="/goMark", init=False)
@@ -2828,71 +2828,242 @@ class GoMark(OSCSetCommand):
 
 @dataclass
 class Run(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#run_intmotorid_floatspeed"""  # noqa
+    """Run the motor at a constant speed.
+
+    The motor follows the configured speed profile set with
+    :py:class:`stepseries.commands.SetSpeedProfile`.
+
+    Keeps the motor in the 'BUSY' state until ``speed`` has been
+    reached.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/run", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     speed: float
+    """Speed to run the motor at.
+
+    Negative values run the motor in reverse. Limited by the maximum
+    and minimum speed set in the speed profile.
+
+    +-----------+----------------------------+
+    |Valid Range|-15625.0 - 15625.0 [steps/s]|
+    +-----------+----------------------------+
+    """
 
 
 @dataclass
 class Move(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#move_intmotorid_intstep"""  # noqa
+    """Move the motor the specified number of steps.
+
+    Keeps the motor in the 'BUSY' state until the specified steps has
+    been reached.
+
+    +-----------------+-------+
+    |Executable Timing|Stopped|
+    +-----------------+-------+
+    """
 
     address: str = field(default="/move", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     step: int
 
 
 @dataclass
 class GoTo(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#goto_intmotorid_intposition"""  # noqa
+    """Moves to the specified position in the shortest route possible.
+
+    -2097152 and 2097151 are next to each other in the driver chip, like
+    how 0 and 360 are on a circle. This means if you specify 2097000 and
+    the motor is currently at -2097000, then the motor will move to
+    -2097152, then 2097151, and finally 2097000.
+
+    Alternatively, :py:class:`stepseries.commands.GoToDir` can be used
+    to specific the direction in addition to the position.
+
+    Keeps the motor in the 'BUSY' state until the specified position has
+    been reached.
+
+    +-----------------+--------+
+    |Executable Timing|Not Busy|
+    +-----------------+--------+
+    """
 
     address: str = field(default="/goTo", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     position: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
 
 
 @dataclass
 class GoToDir(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#gotodir_intmotorid_booldir_intposition"""  # noqa
+    """Moves to specified position in the specified direction.
+
+    -2097152 and 2097151 are next to each other in the driver chip, like
+    how 0 and 360 are on a circle. As an example, if you specify
+    2097000, False and the motor is currently at -2097000, then the
+    motor will move to -2000000, then 0, and finally 2097000.
+
+    Alternatively, :py:class:`stepseries.commands.GoTo` will
+    automatically determine the shortest route (around that 'circle').
+
+    Keeps the motor in the 'BUSY' state until the specified position has
+    been reached.
+
+    +-----------------+--------+
+    |Executable Timing|Not Busy|
+    +-----------------+--------+
+    """
 
     address: str = field(default="/goToDir", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     DIR: bool
+    """True or False, depending on your environment."""
     position: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
 
 
 @dataclass
 class SoftStop(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#softstop_intmotorid"""  # noqa
+    """Stops the motor according to the speed profile.
+
+    After decelerating and stopping, the motor is kept in an excited
+    state if it was originally in a HiZ state. Remains in the BUSY state
+    until the motor stops.
+
+    If it was in servo mode, then the mode will be released.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/softStop", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class HardStop(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#hardstop_intmotorid"""  # noqa
+    """Immediately stops the motor.
+
+    After stopping, the motor is kept in an excited state if it was
+    originally in a HiZ state. Remains in the BUSY state until the motor
+    stops.
+
+    If it was in servo mode, then the mode will be released.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/hardStop", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SoftHiZ(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#softhiz_intmotorid"""  # noqa
+    """Stops the motor according to the speed profile.
+
+    When stopped, the motor's excitation is released. If the
+    electromagnetic brake is enabled, then the brake is put into a hold
+    state before excitation is released. Transitions to HiZ after
+    excitation is released. Remains in the BUSY state until the motor
+    stops.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/softHiZ", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class HardHiZ(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-control/#hardhiz_intmotorid"""  # noqa
+    """Immediately stops the motor.
+
+    When stopped, the motor's excitation is released. If the
+    electromagnetic brake is enabled, then the brake is put into a hold
+    state before excitation is released. Transitions to HiZ after
+    excitation is released. Remains in the BUSY state until the motor
+    stops.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/hardHiZ", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 # Electromagnetic Brake
