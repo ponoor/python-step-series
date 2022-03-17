@@ -2609,7 +2609,7 @@ class SetPosition(OSCSetCommand):
     +-------+--------+
     """
     newPosition: int
-    """Position to set to.
+    """Position to override with.
 
     +-----------+------------------+
     |Valid Range|-2097152 - 2097151|
@@ -3222,52 +3222,194 @@ class GetBrakeTransitionDuration(OSCGetCommand):
 
 @dataclass
 class EnableServoMode(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#enableservomode_intmotorid_boolenable"""  # noqa
+    """Enable or disable servo mode (position tracking mode).
+
+    It is not possible to send other control commands such as
+    :py:class:`stepseries.commands.Run` or
+    :py:class:`stepseries.commands.GoTo` when in this mode.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/enableServoMode", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     enable: bool
+    """If True, enable servo mode.
+
+    +-------+-----+
+    |Default|False|
+    +-------+-----+
+    """
 
 
 @dataclass
 class SetServoParam(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#setservoparam_intmotorid_floatkp_floatki_floatkd"""  # noqa
+    """Configure the servo PID control parameters.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setServoParam", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     kP: float
+    """Proportional gain.
+
+    +-----------+----+
+    |Valid Range|0-  |
+    +-----------+----+
+    |Default    |0.06|
+    +-----------+----+
+    """
     kI: float
+    """Integral gain.
+
+    +-----------+---+
+    |Valid Range|0- |
+    +-----------+---+
+    |Default    |0.0|
+    +-----------+---+
+    """
     kD: float
+    """Derivative gain.
+
+    +-----------+---+
+    |Valid Range|0- |
+    +-----------+---+
+    |Default    |0.0|
+    +-----------+---+
+    """
 
 
 @dataclass
 class GetServoParam(OSCGetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#getservoparam_intmotorid"""  # noqa
+    """Retrieve the servo PID control parameters.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/getServoParam", init=False)
     response_cls: responses.ServoParam = field(default=responses.ServoParam, init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
 
 
 @dataclass
 class SetTargetPosition(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#settargetposition_intmotorid_intposition"""  # noqa
+    """Set the target position to go to when in servo mode.
+
+    :py:class:`stepseries.commands.EnableServoMode` must be enabled for
+    this command to have an effect.
+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
+    """
 
     address: str = field(default="/setTargetPosition", init=False)
     motorID: int
+    """
+    +-------+--------+
+    |STEP400|1-4, 255|
+    +-------+--------+
+    |STEP800|1-8, 255|
+    +-------+--------+
+    """
     position: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
 
 
 @dataclass
 class SetTargetPositionList(OSCSetCommand):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#settargetpositionlist_intposition1_intposition2_intposition3_intposition4"""  # noqa
+    """Set the target positions of all motors at once.
+
+    .. note:: If using the STEP400, positions 5-8 do not need to be
+        configured.
+    """
 
     address: str = field(default="/setTargetPositionList", init=False)
     position1: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position2: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position3: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position4: int
+    """
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position5: int = None
+    """
+    ``STEP800 only``
+
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position6: int = None
+    """
+    ``STEP800 only``
+
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position7: int = None
+    """
+    ``STEP800 only``
+
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
     position8: int = None
+    """
+    ``STEP800 only``
+
+    +-----------+------------------+
+    |Valid Range|-2097152 - 2097151|
+    +-----------+------------------+
+    """
