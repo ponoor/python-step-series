@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""OSC message builders to send to the device.
+"""Messages to send to the device.
 
 This module provides dataclass objects that act as templates for you to
 'fill in' with data. This allows you to focus on WHAT to send, not how.

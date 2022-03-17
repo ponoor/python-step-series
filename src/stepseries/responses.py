@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""OSC message responses sent from the device."""
+"""Messages received from the device."""
 
 
 import ast
