@@ -11,7 +11,7 @@ setup and operate your device, and to use the official Python API.
 
     step-series
     python-step-series
-    module-reference
+    module-index
 
 
 Indices and Tables

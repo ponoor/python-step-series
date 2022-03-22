@@ -1,53 +1,29 @@
-``python-step-series``: Module Reference
-========================================
-
-Submodules
-----------
-
-stepseries.commands module
---------------------------
+``stepseries.commands`` -- Device Commands
+==========================================
 
 .. automodule:: stepseries.commands
     :members:
 
-stepseries.exceptions module
-----------------------------
+``stepseries.exceptions`` -- Device Errors
+==========================================
 
 .. automodule:: stepseries.exceptions
     :members:
 
-stepseries.responses module
----------------------------
+``stepseries.responses`` -- Device Responses
+============================================
 
 .. automodule:: stepseries.responses
     :members:
 
-stepseries.server module
-------------------------
-
-.. automodule:: stepseries.server
-    :members:
-
-stepseries.step400 module
--------------------------
+``stepseries.step400`` -- STEP400 Device
+========================================
 
 .. automodule:: stepseries.step400
     :members:
 
-stepseries.step800 module
--------------------------
+``stepseries.step800`` -- STEP800 Device
+========================================
 
 .. automodule:: stepseries.step800
-    :members:
-
-stepseries.stepXXX module
--------------------------
-
-.. automodule:: stepseries.stepXXX
-    :members:
-
-Module contents
----------------
-
-.. automodule:: stepseries
     :members:
