@@ -638,6 +638,9 @@ class GetAdcVal(OSCGetCommand):
 
     ``STEP400 Only``
 
+    .. note:: This command is only meant for debugging purposes. Most
+        users should avoid this command.
+
     +-----------------+------+
     |Executable Timing|Always|
     +-----------------+------+
@@ -659,6 +662,9 @@ class GetStatus(OSCGetCommand):
 
     This status includes the op status of the motor, alarms and,
     switches.
+
+    .. note:: This command is only meant for debugging purposes. Most
+        users should avoid this command.
 
     +-----------------+------+
     |Executable Timing|Always|
@@ -684,6 +690,9 @@ class GetConfigRegister(OSCGetCommand):
     This register stores information about motor, alaram, and switch
     statuses.
 
+    .. note:: This command is only meant for debugging purposes. Most
+        users should avoid this command.
+
     +-----------------+------+
     |Executable Timing|Always|
     +-----------------+------+
@@ -706,6 +715,9 @@ class GetConfigRegister(OSCGetCommand):
 @dataclass
 class ResetMotorDriver(OSCSetCommand):
     """Resets the specified motor driver chip and resets defaults.
+
+    .. note:: This command is only meant for debugging purposes. Most
+        users should avoid this command.
 
     +-----------------+------+
     |Executable Timing|Always|
