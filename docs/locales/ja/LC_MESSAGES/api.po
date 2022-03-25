@@ -1,0 +1,3072 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Ponoor Experiments
+# This file is distributed under the same license as the Step-Series
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Step-Series Documentation "
+"0.0.2.post1.dev78+g320de0f.d20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-25 09:56-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../api/modules.rst:2
+msgid "stepseries"
+msgstr ""
+
+#: ../../api/stepseries.rst:2
+msgid "stepseries package"
+msgstr ""
+
+#: ../../api/stepseries.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../api/stepseries.rst:8
+msgid "stepseries.commands module"
+msgstr ""
+
+#: of stepseries.commands:1
+msgid "Messages to send to the device."
+msgstr ""
+
+#: of stepseries.commands:3
+msgid ""
+"This module provides dataclass objects that act as templates for you to "
+"'fill in' with data. This allows you to focus on WHAT to send, not how."
+msgstr ""
+
+#: of stepseries.commands:6
+msgid ""
+"Some commands will have an extra ``response_cls`` attribute. This "
+"attribute is used internally in the library, but may be useful for you. "
+"It holds the response type, not the actual device response."
+msgstr ""
+
+#: of stepseries.commands:10
+msgid ""
+"All commands that control automatic reporting of the device's internal "
+"state changes have an extra ``callback`` attribute. This attribute is a "
+"shortcut to automatically register a callback to handle incoming "
+"responses from the device."
+msgstr ""
+
+#: of stepseries.commands.Activate:1 stepseries.commands.EnableBusyReport:1
+#: stepseries.commands.EnableDirReport:1
+#: stepseries.commands.EnableElectromagnetBrake:1
+#: stepseries.commands.EnableHiZReport:1
+#: stepseries.commands.EnableHomeSwReport:1
+#: stepseries.commands.EnableLimitSwReport:1
+#: stepseries.commands.EnableLowSpeedOptimize:1
+#: stepseries.commands.EnableMotorStatusReport:1
+#: stepseries.commands.EnableOverCurrentReport:1
+#: stepseries.commands.EnableServoMode:1
+#: stepseries.commands.EnableStallReport:1
+#: stepseries.commands.EnableSwEventReport:1
+#: stepseries.commands.EnableThermalStatusReport:1
+#: stepseries.commands.EnableUvloReport:1 stepseries.commands.Free:1
+#: stepseries.commands.GoHome:1 stepseries.commands.GoMark:1
+#: stepseries.commands.GoTo:1 stepseries.commands.GoToDir:1
+#: stepseries.commands.GoUntil:1 stepseries.commands.HardHiZ:1
+#: stepseries.commands.HardStop:1 stepseries.commands.Homing:1
+#: stepseries.commands.Move:1 stepseries.commands.ReleaseSw:1
+#: stepseries.commands.ReportError:1 stepseries.commands.ResetDevice:1
+#: stepseries.commands.ResetMotorDriver:1 stepseries.commands.ResetPos:1
+#: stepseries.commands.Run:1 stepseries.commands.SetAcc:1
+#: stepseries.commands.SetBemfParam:1
+#: stepseries.commands.SetBrakeTransitionDuration:1
+#: stepseries.commands.SetCurrentMode:1 stepseries.commands.SetDec:1
+#: stepseries.commands.SetDecayModeParam:1 stepseries.commands.SetDestIP:1
+#: stepseries.commands.SetElPos:1 stepseries.commands.SetFullstepSpeed:1
+#: stepseries.commands.SetGoUntilTimeout:1 stepseries.commands.SetHomeSwMode:1
+#: stepseries.commands.SetHomingDirection:1
+#: stepseries.commands.SetHomingSpeed:1 stepseries.commands.SetKval:1
+#: stepseries.commands.SetLimitSwMode:1
+#: stepseries.commands.SetLowSpeedOptimizeThreshold:1
+#: stepseries.commands.SetMark:1 stepseries.commands.SetMaxSpeed:1
+#: stepseries.commands.SetMicrostepMode:1 stepseries.commands.SetMinSpeed:1
+#: stepseries.commands.SetOverCurrentThreshold:1
+#: stepseries.commands.SetPosition:1
+#: stepseries.commands.SetPositionListReportInterval:1
+#: stepseries.commands.SetPositionReportInterval:1
+#: stepseries.commands.SetProhibitMotionOnHomeSw:1
+#: stepseries.commands.SetProhibitMotionOnLimitSw:1
+#: stepseries.commands.SetReleaseSwTimeout:1
+#: stepseries.commands.SetServoParam:1 stepseries.commands.SetSpeedProfile:1
+#: stepseries.commands.SetStallThreshold:1
+#: stepseries.commands.SetTargetPosition:1
+#: stepseries.commands.SetTargetPositionList:1 stepseries.commands.SetTval:1
+#: stepseries.commands.SetVoltageMode:1 stepseries.commands.SoftHiZ:1
+#: stepseries.commands.SoftStop:1
+msgid "Bases: :py:class:`stepseries.commands.OSCSetCommand`"
+msgstr ""
+
+#: of stepseries.commands.Activate:1
+msgid "Enables or disables the electromagnetic brake."
+msgstr ""
+
+#: of stepseries.commands.Activate:3 stepseries.commands.Free:6
+msgid ""
+":py:class:`stepseries.commands.EnableElectromagnetBrake` must be enabled "
+"for this command to have an effect."
+msgstr ""
+
+#: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
+#: stepseries.commands.EnableDirReport:4
+#: stepseries.commands.EnableElectromagnetBrake:11
+#: stepseries.commands.EnableHiZReport:4
+#: stepseries.commands.EnableHomeSwReport:6
+#: stepseries.commands.EnableLimitSwReport:6
+#: stepseries.commands.EnableLowSpeedOptimize:11
+#: stepseries.commands.EnableMotorStatusReport:7
+#: stepseries.commands.EnableOverCurrentReport:13
+#: stepseries.commands.EnableServoMode:8
+#: stepseries.commands.EnableStallReport:7
+#: stepseries.commands.EnableSwEventReport:11
+#: stepseries.commands.EnableThermalStatusReport:16
+#: stepseries.commands.EnableUvloReport:11 stepseries.commands.Free:10
+#: stepseries.commands.GetAdcVal:13 stepseries.commands.GetBemfParam:4
+#: stepseries.commands.GetBrakeTransitionDuration:7
+#: stepseries.commands.GetBusy:4 stepseries.commands.GetConfigName:4
+#: stepseries.commands.GetConfigRegister:10
+#: stepseries.commands.GetDecayModeParam:6 stepseries.commands.GetDir:4
+#: stepseries.commands.GetElPos:4 stepseries.commands.GetFullstepSpeed:4
+#: stepseries.commands.GetGoUntilTimeout:4 stepseries.commands.GetHiZ:4
+#: stepseries.commands.GetHomeSw:4 stepseries.commands.GetHomeSwMode:4
+#: stepseries.commands.GetHomingDirection:4
+#: stepseries.commands.GetHomingSpeed:4 stepseries.commands.GetHomingStatus:4
+#: stepseries.commands.GetKval:4 stepseries.commands.GetLimitSw:6
+#: stepseries.commands.GetLimitSwMode:6
+#: stepseries.commands.GetLowSpeedOptimizeThreshold:4
+#: stepseries.commands.GetMark:4 stepseries.commands.GetMicrostepMode:4
+#: stepseries.commands.GetMinSpeed:4 stepseries.commands.GetMotorStatus:4
+#: stepseries.commands.GetOverCurrentThreshold:4
+#: stepseries.commands.GetPosition:8 stepseries.commands.GetPositionList:8
+#: stepseries.commands.GetProhibitMotionOnHomeSw:5
+#: stepseries.commands.GetProhibitMotionOnLimitSw:7
+#: stepseries.commands.GetReleaseSwTimeout:4
+#: stepseries.commands.GetServoParam:4 stepseries.commands.GetSpeed:4
+#: stepseries.commands.GetSpeedProfile:4
+#: stepseries.commands.GetStallThreshold:4 stepseries.commands.GetStatus:10
+#: stepseries.commands.GetThermalStatus:7 stepseries.commands.GetTval:6
+#: stepseries.commands.GetTval_mA:9 stepseries.commands.GetUvlo:4
+#: stepseries.commands.GetVersion:4 stepseries.commands.GoHome:4
+#: stepseries.commands.GoMark:4 stepseries.commands.GoTo:15
+#: stepseries.commands.GoToDir:15 stepseries.commands.GoUntil:19
+#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
+#: stepseries.commands.Homing:24 stepseries.commands.Move:7
+#: stepseries.commands.ReleaseSw:16 stepseries.commands.ReportError:4
+#: stepseries.commands.ResetDevice:6 stepseries.commands.ResetMotorDriver:8
+#: stepseries.commands.ResetPos:4 stepseries.commands.Run:10
+#: stepseries.commands.SetAcc:4 stepseries.commands.SetBemfParam:7
+#: stepseries.commands.SetBrakeTransitionDuration:7
+#: stepseries.commands.SetCurrentMode:9 stepseries.commands.SetDec:4
+#: stepseries.commands.SetDecayModeParam:10 stepseries.commands.SetDestIP:18
+#: stepseries.commands.SetElPos:7 stepseries.commands.SetFullstepSpeed:4
+#: stepseries.commands.SetGoUntilTimeout:10 stepseries.commands.SetHomeSwMode:4
+#: stepseries.commands.SetHomingDirection:6
+#: stepseries.commands.SetHomingSpeed:6 stepseries.commands.SetKval:7
+#: stepseries.commands.SetLimitSwMode:6
+#: stepseries.commands.SetLowSpeedOptimizeThreshold:11
+#: stepseries.commands.SetMark:7 stepseries.commands.SetMaxSpeed:4
+#: stepseries.commands.SetMicrostepMode:7 stepseries.commands.SetMinSpeed:10
+#: stepseries.commands.SetOverCurrentThreshold:7
+#: stepseries.commands.SetPosition:4
+#: stepseries.commands.SetPositionListReportInterval:8
+#: stepseries.commands.SetPositionReportInterval:8
+#: stepseries.commands.SetProhibitMotionOnHomeSw:8
+#: stepseries.commands.SetProhibitMotionOnLimitSw:10
+#: stepseries.commands.SetReleaseSwTimeout:10
+#: stepseries.commands.SetServoParam:4 stepseries.commands.SetSpeedProfile:7
+#: stepseries.commands.SetStallThreshold:7
+#: stepseries.commands.SetTargetPosition:7 stepseries.commands.SetTval:9
+#: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
+#: stepseries.commands.SoftStop:10
+msgid "Executable Timing"
+msgstr ""
+
+#: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
+#: stepseries.commands.EnableDirReport:4
+#: stepseries.commands.EnableElectromagnetBrake:11
+#: stepseries.commands.EnableHiZReport:4
+#: stepseries.commands.EnableHomeSwReport:6
+#: stepseries.commands.EnableLimitSwReport:6
+#: stepseries.commands.EnableMotorStatusReport:7
+#: stepseries.commands.EnableOverCurrentReport:13
+#: stepseries.commands.EnableServoMode:8
+#: stepseries.commands.EnableStallReport:7
+#: stepseries.commands.EnableSwEventReport:11
+#: stepseries.commands.EnableThermalStatusReport:16
+#: stepseries.commands.EnableUvloReport:11 stepseries.commands.Free:10
+#: stepseries.commands.GetAdcVal:13 stepseries.commands.GetBemfParam:4
+#: stepseries.commands.GetBrakeTransitionDuration:7
+#: stepseries.commands.GetBusy:4 stepseries.commands.GetConfigName:4
+#: stepseries.commands.GetConfigRegister:10
+#: stepseries.commands.GetDecayModeParam:6 stepseries.commands.GetDir:4
+#: stepseries.commands.GetElPos:4 stepseries.commands.GetFullstepSpeed:4
+#: stepseries.commands.GetGoUntilTimeout:4 stepseries.commands.GetHiZ:4
+#: stepseries.commands.GetHomeSw:4 stepseries.commands.GetHomeSwMode:4
+#: stepseries.commands.GetHomingDirection:4
+#: stepseries.commands.GetHomingSpeed:4 stepseries.commands.GetHomingStatus:4
+#: stepseries.commands.GetKval:4 stepseries.commands.GetLimitSw:6
+#: stepseries.commands.GetLimitSwMode:6
+#: stepseries.commands.GetLowSpeedOptimizeThreshold:4
+#: stepseries.commands.GetMark:4 stepseries.commands.GetMicrostepMode:4
+#: stepseries.commands.GetMinSpeed:4 stepseries.commands.GetMotorStatus:4
+#: stepseries.commands.GetOverCurrentThreshold:4
+#: stepseries.commands.GetPosition:8 stepseries.commands.GetPositionList:8
+#: stepseries.commands.GetProhibitMotionOnHomeSw:5
+#: stepseries.commands.GetProhibitMotionOnLimitSw:7
+#: stepseries.commands.GetReleaseSwTimeout:4
+#: stepseries.commands.GetServoParam:4 stepseries.commands.GetSpeed:4
+#: stepseries.commands.GetSpeedProfile:4
+#: stepseries.commands.GetStallThreshold:4 stepseries.commands.GetStatus:10
+#: stepseries.commands.GetThermalStatus:7 stepseries.commands.GetTval:6
+#: stepseries.commands.GetTval_mA:9 stepseries.commands.GetUvlo:4
+#: stepseries.commands.GetVersion:4 stepseries.commands.GoUntil:19
+#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
+#: stepseries.commands.Homing:24 stepseries.commands.ReleaseSw:16
+#: stepseries.commands.ReportError:4 stepseries.commands.ResetDevice:6
+#: stepseries.commands.ResetMotorDriver:8 stepseries.commands.ResetPos:4
+#: stepseries.commands.Run:10 stepseries.commands.SetBemfParam:7
+#: stepseries.commands.SetBrakeTransitionDuration:7
+#: stepseries.commands.SetCurrentMode:9 stepseries.commands.SetDestIP:18
+#: stepseries.commands.SetFullstepSpeed:4
+#: stepseries.commands.SetGoUntilTimeout:10
+#: stepseries.commands.SetHomingDirection:6
+#: stepseries.commands.SetHomingSpeed:6 stepseries.commands.SetKval:7
+#: stepseries.commands.SetLimitSwMode:6 stepseries.commands.SetMark:7
+#: stepseries.commands.SetMaxSpeed:4 stepseries.commands.SetMicrostepMode:7
+#: stepseries.commands.SetOverCurrentThreshold:7
+#: stepseries.commands.SetPositionListReportInterval:8
+#: stepseries.commands.SetPositionReportInterval:8
+#: stepseries.commands.SetProhibitMotionOnHomeSw:8
+#: stepseries.commands.SetProhibitMotionOnLimitSw:10
+#: stepseries.commands.SetReleaseSwTimeout:10
+#: stepseries.commands.SetServoParam:4 stepseries.commands.SetStallThreshold:7
+#: stepseries.commands.SetTargetPosition:7 stepseries.commands.SetTval:9
+#: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
+#: stepseries.commands.SoftStop:10
+msgid "Always"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.motorID:2
+#: stepseries.commands.EnableBusyReport.motorID:2
+#: stepseries.commands.EnableDirReport.motorID:2
+#: stepseries.commands.EnableElectromagnetBrake.motorID:2
+#: stepseries.commands.EnableHiZReport.motorID:2
+#: stepseries.commands.EnableHomeSwReport.motorID:2
+#: stepseries.commands.EnableLimitSwReport.motorID:2
+#: stepseries.commands.EnableLowSpeedOptimize.motorID:2
+#: stepseries.commands.EnableMotorStatusReport.motorID:2
+#: stepseries.commands.EnableOverCurrentReport.motorID:2
+#: stepseries.commands.EnableServoMode.motorID:2
+#: stepseries.commands.EnableStallReport.motorID:2
+#: stepseries.commands.EnableSwEventReport.motorID:2
+#: stepseries.commands.EnableThermalStatusReport.motorID:2
+#: stepseries.commands.EnableUvloReport.motorID:2
+#: stepseries.commands.Free.motorID:2 stepseries.commands.GetAdcVal.motorID:2
+#: stepseries.commands.GetBemfParam.motorID:2
+#: stepseries.commands.GetBrakeTransitionDuration.motorID:2
+#: stepseries.commands.GetBusy.motorID:2
+#: stepseries.commands.GetConfigRegister.motorID:2
+#: stepseries.commands.GetDecayModeParam.motorID:2
+#: stepseries.commands.GetDir.motorID:2 stepseries.commands.GetElPos.motorID:2
+#: stepseries.commands.GetFullstepSpeed.motorID:2
+#: stepseries.commands.GetGoUntilTimeout.motorID:2
+#: stepseries.commands.GetHiZ.motorID:2 stepseries.commands.GetHomeSw.motorID:2
+#: stepseries.commands.GetHomeSwMode.motorID:2
+#: stepseries.commands.GetHomingDirection.motorID:2
+#: stepseries.commands.GetHomingSpeed.motorID:2
+#: stepseries.commands.GetHomingStatus.motorID:2
+#: stepseries.commands.GetKval.motorID:2
+#: stepseries.commands.GetLimitSw.motorID:2
+#: stepseries.commands.GetLimitSwMode.motorID:2
+#: stepseries.commands.GetLowSpeedOptimizeThreshold.motorID:2
+#: stepseries.commands.GetMark.motorID:2
+#: stepseries.commands.GetMicrostepMode.motorID:2
+#: stepseries.commands.GetMinSpeed.motorID:2
+#: stepseries.commands.GetMotorStatus.motorID:2
+#: stepseries.commands.GetOverCurrentThreshold.motorID:2
+#: stepseries.commands.GetPosition.motorID:2
+#: stepseries.commands.GetProhibitMotionOnHomeSw.motorID:2
+#: stepseries.commands.GetProhibitMotionOnLimitSw.motorID:2
+#: stepseries.commands.GetReleaseSwTimeout.motorID:2
+#: stepseries.commands.GetServoParam.motorID:2
+#: stepseries.commands.GetSpeed.motorID:2
+#: stepseries.commands.GetSpeedProfile.motorID:2
+#: stepseries.commands.GetStallThreshold.motorID:2
+#: stepseries.commands.GetStatus.motorID:2
+#: stepseries.commands.GetThermalStatus.motorID:2
+#: stepseries.commands.GetTval.motorID:2
+#: stepseries.commands.GetTval_mA.motorID:2
+#: stepseries.commands.GetUvlo.motorID:2 stepseries.commands.GoHome.motorID:2
+#: stepseries.commands.GoMark.motorID:2 stepseries.commands.GoTo.motorID:2
+#: stepseries.commands.GoToDir.motorID:2 stepseries.commands.GoUntil.motorID:2
+#: stepseries.commands.HardHiZ.motorID:2 stepseries.commands.HardStop.motorID:2
+#: stepseries.commands.Homing.motorID:2 stepseries.commands.Move.motorID:2
+#: stepseries.commands.ReleaseSw.motorID:2
+#: stepseries.commands.ResetMotorDriver.motorID:2
+#: stepseries.commands.ResetPos.motorID:2 stepseries.commands.Run.motorID:2
+#: stepseries.commands.SetAcc.motorID:2
+#: stepseries.commands.SetBemfParam.motorID:2
+#: stepseries.commands.SetBrakeTransitionDuration.motorID:2
+#: stepseries.commands.SetCurrentMode.motorID:2
+#: stepseries.commands.SetDec.motorID:2
+#: stepseries.commands.SetDecayModeParam.motorID:2
+#: stepseries.commands.SetElPos.motorID:2
+#: stepseries.commands.SetFullstepSpeed.motorID:2
+#: stepseries.commands.SetGoUntilTimeout.motorID:2
+#: stepseries.commands.SetHomeSwMode.motorID:2
+#: stepseries.commands.SetHomingDirection.motorID:2
+#: stepseries.commands.SetHomingSpeed.motorID:2
+#: stepseries.commands.SetKval.motorID:2
+#: stepseries.commands.SetLimitSwMode.motorID:2
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.motorID:2
+#: stepseries.commands.SetMark.motorID:2
+#: stepseries.commands.SetMaxSpeed.motorID:2
+#: stepseries.commands.SetMicrostepMode.motorID:2
+#: stepseries.commands.SetMinSpeed.motorID:2
+#: stepseries.commands.SetOverCurrentThreshold.motorID:2
+#: stepseries.commands.SetPosition.motorID:2
+#: stepseries.commands.SetPositionReportInterval.motorID:2
+#: stepseries.commands.SetProhibitMotionOnHomeSw.motorID:2
+#: stepseries.commands.SetProhibitMotionOnLimitSw.motorID:2
+#: stepseries.commands.SetReleaseSwTimeout.motorID:2
+#: stepseries.commands.SetServoParam.motorID:2
+#: stepseries.commands.SetSpeedProfile.motorID:2
+#: stepseries.commands.SetStallThreshold.motorID:2
+#: stepseries.commands.SetTargetPosition.motorID:2
+#: stepseries.commands.SetTval.motorID:2
+#: stepseries.commands.SetVoltageMode.motorID:2
+#: stepseries.commands.SoftHiZ.motorID:2 stepseries.commands.SoftStop.motorID:2
+msgid "STEP400"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.motorID:2
+#: stepseries.commands.EnableBusyReport.motorID:2
+#: stepseries.commands.EnableDirReport.motorID:2
+#: stepseries.commands.EnableElectromagnetBrake.motorID:2
+#: stepseries.commands.EnableHiZReport.motorID:2
+#: stepseries.commands.EnableHomeSwReport.motorID:2
+#: stepseries.commands.EnableLimitSwReport.motorID:2
+#: stepseries.commands.EnableLowSpeedOptimize.motorID:2
+#: stepseries.commands.EnableMotorStatusReport.motorID:2
+#: stepseries.commands.EnableOverCurrentReport.motorID:2
+#: stepseries.commands.EnableServoMode.motorID:2
+#: stepseries.commands.EnableStallReport.motorID:2
+#: stepseries.commands.EnableSwEventReport.motorID:2
+#: stepseries.commands.EnableThermalStatusReport.motorID:2
+#: stepseries.commands.EnableUvloReport.motorID:2
+#: stepseries.commands.Free.motorID:2 stepseries.commands.GetAdcVal.motorID:2
+#: stepseries.commands.GetBemfParam.motorID:2
+#: stepseries.commands.GetBrakeTransitionDuration.motorID:2
+#: stepseries.commands.GetBusy.motorID:2
+#: stepseries.commands.GetConfigRegister.motorID:2
+#: stepseries.commands.GetDecayModeParam.motorID:2
+#: stepseries.commands.GetDir.motorID:2 stepseries.commands.GetElPos.motorID:2
+#: stepseries.commands.GetFullstepSpeed.motorID:2
+#: stepseries.commands.GetGoUntilTimeout.motorID:2
+#: stepseries.commands.GetHiZ.motorID:2 stepseries.commands.GetHomeSw.motorID:2
+#: stepseries.commands.GetHomeSwMode.motorID:2
+#: stepseries.commands.GetHomingDirection.motorID:2
+#: stepseries.commands.GetHomingSpeed.motorID:2
+#: stepseries.commands.GetHomingStatus.motorID:2
+#: stepseries.commands.GetKval.motorID:2
+#: stepseries.commands.GetLimitSw.motorID:2
+#: stepseries.commands.GetLimitSwMode.motorID:2
+#: stepseries.commands.GetLowSpeedOptimizeThreshold.motorID:2
+#: stepseries.commands.GetMark.motorID:2
+#: stepseries.commands.GetMicrostepMode.motorID:2
+#: stepseries.commands.GetMinSpeed.motorID:2
+#: stepseries.commands.GetMotorStatus.motorID:2
+#: stepseries.commands.GetOverCurrentThreshold.motorID:2
+#: stepseries.commands.GetPosition.motorID:2
+#: stepseries.commands.GetProhibitMotionOnHomeSw.motorID:2
+#: stepseries.commands.GetProhibitMotionOnLimitSw.motorID:2
+#: stepseries.commands.GetReleaseSwTimeout.motorID:2
+#: stepseries.commands.GetServoParam.motorID:2
+#: stepseries.commands.GetSpeed.motorID:2
+#: stepseries.commands.GetSpeedProfile.motorID:2
+#: stepseries.commands.GetStallThreshold.motorID:2
+#: stepseries.commands.GetStatus.motorID:2
+#: stepseries.commands.GetThermalStatus.motorID:2
+#: stepseries.commands.GetTval.motorID:2
+#: stepseries.commands.GetTval_mA.motorID:2
+#: stepseries.commands.GetUvlo.motorID:2 stepseries.commands.GoHome.motorID:2
+#: stepseries.commands.GoMark.motorID:2 stepseries.commands.GoTo.motorID:2
+#: stepseries.commands.GoToDir.motorID:2 stepseries.commands.GoUntil.motorID:2
+#: stepseries.commands.HardHiZ.motorID:2 stepseries.commands.HardStop.motorID:2
+#: stepseries.commands.Homing.motorID:2 stepseries.commands.Move.motorID:2
+#: stepseries.commands.ReleaseSw.motorID:2
+#: stepseries.commands.ResetMotorDriver.motorID:2
+#: stepseries.commands.ResetPos.motorID:2 stepseries.commands.Run.motorID:2
+#: stepseries.commands.SetAcc.motorID:2
+#: stepseries.commands.SetBemfParam.motorID:2
+#: stepseries.commands.SetBrakeTransitionDuration.motorID:2
+#: stepseries.commands.SetCurrentMode.motorID:2
+#: stepseries.commands.SetDec.motorID:2
+#: stepseries.commands.SetDecayModeParam.motorID:2
+#: stepseries.commands.SetElPos.motorID:2
+#: stepseries.commands.SetFullstepSpeed.motorID:2
+#: stepseries.commands.SetGoUntilTimeout.motorID:2
+#: stepseries.commands.SetHomeSwMode.motorID:2
+#: stepseries.commands.SetHomingDirection.motorID:2
+#: stepseries.commands.SetHomingSpeed.motorID:2
+#: stepseries.commands.SetKval.motorID:2
+#: stepseries.commands.SetLimitSwMode.motorID:2
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.motorID:2
+#: stepseries.commands.SetMark.motorID:2
+#: stepseries.commands.SetMaxSpeed.motorID:2
+#: stepseries.commands.SetMicrostepMode.motorID:2
+#: stepseries.commands.SetMinSpeed.motorID:2
+#: stepseries.commands.SetOverCurrentThreshold.motorID:2
+#: stepseries.commands.SetPosition.motorID:2
+#: stepseries.commands.SetPositionReportInterval.motorID:2
+#: stepseries.commands.SetProhibitMotionOnHomeSw.motorID:2
+#: stepseries.commands.SetProhibitMotionOnLimitSw.motorID:2
+#: stepseries.commands.SetReleaseSwTimeout.motorID:2
+#: stepseries.commands.SetServoParam.motorID:2
+#: stepseries.commands.SetSpeedProfile.motorID:2
+#: stepseries.commands.SetStallThreshold.motorID:2
+#: stepseries.commands.SetTargetPosition.motorID:2
+#: stepseries.commands.SetTval.motorID:2
+#: stepseries.commands.SetVoltageMode.motorID:2
+#: stepseries.commands.SoftHiZ.motorID:2 stepseries.commands.SoftStop.motorID:2
+msgid "1-4, 255"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.motorID:4
+#: stepseries.commands.EnableBusyReport.motorID:4
+#: stepseries.commands.EnableDirReport.motorID:4
+#: stepseries.commands.EnableElectromagnetBrake.motorID:4
+#: stepseries.commands.EnableHiZReport.motorID:4
+#: stepseries.commands.EnableHomeSwReport.motorID:4
+#: stepseries.commands.EnableLowSpeedOptimize.motorID:4
+#: stepseries.commands.EnableMotorStatusReport.motorID:4
+#: stepseries.commands.EnableOverCurrentReport.motorID:4
+#: stepseries.commands.EnableServoMode.motorID:4
+#: stepseries.commands.EnableStallReport.motorID:4
+#: stepseries.commands.EnableSwEventReport.motorID:4
+#: stepseries.commands.EnableThermalStatusReport.motorID:4
+#: stepseries.commands.EnableUvloReport.motorID:4
+#: stepseries.commands.Free.motorID:4
+#: stepseries.commands.GetBemfParam.motorID:4
+#: stepseries.commands.GetBrakeTransitionDuration.motorID:4
+#: stepseries.commands.GetBusy.motorID:4
+#: stepseries.commands.GetConfigRegister.motorID:4
+#: stepseries.commands.GetDir.motorID:4 stepseries.commands.GetElPos.motorID:4
+#: stepseries.commands.GetFullstepSpeed.motorID:4
+#: stepseries.commands.GetGoUntilTimeout.motorID:4
+#: stepseries.commands.GetHiZ.motorID:4 stepseries.commands.GetHomeSw.motorID:4
+#: stepseries.commands.GetHomeSwMode.motorID:4
+#: stepseries.commands.GetHomingDirection.motorID:4
+#: stepseries.commands.GetHomingSpeed.motorID:4
+#: stepseries.commands.GetHomingStatus.motorID:4
+#: stepseries.commands.GetKval.motorID:4
+#: stepseries.commands.GetLowSpeedOptimizeThreshold.motorID:4
+#: stepseries.commands.GetMark.motorID:4
+#: stepseries.commands.GetMicrostepMode.motorID:4
+#: stepseries.commands.GetMinSpeed.motorID:4
+#: stepseries.commands.GetMotorStatus.motorID:4
+#: stepseries.commands.GetOverCurrentThreshold.motorID:4
+#: stepseries.commands.GetPosition.motorID:4
+#: stepseries.commands.GetProhibitMotionOnHomeSw.motorID:4
+#: stepseries.commands.GetReleaseSwTimeout.motorID:4
+#: stepseries.commands.GetServoParam.motorID:4
+#: stepseries.commands.GetSpeed.motorID:4
+#: stepseries.commands.GetSpeedProfile.motorID:4
+#: stepseries.commands.GetStallThreshold.motorID:4
+#: stepseries.commands.GetStatus.motorID:4
+#: stepseries.commands.GetThermalStatus.motorID:4
+#: stepseries.commands.GetUvlo.motorID:4 stepseries.commands.GoHome.motorID:4
+#: stepseries.commands.GoMark.motorID:4 stepseries.commands.GoTo.motorID:4
+#: stepseries.commands.GoToDir.motorID:4 stepseries.commands.GoUntil.motorID:4
+#: stepseries.commands.HardHiZ.motorID:4 stepseries.commands.HardStop.motorID:4
+#: stepseries.commands.Homing.motorID:4 stepseries.commands.Move.motorID:4
+#: stepseries.commands.ReleaseSw.motorID:4
+#: stepseries.commands.ResetMotorDriver.motorID:4
+#: stepseries.commands.ResetPos.motorID:4 stepseries.commands.Run.motorID:4
+#: stepseries.commands.SetAcc.motorID:4
+#: stepseries.commands.SetBemfParam.motorID:4
+#: stepseries.commands.SetBrakeTransitionDuration.motorID:4
+#: stepseries.commands.SetDec.motorID:4 stepseries.commands.SetElPos.motorID:4
+#: stepseries.commands.SetFullstepSpeed.motorID:4
+#: stepseries.commands.SetGoUntilTimeout.motorID:4
+#: stepseries.commands.SetHomeSwMode.motorID:4
+#: stepseries.commands.SetHomingDirection.motorID:4
+#: stepseries.commands.SetHomingSpeed.motorID:4
+#: stepseries.commands.SetKval.motorID:4
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.motorID:4
+#: stepseries.commands.SetMark.motorID:4
+#: stepseries.commands.SetMaxSpeed.motorID:4
+#: stepseries.commands.SetMicrostepMode.motorID:4
+#: stepseries.commands.SetMinSpeed.motorID:4
+#: stepseries.commands.SetOverCurrentThreshold.motorID:4
+#: stepseries.commands.SetPosition.motorID:4
+#: stepseries.commands.SetPositionReportInterval.motorID:4
+#: stepseries.commands.SetProhibitMotionOnHomeSw.motorID:4
+#: stepseries.commands.SetReleaseSwTimeout.motorID:4
+#: stepseries.commands.SetServoParam.motorID:4
+#: stepseries.commands.SetSpeedProfile.motorID:4
+#: stepseries.commands.SetStallThreshold.motorID:4
+#: stepseries.commands.SetTargetPosition.motorID:4
+#: stepseries.commands.SoftHiZ.motorID:4 stepseries.commands.SoftStop.motorID:4
+msgid "STEP800"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.motorID:4
+#: stepseries.commands.EnableBusyReport.motorID:4
+#: stepseries.commands.EnableDirReport.motorID:4
+#: stepseries.commands.EnableElectromagnetBrake.motorID:4
+#: stepseries.commands.EnableHiZReport.motorID:4
+#: stepseries.commands.EnableHomeSwReport.motorID:4
+#: stepseries.commands.EnableLowSpeedOptimize.motorID:4
+#: stepseries.commands.EnableMotorStatusReport.motorID:4
+#: stepseries.commands.EnableOverCurrentReport.motorID:4
+#: stepseries.commands.EnableServoMode.motorID:4
+#: stepseries.commands.EnableStallReport.motorID:4
+#: stepseries.commands.EnableSwEventReport.motorID:4
+#: stepseries.commands.EnableThermalStatusReport.motorID:4
+#: stepseries.commands.EnableUvloReport.motorID:4
+#: stepseries.commands.Free.motorID:4
+#: stepseries.commands.GetBemfParam.motorID:4
+#: stepseries.commands.GetBrakeTransitionDuration.motorID:4
+#: stepseries.commands.GetBusy.motorID:4
+#: stepseries.commands.GetConfigRegister.motorID:4
+#: stepseries.commands.GetDir.motorID:4 stepseries.commands.GetElPos.motorID:4
+#: stepseries.commands.GetFullstepSpeed.motorID:4
+#: stepseries.commands.GetGoUntilTimeout.motorID:4
+#: stepseries.commands.GetHiZ.motorID:4 stepseries.commands.GetHomeSw.motorID:4
+#: stepseries.commands.GetHomeSwMode.motorID:4
+#: stepseries.commands.GetHomingDirection.motorID:4
+#: stepseries.commands.GetHomingSpeed.motorID:4
+#: stepseries.commands.GetHomingStatus.motorID:4
+#: stepseries.commands.GetKval.motorID:4
+#: stepseries.commands.GetLowSpeedOptimizeThreshold.motorID:4
+#: stepseries.commands.GetMark.motorID:4
+#: stepseries.commands.GetMicrostepMode.motorID:4
+#: stepseries.commands.GetMinSpeed.motorID:4
+#: stepseries.commands.GetMotorStatus.motorID:4
+#: stepseries.commands.GetOverCurrentThreshold.motorID:4
+#: stepseries.commands.GetPosition.motorID:4
+#: stepseries.commands.GetProhibitMotionOnHomeSw.motorID:4
+#: stepseries.commands.GetReleaseSwTimeout.motorID:4
+#: stepseries.commands.GetServoParam.motorID:4
+#: stepseries.commands.GetSpeed.motorID:4
+#: stepseries.commands.GetSpeedProfile.motorID:4
+#: stepseries.commands.GetStallThreshold.motorID:4
+#: stepseries.commands.GetStatus.motorID:4
+#: stepseries.commands.GetThermalStatus.motorID:4
+#: stepseries.commands.GetUvlo.motorID:4 stepseries.commands.GoHome.motorID:4
+#: stepseries.commands.GoMark.motorID:4 stepseries.commands.GoTo.motorID:4
+#: stepseries.commands.GoToDir.motorID:4 stepseries.commands.GoUntil.motorID:4
+#: stepseries.commands.HardHiZ.motorID:4 stepseries.commands.HardStop.motorID:4
+#: stepseries.commands.Homing.motorID:4 stepseries.commands.Move.motorID:4
+#: stepseries.commands.ReleaseSw.motorID:4
+#: stepseries.commands.ResetMotorDriver.motorID:4
+#: stepseries.commands.ResetPos.motorID:4 stepseries.commands.Run.motorID:4
+#: stepseries.commands.SetAcc.motorID:4
+#: stepseries.commands.SetBemfParam.motorID:4
+#: stepseries.commands.SetBrakeTransitionDuration.motorID:4
+#: stepseries.commands.SetDec.motorID:4 stepseries.commands.SetElPos.motorID:4
+#: stepseries.commands.SetFullstepSpeed.motorID:4
+#: stepseries.commands.SetGoUntilTimeout.motorID:4
+#: stepseries.commands.SetHomeSwMode.motorID:4
+#: stepseries.commands.SetHomingDirection.motorID:4
+#: stepseries.commands.SetHomingSpeed.motorID:4
+#: stepseries.commands.SetKval.motorID:4
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.motorID:4
+#: stepseries.commands.SetMark.motorID:4
+#: stepseries.commands.SetMaxSpeed.motorID:4
+#: stepseries.commands.SetMicrostepMode.motorID:4
+#: stepseries.commands.SetMinSpeed.motorID:4
+#: stepseries.commands.SetOverCurrentThreshold.motorID:4
+#: stepseries.commands.SetPosition.motorID:4
+#: stepseries.commands.SetPositionReportInterval.motorID:4
+#: stepseries.commands.SetProhibitMotionOnHomeSw.motorID:4
+#: stepseries.commands.SetReleaseSwTimeout.motorID:4
+#: stepseries.commands.SetServoParam.motorID:4
+#: stepseries.commands.SetSpeedProfile.motorID:4
+#: stepseries.commands.SetStallThreshold.motorID:4
+#: stepseries.commands.SetTargetPosition.motorID:4
+#: stepseries.commands.SoftHiZ.motorID:4 stepseries.commands.SoftStop.motorID:4
+msgid "1-8, 255"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.state:2
+#: stepseries.commands.EnableThermalStatusReport:24
+#: stepseries.commands.EnableThermalStatusReport:38
+#: stepseries.commands.GetThermalStatus:15
+#: stepseries.commands.GetThermalStatus:29 stepseries.commands.GoUntil.ACT:4
+#: stepseries.commands.ReleaseSw.ACT:4
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:6
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:8
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:26
+#: stepseries.commands.SetStallThreshold.STALL_TH:8
+#: stepseries.commands.SetStallThreshold.STALL_TH:26
+msgid "0"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.state:2
+msgid "Motor engaged, brake released"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.state:4
+#: stepseries.commands.EnableThermalStatusReport:26
+#: stepseries.commands.EnableThermalStatusReport:40
+#: stepseries.commands.GetThermalStatus:17
+#: stepseries.commands.GetThermalStatus:31 stepseries.commands.GoUntil.ACT:6
+#: stepseries.commands.ReleaseSw.ACT:6
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:8
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:10
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:28
+#: stepseries.commands.SetStallThreshold.STALL_TH:10
+#: stepseries.commands.SetStallThreshold.STALL_TH:28
+msgid "1"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Activate.state:4
+msgid "Motor released, brake engaged"
+msgstr ""
+
+#: of stepseries.commands.EnableBusyReport:1
+msgid "Enable or disable the automatic reporting of busy status changes."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableBusyReport.enable:1
+#: stepseries.commands.EnableDirReport.enable:1
+#: stepseries.commands.EnableHiZReport.enable:1
+#: stepseries.commands.EnableHomeSwReport.enable:1
+#: stepseries.commands.EnableLimitSwReport.enable:1
+#: stepseries.commands.EnableMotorStatusReport.enable:1
+#: stepseries.commands.EnableOverCurrentReport.enable:1
+#: stepseries.commands.EnableStallReport.enable:1
+#: stepseries.commands.EnableSwEventReport.enable:1
+#: stepseries.commands.EnableThermalStatusReport.enable:1
+#: stepseries.commands.EnableUvloReport.enable:1
+#: stepseries.commands.ReportError.enable:1
+msgid "If True, enable the reporting."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
+#: stepseries.commands.EnableDirReport.enable:4
+#: stepseries.commands.EnableElectromagnetBrake.enable:4
+#: stepseries.commands.EnableHiZReport.enable:4
+#: stepseries.commands.EnableHomeSwReport.enable:4
+#: stepseries.commands.EnableLimitSwReport.enable:4
+#: stepseries.commands.EnableLowSpeedOptimize.enable:4
+#: stepseries.commands.EnableMotorStatusReport.enable:4
+#: stepseries.commands.EnableOverCurrentReport.enable:4
+#: stepseries.commands.EnableServoMode.enable:4
+#: stepseries.commands.EnableStallReport.enable:4
+#: stepseries.commands.EnableSwEventReport.enable:4
+#: stepseries.commands.EnableThermalStatusReport.enable:4
+#: stepseries.commands.EnableUvloReport.enable:4
+#: stepseries.commands.GoUntil.speed:8 stepseries.commands.ReportError.enable:4
+#: stepseries.commands.SetAcc.acc:6
+#: stepseries.commands.SetBemfParam.FN_SLP_ACC:6
+#: stepseries.commands.SetBemfParam.FN_SLP_DEC:6
+#: stepseries.commands.SetBemfParam.INT_SPEED:6
+#: stepseries.commands.SetBemfParam.ST_SLP:6
+#: stepseries.commands.SetBrakeTransitionDuration.duration:4
+#: stepseries.commands.SetDec.dec:6
+#: stepseries.commands.SetDecayModeParam.TOFF_MIN:6
+#: stepseries.commands.SetDecayModeParam.TON_MIN:6
+#: stepseries.commands.SetDecayModeParam.T_FAST:6
+#: stepseries.commands.SetFullstepSpeed.fullstepSpeed:6
+#: stepseries.commands.SetGoUntilTimeout.timeOut:6
+#: stepseries.commands.SetHomeSwMode.SW_MODE:8
+#: stepseries.commands.SetHomingDirection.direction:4
+#: stepseries.commands.SetHomingSpeed.speed:6
+#: stepseries.commands.SetKval.accKVAL:6 stepseries.commands.SetKval.holdKVAL:6
+#: stepseries.commands.SetKval.runKVAL:6
+#: stepseries.commands.SetKval.setDecKVAL:6
+#: stepseries.commands.SetLimitSwMode.SW_MODE:8
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:4
+#: stepseries.commands.SetMaxSpeed.maxSpeed:6
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:24
+#: stepseries.commands.SetMinSpeed.minSpeed:6
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:18
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:36
+#: stepseries.commands.SetPositionListReportInterval.interval:8
+#: stepseries.commands.SetPositionReportInterval.interval:8
+#: stepseries.commands.SetProhibitMotionOnHomeSw.enable:4
+#: stepseries.commands.SetProhibitMotionOnLimitSw.enable:4
+#: stepseries.commands.SetReleaseSwTimeout.timeOut:6
+#: stepseries.commands.SetServoParam.kD:6
+#: stepseries.commands.SetServoParam.kI:6
+#: stepseries.commands.SetServoParam.kP:6
+#: stepseries.commands.SetSpeedProfile.acc:6
+#: stepseries.commands.SetSpeedProfile.dec:6
+#: stepseries.commands.SetSpeedProfile.maxSpeed:6
+#: stepseries.commands.SetStallThreshold.STALL_TH:18
+#: stepseries.commands.SetStallThreshold.STALL_TH:36
+#: stepseries.commands.SetTval.accTVAL:6 stepseries.commands.SetTval.holdTVAL:6
+#: stepseries.commands.SetTval.runTVAL:6
+#: stepseries.commands.SetTval.setDecTVAL:6
+msgid "Default"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
+#: stepseries.commands.EnableDirReport.enable:4
+#: stepseries.commands.EnableElectromagnetBrake.enable:4
+#: stepseries.commands.EnableHiZReport.enable:4
+#: stepseries.commands.EnableHomeSwReport.enable:4
+#: stepseries.commands.EnableLimitSwReport.enable:4
+#: stepseries.commands.EnableLowSpeedOptimize.enable:4
+#: stepseries.commands.EnableMotorStatusReport.enable:4
+#: stepseries.commands.EnableServoMode.enable:4
+#: stepseries.commands.EnableStallReport.enable:4
+#: stepseries.commands.EnableSwEventReport.enable:4
+#: stepseries.commands.ReportError.enable:4
+#: stepseries.commands.SetHomeSwMode.SW_MODE:4
+#: stepseries.commands.SetHomingDirection.direction:4
+#: stepseries.commands.SetLimitSwMode.SW_MODE:4
+#: stepseries.commands.SetProhibitMotionOnHomeSw.enable:4
+#: stepseries.commands.SetProhibitMotionOnLimitSw.enable:4
+msgid "False"
+msgstr ""
+
+#: of stepseries.commands.EnableDirReport:1
+msgid "Enable or disable the automatic reporting of direction changes."
+msgstr ""
+
+#: of stepseries.commands.EnableElectromagnetBrake:1
+msgid "Enable or disable electromagnetic brake operation."
+msgstr ""
+
+#: of stepseries.commands.EnableElectromagnetBrake:3
+msgid ""
+"Not to be confused with :py:class:`stepseries.commands.Activate` which "
+"activates or deactivates the brake."
+msgstr ""
+
+#: of stepseries.commands.EnableElectromagnetBrake:6
+msgid ""
+"While enabled, the controller will reply with ``ERROR_BRAKE_ENGAGED`` if "
+"a movement command is sent without releasing the brake."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableElectromagnetBrake.enable:1
+msgid "If True, enable the brake."
+msgstr ""
+
+#: of stepseries.commands.EnableHiZReport:1
+msgid "Enable or disable the automatic reporting of HiZ status changes."
+msgstr ""
+
+#: of stepseries.commands.EnableHomeSwReport:1
+#: stepseries.commands.EnableSwEventReport:1
+msgid "Enable or disable the automatic reporting of home switch changes."
+msgstr ""
+
+#: of stepseries.commands.EnableHomeSwReport:3
+msgid "Also see :py:class:`stepseries.commands.EnableSwEventReport`."
+msgstr ""
+
+#: of stepseries.commands.EnableLimitSwReport:1
+msgid "Enable or disable automatic reporting of limit switch changes."
+msgstr ""
+
+#: of stepseries.commands.EnableLimitSwReport:3 stepseries.commands.GetAdcVal:7
+#: stepseries.commands.GetDecayModeParam:3 stepseries.commands.GetLimitSw:3
+#: stepseries.commands.GetLimitSwMode:3
+#: stepseries.commands.GetProhibitMotionOnLimitSw:4
+#: stepseries.commands.GetTval:3 stepseries.commands.GetTval_mA:6
+#: stepseries.commands.SetCurrentMode:3 stepseries.commands.SetDecayModeParam:3
+#: stepseries.commands.SetLimitSwMode:3
+#: stepseries.commands.SetProhibitMotionOnLimitSw:7
+#: stepseries.commands.SetTval:3 stepseries.commands.SetVoltageMode:3
+msgid "``STEP400 Only``"
+msgstr ""
+
+#: of stepseries.commands.EnableLowSpeedOptimize:1
+msgid "Enable or disable low speed optimization."
+msgstr ""
+
+#: of stepseries.commands.EnableLowSpeedOptimize:3
+msgid ""
+"At very low speeds with minimal drive voltage, motors tend to have "
+"difficulty maintaining smooth operation due to phase current distortion. "
+"This optimizer attempts to compensate for that. When enabled, the minimum"
+" speed of the speed profile is forced to zero."
+msgstr ""
+
+#: of stepseries.commands.EnableLowSpeedOptimize:8
+msgid "See the datasheet for more details."
+msgstr ""
+
+#: of stepseries.commands.EnableLowSpeedOptimize:11 stepseries.commands.Move:7
+#: stepseries.commands.SetAcc:4 stepseries.commands.SetDec:4
+#: stepseries.commands.SetElPos:7 stepseries.commands.SetMinSpeed:10
+#: stepseries.commands.SetPosition:4 stepseries.commands.SetSpeedProfile:7
+msgid "Stopped"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableLowSpeedOptimize.enable:1
+msgid "If True, enable the optimizer."
+msgstr ""
+
+#: of stepseries.commands.EnableMotorStatusReport:1
+msgid "Enable or disable the automatic reporting of motor op changes."
+msgstr ""
+
+#: of stepseries.commands.EnableMotorStatusReport:3
+msgid ""
+"The reports are sent when the motor changes its current op like "
+"acceleration, constant speed, deceleration or stopping."
+msgstr ""
+
+#: of stepseries.commands.EnableOverCurrentReport:1
+msgid "Enable or disable the automatic reporting of overcurrent events."
+msgstr ""
+
+#: of stepseries.commands.EnableOverCurrentReport:3
+msgid ""
+"Overcurrent events are sent whenever the motor driver exceeds the "
+"configured threshold. This threshold can be set using "
+":py:class:`stepseries.commands.SetOverCurrentThreshold`."
+msgstr ""
+
+#: of stepseries.commands.EnableOverCurrentReport:7
+msgid ""
+"When overcurrent draw is detected, the device automatically enters a HiZ "
+"state with or without notification."
+msgstr ""
+
+#: of stepseries.commands.EnableOverCurrentReport:10
+#: stepseries.commands.EnableThermalStatusReport:13
+#: stepseries.commands.EnableUvloReport:8
+msgid "This report is enabled by default."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableOverCurrentReport.enable:4
+#: stepseries.commands.EnableThermalStatusReport.enable:4
+#: stepseries.commands.EnableUvloReport.enable:4
+#: stepseries.commands.SetHomeSwMode.SW_MODE:6
+#: stepseries.commands.SetHomeSwMode.SW_MODE:8
+#: stepseries.commands.SetLimitSwMode.SW_MODE:6
+#: stepseries.commands.SetLimitSwMode.SW_MODE:8
+msgid "True"
+msgstr ""
+
+#: of stepseries.commands.EnableServoMode:1
+msgid "Enable or disable servo mode (position tracking mode)."
+msgstr ""
+
+#: of stepseries.commands.EnableServoMode:3
+msgid ""
+"It is not possible to send other control commands such as "
+":py:class:`stepseries.commands.Run` or "
+":py:class:`stepseries.commands.GoTo` when in this mode."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableServoMode.enable:1
+msgid "If True, enable servo mode."
+msgstr ""
+
+#: of stepseries.commands.EnableStallReport:1
+msgid "Enable or disable the automatic reporting of stall events."
+msgstr ""
+
+#: of stepseries.commands.EnableStallReport:3
+msgid ""
+"The threshold can be set with "
+":py:class:`stepseries.commands.SetStallThreshold`."
+msgstr ""
+
+#: of stepseries.commands.EnableSwEventReport:3
+msgid ""
+"While very similar to :py:class:`stepseries.commands.EnableHomeSwReport` "
+"which polls the motor driver for the status of the home switch, this "
+"report essentially \"listens\" for a notification from the motor driver "
+"chip. This report is able to detect the closure of the home switch in "
+"under 1ms."
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:1
+msgid "Enable or disable the automatic reporting of thermal statuses."
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:3
+msgid ""
+"Thermal status events are sent whenever the motor driver exceeds certain "
+"temperature thresholds. Note that these thresholds are different between "
+"the STEP400 and STEP800."
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:7
+msgid ""
+"Two thresholds will automatically shut down the driver or device when "
+"crossed and the corresponding motor(s) will be placed into a HiZ state "
+"with or without notification. It is HIGHLY recommended to put the "
+"included heatsinks on each motor driver chip to avoid hitting these "
+"thermal thresholds."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:19
+#: stepseries.commands.GetThermalStatus:10
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:3
+#: stepseries.commands.SetStallThreshold.STALL_TH:3
+msgid "**STEP400:**"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:22
+#: stepseries.commands.EnableThermalStatusReport:36
+#: stepseries.commands.GetThermalStatus:13
+#: stepseries.commands.GetThermalStatus:27
+msgid "TH_STATUS"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:22
+#: stepseries.commands.EnableThermalStatusReport:36
+#: stepseries.commands.GetThermalStatus:13
+#: stepseries.commands.GetThermalStatus:27
+msgid "Description"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:22
+#: stepseries.commands.EnableThermalStatusReport:36
+#: stepseries.commands.GetThermalStatus:13
+#: stepseries.commands.GetThermalStatus:27
+msgid "Enable Threshold"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:22
+#: stepseries.commands.EnableThermalStatusReport:36
+#: stepseries.commands.GetThermalStatus:13
+#: stepseries.commands.GetThermalStatus:27
+msgid "Disable Threshold"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:24
+#: stepseries.commands.EnableThermalStatusReport:38
+#: stepseries.commands.GetThermalStatus:15
+#: stepseries.commands.GetThermalStatus:29
+msgid "Normal"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:26
+#: stepseries.commands.EnableThermalStatusReport:40
+#: stepseries.commands.GetThermalStatus:17
+#: stepseries.commands.GetThermalStatus:31
+msgid "Warning"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:26
+#: stepseries.commands.GetThermalStatus:17
+msgid "135°C"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:26
+#: stepseries.commands.GetThermalStatus:17
+msgid "125°C"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:28
+#: stepseries.commands.EnableThermalStatusReport:42
+#: stepseries.commands.GetThermalStatus:19
+#: stepseries.commands.GetThermalStatus:33
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:10
+msgid "2"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:28
+#: stepseries.commands.EnableThermalStatusReport:42
+#: stepseries.commands.GetThermalStatus:19
+#: stepseries.commands.GetThermalStatus:33
+msgid "Bridge shutdown"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:28
+#: stepseries.commands.GetThermalStatus:19
+msgid "155°C"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:28
+#: stepseries.commands.GetThermalStatus:19
+msgid "145°C"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:30
+#: stepseries.commands.GetThermalStatus:21
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:12
+msgid "3"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:30
+#: stepseries.commands.GetThermalStatus:21
+msgid "Device shutdown"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:30
+#: stepseries.commands.GetThermalStatus:21
+msgid "170°C"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:30
+#: stepseries.commands.EnableThermalStatusReport:40
+#: stepseries.commands.EnableThermalStatusReport:42
+#: stepseries.commands.GetThermalStatus:21
+#: stepseries.commands.GetThermalStatus:31
+#: stepseries.commands.GetThermalStatus:33
+msgid "130°C"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:33
+#: stepseries.commands.GetThermalStatus:24
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:21
+#: stepseries.commands.SetStallThreshold.STALL_TH:21
+msgid "**STEP800:**"
+msgstr ""
+
+#: of stepseries.commands.EnableThermalStatusReport:42
+#: stepseries.commands.GetThermalStatus:33
+msgid "160°C"
+msgstr ""
+
+#: of stepseries.commands.EnableUvloReport:1
+msgid "Enable or disable the automatic reporting of undervoltage events."
+msgstr ""
+
+#: of stepseries.commands.EnableUvloReport:3
+msgid ""
+"Undervoltage lockouts (UVLO) occur when the voltage supply to the motor "
+"falls below the UVLO turn-off threshold. In this state, the motor cannot "
+"be operated. UVLO will be reset when the voltage supply again rises above"
+" that threshold."
+msgstr ""
+
+#: of stepseries.commands.Free:1
+msgid "Releases both the motor and brake."
+msgstr ""
+
+#: of stepseries.commands.Free:3
+msgid ""
+"If **any** load is attached to the motor, it will no longer be held when "
+"this command is sent."
+msgstr ""
+
+#: of stepseries.commands.GetAdcVal:1 stepseries.commands.GetBemfParam:1
+#: stepseries.commands.GetBrakeTransitionDuration:1
+#: stepseries.commands.GetBusy:1 stepseries.commands.GetConfigName:1
+#: stepseries.commands.GetConfigRegister:1
+#: stepseries.commands.GetDecayModeParam:1 stepseries.commands.GetDir:1
+#: stepseries.commands.GetElPos:1 stepseries.commands.GetFullstepSpeed:1
+#: stepseries.commands.GetGoUntilTimeout:1 stepseries.commands.GetHiZ:1
+#: stepseries.commands.GetHomeSw:1 stepseries.commands.GetHomeSwMode:1
+#: stepseries.commands.GetHomingDirection:1
+#: stepseries.commands.GetHomingSpeed:1 stepseries.commands.GetHomingStatus:1
+#: stepseries.commands.GetKval:1 stepseries.commands.GetLimitSw:1
+#: stepseries.commands.GetLimitSwMode:1
+#: stepseries.commands.GetLowSpeedOptimizeThreshold:1
+#: stepseries.commands.GetMark:1 stepseries.commands.GetMicrostepMode:1
+#: stepseries.commands.GetMinSpeed:1 stepseries.commands.GetMotorStatus:1
+#: stepseries.commands.GetOverCurrentThreshold:1
+#: stepseries.commands.GetPosition:1 stepseries.commands.GetPositionList:1
+#: stepseries.commands.GetProhibitMotionOnHomeSw:1
+#: stepseries.commands.GetProhibitMotionOnLimitSw:1
+#: stepseries.commands.GetReleaseSwTimeout:1
+#: stepseries.commands.GetServoParam:1 stepseries.commands.GetSpeed:1
+#: stepseries.commands.GetSpeedProfile:1
+#: stepseries.commands.GetStallThreshold:1 stepseries.commands.GetStatus:1
+#: stepseries.commands.GetThermalStatus:1 stepseries.commands.GetTval:1
+#: stepseries.commands.GetTval_mA:1 stepseries.commands.GetUvlo:1
+#: stepseries.commands.GetVersion:1
+msgid "Bases: :py:class:`stepseries.commands.OSCGetCommand`"
+msgstr ""
+
+#: of stepseries.commands.GetAdcVal:1
+msgid "Retrieves ``ADC_OUT`` register values for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetAdcVal:3
+msgid ""
+"``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the ADC "
+"pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ resistor "
+"wired directly to the LIMITSW connector."
+msgstr ""
+
+#: of stepseries.commands.GetAdcVal:9 stepseries.commands.GetConfigRegister:6
+#: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:4
+msgid ""
+"This command is only meant for debugging purposes. Most users should "
+"avoid this command."
+msgstr ""
+
+#: of stepseries.commands.GetBemfParam:1
+msgid "Retrieves the BEMF compensation register."
+msgstr ""
+
+#: of stepseries.commands.GetBrakeTransitionDuration:1
+msgid "Retrieve the brake transition duration."
+msgstr ""
+
+#: of stepseries.commands.GetBrakeTransitionDuration:3
+msgid ""
+"Due to the physical transition time of the brake, the motor needs to be "
+"engaged to cover this period which this command retrieves."
+msgstr ""
+
+#: of stepseries.commands.GetBusy:1
+msgid "Retrieve the busy status of a motor."
+msgstr ""
+
+#: of stepseries.commands.GetConfigName:1
+msgid "Retrieve the status of the microSD config file on the controller."
+msgstr ""
+
+#: of stepseries.commands.GetConfigRegister:1
+msgid "Retrieves the CONFIG register values for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetConfigRegister:3
+msgid "This register stores information about motor, alaram, and switch statuses."
+msgstr ""
+
+#: of stepseries.commands.GetDecayModeParam:1
+msgid "Retrieves the current control algorithm parameters."
+msgstr ""
+
+#: of stepseries.commands.GetDir:1
+msgid "Retrieve the current direction of a motor."
+msgstr ""
+
+#: of stepseries.commands.GetElPos:1
+msgid "Retrieve the current electrical position of the motor."
+msgstr ""
+
+#: of stepseries.commands.GetFullstepSpeed:1
+msgid "Retrieves the switch threshold of microstepping to fullstepping."
+msgstr ""
+
+#: of stepseries.commands.GetGoUntilTimeout:1
+msgid "Retrieve the timeout for :py:class:`stepseries.commands.GoUntil`."
+msgstr ""
+
+#: of stepseries.commands.GetHiZ:1
+msgid "Retrieve the HiZ status of a motor."
+msgstr ""
+
+#: of stepseries.commands.GetHomeSw:1
+msgid "Retrieve the status of the home switch."
+msgstr ""
+
+#: of stepseries.commands.GetHomeSwMode:1
+msgid "Retrieve the configured mode for the home switch."
+msgstr ""
+
+#: of stepseries.commands.GetHomingDirection:1
+msgid "Retrieve the homing direction for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetHomingSpeed:1
+msgid "Retrieve the homing speed for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetHomingStatus:1
+msgid "Retrieve the homing status of a motor."
+msgstr ""
+
+#: of stepseries.commands.GetKval:1
+msgid "Retrieves the four KVAL parameters for a specified motor."
+msgstr ""
+
+#: of stepseries.commands.GetLimitSw:1
+msgid "Retrieve the status of the limit switch."
+msgstr ""
+
+#: of stepseries.commands.GetLimitSwMode:1
+msgid "Retrieve the configured mode for the limit switch."
+msgstr ""
+
+#: of stepseries.commands.GetLowSpeedOptimizeThreshold:1
+msgid "Retrieve the low speed optimization threshold."
+msgstr ""
+
+#: of stepseries.commands.GetMark:1
+msgid "Retrieve the MARK position."
+msgstr ""
+
+#: of stepseries.commands.GetMicrostepMode:1
+msgid "Retrieves the configured microstepping mode for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetMinSpeed:1
+msgid "Retrieve the minimum speed of the speed profile."
+msgstr ""
+
+#: of stepseries.commands.GetMotorStatus:1
+msgid "Retrieve the current op status of a motor."
+msgstr ""
+
+#: of stepseries.commands.GetOverCurrentThreshold:1
+msgid "Retrieve the overcurrent threshold for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetPosition:1
+msgid "Retrieve the current position of the motor."
+msgstr ""
+
+#: of stepseries.commands.GetPosition:3
+msgid ""
+"Alternatively, :py:class:`stepseries.commands.SetPositionReportInterval` "
+"can be configured to periodically send the current position."
+msgstr ""
+
+#: of stepseries.commands.GetPositionList:1
+msgid "Retrieve the current positions for ALL motors."
+msgstr ""
+
+#: of stepseries.commands.GetPositionList:3
+msgid ""
+"Alternatively, "
+":py:class:`stepseries.commands.SetPositionListReportInterval` can be "
+"configured to periodically send the current position."
+msgstr ""
+
+#: of stepseries.commands.GetProhibitMotionOnHomeSw:1
+msgid ""
+"Retrieve if motion towards the origin point is disabled when the home "
+"switch is activated."
+msgstr ""
+
+#: of stepseries.commands.GetProhibitMotionOnLimitSw:1
+msgid ""
+"Retrieve if motion towards the origin point is disabled when the limit "
+"switch is activated."
+msgstr ""
+
+#: of stepseries.commands.GetReleaseSwTimeout:1
+msgid "Retrieve the timeout for :py:class:`stepseries.commands.ReleaseSw`."
+msgstr ""
+
+#: of stepseries.commands.GetServoParam:1
+msgid "Retrieve the servo PID control parameters."
+msgstr ""
+
+#: of stepseries.commands.GetSpeed:1
+msgid "Retrieve the current motor speed."
+msgstr ""
+
+#: of stepseries.commands.GetSpeedProfile:1
+msgid "Retrieves all three speed profile settings."
+msgstr ""
+
+#: of stepseries.commands.GetStallThreshold:1
+msgid "Retrieve the stall threshold for a motor."
+msgstr ""
+
+#: of stepseries.commands.GetStatus:1
+msgid "Retrieves the status of the motor driver chip on the device."
+msgstr ""
+
+#: of stepseries.commands.GetStatus:3
+msgid "This status includes the op status of the motor, alarms and, switches."
+msgstr ""
+
+#: of stepseries.commands.GetThermalStatus:1
+msgid "Retrieves the thermal status of motor."
+msgstr ""
+
+#: of stepseries.commands.GetThermalStatus:3
+#: stepseries.commands.SetOverCurrentThreshold:3
+#: stepseries.commands.SetStallThreshold:3
+msgid "Note that these thresholds are different between the STEP400 and STEP800."
+msgstr ""
+
+#: of stepseries.commands.GetTval:1 stepseries.commands.GetTval_mA:1
+msgid "Retrieves the configuration for all four TVAL parameters."
+msgstr ""
+
+#: of stepseries.commands.GetTval_mA:3
+msgid ""
+"Unlike :py:class:`stepseries.commands.GetTval`, this returns the actual "
+"current values (in mA), not the register values."
+msgstr ""
+
+#: of stepseries.commands.GetUvlo:1
+msgid "Retrieves the current state of UVLO."
+msgstr ""
+
+#: of stepseries.commands.GetVersion:1
+msgid "Retrieve the current firmware version of the controller."
+msgstr ""
+
+#: of stepseries.commands.GoHome:1
+msgid "Send this motor to its origin (zero) point."
+msgstr ""
+
+#: of stepseries.commands.GoHome:4 stepseries.commands.GoMark:4
+#: stepseries.commands.GoTo:15 stepseries.commands.GoToDir:15
+msgid "Not Busy"
+msgstr ""
+
+#: of stepseries.commands.GoMark:1
+msgid "Send this motor to its MARK positon."
+msgstr ""
+
+#: of stepseries.commands.GoTo:1
+msgid "Moves to the specified position in the shortest route possible."
+msgstr ""
+
+#: of stepseries.commands.GoTo:3
+msgid ""
+"-2097152 and 2097151 are next to each other in the driver chip, like how "
+"0 and 360 are on a circle. This means if you specify 2097000 and the "
+"motor is currently at -2097000, then the motor will move to -2097152, "
+"then 2097151, and finally 2097000."
+msgstr ""
+
+#: of stepseries.commands.GoTo:8
+msgid ""
+"Alternatively, :py:class:`stepseries.commands.GoToDir` can be used to "
+"specific the direction in addition to the position."
+msgstr ""
+
+#: of stepseries.commands.GoTo:11 stepseries.commands.GoToDir:11
+msgid ""
+"Keeps the motor in the 'BUSY' state until the specified position has been"
+" reached."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoTo.position:2
+#: stepseries.commands.GoToDir.position:2 stepseries.commands.GoUntil.speed:6
+#: stepseries.commands.Run.speed:7 stepseries.commands.SetAcc.acc:4
+#: stepseries.commands.SetBemfParam.FN_SLP_ACC:4
+#: stepseries.commands.SetBemfParam.FN_SLP_DEC:4
+#: stepseries.commands.SetBemfParam.INT_SPEED:4
+#: stepseries.commands.SetBemfParam.ST_SLP:4
+#: stepseries.commands.SetBrakeTransitionDuration.duration:2
+#: stepseries.commands.SetDec.dec:4
+#: stepseries.commands.SetDecayModeParam.TOFF_MIN:4
+#: stepseries.commands.SetDecayModeParam.TON_MIN:4
+#: stepseries.commands.SetDecayModeParam.T_FAST:4
+#: stepseries.commands.SetElPos.newFullstep:2
+#: stepseries.commands.SetElPos.newMicrostep:2
+#: stepseries.commands.SetFullstepSpeed.fullstepSpeed:4
+#: stepseries.commands.SetGoUntilTimeout.timeOut:4
+#: stepseries.commands.SetHomingSpeed.speed:4
+#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.holdKVAL:4
+#: stepseries.commands.SetKval.runKVAL:4
+#: stepseries.commands.SetKval.setDecKVAL:4
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:2
+#: stepseries.commands.SetMaxSpeed.maxSpeed:4
+#: stepseries.commands.SetMinSpeed.minSpeed:4
+#: stepseries.commands.SetPosition.newPosition:4
+#: stepseries.commands.SetPositionListReportInterval.interval:6
+#: stepseries.commands.SetPositionReportInterval.interval:6
+#: stepseries.commands.SetReleaseSwTimeout.timeOut:4
+#: stepseries.commands.SetServoParam.kD:4
+#: stepseries.commands.SetServoParam.kI:4
+#: stepseries.commands.SetServoParam.kP:4
+#: stepseries.commands.SetSpeedProfile.acc:4
+#: stepseries.commands.SetSpeedProfile.dec:4
+#: stepseries.commands.SetSpeedProfile.maxSpeed:4
+#: stepseries.commands.SetTargetPosition.position:2
+#: stepseries.commands.SetTargetPositionList.position1:2
+#: stepseries.commands.SetTargetPositionList.position2:2
+#: stepseries.commands.SetTargetPositionList.position3:2
+#: stepseries.commands.SetTargetPositionList.position4:2
+#: stepseries.commands.SetTargetPositionList.position5:4
+#: stepseries.commands.SetTargetPositionList.position6:4
+#: stepseries.commands.SetTargetPositionList.position7:4
+#: stepseries.commands.SetTargetPositionList.position8:4
+#: stepseries.commands.SetTval.accTVAL:4 stepseries.commands.SetTval.holdTVAL:4
+#: stepseries.commands.SetTval.runTVAL:4
+#: stepseries.commands.SetTval.setDecTVAL:4
+msgid "Valid Range"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoTo.position:2
+#: stepseries.commands.GoToDir.position:2
+#: stepseries.commands.SetPosition.newPosition:4
+#: stepseries.commands.SetTargetPosition.position:2
+#: stepseries.commands.SetTargetPositionList.position1:2
+#: stepseries.commands.SetTargetPositionList.position2:2
+#: stepseries.commands.SetTargetPositionList.position3:2
+#: stepseries.commands.SetTargetPositionList.position4:2
+#: stepseries.commands.SetTargetPositionList.position5:4
+#: stepseries.commands.SetTargetPositionList.position6:4
+#: stepseries.commands.SetTargetPositionList.position7:4
+#: stepseries.commands.SetTargetPositionList.position8:4
+msgid "-2097152 - 2097151"
+msgstr ""
+
+#: of stepseries.commands.GoToDir:1
+msgid "Moves to specified position in the specified direction."
+msgstr ""
+
+#: of stepseries.commands.GoToDir:3
+msgid ""
+"-2097152 and 2097151 are next to each other in the driver chip, like how "
+"0 and 360 are on a circle. As an example, if you specify 2097000, False "
+"and the motor is currently at -2097000, then the motor will move to "
+"-2000000, then 0, and finally 2097000."
+msgstr ""
+
+#: of stepseries.commands.GoToDir:8
+msgid ""
+"Alternatively, :py:class:`stepseries.commands.GoTo` will automatically "
+"determine the shortest route (around that 'circle')."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoToDir.DIR:1
+#: stepseries.commands.ReleaseSw.DIR:1
+#: stepseries.commands.SetHomingDirection.direction:1
+msgid "True or False, depending on your environment."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:1
+msgid "Run a motor until the HOME switch activates or times out."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:3
+msgid ""
+"The motor will run at the speed and direction according to the ``speed`` "
+"parameter."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:6
+msgid ""
+"By default, the motor will soft stop unless if "
+":py:class:`stepseries.commands.SetSwMode` is set to 0."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:9
+msgid ""
+"The timeout for this command can be set using "
+":py:class:`stepseries.commands.SetGoUntilTimeout`."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:12 stepseries.commands.ReleaseSw:9
+msgid ""
+"This command is not influenced by "
+":py:class:`stepseries.commands.SetHomingSpeed` or "
+":py:class:`stepseries.commands.SetHomingDirection`."
+msgstr ""
+
+#: of stepseries.commands.GoUntil:16 stepseries.commands.ReleaseSw:13
+msgid "The motor is kept in a BUSY state until this command finishes."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.ACT:1
+msgid "The action to take when the HOME switch activates."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.ACT:4
+#: stepseries.commands.ReleaseSw.ACT:4
+msgid "Set the origin (home) position here"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.ACT:6
+#: stepseries.commands.ReleaseSw.ACT:6
+msgid "Copy the current position to the MARK register"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.speed:1
+msgid "The direction and speed to run."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.speed:3
+msgid "Direction can be set by specifying a positive or negative value."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.speed:6
+#: stepseries.commands.Run.speed:7
+msgid "-15625.0 - 15625.0 [steps/s]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.GoUntil.speed:8
+msgid "100 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.HardHiZ:1 stepseries.commands.HardStop:1
+msgid "Immediately stops the motor."
+msgstr ""
+
+#: of stepseries.commands.HardHiZ:3 stepseries.commands.SoftHiZ:3
+msgid ""
+"When stopped, the motor's excitation is released. If the electromagnetic "
+"brake is enabled, then the brake is put into a hold state before "
+"excitation is released. Transitions to HiZ after excitation is released. "
+"Remains in the BUSY state until the motor stops."
+msgstr ""
+
+#: of stepseries.commands.HardStop:3
+msgid ""
+"After stopping, the motor is kept in an excited state if it was "
+"originally in a HiZ state. Remains in the BUSY state until the motor "
+"stops."
+msgstr ""
+
+#: of stepseries.commands.HardStop:7 stepseries.commands.SoftStop:7
+msgid "If it was in servo mode, then the mode will be released."
+msgstr ""
+
+#: of stepseries.commands.Homing:1
+msgid "Start homing the motor."
+msgstr ""
+
+#: of stepseries.commands.Homing:3
+msgid ""
+"The motor will start moving towards the origin point and then stop when "
+"the HOME switch activates. The motor will then slowly reverse until the "
+"HOME switch releases. The home point will be set to this point."
+msgstr ""
+
+#: of stepseries.commands.Homing:8
+msgid ""
+"This command is essentially the combined functionality of "
+":py:class:`stepseries.commands.GoUntil` and "
+":py:class:`stepseries.commands.ReleaseSw`."
+msgstr ""
+
+#: of stepseries.commands.Homing:12
+msgid ""
+"Homing direction and speed can be set with "
+":py:class:`stepseries.commands.SetHomingDirection` and "
+":py:class:`stepseries.commands.SetHomingSpeed`, respectively; or "
+"configured with the `Config Tool`_."
+msgstr ""
+
+#: of stepseries.commands.Homing:17
+msgid ""
+"If the motor does not reach the HOME switch before "
+":py:class:`stepseries.commands.SetGoUntilTimeout` or release the HOME "
+"switch before :py:class:`stepseries.commands.SetReleaseSwTimeout`, then "
+"the controller will halt the motor's movements."
+msgstr ""
+
+#: of stepseries.commands.Move:1
+msgid "Move the motor the specified number of steps."
+msgstr ""
+
+#: of stepseries.commands.Move:3
+msgid ""
+"Keeps the motor in the 'BUSY' state until the specified steps has been "
+"reached."
+msgstr ""
+
+#: of stepseries.commands.OSCCommand:1 stepseries.responses.OSCResponse:1
+#: stepseries.server.Manager:1 stepseries.stepXXX.STEPXXX:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: of stepseries.commands.OSCCommand:1
+msgid "An abstract class meant to be implemented by OSC command objects."
+msgstr ""
+
+#: of stepseries.commands.OSCCommand:3
+msgid "If implementing your own command, it must inherit this class."
+msgstr ""
+
+#: of stepseries.commands.OSCCommand.build:1
+msgid "Converts the builder to a usable OSC message."
+msgstr ""
+
+#: of stepseries.commands.OSCCommand.stringify:1
+msgid "Converts the builder to an OSC message string."
+msgstr ""
+
+#: of stepseries.commands.OSCGetCommand:1 stepseries.commands.OSCSetCommand:1
+msgid "Bases: :py:class:`stepseries.commands.OSCCommand`"
+msgstr ""
+
+#: of stepseries.commands.OSCGetCommand:1
+msgid "A command that only performs get functions on the device."
+msgstr ""
+
+#: of stepseries.commands.OSCSetCommand:1
+msgid "A command that only performs set functions on the device."
+msgstr ""
+
+#: of stepseries.commands.ReleaseSw:1
+msgid "Move at a minimum speed until the HOME switch releases."
+msgstr ""
+
+#: of stepseries.commands.ReleaseSw:3
+msgid ""
+"On release, the controller will hard stop the motor and then process the "
+"motor's position according to ``ACT``."
+msgstr ""
+
+#: of stepseries.commands.ReleaseSw:6
+msgid ""
+"The timeout for this command can be set using "
+":py:class:`stepseries.commands.SetReleaseSwTimeout`."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.ReleaseSw.ACT:1
+msgid "The action to take when the HOME switch releases."
+msgstr ""
+
+#: of stepseries.commands.ReportError:1
+msgid "Enable or disable automatic reports for command errors."
+msgstr ""
+
+#: of stepseries.commands.ResetDevice:1
+msgid "Resets the entire device."
+msgstr ""
+
+#: of stepseries.commands.ResetDevice:3
+msgid "A programmatic version of physically pressing the RESET button."
+msgstr ""
+
+#: of stepseries.commands.ResetMotorDriver:1
+msgid ""
+"Resets the specified motor driver chip and resets defaults. Here is "
+"another line needing translation."
+msgstr ""
+
+#: of stepseries.commands.ResetMotorDriver:11
+msgid "``Deprecated``"
+msgstr ""
+
+#: of stepseries.commands.ResetPos:1
+msgid "Resets the motor's position to 0."
+msgstr ""
+
+#: of stepseries.commands.Run:1
+msgid "Run the motor at a constant speed."
+msgstr ""
+
+#: of stepseries.commands.Run:3
+msgid ""
+"The motor follows the configured speed profile set with "
+":py:class:`stepseries.commands.SetSpeedProfile`."
+msgstr ""
+
+#: of stepseries.commands.Run:6
+msgid "Keeps the motor in the 'BUSY' state until ``speed`` has been reached."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Run.speed:1
+msgid "Speed to run the motor at."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.Run.speed:3
+msgid ""
+"Negative values run the motor in reverse. Limited by the maximum and "
+"minimum speed set in the speed profile."
+msgstr ""
+
+#: of stepseries.commands.SetAcc:1
+msgid "Sets the acceleration of the speed profile."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetAcc.acc:1
+#: stepseries.commands.SetSpeedProfile.acc:1
+msgid "Acceleration."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetAcc.acc:4
+#: stepseries.commands.SetDec.dec:4 stepseries.commands.SetSpeedProfile.acc:4
+#: stepseries.commands.SetSpeedProfile.dec:4
+msgid "14.55 - 59590 [steps/s/s]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetAcc.acc:6
+#: stepseries.commands.SetDec.dec:6 stepseries.commands.SetSpeedProfile.acc:6
+#: stepseries.commands.SetSpeedProfile.dec:6
+msgid "2000 [steps/s/s]"
+msgstr ""
+
+#: of stepseries.commands.SetBemfParam:1
+msgid "Sets the BEMF compensation register."
+msgstr ""
+
+#: of stepseries.commands.SetBemfParam:3
+msgid ""
+"BEMF only applies when the motor controller is in voltage mode. This goes"
+" without saying BEMF always applies on the STEP800."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_ACC:1
+msgid "FN_SLP_ACC register."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_ACC:4
+#: stepseries.commands.SetBemfParam.FN_SLP_DEC:4
+#: stepseries.commands.SetBemfParam.ST_SLP:4
+#: stepseries.commands.SetDecayModeParam.TOFF_MIN:4
+#: stepseries.commands.SetDecayModeParam.TON_MIN:4
+#: stepseries.commands.SetDecayModeParam.T_FAST:4
+#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.holdKVAL:4
+#: stepseries.commands.SetKval.runKVAL:4
+#: stepseries.commands.SetKval.setDecKVAL:4
+msgid "0-255"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_ACC:6
+#: stepseries.commands.SetBemfParam.FN_SLP_DEC:6
+#: stepseries.commands.SetDecayModeParam.TOFF_MIN:6
+#: stepseries.commands.SetDecayModeParam.TON_MIN:6
+msgid "41"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_DEC:1
+msgid "FN_SLP_DEC register."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.INT_SPEED:1
+msgid "INT_SPEED register."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.INT_SPEED:4
+msgid "0-16383"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.INT_SPEED:6
+msgid "1032"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.ST_SLP:1
+msgid "ST_SLP register."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBemfParam.ST_SLP:6
+#: stepseries.commands.SetDecayModeParam.T_FAST:6
+msgid "25"
+msgstr ""
+
+#: of stepseries.commands.SetBrakeTransitionDuration:1
+msgid "Duration to keep the motor activated while the brake transitions."
+msgstr ""
+
+#: of stepseries.commands.SetBrakeTransitionDuration:3
+msgid ""
+"Due to the physical transition time of the brake, the motor needs to be "
+"engaged to cover this period."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBrakeTransitionDuration.duration:2
+msgid "0-10000  [ms]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetBrakeTransitionDuration.duration:4
+msgid "100 [ms]"
+msgstr ""
+
+#: of stepseries.commands.SetCurrentMode:1
+msgid "Switch a specific motor into current mode."
+msgstr ""
+
+#: of stepseries.commands.SetCurrentMode:5 stepseries.commands.SetVoltageMode:5
+msgid "The STEP800 is always in voltage mode and cannot be switched."
+msgstr ""
+
+#: of stepseries.commands.SetDec:1
+msgid "Sets the deceleration of the speed profile."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetDec.dec:1
+#: stepseries.commands.SetSpeedProfile.dec:1
+msgid "Deceleration."
+msgstr ""
+
+#: of stepseries.commands.SetDecayModeParam:1
+msgid "Sets the current control algorithm parameters."
+msgstr ""
+
+#: of stepseries.commands.SetDecayModeParam:5
+msgid ""
+"Decay mode only applies when the motor controller is in current mode. "
+"This goes without saying decay mode never applies on the STEP800."
+msgstr ""
+
+#: of stepseries.commands.SetDecayModeParam:10
+#: stepseries.commands.SetHomeSwMode:4
+msgid "HiZ"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetDecayModeParam.TOFF_MIN:1
+msgid "TOFF_MIN register value."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetDecayModeParam.TON_MIN:1
+msgid "TON_MIN register value."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetDecayModeParam.T_FAST:1
+msgid "T_FAST register value."
+msgstr ""
+
+#: of stepseries.commands.SetDestIP:1
+msgid "Set the destination IP address for the device's responses."
+msgstr ""
+
+#: of stepseries.commands.SetDestIP:3
+msgid ""
+"Query replies, internal state reports, or command errors are sent to this"
+" destination IP. Typically this is the IP address of your computer. Upon "
+"receipt, the device will reply with a "
+":py:class:`stepseries.responses.DestIP`. object."
+msgstr ""
+
+#: of stepseries.commands.SetDestIP:8
+msgid ""
+"Until this command is sent, no OSC messages will be sent from the device "
+"with the exception being ``responses.Booted``. The `Config Tool`_ allows "
+"you to configure whether the device should wait for this command."
+msgstr ""
+
+#: of stepseries.commands.SetDestIP:13
+msgid ""
+"Note: The library will return before "
+":py:class:`stepseries.responses.DestIP` is received. This behavior will "
+"be changed in a future update."
+msgstr ""
+
+#: of stepseries.commands.SetElPos:1
+msgid "Set the electrical position of the motor."
+msgstr ""
+
+#: of stepseries.commands.SetElPos:3
+msgid ""
+"Microstepping is expressed as step/128 and the value must match the "
+"current microstep mode."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetElPos.newFullstep:2
+msgid "0 - 3"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetElPos.newMicrostep:2
+msgid "0 - 127"
+msgstr ""
+
+#: of stepseries.commands.SetFullstepSpeed:1
+msgid "Sets the threshold when microstepping switches to full stepping."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetFullstepSpeed.fullstepSpeed:1
+msgid "Full-step speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetFullstepSpeed.fullstepSpeed:4
+msgid "7.63 - 15625 [steps/s]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetFullstepSpeed.fullstepSpeed:6
+msgid "15625 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.SetGoUntilTimeout:1
+msgid "Set the timeout for :py:class:`stepseries.commands.GoUntil`."
+msgstr ""
+
+#: of stepseries.commands.SetGoUntilTimeout:3
+msgid ""
+"If the HOME switch is not activated before this timeout, then the "
+"controller stops the motor's movements. Specify 0 to disable the timeout."
+msgstr ""
+
+#: of stepseries.commands.SetGoUntilTimeout:7
+#: stepseries.commands.SetHomingDirection:3
+#: stepseries.commands.SetHomingSpeed:3
+#: stepseries.commands.SetReleaseSwTimeout:7
+msgid "Can also be configured with the `Config Tool`_."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:1
+#: stepseries.commands.SetReleaseSwTimeout.timeOut:1
+msgid "How long to wait for the HOME switch to activate."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:4
+#: stepseries.commands.SetReleaseSwTimeout.timeOut:4
+msgid "0 - 65535 [ms]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:6
+#: stepseries.commands.SetReleaseSwTimeout.timeOut:6
+msgid "10000 [ms]"
+msgstr ""
+
+#: of stepseries.commands.SetHomeSwMode:1
+msgid "Configure whether to stop immediately on home switch release."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:1
+#: stepseries.commands.SetLimitSwMode.SW_MODE:1
+msgid "If True, do not stop."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:4
+#: stepseries.commands.SetLimitSwMode.SW_MODE:4
+msgid "Hard stop the motor"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:6
+#: stepseries.commands.SetLimitSwMode.SW_MODE:6
+msgid "Do not stop"
+msgstr ""
+
+#: of stepseries.commands.SetHomingDirection:1
+msgid "Sets the homing direction for homing."
+msgstr ""
+
+#: of stepseries.commands.SetHomingSpeed:1
+msgid "Set the homing speed for a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomingSpeed.speed:1
+msgid "Speed to run at."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomingSpeed.speed:4
+msgid "0.0 - 15625.0 [steps/s]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetHomingSpeed.speed:6
+msgid "100.0 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.SetKval:1
+msgid "Sets the configuration for all four KVAL parameters."
+msgstr ""
+
+#: of stepseries.commands.SetKval:3
+msgid ""
+"KVAL only applies when the motor controller is in voltage mode. This goes"
+" without saying KVAL always applies on the STEP800."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.accKVAL:1
+msgid "KVAL for accelerating the motor's speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.accKVAL:6
+#: stepseries.commands.SetKval.holdKVAL:6 stepseries.commands.SetKval.runKVAL:6
+#: stepseries.commands.SetKval.setDecKVAL:6
+#: stepseries.commands.SetTval.accTVAL:6 stepseries.commands.SetTval.holdTVAL:6
+#: stepseries.commands.SetTval.runTVAL:6
+#: stepseries.commands.SetTval.setDecTVAL:6
+msgid "16"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.holdKVAL:1
+msgid "KVAL for holding the motor's position."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.runKVAL:1
+msgid "KVAL for maintaining the motor's speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.setDecKVAL:1
+msgid "KVAL for decelerating the motor's speed."
+msgstr ""
+
+#: of stepseries.commands.SetLimitSwMode:1
+msgid "Configure whether to stop immediately on limit switch activated."
+msgstr ""
+
+#: of stepseries.commands.SetLowSpeedOptimizeThreshold:1
+msgid "Set the threshold for phase current distortion compensation."
+msgstr ""
+
+#: of stepseries.commands.SetLowSpeedOptimizeThreshold:3
+msgid ""
+"At very low speeds with minimal drive voltage, motors tend to have "
+"difficulty maintaining smooth operation due to phase current distortion. "
+"This optimizer attempts to compensate for that."
+msgstr ""
+
+#: of stepseries.commands.SetLowSpeedOptimizeThreshold:7
+msgid ""
+"Make sure to enable this optimizer with "
+":py:class:`stepseries.commands.EnableLowSpeedOptimize`."
+msgstr ""
+
+#: of stepseries.commands.SetLowSpeedOptimizeThreshold:11
+msgid "Motor is stopped"
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:2
+msgid "0.0 - 976.3 [steps/s]"
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:4
+#: stepseries.commands.SetMinSpeed.minSpeed:6
+msgid "0 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.SetMark:1
+msgid "Set the MARK register to an arbitrary position."
+msgstr ""
+
+#: of stepseries.commands.SetMark:3
+msgid ""
+"This register allows you store one position. Each write overwrites the "
+"last position set to this register."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMark.MARK:1
+msgid "Point to be set."
+msgstr ""
+
+#: of stepseries.commands.SetMaxSpeed:1
+msgid "Set the maximum speed of the speed profile."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMaxSpeed.maxSpeed:1
+#: stepseries.commands.SetSpeedProfile.maxSpeed:1
+msgid "Maximum speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMaxSpeed.maxSpeed:4
+#: stepseries.commands.SetSpeedProfile.maxSpeed:4
+msgid "15.25 - 15610 [steps/s]"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMaxSpeed.maxSpeed:6
+#: stepseries.commands.SetSpeedProfile.maxSpeed:6
+msgid "620 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.SetMicrostepMode:1
+msgid "Sets the microstepping mode."
+msgstr ""
+
+#: of stepseries.commands.SetMicrostepMode:3
+msgid ""
+"Voltage mode allows microstepping up to 1/128 which is also the default. "
+"Current mode only allows microstepping up to 1/16."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:1
+msgid "The microstep mode to run the motor at."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:4
+msgid "STEP_SEL"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:4
+msgid "Mode Description"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:6
+msgid "1/1 microstep (full-step)"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:8
+msgid "1/2 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:10
+msgid "1/4 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:12
+msgid "1/8 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:14
+msgid "4"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:14
+msgid "1/16 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:16
+msgid "5"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:16
+msgid "1/32 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:18
+msgid "6"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:18
+msgid "1/64 microstep"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:20
+msgid "7"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:20
+#: stepseries.commands.SetMicrostepMode.STEP_SEL:24
+msgid "1/128 microstep"
+msgstr ""
+
+#: of stepseries.commands.SetMinSpeed:1
+msgid "Sets the minimum speed of the speed profile."
+msgstr ""
+
+#: of stepseries.commands.SetMinSpeed:3
+msgid ""
+"Also used for the motor speed of "
+":py:class:`stepseries.commands.ReleaseSw`."
+msgstr ""
+
+#: of stepseries.commands.SetMinSpeed:6
+msgid ""
+"If :py:class:`stepseries.commands.EnableLowSpeedOptimize` is enabled, the"
+" this is automatically set to zero."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMinSpeed.minSpeed:1
+msgid "Minimum speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetMinSpeed.minSpeed:4
+msgid "0 - 976.3 [steps/s]"
+msgstr ""
+
+#: of stepseries.commands.SetOverCurrentThreshold:1
+msgid "Sets the overcurrent detection threshold."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:1
+msgid "The overcurrent threshold."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:6
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:24
+msgid "OCD_TH"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:6
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:24
+#: stepseries.commands.SetStallThreshold.STALL_TH:6
+#: stepseries.commands.SetStallThreshold.STALL_TH:24
+msgid "Threshold"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:8
+#: stepseries.commands.SetStallThreshold.STALL_TH:8
+msgid "312.5 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:10
+#: stepseries.commands.SetStallThreshold.STALL_TH:10
+msgid "625 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:12
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:30
+#: stepseries.commands.SetStallThreshold.STALL_TH:12
+#: stepseries.commands.SetStallThreshold.STALL_TH:30
+msgid "..."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:14
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:32
+#: stepseries.commands.SetStallThreshold.STALL_TH:14
+msgid "30"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:14
+#: stepseries.commands.SetStallThreshold.STALL_TH:14
+msgid "9.6875 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:16
+#: stepseries.commands.SetOverCurrentThreshold.OCD_TH:34
+#: stepseries.commands.SetStallThreshold.STALL_TH:16
+msgid "31"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:16
+#: stepseries.commands.SetStallThreshold.STALL_TH:16
+msgid "10 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:18
+msgid "15 (5A)"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:26
+msgid "375 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:28
+msgid "750 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:32
+msgid "5.625 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:34
+msgid "6 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:36
+msgid "7 (3A)"
+msgstr ""
+
+#: of stepseries.commands.SetPosition:1
+msgid "Overwrites the motor's current position."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetPosition.newPosition:1
+msgid "Position to override with."
+msgstr ""
+
+#: of stepseries.commands.SetPositionListReportInterval:1
+msgid "Periodically send the current positions of all motors."
+msgstr ""
+
+#: of stepseries.commands.SetPositionListReportInterval:3
+msgid ""
+"When enabled, :py:class:`stepseries.commands.SetPositionReportInterval` "
+"will be disabled."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetPositionListReportInterval.interval:1
+#: stepseries.commands.SetPositionReportInterval.interval:1
+msgid "Time interval between reports."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetPositionListReportInterval.interval:3
+#: stepseries.commands.SetPositionReportInterval.interval:3
+msgid "When set to 0, this reporting is disabled."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetPositionListReportInterval.interval:6
+#: stepseries.commands.SetPositionReportInterval.interval:6
+msgid "0-2147483647 [ms]"
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.commands.SetPositionListReportInterval.interval:8
+#: stepseries.commands.SetPositionReportInterval.interval:8
+msgid "0 [ms]"
+msgstr ""
+
+#: of stepseries.commands.SetPositionReportInterval:1
+msgid "Periodically send the current position of a motor."
+msgstr ""
+
+#: of stepseries.commands.SetPositionReportInterval:3
+msgid ""
+"When enabled, "
+":py:class:`stepseries.commands.SetPositionListReportInterval` will be "
+"disabled."
+msgstr ""
+
+#: of stepseries.commands.SetProhibitMotionOnHomeSw:1
+msgid "Prohibit motion to the origin when the home sensor is activated."
+msgstr ""
+
+#: of stepseries.commands.SetProhibitMotionOnHomeSw:3
+#: stepseries.commands.SetProhibitMotionOnLimitSw:3
+msgid ""
+"The direction to the origin point can be configured using the `Config "
+"Tool`_ or with :py:class:`stepseries.commands.SetHomingDirection`."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetProhibitMotionOnHomeSw.enable:1
+msgid "If True, disable motion in the origin direction."
+msgstr ""
+
+#: of stepseries.commands.SetProhibitMotionOnLimitSw:1
+msgid "Prohibit motion to the origin when the limit sensor is activated."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetProhibitMotionOnLimitSw.enable:1
+msgid "If True, disable motion in the LIMIT switch direction."
+msgstr ""
+
+#: of stepseries.commands.SetReleaseSwTimeout:1
+msgid "Set the timeout for :py:class:`stepseries.commands.ReleaseSw`."
+msgstr ""
+
+#: of stepseries.commands.SetReleaseSwTimeout:3
+msgid ""
+"If the HOME switch is not releaseed before this timeout, then the "
+"controller stops the motor's movements. Specify 0 to disable the timeout."
+msgstr ""
+
+#: of stepseries.commands.SetServoParam:1
+msgid "Configure the servo PID control parameters."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kD:1
+msgid "Derivative gain."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kD:4
+#: stepseries.commands.SetServoParam.kI:4
+#: stepseries.commands.SetServoParam.kP:4
+msgid "0-"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kD:6
+#: stepseries.commands.SetServoParam.kI:6
+msgid "0.0"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kI:1
+msgid "Integral gain."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kP:1
+msgid "Proportional gain."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetServoParam.kP:6
+msgid "0.06"
+msgstr ""
+
+#: of stepseries.commands.SetSpeedProfile:1
+msgid "Sets multiple speed profile settings at once."
+msgstr ""
+
+#: of stepseries.commands.SetSpeedProfile:3
+msgid ""
+"Acceleration, deceleration and max speed can all be set at once using "
+"this command."
+msgstr ""
+
+#: of stepseries.commands.SetStallThreshold:1
+msgid "Sets the stall detection threshold."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:1
+msgid "The stall threshold."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:6
+#: stepseries.commands.SetStallThreshold.STALL_TH:24
+msgid "STALL_TH"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:18
+msgid "31 (10A)"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:26
+msgid "31.25 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:28
+msgid "62.5 mA"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:32
+msgid "126"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:32
+msgid "3.969 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:34
+msgid "127"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:34
+msgid "4 A"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:36
+msgid "127 (4A)"
+msgstr ""
+
+#: of stepseries.commands.SetTargetPosition:1
+msgid "Set the target position to go to when in servo mode."
+msgstr ""
+
+#: of stepseries.commands.SetTargetPosition:3
+msgid ""
+":py:class:`stepseries.commands.EnableServoMode` must be enabled for this "
+"command to have an effect."
+msgstr ""
+
+#: of stepseries.commands.SetTargetPositionList:1
+msgid "Set the target positions of all motors at once."
+msgstr ""
+
+#: of stepseries.commands.SetTargetPositionList:3
+msgid "If using the STEP400, positions 5-8 do not need to be configured."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTargetPositionList.position5:1
+#: stepseries.commands.SetTargetPositionList.position6:1
+#: stepseries.commands.SetTargetPositionList.position7:1
+#: stepseries.commands.SetTargetPositionList.position8:1
+msgid "``STEP800 only``"
+msgstr ""
+
+#: of stepseries.commands.SetTval:1
+msgid "Sets the configuration for all four TVAL parameters."
+msgstr ""
+
+#: of stepseries.commands.SetTval:5
+msgid ""
+"TVAL only applies when the motor controller is in current mode. This goes"
+" without saying TVAL never applies on the STEP800."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTval.accTVAL:1
+msgid "TVAL for accelerating the motor's speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTval.accTVAL:4
+#: stepseries.commands.SetTval.holdTVAL:4 stepseries.commands.SetTval.runTVAL:4
+#: stepseries.commands.SetTval.setDecTVAL:4
+msgid "0-127"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTval.holdTVAL:1
+msgid "TVAL for holding the motor's position."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTval.runTVAL:1
+msgid "TVAL for maintaining the motor's speed."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetTval.setDecTVAL:1
+msgid "TVAL for decelerating the motor's speed."
+msgstr ""
+
+#: of stepseries.commands.SetVoltageMode:1
+msgid "Switch a specific motor into voltage mode."
+msgstr ""
+
+#: of stepseries.commands.SoftHiZ:1 stepseries.commands.SoftStop:1
+msgid "Stops the motor according to the speed profile."
+msgstr ""
+
+#: of stepseries.commands.SoftStop:3
+msgid ""
+"After decelerating and stopping, the motor is kept in an excited state if"
+" it was originally in a HiZ state. Remains in the BUSY state until the "
+"motor stops."
+msgstr ""
+
+#: ../../api/stepseries.rst:16
+msgid "stepseries.exceptions module"
+msgstr ""
+
+#: of stepseries.exceptions:1
+msgid "Custom exceptions raised by this library."
+msgstr ""
+
+#: of stepseries.exceptions.ClientClosedError:1
+#: stepseries.exceptions.ClientNotFoundError:1
+#: stepseries.exceptions.InvalidCommandError:1
+#: stepseries.exceptions.StepSeriesException:1
+msgid "Bases: :py:class:`Exception`"
+msgstr ""
+
+#: of stepseries.exceptions.ClientClosedError:1
+msgid "The client's connection is not open."
+msgstr ""
+
+#: of stepseries.exceptions.ClientNotFoundError:1
+msgid "The requested client could not be found."
+msgstr ""
+
+#: of stepseries.exceptions.InvalidCommandError:1
+msgid "The command cannot be executed."
+msgstr ""
+
+#: of stepseries.exceptions.ParseError:1
+msgid "Bases: :py:class:`stepseries.exceptions.StepSeriesException`"
+msgstr ""
+
+#: of stepseries.exceptions.ParseError:1
+msgid "Failed to parse the message from the device."
+msgstr ""
+
+#: of stepseries.exceptions.StepSeriesException:1
+msgid "Base exception for the library."
+msgstr ""
+
+#: ../../api/stepseries.rst:24
+msgid "stepseries.responses module"
+msgstr ""
+
+#: of stepseries.responses:1
+msgid "Messages received from the device."
+msgstr ""
+
+#: of stepseries.responses.AdcVal:1 stepseries.responses.BemfParam:1
+#: stepseries.responses.Booted:1 stepseries.responses.BrakeTransitionDuration:1
+#: stepseries.responses.Busy:1 stepseries.responses.ConfigName:1
+#: stepseries.responses.ConfigRegister:1 stepseries.responses.DecayModeParam:1
+#: stepseries.responses.DestIP:1 stepseries.responses.Dir:1
+#: stepseries.responses.ElPos:1 stepseries.responses.FullstepSpeed:1
+#: stepseries.responses.GoUntilTimeout:1 stepseries.responses.HiZ:1
+#: stepseries.responses.HomeSw:1 stepseries.responses.HomeSwMode:1
+#: stepseries.responses.HomingDirection:1 stepseries.responses.HomingSpeed:1
+#: stepseries.responses.HomingStatus:1 stepseries.responses.Kval:1
+#: stepseries.responses.LimitSw:1 stepseries.responses.LimitSwMode:1
+#: stepseries.responses.LowSpeedOptimizeThreshold:1 stepseries.responses.Mark:1
+#: stepseries.responses.MicrostepMode:1 stepseries.responses.MinSpeed:1
+#: stepseries.responses.MotorStatus:1 stepseries.responses.OverCurrent:1
+#: stepseries.responses.OverCurrentThreshold:1 stepseries.responses.Position:1
+#: stepseries.responses.PositionList:1
+#: stepseries.responses.ProhibitMotionOnHomeSw:1
+#: stepseries.responses.ProhibitMotionOnLimitSw:1
+#: stepseries.responses.ReleaseSwTimeout:1 stepseries.responses.ServoParam:1
+#: stepseries.responses.Speed:1 stepseries.responses.SpeedProfile:1
+#: stepseries.responses.Stall:1 stepseries.responses.StallThreshold:1
+#: stepseries.responses.Status:1 stepseries.responses.SwEvent:1
+#: stepseries.responses.ThermalStatus:1 stepseries.responses.Tval:1
+#: stepseries.responses.Tval_mA:1 stepseries.responses.Uvlo:1
+#: stepseries.responses.Version:1
+msgid "Bases: :py:class:`stepseries.responses.OSCResponse`"
+msgstr ""
+
+#: of stepseries.responses.AdcVal:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getadcval_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.BemfParam:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Booted:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#booted"
+msgstr ""
+
+#: of stepseries.responses.BrakeTransitionDuration:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/brake/#getbraketransitionduration_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Busy:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#busy"
+msgstr ""
+
+#: of stepseries.responses.ConfigName:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/system-settings/#getconfigname"
+msgstr ""
+
+#: of stepseries.responses.ConfigRegister:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getconfigregister_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.DecayModeParam:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.DestIP:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/system-settings/#setdestip"
+msgstr ""
+
+#: of stepseries.responses.Dir:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getdir_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.ElPos:1
+msgid ""
+"Documentation https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/position-management/#getelpos_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.ErrorCommand:1 stepseries.responses.ErrorOSC:1
+msgid "Bases: :py:class:`stepseries.responses.OSCResponse`, :py:class:`Exception`"
+msgstr ""
+
+#: of stepseries.responses.ErrorCommand:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#errorcommand"
+msgstr ""
+
+#: of stepseries.responses.ErrorOSC:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#errorosc"
+msgstr ""
+
+#: of stepseries.responses.FullstepSpeed:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/speed-profile/#getfullstepspeed_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.GoUntilTimeout:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/homing/#getgountiltimeout_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.HiZ:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#hiz"
+msgstr ""
+
+#: of stepseries.responses.HomeSw:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/home-and-limit-sensers/#gethomesw_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.HomeSwMode:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/home-and-limit-sensers/#gethomeswmode_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.HomingDirection:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/homing/#gethomingdirection_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.HomingSpeed:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/homing/#gethomingspeed_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.HomingStatus:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#homingstatus"
+msgstr ""
+
+#: of stepseries.responses.Kval:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/voltage-and-current-mode-settings/#getkval_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.LimitSw:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/home-and-limit-sensers/#getlimitsw_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.LimitSwMode:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/home-and-limit-sensers/#getlimitswmode_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.LowSpeedOptimizeThreshold:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Mark:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/position-management/#getmark_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.MicrostepMode:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getmicrostepmode_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.MinSpeed:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/speed-profile/#getminspeed_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.MotorStatus:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#motorstatus"
+msgstr ""
+
+#: of stepseries.responses.OSCResponse:1
+msgid "An abstract class meant to be implemented by OSC resp objects."
+msgstr ""
+
+#: of stepseries.responses.OverCurrent:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#overcurrent"
+msgstr ""
+
+#: of stepseries.responses.OverCurrentThreshold:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/alarm-settings/#getovercurrentthreshold_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Position:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/position-management/#getposition_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.PositionList:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/position-management/#getpositionlist"
+msgstr ""
+
+#: of stepseries.responses.ProhibitMotionOnHomeSw:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.ProhibitMotionOnLimitSw:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.ReleaseSwTimeout:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"
+msgstr ""
+
+#: of stepseries.responses.ServoParam:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/servo-mode/#getservoparam_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Speed:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/speed-profile/#getspeed_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.SpeedProfile:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/speed-profile/#getspeedprofile_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Stall:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#stall"
+msgstr ""
+
+#: of stepseries.responses.StallThreshold:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/alarm-settings/#getstallthreshold_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Status:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/motor-driver-settings/#getstatus_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.SwEvent:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/home-and-limit-"
+"sensers/#enablesweventreport_intmotorid_boolenable"
+msgstr ""
+
+#: of stepseries.responses.ThermalStatus:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#thermalstatus"
+msgstr ""
+
+#: of stepseries.responses.Tval:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/voltage-and-current-mode-settings/#gettval_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Tval_mA:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"
+msgstr ""
+
+#: of stepseries.responses.Uvlo:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/automatically-sent-messages-from-step-400/#uvlo"
+msgstr ""
+
+#: of stepseries.responses.Version:1
+msgid ""
+"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
+"reference/system-settings/#getversion"
+msgstr ""
+
+#: ../../api/stepseries.rst:32
+msgid "stepseries.server module"
+msgstr ""
+
+#: of stepseries.server:1
+msgid "Manages IO with multiple STEP-series devices."
+msgstr ""
+
+#: of stepseries.server.Manager.add_device:1
+msgid "For internal use only. Add a device to send data to when it is received."
+msgstr ""
+
+#: of stepseries.server.Manager.remove_device:1
+msgid "For internal use only. Remove a tracked device to stop sending data to it."
+msgstr ""
+
+#: of stepseries.server.Manager.send:1
+msgid "Send `message` to the `device`."
+msgstr ""
+
+#: of stepseries.server.Manager.shutdown:1
+msgid "Shuts down all tracked servers."
+msgstr ""
+
+#: ../../api/stepseries.rst:40
+msgid "stepseries.step400 module"
+msgstr ""
+
+#: of stepseries.step400:1
+msgid "4 axis stepper motor driver with and Ethernet interface."
+msgstr ""
+
+#: of stepseries.step400.STEP400:1 stepseries.step800.STEP800:1
+msgid "Bases: :py:class:`stepseries.stepXXX.STEPXXX`"
+msgstr ""
+
+#: of stepseries.step400.STEP400:1
+msgid "Send and receive data from a STEP400 motor driver."
+msgstr ""
+
+#: of stepseries.step400.STEP400:5 stepseries.step800.STEP800:5
+msgid ""
+"It is recommended to create a default message handler for this driver. "
+"Here is an example:"
+msgstr ""
+
+#: of stepseries.step400.STEP400 stepseries.step800.STEP800
+#: stepseries.step800.STEP800.get stepseries.step800.STEP800.set
+#: stepseries.stepXXX.STEPXXX stepseries.stepXXX.STEPXXX.get
+#: stepseries.stepXXX.STEPXXX.on stepseries.stepXXX.STEPXXX.set
+msgid "Parameters"
+msgstr ""
+
+#: of stepseries.step400.STEP400:16 stepseries.step800.STEP800:16
+#: stepseries.stepXXX.STEPXXX:3
+msgid "The id set by the DIP switches on the device."
+msgstr ""
+
+#: of stepseries.step400.STEP400:18 stepseries.step800.STEP800:18
+#: stepseries.stepXXX.STEPXXX:5
+msgid "The ip address of the device. Defaults to `10.0.0.100`."
+msgstr ""
+
+#: of stepseries.step400.STEP400:20 stepseries.step800.STEP800:20
+#: stepseries.stepXXX.STEPXXX:7
+msgid "The local port the device is listening on. Defaults to `50000`."
+msgstr ""
+
+#: of stepseries.step400.STEP400:23 stepseries.step800.STEP800:23
+#: stepseries.stepXXX.STEPXXX:10
+msgid ""
+"The ip address of the server (this machine). Should always be `0.0.0.0`. "
+"Defaults to `0.0.0.0`."
+msgstr ""
+
+#: of stepseries.step400.STEP400:26 stepseries.step800.STEP800:26
+#: stepseries.stepXXX.STEPXXX:13
+msgid "The port the server is listening on. Defaults to `50100`."
+msgstr ""
+
+#: of stepseries.step400.STEP400:28 stepseries.step800.STEP800:28
+msgid ""
+"Whether to add `id` to `address` and `server_port` (the default behavior "
+"on the device). Defaults to `True`."
+msgstr ""
+
+#: ../../api/stepseries.rst:48
+msgid "stepseries.step800 module"
+msgstr ""
+
+#: of stepseries.step800:1
+msgid "4 axis stepper motor driver with Ethernet interface."
+msgstr ""
+
+#: of stepseries.step800.STEP800:1
+msgid "Send and receive data from a STEP800 motor driver."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:1 stepseries.stepXXX.STEPXXX.get:1
+msgid "Send a 'get' command to the device and return the response."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:5 stepseries.stepXXX.STEPXXX.get:5
+msgid "The responses are also sent to each applicable callback."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:7 stepseries.stepXXX.STEPXXX.get:7
+msgid ""
+"If a `ParseError` is received, then it will be raised. The raw response "
+"can be retrieved via the `response` attribute of the error."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:11 stepseries.step800.STEP800.set:3
+#: stepseries.stepXXX.STEPXXX.get:11 stepseries.stepXXX.STEPXXX.set:3
+msgid "The completed command template (`stepseries.commands`)."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:13 stepseries.stepXXX.STEPXXX.get:13
+msgid "Send the response to callbacks as well (defaults to `True`)."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:16 stepseries.stepXXX.STEPXXX.get:16
+msgid ""
+"Wait for a response from the device if `True`, otherwise return without "
+"waiting for a response (defaults to `True`)."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get stepseries.step800.STEP800.set
+#: stepseries.stepXXX.STEPXXX.get stepseries.stepXXX.STEPXXX.on
+#: stepseries.stepXXX.STEPXXX.set
+msgid "Raises"
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:21 stepseries.step800.STEP800.set:6
+#: stepseries.stepXXX.STEPXXX.get:21 stepseries.stepXXX.STEPXXX.set:6
+msgid "`command` is not an `OSCSetCommand`."
+msgstr ""
+
+#: of stepseries.step800.STEP800.get:22
+msgid "`command` cannot run on a STEP800."
+msgstr ""
+
+#: of stepseries.step800.STEP800.set:1 stepseries.stepXXX.STEPXXX.set:1
+msgid "Send a 'set' command to the device."
+msgstr ""
+
+#: ../../api/stepseries.rst:56
+msgid "stepseries.stepXXX module"
+msgstr ""
+
+#: of stepseries.stepXXX:1
+msgid "Stepper motor driver with an Ethernet interface."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX:1
+msgid "Send and receive data from a STEP-series motor driver."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.address:1
+msgid "The local IP address of the client."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.close:1
+msgid "Close the connection to the stepseries device."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.close:3
+msgid "Note: No other command after this one should be called on the device."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.is_closed:1
+msgid "Is the connection to the device closed."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:1
+msgid "Register `fn` to be executed when `message_type` is received."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:3
+msgid ""
+"The message type to filter for. If `None`, then all messages received "
+"will be sent to `fn`. Note multiple `fn`s can be registered to the same "
+"type or multiple types."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:8
+msgid ""
+"The callable to be executed when `message_type` is received.     Note:"
+"         `fn` should accept one and only one argument         being the "
+"message received."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:8
+msgid "The callable to be executed when `message_type` is received."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:11
+msgid "Note:"
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:11
+msgid "`fn` should accept one and only one argument being the message received."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.on:15
+msgid "`message_type` is not an `OSCResponse`.     `fn` is not a callable."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.port:1
+msgid "The local port on the client."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.remove:1
+msgid "Remove `fn` from the registered callbacks."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.reset:1
+msgid "Resets the device."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.reset:3
+msgid "Note: This function may return before the device is ready."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.server_address:1
+msgid "The remote IP address of the server."
+msgstr ""
+
+#: of stepseries.stepXXX.STEPXXX.server_port:1
+msgid "The remote port on the server."
+msgstr ""
+
+#: ../../api/stepseries.rst:64
+msgid "Module contents"
+msgstr ""
+
+#~ msgid "Resets the specified motor driver chip and resets defaults."
+#~ msgstr ""
+

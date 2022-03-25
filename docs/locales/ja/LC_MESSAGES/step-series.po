@@ -1,0 +1,1013 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Ponoor Experiments
+# This file is distributed under the same license as the Step-Series
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Step-Series Documentation "
+"0.0.2.post1.dev78+g320de0f.d20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-25 09:34-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../step-series.rst:5
+msgid "STEP400/STEP800"
+msgstr ""
+
+#: ../../step-series.rst:11
+msgid "Overview"
+msgstr ""
+
+#: ../../step-series.rst:15
+msgid "About"
+msgstr ""
+
+#: ../../step-series.rst:17
+msgid ""
+"Both the STEP400 and STEP800 are multi-axis stepper motor controllers "
+"which can be controlled via Ethernet. While both devices use an `Arduino "
+"Zero`_ as the main control unit (MCU), the STEP400 uses "
+"STMicroelectronics's `powerSTEP01`_ as its stepper driver chip whereas "
+"the STEP800 uses STMicroelectronics's `L6470`_. It is recommended to "
+"review the datasheets for both chips to better understand how they work "
+"and what each command is doing."
+msgstr ""
+
+#: ../../step-series.rst:23
+msgid ""
+"Both devices use the exact same commands save for a select few which are "
+"marked in the API Reference. So, unless you see ``STEP400 Only`` or "
+"``STEP800 Only``, assume the command is compatible with both devices."
+msgstr ""
+
+#: ../../step-series.rst:29
+msgid "Tutorial"
+msgstr ""
+
+#: ../../step-series.rst:33
+msgid "Example Files"
+msgstr ""
+
+#: ../../step-series.rst:35
+msgid ""
+"The STEP400 and STEP800 both communicate via the ``Open Sound Control`` "
+"(OSC) `protocol`_. Beyond just ``python-step-series``, a myriad of "
+"applications can also communicate with these devices, so example "
+"configuration and setup files are provided in the list below:"
+msgstr ""
+
+#: ../../step-series.rst:39
+msgid "`Max`_ (recommended, `download`_)"
+msgstr ""
+
+#: ../../step-series.rst:40
+msgid "`Processing`_ (thanks `@yuskegoto`_)"
+msgstr ""
+
+#: ../../step-series.rst:41
+msgid "`openFrameworks`_ (thanks `@niimi`_)"
+msgstr ""
+
+#: ../../step-series.rst:42
+msgid "`Unity`_ (thanks `@niimi`_)"
+msgstr ""
+
+#: ../../step-series.rst:43
+msgid "`Touch Designer`_ (thanks `@loveandsheep`_, `@yuskegoto`_)"
+msgstr ""
+
+#: ../../step-series.rst:44
+msgid "`Node-RED`_ (thanks `@yuskegoto`_)"
+msgstr ""
+
+#: ../../step-series.rst:48
+msgid "Wiring"
+msgstr ""
+
+#: ../../step-series.rst:52
+msgid "Communication"
+msgstr ""
+
+#: ../../step-series.rst:54
+msgid ""
+"Both devices communicate via Ethernet, meaning your computer must have an"
+" ethernet port or a USB-ethernet converter. This tutorial will assume you"
+" have connected the device directly to your PC (peer-to-peer); however, "
+"if this is not possible for you, then plugging the device into a network "
+"switch is also viable."
+msgstr ""
+
+#: ../../step-series.rst:59
+msgid "Please plug the ethernet cable in now."
+msgstr ""
+
+#: ../../step-series.rst:61
+msgid ""
+"Ensure your switch is actually a switch. Do not plug these devices into a"
+" router as router ports behave differently than switch ports do."
+msgstr ""
+
+#: ../../step-series.rst:64
+msgid ""
+"Please do not power the device until directed to do so later in the "
+"tutorial. You will be asked to connect the power supply in the upcoming "
+"sections, but make sure it is **not** on."
+msgstr ""
+
+#: ../../step-series.rst:69
+msgid "Stepper Motors"
+msgstr ""
+
+#: ../../step-series.rst:71
+msgid ""
+"Only 4-wire, bipolar stepper motors can be used with these devices. As an"
+" example, a highly accessible and inexpensive stepper motor is Mercury "
+"Motor's ``SM-42BYG011-25``. This tutorial assumes you are using this "
+"motor, so, if you are not, you may need to watch out for specific "
+"settings that may need to be changed to match the motor you have. The "
+"``SM-42BYG011-25`` can be purchased from one the (unaffiliated) "
+"recommended sites below:"
+msgstr ""
+
+#: ../../step-series.rst:77
+msgid "`Sparkfun`_"
+msgstr ""
+
+#: ../../step-series.rst:78
+msgid "`Strawberry Linux`_"
+msgstr ""
+
+#: ../../step-series.rst:79
+msgid "`Akizuki Denshi`_"
+msgstr ""
+
+#: ../../step-series.rst:84
+msgid ""
+"From the wiring diagram found in the `datasheet`_ for this motor, we can "
+"see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
+msgstr ""
+
+#: ../../step-series.rst:89
+msgid "The wiring to the terminal block should look like this:"
+msgstr ""
+
+#: ../../step-series.rst:93
+msgid ""
+"We've calculated register values for some motors and made them available "
+"as `configuration files`_."
+msgstr ""
+
+#: ../../step-series.rst:97
+msgid "Power Supply"
+msgstr ""
+
+#: ../../step-series.rst:99
+msgid ""
+"The STEP400 and STEP800 both have differing power ratings. These devices "
+"also have two different power input terminals. While the USB-C jack can "
+"be considered a power input terminal, it's primary, and arguably sole "
+"purpose, is to provide USB communication. By design, the USB protocol can"
+" only supply of maximum of 5V which is not enough to fully power the "
+"board. It is, however, safe to power both devices through either primary "
+"input (4 and 5 in the picture below) and have USB connected, but **do "
+"not** connect power to both primary inputs."
+msgstr ""
+
+#: ../../step-series.rst:106
+msgid ""
+"Again, make sure not to power the device. You may connect the supply, but"
+" make sure it is not on."
+msgstr ""
+
+#: ../../step-series.rst:112
+msgid "Number"
+msgstr ""
+
+#: ../../step-series.rst:112 ../../step-series.rst:247
+#: ../../step-series.rst:380 ../../step-series.rst:468
+msgid "Description"
+msgstr ""
+
+#: ../../step-series.rst:114 ../../step-series.rst:492
+msgid "1"
+msgstr ""
+
+#: ../../step-series.rst:114
+msgid "Electromagnetic brake terminal (STEP400)"
+msgstr ""
+
+#: ../../step-series.rst:116 ../../step-series.rst:494
+msgid "2"
+msgstr ""
+
+#: ../../step-series.rst:116
+msgid "Ethernet Port"
+msgstr ""
+
+#: ../../step-series.rst:118 ../../step-series.rst:496
+msgid "3"
+msgstr ""
+
+#: ../../step-series.rst:118
+msgid "USB-C Port"
+msgstr ""
+
+#: ../../step-series.rst:120
+msgid "4"
+msgstr ""
+
+#: ../../step-series.rst:120
+msgid "(Primary Power Input) DC Barrel Plug"
+msgstr ""
+
+#: ../../step-series.rst:122
+msgid "5"
+msgstr ""
+
+#: ../../step-series.rst:122
+msgid "(Primary Power Input) Screw Terminal"
+msgstr ""
+
+#: ../../step-series.rst:125
+msgid "Again, **do NOT** connect both 4 and 5. This will damage your controller."
+msgstr ""
+
+#: ../../step-series.rst:127
+msgid ""
+"As stated above, both devices have different power ratings and different "
+"ratings for each primary input."
+msgstr ""
+
+#: ../../step-series.rst:131
+msgid "Controller"
+msgstr ""
+
+#: ../../step-series.rst:131
+msgid "Board Max Power Rating"
+msgstr ""
+
+#: ../../step-series.rst:131
+msgid "Barrel Jack"
+msgstr ""
+
+#: ../../step-series.rst:131 ../../step-series.rst:155
+msgid "Screw Terminal"
+msgstr ""
+
+#: ../../step-series.rst:133
+msgid "STEP400"
+msgstr ""
+
+#: ../../step-series.rst:133
+msgid "12V-76V @ 20A"
+msgstr ""
+
+#: ../../step-series.rst:133 ../../step-series.rst:135
+msgid "24V @ 5A"
+msgstr ""
+
+#: ../../step-series.rst:133
+msgid "76V @ 20A"
+msgstr ""
+
+#: ../../step-series.rst:135
+msgid "STEP800"
+msgstr ""
+
+#: ../../step-series.rst:135
+msgid "9V-36V @ 16A"
+msgstr ""
+
+#: ../../step-series.rst:135
+msgid "36V @ 16A"
+msgstr ""
+
+#: ../../step-series.rst:138
+msgid ""
+"The amps listed here reflect the cumulative maximum phase current draw of"
+" all motors, not the maximum current capacity of the power supply. Look "
+"at :ref:`Current Capacity` for more information. The STEP800 has a "
+"maximum phase current draw of 2A per motor whereas the STEP400 has a "
+"maximum of 5A. Please keep these limits in mind when choosing your motor."
+msgstr ""
+
+#: ../../step-series.rst:145
+msgid "DC Barrel Plug"
+msgstr ""
+
+#: ../../step-series.rst:147
+msgid "The DC barrel has the following specifications beyond its power rating:"
+msgstr ""
+
+#: ../../step-series.rst:149
+msgid "5.5mm outer diameter"
+msgstr ""
+
+#: ../../step-series.rst:150
+msgid "2.1mm inner diameter"
+msgstr ""
+
+#: ../../step-series.rst:151
+msgid "Center positive"
+msgstr ""
+
+#: ../../step-series.rst:157
+msgid ""
+"The screw terminal has the following specifications beyond its power "
+"rating:"
+msgstr ""
+
+#: ../../step-series.rst:159
+msgid "Negative left side, positive right side"
+msgstr ""
+
+#: ../../step-series.rst:160
+msgid "M3 screw diameter"
+msgstr ""
+
+#: ../../step-series.rst:161
+msgid ""
+"Use a wire terminal like the ``NICHIFU TMEX1.25-3N`` for a more secure "
+"connection"
+msgstr ""
+
+#: ../../step-series.rst:165
+msgid "Power Supply & Stepper Motor Ratings"
+msgstr ""
+
+#: ../../step-series.rst:169
+msgid "Current vs Voltage"
+msgstr ""
+
+#: ../../step-series.rst:171
+msgid ""
+"The copper windings inside a stepper motor behave as an inductor. When "
+"power is supplied to the inductor, current rises gradually--it is not "
+"instant. Stepper motors that operate through the ON/OFF cycle see "
+"decreased current the faster they move because the current cannot reach "
+"its maximum. Because the motor's torque is virtually proportional to it's"
+" phase current, that means higher speeds means lower torque."
+msgstr ""
+
+#: ../../step-series.rst:179
+msgid "Overcoming the Tradeoff"
+msgstr ""
+
+#: ../../step-series.rst:181
+msgid ""
+"To overcome this tradeoff, you need to use a power supply with a high "
+"voltage rating. Remember, both boards have their maximum voltages, so "
+"keep that in mind when choosing a supply. To better articulate this "
+"point, see the following graph and note the correlation between a higher "
+"voltage providing higher current (aka torque) and a higher maximum speed."
+msgstr ""
+
+#: ../../step-series.rst:188
+msgid ""
+"The required voltage varies greatly depending on the motor's rating, "
+"required speed, and required torque. But, in general, the required "
+"voltage is roughly as follows:"
+msgstr ""
+
+#: ../../step-series.rst:191
+msgid "NEMA17 and under: 24V"
+msgstr ""
+
+#: ../../step-series.rst:192
+msgid "NEMA23 and bigger: 48V (or 72V for high speed)"
+msgstr ""
+
+#: ../../step-series.rst:194
+msgid ""
+"This means the STEP800 may not be suitable for driving larger motors; "
+"however, some motors may produce high torque in a small form factor and "
+"vice versa with a large form factor. **It's imperative you review your "
+"motor's voltage and current ratings.**"
+msgstr ""
+
+#: ../../step-series.rst:198
+msgid ""
+"The STEP400 does work with a minimum of 12V; however, since that is its "
+"on-board DC-DC converter's minimum required voltage, there may be cases "
+"wjere the STEP400 resets on a slight voltage drop. This is especially the"
+" case during a motor's inrush current, therefore we do not recommend a "
+"12V power supply unless if you are driving a small motor at a low load."
+msgstr ""
+
+#: ../../step-series.rst:205
+msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
+msgstr ""
+
+#: ../../step-series.rst:209
+msgid "Current Capacity"
+msgstr ""
+
+#: ../../step-series.rst:211
+msgid ""
+"The current capacity of the power supply is as equally important as its "
+"voltage. If a motor stalls it may draw a high amount of current that may "
+"exceed the capacity of the power supply. This will cause the overload "
+"protection circuit on the supply to trigger (if there is one) forcing the"
+" supply to shut down. Typically, you will likely need to only supply a "
+"few amps to drive small motors at low speeds. But large motors at high "
+"speeds often do require high voltage with high current (especially if "
+"they are under load). Depending on the quantity of motors, their "
+"usecases, as well as your circuit protection settings, we recommend a "
+"supply with at least 10A-20A capacity."
+msgstr ""
+
+#: ../../step-series.rst:221
+msgid "Networking"
+msgstr ""
+
+#: ../../step-series.rst:225
+msgid "Configuration Tool"
+msgstr ""
+
+#: ../../step-series.rst:227
+msgid ""
+"Both devices do have a microSD card slot included on the board. Using "
+"this slot, you can just about completely configure the device using our "
+"convenient `Configuration Tool`_. This tool is a webpage, that can be "
+"accessed through your browser--so no third party software is required."
+msgstr ""
+
+#: ../../step-series.rst:231
+msgid ""
+"This tutorial uses default settings, so we will not be using the microSD "
+"card. Just leave the slot empty."
+msgstr ""
+
+#: ../../step-series.rst:234
+msgid ""
+"If you are connecting the board through a network switch that is "
+"connected to an existing VLAN, you may need to use the configuration tool"
+" to pre-configure the device's network settings and override those that "
+"will be set by the DIP switches as described below."
+msgstr ""
+
+#: ../../step-series.rst:241
+msgid "Dip Switches"
+msgstr ""
+
+#: ../../step-series.rst:243
+msgid ""
+"The DIP switches on the board must be set to 1. This means only the left-"
+"most switch is ON and the rest are OFF. With this configuration, the "
+"board has the following network settings:"
+msgstr ""
+
+#: ../../step-series.rst:247 ../../step-series.rst:275
+#: ../../step-series.rst:380 ../../step-series.rst:468
+msgid "Name"
+msgstr ""
+
+#: ../../step-series.rst:247 ../../step-series.rst:275
+msgid "Value"
+msgstr ""
+
+#: ../../step-series.rst:249 ../../step-series.rst:277
+#: ../../step-series.rst:529
+msgid "IP Address"
+msgstr ""
+
+#: ../../step-series.rst:249
+msgid "10.0.0.101"
+msgstr ""
+
+#: ../../step-series.rst:249
+msgid "The IP address of the device"
+msgstr ""
+
+#: ../../step-series.rst:251
+msgid "Server Address"
+msgstr ""
+
+#: ../../step-series.rst:251 ../../step-series.rst:277
+#: ../../step-series.rst:533
+msgid "10.0.0.10"
+msgstr ""
+
+#: ../../step-series.rst:251
+msgid "The IP address of the server (i.e. your PC)"
+msgstr ""
+
+#: ../../step-series.rst:253 ../../step-series.rst:535
+msgid "Local Port"
+msgstr ""
+
+#: ../../step-series.rst:253 ../../step-series.rst:535
+msgid "50000"
+msgstr ""
+
+#: ../../step-series.rst:253
+msgid "The port the device is listening on"
+msgstr ""
+
+#: ../../step-series.rst:255
+msgid "Server Port"
+msgstr ""
+
+#: ../../step-series.rst:255
+msgid "50101"
+msgstr ""
+
+#: ../../step-series.rst:255
+msgid "The port on the server that the server is listening on"
+msgstr ""
+
+#: ../../step-series.rst:260
+msgid "Configured DIP switches on the STEP400."
+msgstr ""
+
+#: ../../step-series.rst:262
+msgid ""
+"Now with the motor, power supply, and ethernet cord connected; and the "
+"DIP switches set, you may now power-on the device. Please remember the "
+"bottom side of the board does have high-voltage and high-current pins, so"
+" either place the board on non-conductive material or attach spacers to "
+"avoid damaging the board or hurting yourself."
+msgstr ""
+
+#: ../../step-series.rst:269
+msgid "PC Configuration"
+msgstr ""
+
+#: ../../step-series.rst:271
+msgid ""
+"As seen in the table above, the device will expect your PC (server) to "
+"exist at a certain IP address. If you need to, you can set it statically "
+"by reviewing the guides linked below:"
+msgstr ""
+
+#: ../../step-series.rst:279
+msgid "Subnet Mask"
+msgstr ""
+
+#: ../../step-series.rst:279
+msgid "255.255.255.0"
+msgstr ""
+
+#: ../../step-series.rst:281
+msgid "DNS"
+msgstr ""
+
+#: ../../step-series.rst:281 ../../step-series.rst:283
+msgid "<Leave Empty>"
+msgstr ""
+
+#: ../../step-series.rst:283
+msgid "Default Gateway"
+msgstr ""
+
+#: ../../step-series.rst:286
+msgid "`Windows`_"
+msgstr ""
+
+#: ../../step-series.rst:287
+msgid "`Mac`_"
+msgstr ""
+
+#: ../../step-series.rst:288
+msgid "`Linux`_"
+msgstr ""
+
+#: ../../step-series.rst:292
+msgid "Running Basic Commands"
+msgstr ""
+
+#: ../../step-series.rst:296
+msgid "Verifying the Connection"
+msgstr ""
+
+#: ../../step-series.rst:298
+msgid ""
+"After configuring the above settings, you can verify your connection by "
+"running ``ping 10.0.0.101`` from your terminal (Command Prompt on "
+"Windows)."
+msgstr ""
+
+#: ../../step-series.rst:301
+msgid ""
+"From this point forward, how you send commands to the device will "
+"completely depend on if you're using ``python-step-series`` or one of the"
+" programs listed in :ref:`Example Files`. This tutorial will describe "
+"each command and provide the code for ``python-step-series``; however, it"
+" will be up to you to determine how to send the commands through your "
+"program of choice."
+msgstr ""
+
+#: ../../step-series.rst:306
+msgid ""
+"Before sending configuration commands to the device, you must first send "
+"the command ``/setDestIp``. This tells the device where response messages"
+" will be sent. Until this command is received by the device, it will not "
+"send any OSC messages beyond ``/booted``. This is because operation may "
+"become unstable if the device continues to send OSC messages to a non-"
+"existent destination. You will receive the following response from the "
+"device if ``/setDestIp`` was received without issue: ``/destIp octet1 "
+"octet2 octet3 octet4 isNewDestIp`` where ``octet<N>`` corresponds to each"
+" number between the dots in your PC's IP address and ``isNewDestIp`` will"
+" indicate if the dest ip has changed (``1``) or not (``0``)."
+msgstr ""
+
+#: ../../step-series.rst:315
+msgid "For ``python-step-series``, the code may look like this:"
+msgstr ""
+
+#: ../../step-series.rst:329
+msgid "We are now ready to configure and control the device."
+msgstr ""
+
+#: ../../step-series.rst:333
+msgid "Get the Motor Running"
+msgstr ""
+
+#: ../../step-series.rst:335
+msgid ""
+"Let's send the command to run the motor at a desired speed: ``/run "
+"(int)motorID (float)speed``."
+msgstr ""
+
+#: ../../step-series.rst:337
+msgid ""
+"``motorID`` specifies which motor to run (1-4 on the STEP400, 1-8 on the "
+"STEP800). Each ID is printed on the board for your convenience. "
+"Specifying ``255`` will indicate to run all motors at your desired speed "
+"and is a valid parameter for almost every command requiring ``motorID``."
+msgstr ""
+
+#: ../../step-series.rst:341
+msgid ""
+"``speed`` specifies the speed and direction of the motor. The range you "
+"can set is from -15625.0 to 15625.0 steps/second. If you're using a motor"
+" with 200 steps per revolution, specifying ``200.0`` will run the motor "
+"at 1 revolution per second (RPS). Negative values will run the motor "
+"backwards."
+msgstr ""
+
+#: ../../step-series.rst:345
+msgid ""
+"For example, to run an ``SM-42BYG011-25`` at 1 RPS, the command ``/run 1 "
+"200`` can be sent."
+msgstr ""
+
+#: ../../step-series.rst:352
+msgid ""
+"Is the motor now slowly spinning? If there is an issue, or you would like"
+" to stop it, set the speed to 0 using the ``/run`` command or send  "
+"``/hardHiZ 255``:"
+msgstr ""
+
+#: ../../step-series.rst:360
+msgid ""
+"Do **not** disconnect the motor while it is active and running. This will"
+" damage your board."
+msgstr ""
+
+#: ../../step-series.rst:364
+msgid ""
+"If everything succeeded, then congratulations! You've successfully ran "
+"your first motor. But, you may have noticed the motor ran a little rough"
+"--lots of vibration and possibly noisy. This is where ``KVAL`` and "
+"``TVAL`` come in."
+msgstr ""
+
+#: ../../step-series.rst:370
+msgid "Setting KVAL"
+msgstr ""
+
+#: ../../step-series.rst:372
+msgid ""
+"In most cases, the reason for rough operation of a motor is insufficient,"
+" or excessive, drive voltage. The KVAL register sets this voltage on a "
+"scale of 0-255 where 0 means no voltage (cannot move) and 255 is the same"
+" as your supply voltage. So, if you have a 24V supply, the motor will run"
+" on 24V at 255, or 12V for 128, and so-on."
+msgstr ""
+
+#: ../../step-series.rst:377
+msgid "Each parameter in the ``/setKVAL`` command has a unique function."
+msgstr ""
+
+#: ../../step-series.rst:380 ../../step-series.rst:527
+msgid "Initial Value"
+msgstr ""
+
+#: ../../step-series.rst:382
+msgid "holdKVAL"
+msgstr ""
+
+#: ../../step-series.rst:382
+msgid "Holding KVAL"
+msgstr ""
+
+#: ../../step-series.rst:382
+msgid "0"
+msgstr ""
+
+#: ../../step-series.rst:384
+msgid "runKVAL"
+msgstr ""
+
+#: ../../step-series.rst:384
+msgid "Constant speed KVAL"
+msgstr ""
+
+#: ../../step-series.rst:384 ../../step-series.rst:386
+#: ../../step-series.rst:388
+msgid "16"
+msgstr ""
+
+#: ../../step-series.rst:386
+msgid "accKVAL"
+msgstr ""
+
+#: ../../step-series.rst:386
+msgid "Acceleration KVAL"
+msgstr ""
+
+#: ../../step-series.rst:388
+msgid "decKVAL"
+msgstr ""
+
+#: ../../step-series.rst:388
+msgid "Deceleration KVAL"
+msgstr ""
+
+#: ../../step-series.rst:391
+msgid ""
+"Let's adjust these values while the motor is running. Send the command "
+"``/run 1 200``."
+msgstr ""
+
+#: ../../step-series.rst:398
+msgid ""
+"You can set individual KVAL parameters using commands like "
+"``/setRunKval``, but we are going to set all 4 parameters at once. Let's "
+"set ``holdKVAL`` to ``0`` and then gradually increase each of the other "
+"three simultaneously. To do this, send the command ``/setKval 1 0 24 24 "
+"24``. The syntax of the command is ``/setKval (int)motorID (int)holdKVAL "
+"(int)runKVAL (int)accKVAL (int)decKVAL``."
+msgstr ""
+
+#: ../../step-series.rst:408
+#, python-format
+msgid ""
+"This message specifies the first motor's ``holdKval`` as 0 and the rest "
+"at 24 (approximately 9% of your power supply voltage). Gradually increase"
+" the values until the motor begins to turn quietly. For example: "
+"``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc."
+msgstr ""
+
+#: ../../step-series.rst:422
+msgid ""
+"As you increase each parameter, the motor's torque will also increase; "
+"however, the motor will also begin to vibrate more and produce more heat."
+" Be sure to set the parameters appropriately for your load."
+msgstr ""
+
+#: ../../step-series.rst:426
+msgid ""
+"Remember: we've already calculated `configuration files`_ for a variety "
+"of motors for you if you would like to use them."
+msgstr ""
+
+#: ../../step-series.rst:432
+msgid "Other Connections and Settings"
+msgstr ""
+
+#: ../../step-series.rst:436
+msgid "Sensors and Switches"
+msgstr ""
+
+#: ../../step-series.rst:438
+msgid ""
+"Each axis of the STEP400 and STEP800 has a ``HOME`` connector which "
+"allows for you to plug-in some form of limit switch or equivalent sensor."
+" Additionally, the STEP400 has ``LIMIT`` inputs for each axis in addition"
+" to the ``HOME`` inputs."
+msgstr ""
+
+#: ../../step-series.rst:444
+msgid "HOME"
+msgstr ""
+
+#: ../../step-series.rst:446
+msgid ""
+"Since the stepper motor cannot track its own position, a dedicated sensor"
+" is required to return to the home position on boot-up. It is directly "
+"connected to the motor driver IC and can be used for position management."
+" The pin is pulled up to 3v3 (3.3V) inside the driver IC."
+msgstr ""
+
+#: ../../step-series.rst:452
+msgid "LIMIT"
+msgstr ""
+
+#: ../../step-series.rst:454
+msgid "``STEP400 Only``"
+msgstr ""
+
+#: ../../step-series.rst:456
+msgid ""
+"As stated above, the STEP400 has an additional ``LIMIT`` switch input "
+"that can be used to limit the operational range of each motor. You can "
+"configure these inputs to halt the motor, or to be used as another input "
+"for another purpose. Like the ``HOME`` input, this input is also pulled "
+"up to 3v3."
+msgstr ""
+
+#: ../../step-series.rst:462
+msgid "Connection Terminals"
+msgstr ""
+
+#: ../../step-series.rst:464
+msgid ""
+"We use the XA series connectors from JST (J.S.T.MFG.CO., LTD.). For "
+"compatible connectors, please refer to the following:"
+msgstr ""
+
+#: ../../step-series.rst:468
+msgid "Model Number"
+msgstr ""
+
+#: ../../step-series.rst:470
+msgid "(Reference) PCB Post"
+msgstr ""
+
+#: ../../step-series.rst:470
+msgid "B03B-XASK-1 (LF)(SN)"
+msgstr ""
+
+#: ../../step-series.rst:470
+msgid "Female connector on the PCB"
+msgstr ""
+
+#: ../../step-series.rst:472
+msgid "Housing"
+msgstr ""
+
+#: ../../step-series.rst:472
+msgid "XAP-03V-1"
+msgstr ""
+
+#: ../../step-series.rst:472
+msgid "Male plastic housing"
+msgstr ""
+
+#: ../../step-series.rst:474
+msgid "Contact"
+msgstr ""
+
+#: ../../step-series.rst:474
+msgid "BXA-001T-P0.6"
+msgstr ""
+
+#: ../../step-series.rst:474
+msgid "Crimp contact inserted into the housing"
+msgstr ""
+
+#: ../../step-series.rst:477
+msgid ""
+"We also sell pre-crimped sensor cables for your convenience. These are "
+"available here: https://ponoor.com/en/products/sensor-cable/"
+msgstr ""
+
+#: ../../step-series.rst:482
+msgid "Pin Assignments"
+msgstr ""
+
+#: ../../step-series.rst:484
+msgid ""
+"The pin assignments for both inputs are the same. The order of these pins"
+" are relative to how you are looking at your board. We assume you are "
+"viewing the board with the board's name at the bottom and the "
+"power/ethernet ports at the top. This table is for the left-side ports; "
+"the right-side ports will be inverted as they are upside-down."
+msgstr ""
+
+#: ../../step-series.rst:490
+msgid "Pin (left-to-right)"
+msgstr ""
+
+#: ../../step-series.rst:490
+msgid "Function"
+msgstr ""
+
+#: ../../step-series.rst:492
+msgid "5V Output"
+msgstr ""
+
+#: ../../step-series.rst:494
+msgid "3v3 (Switch Input)"
+msgstr ""
+
+#: ../../step-series.rst:496
+msgid "GND"
+msgstr ""
+
+#: ../../step-series.rst:499
+msgid "They are also printed on the bottom of the boards for your convenience."
+msgstr ""
+
+#: ../../step-series.rst:501
+msgid ""
+"The driver responds when the input falls from ``HIGH (3v3)`` to ``LOW "
+"(0V)``. Therefore, the switch must behave as \"normally open\"."
+msgstr ""
+
+#: ../../step-series.rst:506
+msgid "Network and DIP Switch"
+msgstr ""
+
+#: ../../step-series.rst:510
+msgid "Dip Switch Settings"
+msgstr ""
+
+#: ../../step-series.rst:514
+msgid ""
+"The DIP switch specifies the ID that is used to reply to OSC messages and"
+" is also reflected in the local IP address and expected server port "
+"number. The ID is set in binary with more information provided by "
+"`Soundhouse's Documentation`_."
+msgstr ""
+
+#: ../../step-series.rst:520
+msgid "Network Settings"
+msgstr ""
+
+#: ../../step-series.rst:524
+msgid "Initial Settings"
+msgstr ""
+
+#: ../../step-series.rst:527
+msgid "Item"
+msgstr ""
+
+#: ../../step-series.rst:529
+msgid "10.0.0.100+ID"
+msgstr ""
+
+#: ../../step-series.rst:531 ../../step-series.rst:553
+msgid "MAC Address"
+msgstr ""
+
+#: ../../step-series.rst:531
+msgid "0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID"
+msgstr ""
+
+#: ../../step-series.rst:533
+msgid "Server IP Address"
+msgstr ""
+
+#: ../../step-series.rst:537
+msgid "Expected Server Port"
+msgstr ""
+
+#: ../../step-series.rst:537
+msgid "50100+ID"
+msgstr ""
+
+#: ../../step-series.rst:542
+msgid "IP Address and Expected Server Port"
+msgstr ""
+
+#: ../../step-series.rst:544
+msgid ""
+"In its initial state, an ID will be added to IP address's final octet and"
+" the expected server port. With this mechanism, you are able to operate "
+"multiple devices with the same firmware and settings file. On the server,"
+" if you are able to retrieve the IP address of the device, you can "
+"configure the device to not add its ID to the expected server port."
+msgstr ""
+
+#: ../../step-series.rst:549
+msgid "This feature can be disabled via the microSD card configuration."
+msgstr ""
+
+#: ../../step-series.rst:555
+msgid ""
+"A unique MAC address is assigned to the device; however, its initial "
+"value is set as seen in the table above. The unique MAC address is "
+"printed on the sticker on the bottom of the device beneath another "
+"sticker that should contain the device's serial number. To use the "
+"assigned MAC address, please generate the settings file from the "
+"`Configuration Tool`_ and load it onto the microSD card."
+msgstr ""
+
+#: ../../step-series.rst:560
+msgid ""
+"A variety of settings can be preconfigured on the microSD card. See "
+":ref:`microSD Card Setup`."
+msgstr ""
+

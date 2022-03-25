@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Ponoor Experiments
+# This file is distributed under the same license as the Step-Series
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Step-Series Documentation "
+"0.0.2.post1.dev78+g320de0f.d20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-25 09:34-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../python-step-series.rst:5
+msgid "``python-step-series``: Ponoor's Official Python API"
+msgstr ""
+
+#: ../../python-step-series.rst:7
+msgid ""
+"Welcome to the documentation for ``python-step-series``! Read this page "
+"to learn how to install and develop your first application to configure "
+"and control a STEP-series device."
+msgstr ""
+
+#: ../../python-step-series.rst:10
+msgid ""
+"Before you begin, please make sure to read the STEP400/STEP800 tutorial "
+"on the side!"
+msgstr ""
+
+#: ../../python-step-series.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../python-step-series.rst:16
+msgid ""
+"``python-step-series`` is a library built to provide an easy-to-use "
+"programmatic interface for configuring and controlling motors using the "
+"STEP400 or STEP800. As stated in the ``STEP400/STEP800`` tutorial, there "
+"are other third-party applications that can be used to perform the same "
+"actions that this library does."
+msgstr ""
+
+#: ../../python-step-series.rst:21
+msgid ""
+"By the end of this tutorial, you'll have installed the library and "
+"learned how to properly use it."
+msgstr ""
+
+#: ../../python-step-series.rst:25
+msgid "Installation"
+msgstr ""
+
+#: ../../python-step-series.rst:27
+msgid ""
+"This section is only applicable for end-users of this library. Aspiring "
+"contributors should review the CONTRIBUTING guide found on the Github for"
+" this library."
+msgstr ""
+
+#: ../../python-step-series.rst:30
+msgid ""
+"The recommended method of installing ``python-step-series`` is using "
+"Python's ``pip`` in a ``virtualenv``:"
+msgstr ""
+
+#: ../../python-step-series.rst:42
+msgid ""
+"And that is it! You can verify the installation by merely importing the "
+"library:"
+msgstr ""
+
+#: ../../python-step-series.rst:48
+msgid ""
+"New terminals will not have your virtualenv active. You'll need to rerun "
+"the `activate` command above in order to reactivate the environment."
+msgstr ""
+
+#: ../../python-step-series.rst:51
+msgid "To deactivate the environment, simply run the command:"
+msgstr ""
+
+#: ../../python-step-series.rst:59
+msgid "First-Steps"
+msgstr ""
+
+#: ../../python-step-series.rst:61
+msgid ""
+"As stated before, ``python-step-series`` strives to be as easy-to-use as "
+"possible. For example, it takes four lines of code to establish "
+"communication with either device:"
+msgstr ""
+
+#: ../../python-step-series.rst:81
+msgid ""
+"Sending ``commands.SetDestIP()`` is required each time you establish "
+"communication with the device."
+msgstr ""
+
+#: ../../python-step-series.rst:85
+msgid "Understanding Commands and Responses"
+msgstr ""
+
+#: ../../python-step-series.rst:87
+msgid ""
+"``Commands`` are used to control the device whereas ``Responses`` are "
+"returned by the device. The library presents both as dataclass objects to"
+" give you what is essentially a template to fill or a structured "
+"response."
+msgstr ""
+
+#: ../../python-step-series.rst:92
+msgid ""
+"Commands exist in the ``commands`` module of the library, hence why we "
+"had to import it above. Likewise, responses exist in the ``responses`` "
+"module."
+msgstr ""
+
+#: ../../python-step-series.rst:97
+msgid "Using Callbacks"
+msgstr ""
+
+#: ../../python-step-series.rst:99
+msgid ""
+"``python-step-series`` provides support for a callback architectured "
+"application. You can \"bind\" callbacks, or multiple callbacks, to a "
+"response which will then be called when it is sent by a device."
+msgstr ""
+
+#: ../../python-step-series.rst:103
+msgid "For example:"
+msgstr ""
+
+#: ../../python-step-series.rst:128
+msgid "You can also bind all responses to a callback:"
+msgstr ""
+
+#: ../../python-step-series.rst:146
+msgid ""
+"The callback API of ``python-step-series`` allows you to be as simple or "
+"complex as you need. The possibilities are virtually endless."
+msgstr ""
+
+#: ../../python-step-series.rst:149
+msgid ""
+"We hope this short tutorial has given you a nice overview of what the "
+"library offers. We recommend you check out the Modules page to see what "
+"commands and responses you have available to you."
+msgstr ""
+
