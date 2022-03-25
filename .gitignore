@@ -45,6 +45,7 @@ sdist/*
 docs/_rst/*
 docs/_build/*
 docs/api/*
+*.mo
 cover/*
 MANIFEST
 
