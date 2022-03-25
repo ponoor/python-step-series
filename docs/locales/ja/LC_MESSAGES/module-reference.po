@@ -741,7 +741,7 @@ msgstr ""
 
 #: of stepseries.commands.EnableLowSpeedOptimize:8
 msgid "See the datasheet for more details."
-msgstr ""
+msgstr "詳細については、データシートを参照してください。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:11 stepseries.commands.Move:7
 #: stepseries.commands.SetAcc:4 stepseries.commands.SetDec:4
