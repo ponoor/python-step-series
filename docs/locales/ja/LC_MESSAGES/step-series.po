@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 19:46-0500\n"
+"POT-Creation-Date: 2022-03-26 20:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,14 +24,10 @@ msgid "STEP400/STEP800"
 msgstr ""
 
 #: ../../step-series/about.rst:11
-msgid "Overview"
-msgstr ""
-
-#: ../../step-series/about.rst:15
 msgid "About"
 msgstr ""
 
-#: ../../step-series/about.rst:17
+#: ../../step-series/about.rst:14
 msgid ""
 "Both the STEP400 and STEP800 are multi-axis stepper motor controllers "
 "which can be controlled via Ethernet. While both devices use an `Arduino "
@@ -42,22 +38,22 @@ msgid ""
 "and what each command is doing."
 msgstr ""
 
-#: ../../step-series/about.rst:23
+#: ../../step-series/about.rst:20
 msgid ""
 "Both devices use the exact same commands save for a select few which are "
 "marked in the API Reference. So, unless you see ``STEP400 Only`` or "
 "``STEP800 Only``, assume the command is compatible with both devices."
 msgstr ""
 
-#: ../../step-series/about.rst:29
-msgid "Tutorial"
+#: ../../step-series/submodules/getting-started.rst:5
+msgid "Getting Started"
 msgstr ""
 
-#: ../../step-series/about.rst:33
+#: ../../step-series/submodules/getting-started.rst:9
 msgid "Example Files"
 msgstr ""
 
-#: ../../step-series/about.rst:35
+#: ../../step-series/submodules/getting-started.rst:11
 msgid ""
 "The STEP400 and STEP800 both communicate via the ``Open Sound Control`` "
 "(OSC) `protocol`_. Beyond just ``python-step-series``, a myriad of "
@@ -65,39 +61,39 @@ msgid ""
 "configuration and setup files are provided in the list below:"
 msgstr ""
 
-#: ../../step-series/about.rst:39
+#: ../../step-series/submodules/getting-started.rst:15
 msgid "`Max`_ (recommended, `download`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:40
+#: ../../step-series/submodules/getting-started.rst:16
 msgid "`Processing`_ (thanks `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:41
+#: ../../step-series/submodules/getting-started.rst:17
 msgid "`openFrameworks`_ (thanks `@niimi`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:42
+#: ../../step-series/submodules/getting-started.rst:18
 msgid "`Unity`_ (thanks `@niimi`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:43
+#: ../../step-series/submodules/getting-started.rst:19
 msgid "`Touch Designer`_ (thanks `@loveandsheep`_, `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:44
+#: ../../step-series/submodules/getting-started.rst:20
 msgid "`Node-RED`_ (thanks `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/about.rst:48
+#: ../../step-series/submodules/getting-started.rst:24
 msgid "Wiring"
 msgstr ""
 
-#: ../../step-series/about.rst:52
+#: ../../step-series/submodules/getting-started.rst:28
 msgid "Communication"
 msgstr ""
 
-#: ../../step-series/about.rst:54
+#: ../../step-series/submodules/getting-started.rst:30
 msgid ""
 "Both devices communicate via Ethernet, meaning your computer must have an"
 " ethernet port or a USB-ethernet converter. This tutorial will assume you"
@@ -106,28 +102,28 @@ msgid ""
 "switch is also viable."
 msgstr ""
 
-#: ../../step-series/about.rst:59
+#: ../../step-series/submodules/getting-started.rst:35
 msgid "Please plug the ethernet cable in now."
 msgstr ""
 
-#: ../../step-series/about.rst:61
+#: ../../step-series/submodules/getting-started.rst:37
 msgid ""
 "Ensure your switch is actually a switch. Do not plug these devices into a"
 " router as router ports behave differently than switch ports do."
 msgstr ""
 
-#: ../../step-series/about.rst:64
+#: ../../step-series/submodules/getting-started.rst:40
 msgid ""
 "Please do not power the device until directed to do so later in the "
 "tutorial. You will be asked to connect the power supply in the upcoming "
 "sections, but make sure it is **not** on."
 msgstr ""
 
-#: ../../step-series/about.rst:69
+#: ../../step-series/submodules/getting-started.rst:45
 msgid "Stepper Motors"
 msgstr ""
 
-#: ../../step-series/about.rst:71
+#: ../../step-series/submodules/getting-started.rst:47
 msgid ""
 "Only 4-wire, bipolar stepper motors can be used with these devices. As an"
 " example, a highly accessible and inexpensive stepper motor is Mercury "
@@ -138,39 +134,39 @@ msgid ""
 "recommended sites below:"
 msgstr ""
 
-#: ../../step-series/about.rst:77
+#: ../../step-series/submodules/getting-started.rst:53
 msgid "`Sparkfun`_"
 msgstr ""
 
-#: ../../step-series/about.rst:78
+#: ../../step-series/submodules/getting-started.rst:54
 msgid "`Strawberry Linux`_"
 msgstr ""
 
-#: ../../step-series/about.rst:79
+#: ../../step-series/submodules/getting-started.rst:55
 msgid "`Akizuki Denshi`_"
 msgstr ""
 
-#: ../../step-series/about.rst:84
+#: ../../step-series/submodules/getting-started.rst:60
 msgid ""
 "From the wiring diagram found in the `datasheet`_ for this motor, we can "
 "see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
 msgstr ""
 
-#: ../../step-series/about.rst:89
+#: ../../step-series/submodules/getting-started.rst:65
 msgid "The wiring to the terminal block should look like this:"
 msgstr ""
 
-#: ../../step-series/about.rst:93
+#: ../../step-series/submodules/getting-started.rst:69
 msgid ""
 "We've calculated register values for some motors and made them available "
 "as `configuration files`_."
 msgstr ""
 
-#: ../../step-series/about.rst:97
+#: ../../step-series/submodules/getting-started.rst:73
 msgid "Power Supply"
 msgstr ""
 
-#: ../../step-series/about.rst:99
+#: ../../step-series/submodules/getting-started.rst:75
 msgid ""
 "The STEP400 and STEP800 both have differing power ratings. These devices "
 "also have two different power input terminals. While the USB-C jack can "
@@ -182,116 +178,123 @@ msgid ""
 "not** connect power to both primary inputs."
 msgstr ""
 
-#: ../../step-series/about.rst:106
+#: ../../step-series/submodules/getting-started.rst:82
 msgid ""
 "Again, make sure not to power the device. You may connect the supply, but"
 " make sure it is not on."
 msgstr ""
 
-#: ../../step-series/about.rst:112
+#: ../../step-series/submodules/getting-started.rst:88
 msgid "Number"
 msgstr ""
 
-#: ../../step-series/about.rst:112 ../../step-series/about.rst:247
-#: ../../step-series/about.rst:380 ../../step-series/about.rst:468
+#: ../../step-series/submodules/getting-started.rst:88
+#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Description"
 msgstr ""
 
-#: ../../step-series/about.rst:114 ../../step-series/about.rst:492
+#: ../../step-series/submodules/getting-started.rst:90
+#: ../../step-series/submodules/other-connections-settings.rst:63
 msgid "1"
 msgstr ""
 
-#: ../../step-series/about.rst:114
+#: ../../step-series/submodules/getting-started.rst:90
 msgid "Electromagnetic brake terminal (STEP400)"
 msgstr ""
 
-#: ../../step-series/about.rst:116 ../../step-series/about.rst:494
+#: ../../step-series/submodules/getting-started.rst:92
+#: ../../step-series/submodules/other-connections-settings.rst:65
 msgid "2"
 msgstr ""
 
-#: ../../step-series/about.rst:116
+#: ../../step-series/submodules/getting-started.rst:92
 msgid "Ethernet Port"
 msgstr ""
 
-#: ../../step-series/about.rst:118 ../../step-series/about.rst:496
+#: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/other-connections-settings.rst:67
 msgid "3"
 msgstr ""
 
-#: ../../step-series/about.rst:118
+#: ../../step-series/submodules/getting-started.rst:94
 msgid "USB-C Port"
 msgstr ""
 
-#: ../../step-series/about.rst:120
+#: ../../step-series/submodules/getting-started.rst:96
 msgid "4"
 msgstr ""
 
-#: ../../step-series/about.rst:120
+#: ../../step-series/submodules/getting-started.rst:96
 msgid "(Primary Power Input) DC Barrel Plug"
 msgstr ""
 
-#: ../../step-series/about.rst:122
+#: ../../step-series/submodules/getting-started.rst:98
 msgid "5"
 msgstr ""
 
-#: ../../step-series/about.rst:122
+#: ../../step-series/submodules/getting-started.rst:98
 msgid "(Primary Power Input) Screw Terminal"
 msgstr ""
 
-#: ../../step-series/about.rst:125
+#: ../../step-series/submodules/getting-started.rst:101
 msgid "Again, **do NOT** connect both 4 and 5. This will damage your controller."
 msgstr ""
 
-#: ../../step-series/about.rst:127
+#: ../../step-series/submodules/getting-started.rst:103
 msgid ""
 "As stated above, both devices have different power ratings and different "
 "ratings for each primary input."
 msgstr ""
 
-#: ../../step-series/about.rst:131
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "Controller"
 msgstr ""
 
-#: ../../step-series/about.rst:131
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "Board Max Power Rating"
 msgstr ""
 
-#: ../../step-series/about.rst:131
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "Barrel Jack"
 msgstr ""
 
-#: ../../step-series/about.rst:131 ../../step-series/about.rst:155
+#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:131
 msgid "Screw Terminal"
 msgstr ""
 
-#: ../../step-series/about.rst:133
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "STEP400"
 msgstr ""
 
-#: ../../step-series/about.rst:133
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "12V-76V @ 20A"
 msgstr ""
 
-#: ../../step-series/about.rst:133 ../../step-series/about.rst:135
+#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:111
 msgid "24V @ 5A"
 msgstr ""
 
-#: ../../step-series/about.rst:133
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "76V @ 20A"
 msgstr ""
 
-#: ../../step-series/about.rst:135
+#: ../../step-series/submodules/getting-started.rst:111
 msgid "STEP800"
 msgstr ""
 
-#: ../../step-series/about.rst:135
+#: ../../step-series/submodules/getting-started.rst:111
 msgid "9V-36V @ 16A"
 msgstr ""
 
-#: ../../step-series/about.rst:135
+#: ../../step-series/submodules/getting-started.rst:111
 msgid "36V @ 16A"
 msgstr ""
 
-#: ../../step-series/about.rst:138
+#: ../../step-series/submodules/getting-started.rst:114
 msgid ""
 "The amps listed here reflect the cumulative maximum phase current draw of"
 " all motors, not the maximum current capacity of the power supply. Look "
@@ -300,55 +303,55 @@ msgid ""
 "maximum of 5A. Please keep these limits in mind when choosing your motor."
 msgstr ""
 
-#: ../../step-series/about.rst:145
+#: ../../step-series/submodules/getting-started.rst:121
 msgid "DC Barrel Plug"
 msgstr ""
 
-#: ../../step-series/about.rst:147
+#: ../../step-series/submodules/getting-started.rst:123
 msgid "The DC barrel has the following specifications beyond its power rating:"
 msgstr ""
 
-#: ../../step-series/about.rst:149
+#: ../../step-series/submodules/getting-started.rst:125
 msgid "5.5mm outer diameter"
 msgstr ""
 
-#: ../../step-series/about.rst:150
+#: ../../step-series/submodules/getting-started.rst:126
 msgid "2.1mm inner diameter"
 msgstr ""
 
-#: ../../step-series/about.rst:151
+#: ../../step-series/submodules/getting-started.rst:127
 msgid "Center positive"
 msgstr ""
 
-#: ../../step-series/about.rst:157
+#: ../../step-series/submodules/getting-started.rst:133
 msgid ""
 "The screw terminal has the following specifications beyond its power "
 "rating:"
 msgstr ""
 
-#: ../../step-series/about.rst:159
+#: ../../step-series/submodules/getting-started.rst:135
 msgid "Negative left side, positive right side"
 msgstr ""
 
-#: ../../step-series/about.rst:160
+#: ../../step-series/submodules/getting-started.rst:136
 msgid "M3 screw diameter"
 msgstr ""
 
-#: ../../step-series/about.rst:161
+#: ../../step-series/submodules/getting-started.rst:137
 msgid ""
 "Use a wire terminal like the ``NICHIFU TMEX1.25-3N`` for a more secure "
 "connection"
 msgstr ""
 
-#: ../../step-series/about.rst:165
+#: ../../step-series/submodules/getting-started.rst:141
 msgid "Power Supply & Stepper Motor Ratings"
 msgstr ""
 
-#: ../../step-series/about.rst:169
+#: ../../step-series/submodules/getting-started.rst:145
 msgid "Current vs Voltage"
 msgstr ""
 
-#: ../../step-series/about.rst:171
+#: ../../step-series/submodules/getting-started.rst:147
 msgid ""
 "The copper windings inside a stepper motor behave as an inductor. When "
 "power is supplied to the inductor, current rises gradually--it is not "
@@ -358,11 +361,11 @@ msgid ""
 " phase current, that means higher speeds means lower torque."
 msgstr ""
 
-#: ../../step-series/about.rst:179
+#: ../../step-series/submodules/getting-started.rst:155
 msgid "Overcoming the Tradeoff"
 msgstr ""
 
-#: ../../step-series/about.rst:181
+#: ../../step-series/submodules/getting-started.rst:157
 msgid ""
 "To overcome this tradeoff, you need to use a power supply with a high "
 "voltage rating. Remember, both boards have their maximum voltages, so "
@@ -371,22 +374,22 @@ msgid ""
 "voltage providing higher current (aka torque) and a higher maximum speed."
 msgstr ""
 
-#: ../../step-series/about.rst:188
+#: ../../step-series/submodules/getting-started.rst:164
 msgid ""
 "The required voltage varies greatly depending on the motor's rating, "
 "required speed, and required torque. But, in general, the required "
 "voltage is roughly as follows:"
 msgstr ""
 
-#: ../../step-series/about.rst:191
+#: ../../step-series/submodules/getting-started.rst:167
 msgid "NEMA17 and under: 24V"
 msgstr ""
 
-#: ../../step-series/about.rst:192
+#: ../../step-series/submodules/getting-started.rst:168
 msgid "NEMA23 and bigger: 48V (or 72V for high speed)"
 msgstr ""
 
-#: ../../step-series/about.rst:194
+#: ../../step-series/submodules/getting-started.rst:170
 msgid ""
 "This means the STEP800 may not be suitable for driving larger motors; "
 "however, some motors may produce high torque in a small form factor and "
@@ -394,7 +397,7 @@ msgid ""
 "motor's voltage and current ratings.**"
 msgstr ""
 
-#: ../../step-series/about.rst:198
+#: ../../step-series/submodules/getting-started.rst:174
 msgid ""
 "The STEP400 does work with a minimum of 12V; however, since that is its "
 "on-board DC-DC converter's minimum required voltage, there may be cases "
@@ -403,15 +406,15 @@ msgid ""
 "12V power supply unless if you are driving a small motor at a low load."
 msgstr ""
 
-#: ../../step-series/about.rst:205
+#: ../../step-series/submodules/getting-started.rst:181
 msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
 msgstr ""
 
-#: ../../step-series/about.rst:209
+#: ../../step-series/submodules/getting-started.rst:185
 msgid "Current Capacity"
 msgstr ""
 
-#: ../../step-series/about.rst:211
+#: ../../step-series/submodules/getting-started.rst:187
 msgid ""
 "The current capacity of the power supply is as equally important as its "
 "voltage. If a motor stalls it may draw a high amount of current that may "
@@ -425,15 +428,15 @@ msgid ""
 "supply with at least 10A-20A capacity."
 msgstr ""
 
-#: ../../step-series/about.rst:221
+#: ../../step-series/submodules/getting-started.rst:197
 msgid "Networking"
 msgstr ""
 
-#: ../../step-series/about.rst:225
+#: ../../step-series/submodules/getting-started.rst:201
 msgid "Configuration Tool"
 msgstr ""
 
-#: ../../step-series/about.rst:227
+#: ../../step-series/submodules/getting-started.rst:203
 msgid ""
 "Both devices do have a microSD card slot included on the board. Using "
 "this slot, you can just about completely configure the device using our "
@@ -441,13 +444,13 @@ msgid ""
 "accessed through your browser--so no third party software is required."
 msgstr ""
 
-#: ../../step-series/about.rst:231
+#: ../../step-series/submodules/getting-started.rst:207
 msgid ""
 "This tutorial uses default settings, so we will not be using the microSD "
 "card. Just leave the slot empty."
 msgstr ""
 
-#: ../../step-series/about.rst:234
+#: ../../step-series/submodules/getting-started.rst:210
 msgid ""
 "If you are connecting the board through a network switch that is "
 "connected to an existing VLAN, you may need to use the configuration tool"
@@ -455,81 +458,88 @@ msgid ""
 "will be set by the DIP switches as described below."
 msgstr ""
 
-#: ../../step-series/about.rst:241
+#: ../../step-series/submodules/getting-started.rst:217
 msgid "Dip Switches"
 msgstr ""
 
-#: ../../step-series/about.rst:243
+#: ../../step-series/submodules/getting-started.rst:219
 msgid ""
 "The DIP switches on the board must be set to 1. This means only the left-"
 "most switch is ON and the rest are OFF. With this configuration, the "
 "board has the following network settings:"
 msgstr ""
 
-#: ../../step-series/about.rst:247 ../../step-series/about.rst:275
-#: ../../step-series/about.rst:380 ../../step-series/about.rst:468
+#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:251
+#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Name"
 msgstr ""
 
-#: ../../step-series/about.rst:247 ../../step-series/about.rst:275
+#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:251
 msgid "Value"
 msgstr ""
 
-#: ../../step-series/about.rst:249 ../../step-series/about.rst:277
-#: ../../step-series/about.rst:529
+#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/other-connections-settings.rst:100
 msgid "IP Address"
 msgstr ""
 
-#: ../../step-series/about.rst:249
+#: ../../step-series/submodules/getting-started.rst:225
 msgid "10.0.0.101"
 msgstr ""
 
-#: ../../step-series/about.rst:249
+#: ../../step-series/submodules/getting-started.rst:225
 msgid "The IP address of the device"
 msgstr ""
 
-#: ../../step-series/about.rst:251
+#: ../../step-series/submodules/getting-started.rst:227
 msgid "Server Address"
 msgstr ""
 
-#: ../../step-series/about.rst:251 ../../step-series/about.rst:277
-#: ../../step-series/about.rst:533
+#: ../../step-series/submodules/getting-started.rst:227
+#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/other-connections-settings.rst:104
 msgid "10.0.0.10"
 msgstr ""
 
-#: ../../step-series/about.rst:251
+#: ../../step-series/submodules/getting-started.rst:227
 msgid "The IP address of the server (i.e. your PC)"
 msgstr ""
 
-#: ../../step-series/about.rst:253 ../../step-series/about.rst:535
+#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/other-connections-settings.rst:106
 msgid "Local Port"
 msgstr ""
 
-#: ../../step-series/about.rst:253 ../../step-series/about.rst:535
+#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/other-connections-settings.rst:106
 msgid "50000"
 msgstr ""
 
-#: ../../step-series/about.rst:253
+#: ../../step-series/submodules/getting-started.rst:229
 msgid "The port the device is listening on"
 msgstr ""
 
-#: ../../step-series/about.rst:255
+#: ../../step-series/submodules/getting-started.rst:231
 msgid "Server Port"
 msgstr ""
 
-#: ../../step-series/about.rst:255
+#: ../../step-series/submodules/getting-started.rst:231
 msgid "50101"
 msgstr ""
 
-#: ../../step-series/about.rst:255
+#: ../../step-series/submodules/getting-started.rst:231
 msgid "The port on the server that the server is listening on"
 msgstr ""
 
-#: ../../step-series/about.rst:260
+#: ../../step-series/submodules/getting-started.rst:236
 msgid "Configured DIP switches on the STEP400."
 msgstr ""
 
-#: ../../step-series/about.rst:262
+#: ../../step-series/submodules/getting-started.rst:238
 msgid ""
 "Now with the motor, power supply, and ethernet cord connected; and the "
 "DIP switches set, you may now power-on the device. Please remember the "
@@ -538,65 +548,66 @@ msgid ""
 "avoid damaging the board or hurting yourself."
 msgstr ""
 
-#: ../../step-series/about.rst:269
+#: ../../step-series/submodules/getting-started.rst:245
 msgid "PC Configuration"
 msgstr ""
 
-#: ../../step-series/about.rst:271
+#: ../../step-series/submodules/getting-started.rst:247
 msgid ""
 "As seen in the table above, the device will expect your PC (server) to "
 "exist at a certain IP address. If you need to, you can set it statically "
 "by reviewing the guides linked below:"
 msgstr ""
 
-#: ../../step-series/about.rst:279
+#: ../../step-series/submodules/getting-started.rst:255
 msgid "Subnet Mask"
 msgstr ""
 
-#: ../../step-series/about.rst:279
+#: ../../step-series/submodules/getting-started.rst:255
 msgid "255.255.255.0"
 msgstr ""
 
-#: ../../step-series/about.rst:281
+#: ../../step-series/submodules/getting-started.rst:257
 msgid "DNS"
 msgstr ""
 
-#: ../../step-series/about.rst:281 ../../step-series/about.rst:283
+#: ../../step-series/submodules/getting-started.rst:257
+#: ../../step-series/submodules/getting-started.rst:259
 msgid "<Leave Empty>"
 msgstr ""
 
-#: ../../step-series/about.rst:283
+#: ../../step-series/submodules/getting-started.rst:259
 msgid "Default Gateway"
 msgstr ""
 
-#: ../../step-series/about.rst:286
+#: ../../step-series/submodules/getting-started.rst:262
 msgid "`Windows`_"
 msgstr ""
 
-#: ../../step-series/about.rst:287
+#: ../../step-series/submodules/getting-started.rst:263
 msgid "`Mac`_"
 msgstr ""
 
-#: ../../step-series/about.rst:288
+#: ../../step-series/submodules/getting-started.rst:264
 msgid "`Linux`_"
 msgstr ""
 
-#: ../../step-series/about.rst:292
+#: ../../step-series/submodules/getting-started.rst:268
 msgid "Running Basic Commands"
 msgstr ""
 
-#: ../../step-series/about.rst:296
+#: ../../step-series/submodules/getting-started.rst:272
 msgid "Verifying the Connection"
 msgstr ""
 
-#: ../../step-series/about.rst:298
+#: ../../step-series/submodules/getting-started.rst:274
 msgid ""
 "After configuring the above settings, you can verify your connection by "
 "running ``ping 10.0.0.101`` from your terminal (Command Prompt on "
 "Windows)."
 msgstr ""
 
-#: ../../step-series/about.rst:301
+#: ../../step-series/submodules/getting-started.rst:277
 msgid ""
 "From this point forward, how you send commands to the device will "
 "completely depend on if you're using ``python-step-series`` or one of the"
@@ -606,7 +617,7 @@ msgid ""
 "program of choice."
 msgstr ""
 
-#: ../../step-series/about.rst:306
+#: ../../step-series/submodules/getting-started.rst:282
 msgid ""
 "Before sending configuration commands to the device, you must first send "
 "the command ``/setDestIp``. This tells the device where response messages"
@@ -620,25 +631,25 @@ msgid ""
 " indicate if the dest ip has changed (``1``) or not (``0``)."
 msgstr ""
 
-#: ../../step-series/about.rst:315
+#: ../../step-series/submodules/getting-started.rst:291
 msgid "For ``python-step-series``, the code may look like this:"
 msgstr ""
 
-#: ../../step-series/about.rst:329
+#: ../../step-series/submodules/getting-started.rst:305
 msgid "We are now ready to configure and control the device."
 msgstr ""
 
-#: ../../step-series/about.rst:333
+#: ../../step-series/submodules/getting-started.rst:309
 msgid "Get the Motor Running"
 msgstr ""
 
-#: ../../step-series/about.rst:335
+#: ../../step-series/submodules/getting-started.rst:311
 msgid ""
 "Let's send the command to run the motor at a desired speed: ``/run "
 "(int)motorID (float)speed``."
 msgstr ""
 
-#: ../../step-series/about.rst:337
+#: ../../step-series/submodules/getting-started.rst:313
 msgid ""
 "``motorID`` specifies which motor to run (1-4 on the STEP400, 1-8 on the "
 "STEP800). Each ID is printed on the board for your convenience. "
@@ -646,7 +657,7 @@ msgid ""
 "and is a valid parameter for almost every command requiring ``motorID``."
 msgstr ""
 
-#: ../../step-series/about.rst:341
+#: ../../step-series/submodules/getting-started.rst:317
 msgid ""
 "``speed`` specifies the speed and direction of the motor. The range you "
 "can set is from -15625.0 to 15625.0 steps/second. If you're using a motor"
@@ -655,26 +666,26 @@ msgid ""
 "backwards."
 msgstr ""
 
-#: ../../step-series/about.rst:345
+#: ../../step-series/submodules/getting-started.rst:321
 msgid ""
 "For example, to run an ``SM-42BYG011-25`` at 1 RPS, the command ``/run 1 "
 "200`` can be sent."
 msgstr ""
 
-#: ../../step-series/about.rst:352
+#: ../../step-series/submodules/getting-started.rst:328
 msgid ""
 "Is the motor now slowly spinning? If there is an issue, or you would like"
 " to stop it, set the speed to 0 using the ``/run`` command or send  "
 "``/hardHiZ 255``:"
 msgstr ""
 
-#: ../../step-series/about.rst:360
+#: ../../step-series/submodules/getting-started.rst:336
 msgid ""
 "Do **not** disconnect the motor while it is active and running. This will"
 " damage your board."
 msgstr ""
 
-#: ../../step-series/about.rst:364
+#: ../../step-series/submodules/getting-started.rst:340
 msgid ""
 "If everything succeeded, then congratulations! You've successfully ran "
 "your first motor. But, you may have noticed the motor ran a little rough"
@@ -682,11 +693,11 @@ msgid ""
 "``TVAL`` come in."
 msgstr ""
 
-#: ../../step-series/about.rst:370
+#: ../../step-series/submodules/getting-started.rst:346
 msgid "Setting KVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:372
+#: ../../step-series/submodules/getting-started.rst:348
 msgid ""
 "In most cases, the reason for rough operation of a motor is insufficient,"
 " or excessive, drive voltage. The KVAL register sets this voltage on a "
@@ -695,62 +706,64 @@ msgid ""
 " on 24V at 255, or 12V for 128, and so-on."
 msgstr ""
 
-#: ../../step-series/about.rst:377
+#: ../../step-series/submodules/getting-started.rst:353
 msgid "Each parameter in the ``/setKVAL`` command has a unique function."
 msgstr ""
 
-#: ../../step-series/about.rst:380 ../../step-series/about.rst:527
+#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/other-connections-settings.rst:98
 msgid "Initial Value"
 msgstr ""
 
-#: ../../step-series/about.rst:382
+#: ../../step-series/submodules/getting-started.rst:358
 msgid "holdKVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:382
+#: ../../step-series/submodules/getting-started.rst:358
 msgid "Holding KVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:382
+#: ../../step-series/submodules/getting-started.rst:358
 msgid "0"
 msgstr ""
 
-#: ../../step-series/about.rst:384
+#: ../../step-series/submodules/getting-started.rst:360
 msgid "runKVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:384
+#: ../../step-series/submodules/getting-started.rst:360
 msgid "Constant speed KVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:384 ../../step-series/about.rst:386
-#: ../../step-series/about.rst:388
+#: ../../step-series/submodules/getting-started.rst:360
+#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:364
 msgid "16"
 msgstr ""
 
-#: ../../step-series/about.rst:386
+#: ../../step-series/submodules/getting-started.rst:362
 msgid "accKVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:386
+#: ../../step-series/submodules/getting-started.rst:362
 msgid "Acceleration KVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:388
+#: ../../step-series/submodules/getting-started.rst:364
 msgid "decKVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:388
+#: ../../step-series/submodules/getting-started.rst:364
 msgid "Deceleration KVAL"
 msgstr ""
 
-#: ../../step-series/about.rst:391
+#: ../../step-series/submodules/getting-started.rst:367
 msgid ""
 "Let's adjust these values while the motor is running. Send the command "
 "``/run 1 200``."
 msgstr ""
 
-#: ../../step-series/about.rst:398
+#: ../../step-series/submodules/getting-started.rst:374
 msgid ""
 "You can set individual KVAL parameters using commands like "
 "``/setRunKval``, but we are going to set all 4 parameters at once. Let's "
@@ -760,7 +773,7 @@ msgid ""
 "(int)runKVAL (int)accKVAL (int)decKVAL``."
 msgstr ""
 
-#: ../../step-series/about.rst:408
+#: ../../step-series/submodules/getting-started.rst:384
 #, python-format
 msgid ""
 "This message specifies the first motor's ``holdKval`` as 0 and the rest "
@@ -769,28 +782,32 @@ msgid ""
 "``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc."
 msgstr ""
 
-#: ../../step-series/about.rst:422
+#: ../../step-series/submodules/getting-started.rst:398
 msgid ""
 "As you increase each parameter, the motor's torque will also increase; "
 "however, the motor will also begin to vibrate more and produce more heat."
 " Be sure to set the parameters appropriately for your load."
 msgstr ""
 
-#: ../../step-series/about.rst:426
+#: ../../step-series/submodules/getting-started.rst:402
 msgid ""
 "Remember: we've already calculated `configuration files`_ for a variety "
 "of motors for you if you would like to use them."
 msgstr ""
 
-#: ../../step-series/about.rst:432
+#: ../../step-series/index.rst:3
+msgid "STEPXXX Series"
+msgstr ""
+
+#: ../../step-series/submodules/other-connections-settings.rst:3
 msgid "Other Connections and Settings"
 msgstr ""
 
-#: ../../step-series/about.rst:436
+#: ../../step-series/submodules/other-connections-settings.rst:7
 msgid "Sensors and Switches"
 msgstr ""
 
-#: ../../step-series/about.rst:438
+#: ../../step-series/submodules/other-connections-settings.rst:9
 msgid ""
 "Each axis of the STEP400 and STEP800 has a ``HOME`` connector which "
 "allows for you to plug-in some form of limit switch or equivalent sensor."
@@ -798,11 +815,11 @@ msgid ""
 " to the ``HOME`` inputs."
 msgstr ""
 
-#: ../../step-series/about.rst:444
+#: ../../step-series/submodules/other-connections-settings.rst:15
 msgid "HOME"
 msgstr ""
 
-#: ../../step-series/about.rst:446
+#: ../../step-series/submodules/other-connections-settings.rst:17
 msgid ""
 "Since the stepper motor cannot track its own position, a dedicated sensor"
 " is required to return to the home position on boot-up. It is directly "
@@ -810,15 +827,15 @@ msgid ""
 " The pin is pulled up to 3v3 (3.3V) inside the driver IC."
 msgstr ""
 
-#: ../../step-series/about.rst:452
+#: ../../step-series/submodules/other-connections-settings.rst:23
 msgid "LIMIT"
 msgstr ""
 
-#: ../../step-series/about.rst:454
+#: ../../step-series/submodules/other-connections-settings.rst:25
 msgid "``STEP400 Only``"
 msgstr ""
 
-#: ../../step-series/about.rst:456
+#: ../../step-series/submodules/other-connections-settings.rst:27
 msgid ""
 "As stated above, the STEP400 has an additional ``LIMIT`` switch input "
 "that can be used to limit the operational range of each motor. You can "
@@ -827,67 +844,67 @@ msgid ""
 "up to 3v3."
 msgstr ""
 
-#: ../../step-series/about.rst:462
+#: ../../step-series/submodules/other-connections-settings.rst:33
 msgid "Connection Terminals"
 msgstr ""
 
-#: ../../step-series/about.rst:464
+#: ../../step-series/submodules/other-connections-settings.rst:35
 msgid ""
 "We use the XA series connectors from JST (J.S.T.MFG.CO., LTD.). For "
 "compatible connectors, please refer to the following:"
 msgstr ""
 
-#: ../../step-series/about.rst:468
+#: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Model Number"
 msgstr ""
 
-#: ../../step-series/about.rst:470
+#: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "(Reference) PCB Post"
 msgstr ""
 
-#: ../../step-series/about.rst:470
+#: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "B03B-XASK-1 (LF)(SN)"
 msgstr ""
 
-#: ../../step-series/about.rst:470
+#: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "Female connector on the PCB"
 msgstr ""
 
-#: ../../step-series/about.rst:472
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "Housing"
 msgstr ""
 
-#: ../../step-series/about.rst:472
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "XAP-03V-1"
 msgstr ""
 
-#: ../../step-series/about.rst:472
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "Male plastic housing"
 msgstr ""
 
-#: ../../step-series/about.rst:474
+#: ../../step-series/submodules/other-connections-settings.rst:45
 msgid "Contact"
 msgstr ""
 
-#: ../../step-series/about.rst:474
+#: ../../step-series/submodules/other-connections-settings.rst:45
 msgid "BXA-001T-P0.6"
 msgstr ""
 
-#: ../../step-series/about.rst:474
+#: ../../step-series/submodules/other-connections-settings.rst:45
 msgid "Crimp contact inserted into the housing"
 msgstr ""
 
-#: ../../step-series/about.rst:477
+#: ../../step-series/submodules/other-connections-settings.rst:48
 msgid ""
 "We also sell pre-crimped sensor cables for your convenience. These are "
 "available here: https://ponoor.com/en/products/sensor-cable/"
 msgstr ""
 
-#: ../../step-series/about.rst:482
+#: ../../step-series/submodules/other-connections-settings.rst:53
 msgid "Pin Assignments"
 msgstr ""
 
-#: ../../step-series/about.rst:484
+#: ../../step-series/submodules/other-connections-settings.rst:55
 msgid ""
 "The pin assignments for both inputs are the same. The order of these pins"
 " are relative to how you are looking at your board. We assume you are "
@@ -896,45 +913,45 @@ msgid ""
 "the right-side ports will be inverted as they are upside-down."
 msgstr ""
 
-#: ../../step-series/about.rst:490
+#: ../../step-series/submodules/other-connections-settings.rst:61
 msgid "Pin (left-to-right)"
 msgstr ""
 
-#: ../../step-series/about.rst:490
+#: ../../step-series/submodules/other-connections-settings.rst:61
 msgid "Function"
 msgstr ""
 
-#: ../../step-series/about.rst:492
+#: ../../step-series/submodules/other-connections-settings.rst:63
 msgid "5V Output"
 msgstr ""
 
-#: ../../step-series/about.rst:494
+#: ../../step-series/submodules/other-connections-settings.rst:65
 msgid "3v3 (Switch Input)"
 msgstr ""
 
-#: ../../step-series/about.rst:496
+#: ../../step-series/submodules/other-connections-settings.rst:67
 msgid "GND"
 msgstr ""
 
-#: ../../step-series/about.rst:499
+#: ../../step-series/submodules/other-connections-settings.rst:70
 msgid "They are also printed on the bottom of the boards for your convenience."
 msgstr ""
 
-#: ../../step-series/about.rst:501
+#: ../../step-series/submodules/other-connections-settings.rst:72
 msgid ""
 "The driver responds when the input falls from ``HIGH (3v3)`` to ``LOW "
 "(0V)``. Therefore, the switch must behave as \"normally open\"."
 msgstr ""
 
-#: ../../step-series/about.rst:506
+#: ../../step-series/submodules/other-connections-settings.rst:77
 msgid "Network and DIP Switch"
 msgstr ""
 
-#: ../../step-series/about.rst:510
+#: ../../step-series/submodules/other-connections-settings.rst:81
 msgid "Dip Switch Settings"
 msgstr ""
 
-#: ../../step-series/about.rst:514
+#: ../../step-series/submodules/other-connections-settings.rst:85
 msgid ""
 "The DIP switch specifies the ID that is used to reply to OSC messages and"
 " is also reflected in the local IP address and expected server port "
@@ -942,47 +959,48 @@ msgid ""
 "`Soundhouse's Documentation`_."
 msgstr ""
 
-#: ../../step-series/about.rst:520
+#: ../../step-series/submodules/other-connections-settings.rst:91
 msgid "Network Settings"
 msgstr ""
 
-#: ../../step-series/about.rst:524
+#: ../../step-series/submodules/other-connections-settings.rst:95
 msgid "Initial Settings"
 msgstr ""
 
-#: ../../step-series/about.rst:527
+#: ../../step-series/submodules/other-connections-settings.rst:98
 msgid "Item"
 msgstr ""
 
-#: ../../step-series/about.rst:529
+#: ../../step-series/submodules/other-connections-settings.rst:100
 msgid "10.0.0.100+ID"
 msgstr ""
 
-#: ../../step-series/about.rst:531 ../../step-series/about.rst:553
+#: ../../step-series/submodules/other-connections-settings.rst:102
+#: ../../step-series/submodules/other-connections-settings.rst:124
 msgid "MAC Address"
 msgstr ""
 
-#: ../../step-series/about.rst:531
+#: ../../step-series/submodules/other-connections-settings.rst:102
 msgid "0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID"
 msgstr ""
 
-#: ../../step-series/about.rst:533
+#: ../../step-series/submodules/other-connections-settings.rst:104
 msgid "Server IP Address"
 msgstr ""
 
-#: ../../step-series/about.rst:537
+#: ../../step-series/submodules/other-connections-settings.rst:108
 msgid "Expected Server Port"
 msgstr ""
 
-#: ../../step-series/about.rst:537
+#: ../../step-series/submodules/other-connections-settings.rst:108
 msgid "50100+ID"
 msgstr ""
 
-#: ../../step-series/about.rst:542
+#: ../../step-series/submodules/other-connections-settings.rst:113
 msgid "IP Address and Expected Server Port"
 msgstr ""
 
-#: ../../step-series/about.rst:544
+#: ../../step-series/submodules/other-connections-settings.rst:115
 msgid ""
 "In its initial state, an ID will be added to IP address's final octet and"
 " the expected server port. With this mechanism, you are able to operate "
@@ -991,11 +1009,11 @@ msgid ""
 "configure the device to not add its ID to the expected server port."
 msgstr ""
 
-#: ../../step-series/about.rst:549
+#: ../../step-series/submodules/other-connections-settings.rst:120
 msgid "This feature can be disabled via the microSD card configuration."
 msgstr ""
 
-#: ../../step-series/about.rst:555
+#: ../../step-series/submodules/other-connections-settings.rst:126
 msgid ""
 "A unique MAC address is assigned to the device; however, its initial "
 "value is set as seen in the table above. The unique MAC address is "
@@ -1005,13 +1023,18 @@ msgid ""
 "`Configuration Tool`_ and load it onto the microSD card."
 msgstr ""
 
-#: ../../step-series/about.rst:560
+#: ../../step-series/submodules/other-connections-settings.rst:131
 msgid ""
 "A variety of settings can be preconfigured on the microSD card. See "
 ":ref:`microSD Card Setup`."
 msgstr ""
 
-#: ../../step-series/index.rst:3
-msgid "STEPXXX Series"
-msgstr ""
+#~ msgid "Overview"
+#~ msgstr ""
+
+#~ msgid "Tutorial"
+#~ msgstr ""
+
+#~ msgid ":ref:`step-series-getting-started`"
+#~ msgstr ""
 
