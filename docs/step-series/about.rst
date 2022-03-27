@@ -30,3 +30,4 @@ with both devices.
 
 .. include:: submodules/getting-started.rst
 .. include:: submodules/other-connections-settings.rst
+.. include:: submodules/functional-descriptions.rst

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 20:19-0500\n"
+"POT-Creation-Date: 2022-03-26 21:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,15 +45,15 @@ msgid ""
 "``STEP800 Only``, assume the command is compatible with both devices."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:5
+#: ../../step-series/submodules/getting-started.rst:3
 msgid "Getting Started"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:9
+#: ../../step-series/submodules/getting-started.rst:7
 msgid "Example Files"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:11
+#: ../../step-series/submodules/getting-started.rst:9
 msgid ""
 "The STEP400 and STEP800 both communicate via the ``Open Sound Control`` "
 "(OSC) `protocol`_. Beyond just ``python-step-series``, a myriad of "
@@ -61,39 +61,39 @@ msgid ""
 "configuration and setup files are provided in the list below:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:15
+#: ../../step-series/submodules/getting-started.rst:13
 msgid "`Max`_ (recommended, `download`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:16
+#: ../../step-series/submodules/getting-started.rst:14
 msgid "`Processing`_ (thanks `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:17
+#: ../../step-series/submodules/getting-started.rst:15
 msgid "`openFrameworks`_ (thanks `@niimi`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:18
+#: ../../step-series/submodules/getting-started.rst:16
 msgid "`Unity`_ (thanks `@niimi`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:19
+#: ../../step-series/submodules/getting-started.rst:17
 msgid "`Touch Designer`_ (thanks `@loveandsheep`_, `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:20
+#: ../../step-series/submodules/getting-started.rst:18
 msgid "`Node-RED`_ (thanks `@yuskegoto`_)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:24
+#: ../../step-series/submodules/getting-started.rst:22
 msgid "Wiring"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:28
+#: ../../step-series/submodules/getting-started.rst:26
 msgid "Communication"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:30
+#: ../../step-series/submodules/getting-started.rst:28
 msgid ""
 "Both devices communicate via Ethernet, meaning your computer must have an"
 " ethernet port or a USB-ethernet converter. This tutorial will assume you"
@@ -102,28 +102,28 @@ msgid ""
 "switch is also viable."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:35
+#: ../../step-series/submodules/getting-started.rst:33
 msgid "Please plug the ethernet cable in now."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:37
+#: ../../step-series/submodules/getting-started.rst:35
 msgid ""
 "Ensure your switch is actually a switch. Do not plug these devices into a"
 " router as router ports behave differently than switch ports do."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:40
+#: ../../step-series/submodules/getting-started.rst:38
 msgid ""
 "Please do not power the device until directed to do so later in the "
 "tutorial. You will be asked to connect the power supply in the upcoming "
 "sections, but make sure it is **not** on."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:45
+#: ../../step-series/submodules/getting-started.rst:43
 msgid "Stepper Motors"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:47
+#: ../../step-series/submodules/getting-started.rst:45
 msgid ""
 "Only 4-wire, bipolar stepper motors can be used with these devices. As an"
 " example, a highly accessible and inexpensive stepper motor is Mercury "
@@ -134,39 +134,39 @@ msgid ""
 "recommended sites below:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:53
+#: ../../step-series/submodules/getting-started.rst:51
 msgid "`Sparkfun`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:54
+#: ../../step-series/submodules/getting-started.rst:52
 msgid "`Strawberry Linux`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:55
+#: ../../step-series/submodules/getting-started.rst:53
 msgid "`Akizuki Denshi`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:60
+#: ../../step-series/submodules/getting-started.rst:58
 msgid ""
 "From the wiring diagram found in the `datasheet`_ for this motor, we can "
 "see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:65
+#: ../../step-series/submodules/getting-started.rst:63
 msgid "The wiring to the terminal block should look like this:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:69
+#: ../../step-series/submodules/getting-started.rst:67
 msgid ""
 "We've calculated register values for some motors and made them available "
 "as `configuration files`_."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:73
+#: ../../step-series/submodules/getting-started.rst:71
 msgid "Power Supply"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:75
+#: ../../step-series/submodules/getting-started.rst:73
 msgid ""
 "The STEP400 and STEP800 both have differing power ratings. These devices "
 "also have two different power input terminals. While the USB-C jack can "
@@ -178,123 +178,123 @@ msgid ""
 "not** connect power to both primary inputs."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:82
+#: ../../step-series/submodules/getting-started.rst:80
 msgid ""
 "Again, make sure not to power the device. You may connect the supply, but"
 " make sure it is not on."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:88
+#: ../../step-series/submodules/getting-started.rst:86
 msgid "Number"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:88
-#: ../../step-series/submodules/getting-started.rst:223
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:86
+#: ../../step-series/submodules/getting-started.rst:221
+#: ../../step-series/submodules/getting-started.rst:354
 #: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Description"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:90
+#: ../../step-series/submodules/getting-started.rst:88
 #: ../../step-series/submodules/other-connections-settings.rst:63
 msgid "1"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:90
+#: ../../step-series/submodules/getting-started.rst:88
 msgid "Electromagnetic brake terminal (STEP400)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:92
+#: ../../step-series/submodules/getting-started.rst:90
 #: ../../step-series/submodules/other-connections-settings.rst:65
 msgid "2"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:92
+#: ../../step-series/submodules/getting-started.rst:90
 msgid "Ethernet Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/getting-started.rst:92
 #: ../../step-series/submodules/other-connections-settings.rst:67
 msgid "3"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/getting-started.rst:92
 msgid "USB-C Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:96
+#: ../../step-series/submodules/getting-started.rst:94
 msgid "4"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:96
+#: ../../step-series/submodules/getting-started.rst:94
 msgid "(Primary Power Input) DC Barrel Plug"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:98
+#: ../../step-series/submodules/getting-started.rst:96
 msgid "5"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:98
+#: ../../step-series/submodules/getting-started.rst:96
 msgid "(Primary Power Input) Screw Terminal"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:101
+#: ../../step-series/submodules/getting-started.rst:99
 msgid "Again, **do NOT** connect both 4 and 5. This will damage your controller."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:103
+#: ../../step-series/submodules/getting-started.rst:101
 msgid ""
 "As stated above, both devices have different power ratings and different "
 "ratings for each primary input."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:105
 msgid "Controller"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:105
 msgid "Board Max Power Rating"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:105
 msgid "Barrel Jack"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
-#: ../../step-series/submodules/getting-started.rst:131
+#: ../../step-series/submodules/getting-started.rst:105
+#: ../../step-series/submodules/getting-started.rst:129
 msgid "Screw Terminal"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "STEP400"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "12V-76V @ 20A"
 msgstr ""
 
+#: ../../step-series/submodules/getting-started.rst:107
 #: ../../step-series/submodules/getting-started.rst:109
-#: ../../step-series/submodules/getting-started.rst:111
 msgid "24V @ 5A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:107
 msgid "76V @ 20A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:111
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "STEP800"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:111
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "9V-36V @ 16A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:111
+#: ../../step-series/submodules/getting-started.rst:109
 msgid "36V @ 16A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:114
+#: ../../step-series/submodules/getting-started.rst:112
 msgid ""
 "The amps listed here reflect the cumulative maximum phase current draw of"
 " all motors, not the maximum current capacity of the power supply. Look "
@@ -303,55 +303,55 @@ msgid ""
 "maximum of 5A. Please keep these limits in mind when choosing your motor."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:121
+#: ../../step-series/submodules/getting-started.rst:119
 msgid "DC Barrel Plug"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:123
+#: ../../step-series/submodules/getting-started.rst:121
 msgid "The DC barrel has the following specifications beyond its power rating:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:125
+#: ../../step-series/submodules/getting-started.rst:123
 msgid "5.5mm outer diameter"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:126
+#: ../../step-series/submodules/getting-started.rst:124
 msgid "2.1mm inner diameter"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:127
+#: ../../step-series/submodules/getting-started.rst:125
 msgid "Center positive"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:133
+#: ../../step-series/submodules/getting-started.rst:131
 msgid ""
 "The screw terminal has the following specifications beyond its power "
 "rating:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:135
+#: ../../step-series/submodules/getting-started.rst:133
 msgid "Negative left side, positive right side"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:136
+#: ../../step-series/submodules/getting-started.rst:134
 msgid "M3 screw diameter"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:137
+#: ../../step-series/submodules/getting-started.rst:135
 msgid ""
 "Use a wire terminal like the ``NICHIFU TMEX1.25-3N`` for a more secure "
 "connection"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:141
+#: ../../step-series/submodules/getting-started.rst:139
 msgid "Power Supply & Stepper Motor Ratings"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:145
+#: ../../step-series/submodules/getting-started.rst:143
 msgid "Current vs Voltage"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:147
+#: ../../step-series/submodules/getting-started.rst:145
 msgid ""
 "The copper windings inside a stepper motor behave as an inductor. When "
 "power is supplied to the inductor, current rises gradually--it is not "
@@ -361,11 +361,11 @@ msgid ""
 " phase current, that means higher speeds means lower torque."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:155
+#: ../../step-series/submodules/getting-started.rst:153
 msgid "Overcoming the Tradeoff"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:157
+#: ../../step-series/submodules/getting-started.rst:155
 msgid ""
 "To overcome this tradeoff, you need to use a power supply with a high "
 "voltage rating. Remember, both boards have their maximum voltages, so "
@@ -374,22 +374,22 @@ msgid ""
 "voltage providing higher current (aka torque) and a higher maximum speed."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:164
+#: ../../step-series/submodules/getting-started.rst:162
 msgid ""
 "The required voltage varies greatly depending on the motor's rating, "
 "required speed, and required torque. But, in general, the required "
 "voltage is roughly as follows:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:167
+#: ../../step-series/submodules/getting-started.rst:165
 msgid "NEMA17 and under: 24V"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:168
+#: ../../step-series/submodules/getting-started.rst:166
 msgid "NEMA23 and bigger: 48V (or 72V for high speed)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:170
+#: ../../step-series/submodules/getting-started.rst:168
 msgid ""
 "This means the STEP800 may not be suitable for driving larger motors; "
 "however, some motors may produce high torque in a small form factor and "
@@ -397,7 +397,7 @@ msgid ""
 "motor's voltage and current ratings.**"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:174
+#: ../../step-series/submodules/getting-started.rst:172
 msgid ""
 "The STEP400 does work with a minimum of 12V; however, since that is its "
 "on-board DC-DC converter's minimum required voltage, there may be cases "
@@ -406,15 +406,15 @@ msgid ""
 "12V power supply unless if you are driving a small motor at a low load."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:181
+#: ../../step-series/submodules/getting-started.rst:179
 msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:185
+#: ../../step-series/submodules/getting-started.rst:183
 msgid "Current Capacity"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:187
+#: ../../step-series/submodules/getting-started.rst:185
 msgid ""
 "The current capacity of the power supply is as equally important as its "
 "voltage. If a motor stalls it may draw a high amount of current that may "
@@ -428,15 +428,15 @@ msgid ""
 "supply with at least 10A-20A capacity."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:197
+#: ../../step-series/submodules/getting-started.rst:195
 msgid "Networking"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:201
+#: ../../step-series/submodules/getting-started.rst:199
 msgid "Configuration Tool"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:203
+#: ../../step-series/submodules/getting-started.rst:201
 msgid ""
 "Both devices do have a microSD card slot included on the board. Using "
 "this slot, you can just about completely configure the device using our "
@@ -444,13 +444,13 @@ msgid ""
 "accessed through your browser--so no third party software is required."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:207
+#: ../../step-series/submodules/getting-started.rst:205
 msgid ""
 "This tutorial uses default settings, so we will not be using the microSD "
 "card. Just leave the slot empty."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:210
+#: ../../step-series/submodules/getting-started.rst:208
 msgid ""
 "If you are connecting the board through a network switch that is "
 "connected to an existing VLAN, you may need to use the configuration tool"
@@ -458,88 +458,88 @@ msgid ""
 "will be set by the DIP switches as described below."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:217
+#: ../../step-series/submodules/getting-started.rst:215
 msgid "Dip Switches"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:219
+#: ../../step-series/submodules/getting-started.rst:217
 msgid ""
 "The DIP switches on the board must be set to 1. This means only the left-"
 "most switch is ON and the rest are OFF. With this configuration, the "
 "board has the following network settings:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:223
-#: ../../step-series/submodules/getting-started.rst:251
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:221
+#: ../../step-series/submodules/getting-started.rst:249
+#: ../../step-series/submodules/getting-started.rst:354
 #: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Name"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:223
-#: ../../step-series/submodules/getting-started.rst:251
+#: ../../step-series/submodules/getting-started.rst:221
+#: ../../step-series/submodules/getting-started.rst:249
 msgid "Value"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:225
-#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:251
 #: ../../step-series/submodules/other-connections-settings.rst:100
 msgid "IP Address"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:223
 msgid "10.0.0.101"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:223
 msgid "The IP address of the device"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:227
+#: ../../step-series/submodules/getting-started.rst:225
 msgid "Server Address"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:227
-#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:251
 #: ../../step-series/submodules/other-connections-settings.rst:104
 msgid "10.0.0.10"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:227
+#: ../../step-series/submodules/getting-started.rst:225
 msgid "The IP address of the server (i.e. your PC)"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:227
 #: ../../step-series/submodules/other-connections-settings.rst:106
 msgid "Local Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:227
 #: ../../step-series/submodules/other-connections-settings.rst:106
 msgid "50000"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:227
 msgid "The port the device is listening on"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:231
+#: ../../step-series/submodules/getting-started.rst:229
 msgid "Server Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:231
+#: ../../step-series/submodules/getting-started.rst:229
 msgid "50101"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:231
+#: ../../step-series/submodules/getting-started.rst:229
 msgid "The port on the server that the server is listening on"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:236
+#: ../../step-series/submodules/getting-started.rst:234
 msgid "Configured DIP switches on the STEP400."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:238
+#: ../../step-series/submodules/getting-started.rst:236
 msgid ""
 "Now with the motor, power supply, and ethernet cord connected; and the "
 "DIP switches set, you may now power-on the device. Please remember the "
@@ -548,66 +548,66 @@ msgid ""
 "avoid damaging the board or hurting yourself."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:245
+#: ../../step-series/submodules/getting-started.rst:243
 msgid "PC Configuration"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:247
+#: ../../step-series/submodules/getting-started.rst:245
 msgid ""
 "As seen in the table above, the device will expect your PC (server) to "
 "exist at a certain IP address. If you need to, you can set it statically "
 "by reviewing the guides linked below:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:255
+#: ../../step-series/submodules/getting-started.rst:253
 msgid "Subnet Mask"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:255
+#: ../../step-series/submodules/getting-started.rst:253
 msgid "255.255.255.0"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:257
+#: ../../step-series/submodules/getting-started.rst:255
 msgid "DNS"
 msgstr ""
 
+#: ../../step-series/submodules/getting-started.rst:255
 #: ../../step-series/submodules/getting-started.rst:257
-#: ../../step-series/submodules/getting-started.rst:259
 msgid "<Leave Empty>"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:259
+#: ../../step-series/submodules/getting-started.rst:257
 msgid "Default Gateway"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:262
+#: ../../step-series/submodules/getting-started.rst:260
 msgid "`Windows`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:263
+#: ../../step-series/submodules/getting-started.rst:261
 msgid "`Mac`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:264
+#: ../../step-series/submodules/getting-started.rst:262
 msgid "`Linux`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:268
+#: ../../step-series/submodules/getting-started.rst:266
 msgid "Running Basic Commands"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:272
+#: ../../step-series/submodules/getting-started.rst:270
 msgid "Verifying the Connection"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:274
+#: ../../step-series/submodules/getting-started.rst:272
 msgid ""
 "After configuring the above settings, you can verify your connection by "
 "running ``ping 10.0.0.101`` from your terminal (Command Prompt on "
 "Windows)."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:277
+#: ../../step-series/submodules/getting-started.rst:275
 msgid ""
 "From this point forward, how you send commands to the device will "
 "completely depend on if you're using ``python-step-series`` or one of the"
@@ -617,7 +617,7 @@ msgid ""
 "program of choice."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:282
+#: ../../step-series/submodules/getting-started.rst:280
 msgid ""
 "Before sending configuration commands to the device, you must first send "
 "the command ``/setDestIp``. This tells the device where response messages"
@@ -631,25 +631,25 @@ msgid ""
 " indicate if the dest ip has changed (``1``) or not (``0``)."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:291
+#: ../../step-series/submodules/getting-started.rst:289
 msgid "For ``python-step-series``, the code may look like this:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:305
+#: ../../step-series/submodules/getting-started.rst:303
 msgid "We are now ready to configure and control the device."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:309
+#: ../../step-series/submodules/getting-started.rst:307
 msgid "Get the Motor Running"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:311
+#: ../../step-series/submodules/getting-started.rst:309
 msgid ""
 "Let's send the command to run the motor at a desired speed: ``/run "
 "(int)motorID (float)speed``."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:313
+#: ../../step-series/submodules/getting-started.rst:311
 msgid ""
 "``motorID`` specifies which motor to run (1-4 on the STEP400, 1-8 on the "
 "STEP800). Each ID is printed on the board for your convenience. "
@@ -657,7 +657,7 @@ msgid ""
 "and is a valid parameter for almost every command requiring ``motorID``."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:317
+#: ../../step-series/submodules/getting-started.rst:315
 msgid ""
 "``speed`` specifies the speed and direction of the motor. The range you "
 "can set is from -15625.0 to 15625.0 steps/second. If you're using a motor"
@@ -666,26 +666,26 @@ msgid ""
 "backwards."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:321
+#: ../../step-series/submodules/getting-started.rst:319
 msgid ""
 "For example, to run an ``SM-42BYG011-25`` at 1 RPS, the command ``/run 1 "
 "200`` can be sent."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:328
+#: ../../step-series/submodules/getting-started.rst:326
 msgid ""
 "Is the motor now slowly spinning? If there is an issue, or you would like"
 " to stop it, set the speed to 0 using the ``/run`` command or send  "
 "``/hardHiZ 255``:"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:336
+#: ../../step-series/submodules/getting-started.rst:334
 msgid ""
 "Do **not** disconnect the motor while it is active and running. This will"
 " damage your board."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:340
+#: ../../step-series/submodules/getting-started.rst:338
 msgid ""
 "If everything succeeded, then congratulations! You've successfully ran "
 "your first motor. But, you may have noticed the motor ran a little rough"
@@ -693,11 +693,11 @@ msgid ""
 "``TVAL`` come in."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:346
+#: ../../step-series/submodules/getting-started.rst:344
 msgid "Setting KVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:348
+#: ../../step-series/submodules/getting-started.rst:346
 msgid ""
 "In most cases, the reason for rough operation of a motor is insufficient,"
 " or excessive, drive voltage. The KVAL register sets this voltage on a "
@@ -706,64 +706,64 @@ msgid ""
 " on 24V at 255, or 12V for 128, and so-on."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:353
+#: ../../step-series/submodules/getting-started.rst:351
 msgid "Each parameter in the ``/setKVAL`` command has a unique function."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:354
 #: ../../step-series/submodules/other-connections-settings.rst:98
 msgid "Initial Value"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:358
+#: ../../step-series/submodules/getting-started.rst:356
 msgid "holdKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:358
+#: ../../step-series/submodules/getting-started.rst:356
 msgid "Holding KVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:358
+#: ../../step-series/submodules/getting-started.rst:356
 msgid "0"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:360
+#: ../../step-series/submodules/getting-started.rst:358
 msgid "runKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:360
+#: ../../step-series/submodules/getting-started.rst:358
 msgid "Constant speed KVAL"
 msgstr ""
 
+#: ../../step-series/submodules/getting-started.rst:358
 #: ../../step-series/submodules/getting-started.rst:360
 #: ../../step-series/submodules/getting-started.rst:362
-#: ../../step-series/submodules/getting-started.rst:364
 msgid "16"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:360
 msgid "accKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:360
 msgid "Acceleration KVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:364
+#: ../../step-series/submodules/getting-started.rst:362
 msgid "decKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:364
+#: ../../step-series/submodules/getting-started.rst:362
 msgid "Deceleration KVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:367
+#: ../../step-series/submodules/getting-started.rst:365
 msgid ""
 "Let's adjust these values while the motor is running. Send the command "
 "``/run 1 200``."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:374
+#: ../../step-series/submodules/getting-started.rst:372
 msgid ""
 "You can set individual KVAL parameters using commands like "
 "``/setRunKval``, but we are going to set all 4 parameters at once. Let's "
@@ -773,7 +773,7 @@ msgid ""
 "(int)runKVAL (int)accKVAL (int)decKVAL``."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:384
+#: ../../step-series/submodules/getting-started.rst:382
 #, python-format
 msgid ""
 "This message specifies the first motor's ``holdKval`` as 0 and the rest "
@@ -782,21 +782,17 @@ msgid ""
 "``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:398
+#: ../../step-series/submodules/getting-started.rst:396
 msgid ""
 "As you increase each parameter, the motor's torque will also increase; "
 "however, the motor will also begin to vibrate more and produce more heat."
 " Be sure to set the parameters appropriately for your load."
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:402
+#: ../../step-series/submodules/getting-started.rst:400
 msgid ""
 "Remember: we've already calculated `configuration files`_ for a variety "
 "of motors for you if you would like to use them."
-msgstr ""
-
-#: ../../step-series/index.rst:3
-msgid "STEPXXX Series"
 msgstr ""
 
 #: ../../step-series/submodules/other-connections-settings.rst:3
@@ -1029,6 +1025,227 @@ msgid ""
 ":ref:`microSD Card Setup`."
 msgstr ""
 
+#: ../../step-series/submodules/functional-descriptions.rst:3
+msgid "Functionality Overview"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:5
+msgid ""
+"This section delves deeper into what the different functionalities "
+"offered by both boards are and what they do. Please refer to the "
+":ref:`Command Reference` for what commands to send to control these "
+"different functionalities."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:12
+msgid "Voltage vs. Current Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:14
+msgid ""
+"There are two types of stepping control methods: constant voltage control"
+" (**voltage mode**) and constant current control (**current mode**). Only"
+" the STEP400 can switch between both voltage and current modes. The "
+"difference between these modes is well-explained in `this presentation "
+"PDF`_ by STMicroelectronics."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:20
+msgid "The differences can be described as follows:"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:22
+msgid "Voltage mode is quiet and smooth, but is limited to lower speeds"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:23
+msgid "Current mode is noisy, but can reach higher speeds"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:25
+msgid ""
+"To better illustrate this point, here is a demostration video to show the"
+" differences between these two modes."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:34
+msgid ""
+"First, the motor runs under constant voltage mode. After around 800 "
+"steps/sec, the motor cannot run properly and starts to vibrate and stalls"
+" at about 1,400 steps/sec. Overall, the motor runs quietly until the "
+"vibration starts. A microphone is attached to the motor so that we can "
+"capture the smallest noises."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:40
+msgid ""
+"Next, the motor is switched to constant current mode. It is noisy, but "
+"can drive to a higher speed. In this mode, we were able to achieve more "
+"than 11,000 steps/sec before the motor started to vibrate and stall."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:46
+msgid "KVAL and TVAL"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:48
+msgid ""
+"**KVAL** register values are applied to control the drive voltage in "
+"voltage mode; likewise, **TVAL** registers are used to control the drive "
+"current in current mode. Both act as percentage multipliers to dictate "
+"what percentage of the power supply voltage or current is sent to the "
+"motors. Although they are the same registers internally in the driver, "
+"our firmware keeps them separated and rewrites them when the modes are "
+"changed."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:58
+msgid "Notes on Voltage Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:60
+msgid ""
+"In voltage mode, KVAL is used to set what percentage of the power supply "
+"voltage should be applied to the motor. If a high voltage power source is"
+" used, excessive current may flow when the motor is spinning at lower "
+"speeds. To compensate this current imbalance, there is a group of "
+"registers to lower the supplied drive voltage at low speeds and supply "
+"higher voltages at higher speeds. The calculation of these register "
+"values is described in `STMicroelectronic's application notes`_. In the "
+"STEP400, these registers can be set with `/setBemfParam`_ command or with"
+" the `Config Tool`_."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:70
+msgid ""
+"Additionally, we have calculated the register values for some motors "
+"based on our actual measurements and have made them available as "
+"`configuration files`_. We have only a small numbers of configuration "
+"files at the moment, but we are planning to add more in the future. If "
+"you have a motor that is not listed in the example files and have "
+"determined these configurations on your own, we would deeply appreciate "
+"you sharing your configurations with us and the community."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:80
+msgid "Notes on Current Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:82
+msgid ""
+"In current mode, which is only available on the STEP400, TVAL registers "
+"are used to set the target current value. The current can be set up to 5A"
+" in increments of 78mA on the STEP400. You'll need a high voltage power "
+"supply to deliver the target current when the motor is running at high "
+"speed. Although the powerSTEP01's actual current drive capability is 10A,"
+" the STEP400 has the upper rating limit of 5A due to the power rating "
+"limitation of the current sensing resistor. At 5A phase current, the "
+"torque is considerably strong, and the tiniest mistake may lead to great "
+"physical danger. In such situations we recommend to use use an industrial"
+" grade motor driver."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:95
+msgid "Switching Between the Modes"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:97
+msgid "Use the following commands to switch between the modes:"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:99
+msgid "`/setVoltageMode`_ - switch to voltage mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:100
+msgid "`/setCurrentMode`_ - switch to current mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:102
+msgid ""
+"The motor must be in the high impedance (High Z) state before switching "
+"the mode. For example, if you are going to switch the Motor 1 to current "
+"mode, send these commands in the following order:"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:106
+msgid "``/hardHiZ 1``"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:107
+msgid "``/setCurrentMode 1``"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:109
+msgid ""
+"Microstepping is limited to a minimum of 1/16 in current mode. Any lower "
+"value than 1/16 will be regarded as 1/16. When you change microstep "
+"value, the coordinate system will also change. For example, for one full "
+"shaft rotation of a 200 step motor in 1/128 microstepping mode, "
+"200x128=25600 steps are made; but one rotation in 1/16 microstepping mode"
+" is 200x16=3200 steps."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:118
+msgid "Speed Profile"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:122
+msgid "Overview"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:124
+msgid ""
+"Speed profile sets the acceleration (acc), deceleration (dec), and "
+"maximum speed (maxSpeed) values of the motor prior to the motor moving. "
+"These values depend on the following:"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:128
+msgid "Motor Specifications"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:129
+msgid "Power supply voltage"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:130
+msgid "Load"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:131
+msgid "Voltage mode or current mode"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:133
+msgid ""
+"While we provide some example defaults, you need to set these values "
+"according to your actual environment. This requires some trial and error "
+"on your part."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:137
+msgid ""
+"You can also set the minimum speed (minSpeed) as a function of the motor "
+"driver, but it is fixed at 0 in the firmware because it is unlikely to be"
+" used for any actual application."
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:143
+msgid "Setting the Profile"
+msgstr ""
+
+#: ../../step-series/submodules/functional-descriptions.rst:145
+msgid ""
+"Use `/setSpeedProfile`_ to set the above three values. Acc and dec cannot"
+" be set unless the motor is stopped; however, maxSpeed can be set at any "
+"time."
+msgstr ""
+
+#: ../../step-series/index.rst:3
+msgid "STEPXXX Series"
+msgstr ""
+
 #~ msgid "Overview"
 #~ msgstr ""
 
@@ -1036,5 +1253,827 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":ref:`step-series-getting-started`"
+#~ msgstr ""
+
+#~ msgid "Test with the STEP400"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here is a video about: - The "
+#~ "difference between constant voltage control"
+#~ " and constant current control - The"
+#~ " difference between full-step and "
+#~ "micro-stepping drive"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "First, the motor runs under constant "
+#~ "voltage control (hereinafter referred to "
+#~ "as “**voltage mode**”). After around 800"
+#~ " step/sec, the motor cannot run "
+#~ "properly and starts to vibrate, then "
+#~ "it stalls at about 1,400 step/sec "
+#~ "and stops completely. The motor runs "
+#~ "quietly until the vibration starts, but"
+#~ " in this video, a microphone is "
+#~ "attached to the motor so that we"
+#~ " can capture the smallest noise."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Next, the motor is switched to "
+#~ "constant current control (hereinafter referred"
+#~ " to as “**current mode**”). It is "
+#~ "noisy, but it can drive to higher"
+#~ " speed. In this setting, we were "
+#~ "able to achieve more than 11,000 "
+#~ "steps/sec."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**KVAL** register values are applied to"
+#~ " control the drive voltage in the "
+#~ "voltage mode, and **TVAL** registers are"
+#~ " used to control the drive current"
+#~ " in the current mode. Although they"
+#~ " are actually same registers in the"
+#~ " driver, our firmware keeps them "
+#~ "separated, rewrites them when mode "
+#~ "changes to avoid unintended values to"
+#~ " be set."
+#~ msgstr ""
+
+#~ msgid "Voltage mode setting"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the voltage mode of the STEP400"
+#~ " or STEP800, registers called KVAL is"
+#~ " used to set what percentage of "
+#~ "the power supply voltage should be "
+#~ "applied to the motor. Also if a"
+#~ " high voltage power source is used,"
+#~ " excessive current may flow when the"
+#~ " motor is spinning at lower speed."
+#~ " To compensate this current imbalance, "
+#~ "there is a group of registers to"
+#~ " lower the drive voltage at low "
+#~ "speed and supply higher voltage at "
+#~ "higher speed. The calculation of these"
+#~ " register values is described in the"
+#~ " `STMicroelectronics application note`_. In "
+#~ "STEP400, these registers can be set "
+#~ "with `/setBemfParam`_ command, and from "
+#~ "the `Config Tool`_ as well."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We have calculated the register values"
+#~ " for some motors based on our "
+#~ "actual measurements and have made them"
+#~ " available as `configuration files`_. We"
+#~ " have only a small numbers of "
+#~ "configuration files at the moment, but"
+#~ " we are planning to add more in"
+#~ " the future."
+#~ msgstr ""
+
+#~ msgid "Current mode setting"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the current mode which available "
+#~ "in STEP400, the TVAL registers are "
+#~ "used to set the target current "
+#~ "value. The current can be set up"
+#~ " to 5A in increments of 78mA in"
+#~ " the STEP400. Yo need a high "
+#~ "voltage power supply to deliver the "
+#~ "target current when the motor is "
+#~ "running at high speed. Although the "
+#~ "PowerSTEP01’s actual current drive capability"
+#~ " is 10A, the STEP400 has the "
+#~ "upper rating limit of 5A due to"
+#~ " the power rating limitation of the"
+#~ " current sensing resistor. At 5A "
+#~ "phase current, the torque is "
+#~ "considerably strong, and the tiniest "
+#~ "mistake may lead to great physical "
+#~ "danger. In such situations we recommend"
+#~ " to use use an industrial grade "
+#~ "motor drivers."
+#~ msgstr ""
+
+#~ msgid "Switching modes"
+#~ msgstr ""
+
+#~ msgid "These commands are available for switching between modes;"
+#~ msgstr ""
+
+#~ msgid "`/setVoltageMode`_ - switch to the voltage mode."
+#~ msgstr ""
+
+#~ msgid "`/setCurrentMode`_ - switch to the current mode."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The motor must be in the high "
+#~ "impedance (High Z) state before "
+#~ "switching the mode. For example, if "
+#~ "you are going to switch the Motor"
+#~ " 1 to current mode, the command "
+#~ "sequence is in the following order;"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The microstepping is limited to minimum"
+#~ " 1/16 in current mode. Any lower "
+#~ "value than 1/16 will be regarded "
+#~ "as 1/16. When you change the "
+#~ "microstepping mode, the coordinate system "
+#~ "will also change. For example one "
+#~ "rotation in 1/128 microstepping mode is"
+#~ " 200x128=25600 steps for a 200steps/round"
+#~ " motor, but one rotation in 1/16 "
+#~ "microstepping mode is 200x16=3200 steps."
+#~ msgstr ""
+
+#~ msgid "Speed profile"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The speed profile sets the acceleration,"
+#~ " deceleration, and maximum speed values "
+#~ "of the motion prior to the motor"
+#~ " operation in advance. This depends "
+#~ "on the following:"
+#~ msgstr ""
+
+#~ msgid "Voltage control or current control"
+#~ msgstr ""
+
+#~ msgid "You need to set these values according to your actual environment"
+#~ msgstr ""
+
+#~ msgid "Values to be set"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The three values, "
+#~ "Acceleration(acc),deceleration(dec), and maxSpeed "
+#~ "need to be set. You can also "
+#~ "set the minimum speed (minSpeed) as "
+#~ "a function of the motor driver, "
+#~ "but it is fixed at 0 on the"
+#~ " firmware because it is unlikely to"
+#~ " be used for the actual application."
+#~ msgstr ""
+
+#~ msgid "Setting command"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "With `/setSpeedProfile`_ command you can "
+#~ "set above three values. The acc "
+#~ "and dec cannot be set unless the"
+#~ " motor is stopped, the maxSpeed "
+#~ "parameter can be set at anytime."
+#~ msgstr ""
+
+#~ msgid "Type of motor operation"
+#~ msgstr ""
+
+#~ msgid "Constant speed"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is the command to drive the"
+#~ " the motor with the "
+#~ "acceleration/deceleration rate set by the "
+#~ "speed profile, then maintains constant "
+#~ "speed. It continues to rotate until "
+#~ "speed 0 is set, or stop command"
+#~ " is sent. The range of speed "
+#~ "that can be set is limited to "
+#~ "the maximum speed of the speed "
+#~ "profile. It will keep BUSY state "
+#~ "during the acceleration and deceleration. "
+#~ "A representative command for the "
+#~ "constant speed drive is `/run`_. There"
+#~ " are also `/goUntil`_ and `/releaseSw`_ "
+#~ "commands are available."
+#~ msgstr ""
+
+#~ msgid "Positioning"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The trapezoidal drive towards the "
+#~ "specified position is performed according "
+#~ "to the speed profile. In other "
+#~ "words, it accelerates according to the"
+#~ " acceleration rate of the speed "
+#~ "profile, then drives at constant speed"
+#~ " when it reaches the maximum speed,"
+#~ " and then decelerates at specified "
+#~ "deceleration rate at the timing "
+#~ "calculated backwards to stop at the "
+#~ "specified position. It may start "
+#~ "decelerating before it reaches the "
+#~ "maximum speed, especially when you want"
+#~ " to accelerate / decelerate relatively "
+#~ "slow rate. It remains in the BUSY"
+#~ " state until the motor stops. It’s"
+#~ " not possible to interrupt the "
+#~ "current positioning motion with another "
+#~ "positioning motion."
+#~ msgstr ""
+
+#~ msgid "Servo mode"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is not a function of the "
+#~ "motor driver, but a mode of "
+#~ "driving implemented in the firmware. It"
+#~ " constantly updates the constant speed "
+#~ "operation to follow a given target "
+#~ "position. This mode is similar to "
+#~ "tje radio controlled servo motor. No "
+#~ "other motor motion commands can be "
+#~ "sent while the motor is operating "
+#~ "in this mode."
+#~ msgstr ""
+
+#~ msgid "Types of stops"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There are two options with a total"
+#~ " of four different commands, as "
+#~ "follows;"
+#~ msgstr ""
+
+#~ msgid "Decelerate according to the speed profile or stop instantly."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Keep magnetized / excited or goes "
+#~ "to the high impedance(High Z) state "
+#~ "after stop."
+#~ msgstr ""
+
+#~ msgid "State after stop"
+#~ msgstr ""
+
+#~ msgid "Deceleration stop"
+#~ msgstr ""
+
+#~ msgid "Immediate stop"
+#~ msgstr ""
+
+#~ msgid "Excitation"
+#~ msgstr ""
+
+#~ msgid "SoftStop"
+#~ msgstr ""
+
+#~ msgid "HardStop"
+#~ msgstr ""
+
+#~ msgid "HiZ"
+#~ msgstr ""
+
+#~ msgid "SoftHiZ"
+#~ msgstr ""
+
+#~ msgid "HardHiZ"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The excited state is the state in"
+#~ " which the torque is applied to "
+#~ "hold the motor position according to "
+#~ "``KVAL_HOLD`` voltage, or current set by"
+#~ " the ``TVAL_HOLD`` value. The high "
+#~ "impedance state is the state where "
+#~ "the current is cut off and there"
+#~ " is no holding torque."
+#~ msgstr ""
+
+#~ msgid "Stepper motor and homing"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When the system powers up, it "
+#~ "doesn’t know where the motor is "
+#~ "currently positioned. It could be "
+#~ "pointing to various directions depending "
+#~ "on the timing of the last time "
+#~ "the system was shut off."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Also, if the stepper motor receives "
+#~ "exceeding external force, the step will"
+#~ " slip out of alignment (**stall**). "
+#~ "If this happens, the motor will "
+#~ "continue to work with offset between "
+#~ "the programmed and its physical "
+#~ "position."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Therefore, applications that have position "
+#~ "or orientation must use sensors to "
+#~ "detect a reference position on startup"
+#~ " or periodically. This action is "
+#~ "called **homing**."
+#~ msgstr ""
+
+#~ msgid "Sensor and switch"
+#~ msgstr ""
+
+#~ msgid "Two configuration of homing sensor"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Photointerrupters are often used as home"
+#~ " sensors. On the left, a white "
+#~ "piece of plastic attached to the "
+#~ "slider blocks the photointerrupter’s light-"
+#~ "emitting and receiving parts. The right"
+#~ " side is an example of a rotary"
+#~ " table, where the photo interrupter "
+#~ "responds to the black screw."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Other devices such as microswitches, or"
+#~ " photoelectric sensors are also used "
+#~ "for the sensing."
+#~ msgstr ""
+
+#~ msgid "HOME sensor and LIMIT sensor"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Each axis of STEP400/STEP800 has HOME"
+#~ " connector which can connect sensors "
+#~ "or switches. STEP400 has LIMIT sensor"
+#~ " inputs in addition to HOME inputs."
+#~ " 5V is supplied to each connector "
+#~ "for the sensing power source."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This input is connected directly to "
+#~ "the motor driver chip and can be"
+#~ " used in conjunction with the "
+#~ "driver’s homing function. Usually, this "
+#~ "connector is used for the home "
+#~ "sensor."
+#~ msgstr ""
+
+#~ msgid "LIMIT (Only in STEP400)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Some applications may require two "
+#~ "sensors. For example, a slider has "
+#~ "a limited operating range, and if "
+#~ "it stalls during the operation, it "
+#~ "may collide with one of either "
+#~ "end. In such cases, installing sensors"
+#~ " on both ends of the slider "
+#~ "will prevent collisions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The motor can be set to force-"
+#~ "stop when these sensors respond, but "
+#~ "these can also be used as simple"
+#~ " switch inputs separated from the "
+#~ "motor operation. For example, you can"
+#~ " connect a push button to one "
+#~ "of them and press to send an "
+#~ "OSC message."
+#~ msgstr ""
+
+#~ msgid "Collision prevention setting"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can limit the motor rotate "
+#~ "direction when HOME or LIMIT sensors "
+#~ "are active. With the command "
+#~ "`/setProhibitMotionOnHomeSw`_ and "
+#~ "`/setProhibitMotionOnLimitSw`_ you can prohibit "
+#~ "the actuator to move towards "
+#~ "``homingDirection`` when the HOME sensor "
+#~ "is active, or the reverse direction "
+#~ "towards ``homingDirection`` when the LIMIT "
+#~ "sensor is active. With this, you "
+#~ "can prevent mechanism from collision."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``homingDirection`` can be set from "
+#~ "`/setHomingDirection`_ or from the configTool."
+#~ " This setting is also used for "
+#~ "following `/homing`_ command."
+#~ msgstr ""
+
+#~ msgid "Homing Direction"
+#~ msgstr ""
+
+#~ msgid "Homing commands"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The homing command in the STEP400 "
+#~ "system is `/homing`_. This command "
+#~ "consists from two commands, ``/goUntil`` "
+#~ "and ``/releaseSw`` which are inherited "
+#~ "from the Motor Driver Chip PowerSTEP01."
+#~ " Let’s look closer to those commands."
+#~ msgstr ""
+
+#~ msgid "``/goUntil``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "First, use this command to move "
+#~ "towards the home sensor. The motor "
+#~ "will decelerate and then stop when "
+#~ "the home sensor reacts (if it has"
+#~ " been set up as such). -> "
+#~ "`/goUntil`_"
+#~ msgstr ""
+
+#~ msgid "``/releaseSw``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The position where the motor stops "
+#~ "is the origin / home position! "
+#~ "However, strictly speaking, the ``/goUntil``"
+#~ " command does not stop immediately, "
+#~ "but stop after deceleration, so it’s "
+#~ "current position has negative offset "
+#~ "from the point where the sensor "
+#~ "have actually responded. This command "
+#~ "slowly moves in the opposite direction"
+#~ " from the current position and stops"
+#~ " immediately when the sensor reading "
+#~ "is no longer positive. -> `/releaseSw`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Both commands can be set to reset"
+#~ " the current position to zero on "
+#~ "the moment when the sensor responds. "
+#~ "-> `/setHomeSwMode`_"
+#~ msgstr ""
+
+#~ msgid "See this video for these commands in operation."
+#~ msgstr ""
+
+#~ msgid "``/homing``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It is possible to send above two"
+#~ " commands over OSC one after another,"
+#~ " the `/homing`_ command executes this "
+#~ "sequence in single operation. It will"
+#~ " automatically complete the home sequence"
+#~ " according to the homing direction "
+#~ "and homing speed which are pre-"
+#~ "configured from the configTool or over"
+#~ " OSC commands."
+#~ msgstr ""
+
+#~ msgid "Time-out"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The time-out duration can be set"
+#~ " for each of ``/goUntil`` and "
+#~ "``/releaseSw`` commands. The controller will"
+#~ " halts the actuator movement as the"
+#~ " Time-out, if no change in the"
+#~ " sensor reading is detected within "
+#~ "this time frame. This is to "
+#~ "prevent the moving part to be "
+#~ "pushed against other mechanical object "
+#~ "endlessly, by giving up the homing "
+#~ "sequence and stops at the specified "
+#~ "timing."
+#~ msgstr ""
+
+#~ msgid "Normal open and Normal close"
+#~ msgstr ""
+
+#~ msgid "Electrical connection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Let’s determine the “sensor reaction” a"
+#~ " little more in detail. The pin "
+#~ "assignments of HOME and LIMIT connectors"
+#~ " are as follows."
+#~ msgstr ""
+
+#~ msgid "Pin number"
+#~ msgstr ""
+
+#~ msgid "Switch/Sensor input"
+#~ msgstr ""
+
+#~ msgid "5V Power Output"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Each sensor pin on HOME and LIMIT"
+#~ " is pulled up to 3.3V. To "
+#~ "connect the switch, connect the GND "
+#~ "(#1) and the sensor terminal (#2). "
+#~ "When the switch is pressed, it is"
+#~ " connected to the GND pin and "
+#~ "the voltage drops from 3.3V to 0V."
+#~ " When the voltage changes from HIGH"
+#~ " level to LOW level (a.k.a. **Falling"
+#~ " Edge**), the sensor is considered to"
+#~ " have responded."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Let’s take an photo interrupter `EE-"
+#~ "SX671A`_ as an example, where the "
+#~ "connection is as follows:"
+#~ msgstr ""
+
+#~ msgid "EE-SX671A Diagram"
+#~ msgstr ""
+
+#~ msgid "Sensor pin"
+#~ msgstr ""
+
+#~ msgid "OUT"
+#~ msgstr ""
+
+#~ msgid "Whether light should enter or be blocked upon the sensor detection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is the part you need to "
+#~ "consider carefully before ordering a "
+#~ "sensor."
+#~ msgstr ""
+
+#~ msgid "Dark on or Light on"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the case of the left picture,"
+#~ " the light enters into the sensor "
+#~ "at the home position, but in the"
+#~ " picture on the right, the light "
+#~ "is blocked at the home position."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There are two types of sensors, "
+#~ "one that turns on when light "
+#~ "enters and one that turns on when"
+#~ " light is interrupted. In the case"
+#~ " of the above Omron sensor, the "
+#~ "action is toggled by connecting “L” "
+#~ "and “+” terminals."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The mechanism and sensor must be "
+#~ "combined in such a way that the"
+#~ " sensor pin goes from HIGH to "
+#~ "LOW at the home position."
+#~ msgstr ""
+
+#~ msgid "For rotary tables"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the example on the picture "
+#~ "above left, the response position of "
+#~ "the home sensor will differ between "
+#~ "clockwise and counterclockwise, depending on"
+#~ " the size of the hole. The "
+#~ "STEP400 can notify both HIGH to "
+#~ "LOW and LOW to HIGH changes of "
+#~ "the home sensor by OSC messages. "
+#~ "The message also includes the rotation"
+#~ " direction, so you can align the "
+#~ "home position if you write a "
+#~ "conditional sequence for each rotation "
+#~ "direction. -> `/enableHomeSwReport`_"
+#~ msgstr ""
+
+#~ msgid "What is Servo Mode"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On the positional operation programmed "
+#~ "in the Motor Driver IC, it is "
+#~ "necessary to define the target position"
+#~ " in advance. As a new target "
+#~ "position cannot be set until operation"
+#~ " to be completed, you cannot perform"
+#~ " operation that changes the target "
+#~ "position in real time. On the "
+#~ "Servo Mode, realtime target following "
+#~ "operation is realized by the process "
+#~ "running as a Arduino sketch. It "
+#~ "works similar to that of servo "
+#~ "motors in radio controlled toys. While"
+#~ " the mode is in operation, other "
+#~ "function commands cannot be sent."
+#~ msgstr ""
+
+#~ msgid "*Example Behavior of Servo Mode*"
+#~ msgstr ""
+
+#~ msgid "Initializing steps for Servo Mode"
+#~ msgstr ""
+
+#~ msgid "Starting and Ending Function"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The message `/enableServoMode`_ starts and "
+#~ "ends the Servo Mode. Upon starting "
+#~ "the Servo Mode, the driver must "
+#~ "not be in BUSY state."
+#~ msgstr ""
+
+#~ msgid "Updating the Target Position"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The target position can be updated "
+#~ "by the `/setTargetPosition`_ message. When "
+#~ "the Arduino Sketch receives a new "
+#~ "target position, it will compare the "
+#~ "new position with the current one "
+#~ "and change the rotation speed of "
+#~ "the motor. You can send target "
+#~ "positions to all four motors at "
+#~ "the same time with `/setTargetPositionList`_."
+#~ msgstr ""
+
+#~ msgid "Types of Control Parameters"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The motor’s rotation speed is calculated"
+#~ " by a technique called “PID Control”."
+#~ " The control parameters can be set"
+#~ " with the command `/setServoParam`_. The"
+#~ " available parameters are following three."
+#~ msgstr ""
+
+#~ msgid "Proportional Gain (kP)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The PID control uses differences of "
+#~ "current position and target position "
+#~ "(deviation) for the control. That is,"
+#~ " it approaches target position by "
+#~ "rotating fast when the deviation is "
+#~ "large, and rotates slow when the "
+#~ "deviation is small. The proportional "
+#~ "gain defines how much influence to "
+#~ "the speed will be given from the"
+#~ " deviation. If the value is too "
+#~ "small, it will take time to "
+#~ "approach the target position, and if "
+#~ "the value is too large, an "
+#~ "“overshoot” may occur in which the "
+#~ "target position is passed."
+#~ msgstr ""
+
+#~ msgid "Integral Gain (kI)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If there is only the proportional "
+#~ "control, the rotation speed will get "
+#~ "slower and takes very long time to"
+#~ " compensate the offset when approaching "
+#~ "to the target position. In this "
+#~ "case, adding the time integral of "
+#~ "the deviation to the control value "
+#~ "will effectively compensate the offset. "
+#~ "By applying large integral gain, you "
+#~ "could compensate the offset quickly, "
+#~ "however it may cause the overshoot, "
+#~ "or even the continuous oscillation by"
+#~ " trying to compensate the overshoot."
+#~ msgstr ""
+
+#~ msgid "Differential Gain (kD)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In case an overshoot or oscillation "
+#~ "related errors occurs, this parameter is"
+#~ " used to eliminate steep changes in"
+#~ " deviation."
+#~ msgstr ""
+
+#~ msgid "Methods for Determining PID Parameters"
+#~ msgstr ""
+
+#~ msgid "Step by Step Procedures"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "PID Control Parameters must be "
+#~ "determined from the actual acceleration, "
+#~ "deceleration, and the maximum rotation "
+#~ "speed (speed profile). Determine the "
+#~ "control parameters by following steps."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Decide the KVAL(in case of current "
+#~ "mode, TVAL) that is matched to the"
+#~ " rated value and load."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Decide the operational acceleration, "
+#~ "deceleration, and the maximum rotation "
+#~ "speed (speed profile)."
+#~ msgstr ""
+
+#~ msgid "Adjust the PID control gains."
+#~ msgstr ""
+
+#~ msgid "The Decisions of PID Control Gain"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There are multiple methods for deciding"
+#~ " the optimal PID Control Gain. "
+#~ "However, it may also depend on the"
+#~ " factors like the objective of "
+#~ "movement, or the frequency of target "
+#~ "position change. Therefore we determine "
+#~ "the values by steps described as "
+#~ "follows and do trial and error on"
+#~ " the actual set up."
+#~ msgstr ""
+
+#~ msgid "1. kP"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Set all kP, kI, kD, to 0.0 "
+#~ "and gradually raise the kP. When "
+#~ "the target position changes only "
+#~ "sometimes, we often set only kP "
+#~ "while keeping other kI and kD "
+#~ "values at 0.0."
+#~ msgstr ""
+
+#~ msgid "2. kI"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In case when the target position "
+#~ "only changing once every couple of "
+#~ "seconds, you set the movement to "
+#~ "quick and responsive by raising the "
+#~ "kI value. Yet for example, when "
+#~ "the target position is sent at "
+#~ "60fps, the acceleration towards the each"
+#~ " new target position would cause the"
+#~ " vibration and loose smooth transition. "
+#~ "Depending on the priority of the "
+#~ "quickly response to the target position"
+#~ " or smooth movement for the whole "
+#~ "operation, the preferable values may "
+#~ "change."
+#~ msgstr ""
+
+#~ msgid "3. kD"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We gradually raise the kD if "
+#~ "oscillation or overshoot is observed "
+#~ "when approaching to the target."
 #~ msgstr ""
 
