@@ -4,7 +4,7 @@
 STEP400/STEP800
 ###############
 
-.. image:: img/step400_step800-1600x1067.jpg
+.. image:: ../img/step400_step800-1600x1067.jpg
 
 ********
 Overview
@@ -78,17 +78,17 @@ purchased from one the (unaffiliated) recommended sites below:
 - `Strawberry Linux`_
 - `Akizuki Denshi`_
 
-.. image:: img/09238-01.jpg
+.. image:: ../img/09238-01.jpg
 
 
 From the wiring diagram found in the `datasheet`_ for this motor, we can see that the wiring pairs
 are ``Red - Green`` and ``Yellow - Blue``.
 
-.. image:: img/motor-wiring-diagram-sample.png
+.. image:: ../img/motor-wiring-diagram-sample.png
 
 The wiring to the terminal block should look like this:
 
-.. image:: img/SM-42BYG-wiring-700x525.jpg
+.. image:: ../img/SM-42BYG-wiring-700x525.jpg
 
 We've calculated register values for some motors and made them available as `configuration files`_.
 
@@ -106,7 +106,7 @@ but **do not** connect power to both primary inputs.
 .. note:: Again, make sure not to power the device. You may connect the supply, but make sure it is
     not on.
 
-.. image:: img/step400_connectors_numbering.jpg
+.. image:: ../img/step400_connectors_numbering.jpg
 
 +------+----------------------------------------+
 |Number|Description                             |
@@ -183,7 +183,7 @@ boards have their maximum voltages, so keep that in mind when choosing a supply.
 articulate this point, see the following graph and note the correlation between a higher voltage
 providing higher current (aka torque) and a higher maximum speed.
 
-.. image:: img/motor_current_example_graph-800x570.png
+.. image:: ../img/motor_current_example_graph-800x570.png
 
 The required voltage varies greatly depending on the motor's rating, required speed, and required
 torque. But, in general, the required voltage is roughly as follows:
@@ -200,7 +200,7 @@ minimum required voltage, there may be cases wjere the STEP400 resets on a sligh
 is especially the case during a motor's inrush current, therefore we do not recommend a 12V power
 supply unless if you are driving a small motor at a low load.
 
-.. figure:: img/update-48V-configuration-800x533.jpg
+.. figure:: ../img/update-48V-configuration-800x533.jpg
 
     A STEP400 being supplied 48V through two 24V power supplies in series.
 
@@ -255,7 +255,7 @@ rest are OFF. With this configuration, the board has the following network setti
 |Server Port   |50101     |The port on the server that the server is listening on|
 +--------------+----------+------------------------------------------------------+
 
-.. figure:: img/IMG_0704.jpg
+.. figure:: ../img/IMG_0704.jpg
 
     Configured DIP switches on the STEP400.
 
@@ -509,7 +509,7 @@ Network and DIP Switch
 Dip Switch Settings
 -------------------
 
-.. figure:: img/step400-dipSw.jpg
+.. figure:: ../img/step400-dipSw.jpg
 
     The DIP switch specifies the ID that is used to reply to OSC messages and is also reflected in
     the local IP address and expected server port number. The ID is set in binary with more

@@ -1,8 +1,8 @@
 .. _python_step_series:
 
-####################################################
-``python-step-series``: Ponoor's Official Python API
-####################################################
+#################
+API Documentation
+#################
 
 Welcome to the documentation for ``python-step-series``! Read this page to learn how to install and
 develop your first application to configure and control a STEP-series device.

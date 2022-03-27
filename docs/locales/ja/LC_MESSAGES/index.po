@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Step-Series Documentation "
-"0.0.2.post1.dev78+g320de0f.d20220325\n"
+"0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 09:34-0500\n"
+"POT-Creation-Date: 2022-03-26 19:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,19 +34,19 @@ msgid ""
 "setup and operate your device, and to use the official Python API."
 msgstr ""
 
-#: ../../index.rst:18
+#: ../../index.rst:17
 msgid "Indices and Tables"
 msgstr ""
 
-#: ../../index.rst:20
+#: ../../index.rst:19
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../index.rst:21
+#: ../../index.rst:20
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../index.rst:22
+#: ../../index.rst:21
 msgid ":ref:`search`"
 msgstr ""
 

@@ -9,9 +9,8 @@ setup and operate your device, and to use the official Python API.
     :maxdepth: 2
     :Caption: Contents:
 
-    step-series
-    python-step-series
-    module-index
+    step-series/index
+    python-step-series/index
 
 
 Indices and Tables
