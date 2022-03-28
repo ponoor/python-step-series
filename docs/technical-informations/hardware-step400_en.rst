@@ -14,11 +14,15 @@ There are five M3 mounting holes on each four corners and in the middle.
 
 Long parts of the top and bottom in this picture are waste boards, and are removed after the production.
 
-Actual size PDF : `step400_r1_dimenstion.pdf`_
+Actual size PDF: `step400_r1_dimension.pdf`_
 
 ======
 System
 ======
+
+|diagram| 
+
+Schematics: `step400_r1_schematics.pdf`_
 
 The main components are as follows;
 
@@ -158,10 +162,12 @@ original supply voltage compensation featue. Be sure to disable
 UVLO_ADC, which will raise the alarm based on the value of the ADC
 input.
 
-.. _step400_r1_dimenstion.pdf: https://ponoor.com/cms/wp-content/uploads/2020/08/step400_r1_dimenstion.pdf
+.. _step400_r1_dimension.pdf: https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_dimension.pdf
+.. _step400_r1_schematics.pdf: https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_schematics.pdf
 .. _ATSAMD21G18A: https://www.microchip.com/wwwproducts/en/ATsamd21g18
 .. _W5500: https://www.wiznet.io/product-item/w5500/
 .. _PowerSTEP01: https://www.st.com/en/motor-drivers/powerstep01.html
 .. _BD9G341AEFJ: https://www.rohm.com/products/power-management/switching-regulators/integrated-fet/buck-converters-nonsynchronous/bd9g341aefj-product
 
 .. |image1| image:: https://ponoor.com/cms/wp-content/uploads/2020/08/step400-dimension-800x661.png
+.. |diagram| image:: https://ponoor.com/cms/wp-content/uploads/2020/08/image-1648386258465.png

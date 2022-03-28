@@ -21,6 +21,10 @@ Actual size PDF : `step800_r1_0_0_dimension.pdf`_
 System
 ======
 
+|diagram|
+
+Schematics: `step800_r1_0_0_schematics.pdf`_
+
 The main components are as follows;
 
 +-----------------------+-----------------------+-----------------------+
@@ -169,9 +173,11 @@ ADCIN
 This is directly wired with GND and can not use.
 
 .. _step800_r1_0_0_dimension.pdf: https://ponoor.com/cms/wp-content/uploads/2021/09/step800_r1_0_0_dimension.pdf
+.. _step800_r1_0_0_schematics.pdf: https://github.com/ponoor/STEP800/blob/main/hardware/step800_r1_0_0_schematics.pdf
 .. _ATSAMD21G18A: https://www.microchip.com/wwwproducts/en/ATsamd21g18
 .. _W5500: https://www.wiznet.io/product-item/w5500/
 .. _L6470: https://www.st.com/en/motor-drivers/L6470.html
 .. _P78E05-1000: https://www.jp.cui.com/product/dc-dc-converters/non-isolated/p78e-1000-series
 
 .. |image1| image:: https://ponoor.com/cms/wp-content/uploads/2021/09/step800_r1_0_0_dimension-1.png
+.. |diagram| image:: https://ponoor.com/cms/wp-content/uploads/2021/09/image-1648468983329.png
