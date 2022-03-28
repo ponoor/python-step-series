@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 21:48-0500\n"
+"POT-Creation-Date: 2022-03-27 22:54-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,6 +195,8 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:385
+#: ../../step-series/submodules/functionality-descriptions.rst:407
 #: ../../step-series/submodules/getting-started.rst:88
 #: ../../step-series/submodules/other-connections-settings.rst:63
 msgid "1"
@@ -204,6 +206,8 @@ msgstr ""
 msgid "Electromagnetic brake terminal (STEP400)"
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:386
+#: ../../step-series/submodules/functionality-descriptions.rst:408
 #: ../../step-series/submodules/getting-started.rst:90
 #: ../../step-series/submodules/other-connections-settings.rst:65
 msgid "2"
@@ -213,6 +217,8 @@ msgstr ""
 msgid "Ethernet Port"
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:387
+#: ../../step-series/submodules/functionality-descriptions.rst:409
 #: ../../step-series/submodules/getting-started.rst:92
 #: ../../step-series/submodules/other-connections-settings.rst:67
 msgid "3"
@@ -811,6 +817,7 @@ msgid ""
 " to the ``HOME`` inputs."
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:268
 #: ../../step-series/submodules/other-connections-settings.rst:15
 msgid "HOME"
 msgstr ""
@@ -913,6 +920,8 @@ msgstr ""
 msgid "Pin (left-to-right)"
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:383
+#: ../../step-series/submodules/functionality-descriptions.rst:405
 #: ../../step-series/submodules/other-connections-settings.rst:61
 msgid "Function"
 msgstr ""
@@ -925,6 +934,8 @@ msgstr ""
 msgid "3v3 (Switch Input)"
 msgstr ""
 
+#: ../../step-series/submodules/functionality-descriptions.rst:385
+#: ../../step-series/submodules/functionality-descriptions.rst:407
 #: ../../step-series/submodules/other-connections-settings.rst:67
 msgid "GND"
 msgstr ""
@@ -1025,11 +1036,11 @@ msgid ""
 ":ref:`microSD Card Setup`."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:3
-msgid "Functionality Overview"
+#: ../../step-series/submodules/functionality-descriptions.rst:3
+msgid "Functionality Descriptions"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:5
+#: ../../step-series/submodules/functionality-descriptions.rst:5
 msgid ""
 "This section delves deeper into what the different functionalities "
 "offered by both boards are and what they do. Please refer to the "
@@ -1037,11 +1048,11 @@ msgid ""
 "different functionalities."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:12
+#: ../../step-series/submodules/functionality-descriptions.rst:12
 msgid "Voltage vs. Current Mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:14
+#: ../../step-series/submodules/functionality-descriptions.rst:14
 msgid ""
 "There are two types of stepping control methods: constant voltage control"
 " (**voltage mode**) and constant current control (**current mode**). Only"
@@ -1050,25 +1061,25 @@ msgid ""
 "PDF`_ by STMicroelectronics."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:20
+#: ../../step-series/submodules/functionality-descriptions.rst:20
 msgid "The differences can be described as follows:"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:22
+#: ../../step-series/submodules/functionality-descriptions.rst:22
 msgid "Voltage mode is quiet and smooth, but is limited to lower speeds"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:23
+#: ../../step-series/submodules/functionality-descriptions.rst:23
 msgid "Current mode is noisy, but can reach higher speeds"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:25
+#: ../../step-series/submodules/functionality-descriptions.rst:25
 msgid ""
 "To better illustrate this point, here is a demostration video to show the"
 " differences between these two modes."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:34
+#: ../../step-series/submodules/functionality-descriptions.rst:34
 msgid ""
 "First, the motor runs under constant voltage mode. After around 800 "
 "steps/sec, the motor cannot run properly and starts to vibrate and stalls"
@@ -1077,18 +1088,18 @@ msgid ""
 "capture the smallest noises."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:40
+#: ../../step-series/submodules/functionality-descriptions.rst:40
 msgid ""
 "Next, the motor is switched to constant current mode. It is noisy, but "
 "can drive to a higher speed. In this mode, we were able to achieve more "
 "than 11,000 steps/sec before the motor started to vibrate and stall."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:46
+#: ../../step-series/submodules/functionality-descriptions.rst:46
 msgid "KVAL and TVAL"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:48
+#: ../../step-series/submodules/functionality-descriptions.rst:48
 msgid ""
 "**KVAL** register values are applied to control the drive voltage in "
 "voltage mode; likewise, **TVAL** registers are used to control the drive "
@@ -1099,11 +1110,11 @@ msgid ""
 "changed."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:58
+#: ../../step-series/submodules/functionality-descriptions.rst:58
 msgid "Notes on Voltage Mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:60
+#: ../../step-series/submodules/functionality-descriptions.rst:60
 msgid ""
 "In voltage mode, KVAL is used to set what percentage of the power supply "
 "voltage should be applied to the motor. If a high voltage power source is"
@@ -1116,7 +1127,7 @@ msgid ""
 " the `Config Tool`_."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:70
+#: ../../step-series/submodules/functionality-descriptions.rst:70
 msgid ""
 "Additionally, we have calculated the register values for some motors "
 "based on our actual measurements and have made them available as "
@@ -1127,11 +1138,11 @@ msgid ""
 "you sharing your configurations with us and the community."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:80
+#: ../../step-series/submodules/functionality-descriptions.rst:80
 msgid "Notes on Current Mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:82
+#: ../../step-series/submodules/functionality-descriptions.rst:82
 msgid ""
 "In current mode, which is only available on the STEP400, TVAL registers "
 "are used to set the target current value. The current can be set up to 5A"
@@ -1145,38 +1156,38 @@ msgid ""
 " grade motor driver."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:95
+#: ../../step-series/submodules/functionality-descriptions.rst:95
 msgid "Switching Between the Modes"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:97
+#: ../../step-series/submodules/functionality-descriptions.rst:97
 msgid "Use the following commands to switch between the modes:"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:99
+#: ../../step-series/submodules/functionality-descriptions.rst:99
 msgid "`/setVoltageMode`_ - switch to voltage mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:100
+#: ../../step-series/submodules/functionality-descriptions.rst:100
 msgid "`/setCurrentMode`_ - switch to current mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:102
+#: ../../step-series/submodules/functionality-descriptions.rst:102
 msgid ""
 "The motor must be in the high impedance (High Z) state before switching "
 "the mode. For example, if you are going to switch the Motor 1 to current "
 "mode, send these commands in the following order:"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:106
+#: ../../step-series/submodules/functionality-descriptions.rst:106
 msgid "``/hardHiZ 1``"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:107
+#: ../../step-series/submodules/functionality-descriptions.rst:107
 msgid "``/setCurrentMode 1``"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:109
+#: ../../step-series/submodules/functionality-descriptions.rst:109
 msgid ""
 "Microstepping is limited to a minimum of 1/16 in current mode. Any lower "
 "value than 1/16 will be regarded as 1/16. When you change microstep "
@@ -1186,60 +1197,667 @@ msgid ""
 " is 200x16=3200 steps."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:118
+#: ../../step-series/submodules/functionality-descriptions.rst:118
 msgid "Speed Profile"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:122
+#: ../../step-series/submodules/functionality-descriptions.rst:122
 msgid "Overview"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:124
+#: ../../step-series/submodules/functionality-descriptions.rst:124
 msgid ""
 "Speed profile sets the acceleration (acc), deceleration (dec), and "
 "maximum speed (maxSpeed) values of the motor prior to the motor moving. "
 "These values depend on the following:"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:128
+#: ../../step-series/submodules/functionality-descriptions.rst:128
 msgid "Motor Specifications"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:129
+#: ../../step-series/submodules/functionality-descriptions.rst:129
 msgid "Power supply voltage"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:130
+#: ../../step-series/submodules/functionality-descriptions.rst:130
 msgid "Load"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:131
+#: ../../step-series/submodules/functionality-descriptions.rst:131
 msgid "Voltage mode or current mode"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:133
+#: ../../step-series/submodules/functionality-descriptions.rst:133
 msgid ""
 "While we provide some example defaults, you need to set these values "
 "according to your actual environment. This requires some trial and error "
 "on your part."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:137
+#: ../../step-series/submodules/functionality-descriptions.rst:137
 msgid ""
 "You can also set the minimum speed (minSpeed) as a function of the motor "
 "driver, but it is fixed at 0 in the firmware because it is unlikely to be"
 " used for any actual application."
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:143
+#: ../../step-series/submodules/functionality-descriptions.rst:143
 msgid "Setting the Profile"
 msgstr ""
 
-#: ../../step-series/submodules/functional-descriptions.rst:145
+#: ../../step-series/submodules/functionality-descriptions.rst:145
 msgid ""
 "Use `/setSpeedProfile`_ to set the above three values. Acc and dec cannot"
 " be set unless the motor is stopped; however, maxSpeed can be set at any "
 "time."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:151
+msgid "Types of Motor Operation"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:155
+msgid "Constant Speed"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:157
+msgid ""
+"The `/run`_ command is used to drive the motor at a constant speed. The "
+"acceleration, deceleration, and maximum speed curves set by "
+"`/setSpeedProfile`_ are adhered to by this command. The motor runs "
+"perpetually until speed 0 (``/run 0``) or a stop command is sent. The "
+"motor will not run faster than the maximum speed set in the speed "
+"profile. Sending a speed to run faster than this profile setting will "
+"cause the motor's speed to be truncated to that setting. The motor will "
+"be kept in the BUSY state during the acceleration and deceleration."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:166
+msgid "`/goUntil`_ and `/releaseSw`_ are also considered constant speed commands."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:171
+msgid "Positioning"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:173
+msgid ""
+"The trapezoidal drive towards the specified position is performed "
+"according to the speed profile. In other words, it accelerates according "
+"to the acceleration rate of the speed profile, then drives at constant "
+"speed when it reaches the maximum speed, and then decelerates at "
+"specified deceleration rate at the timing calculated backwards to stop at"
+" the specified position. It may start decelerating before it reaches the "
+"maximum speed, especially when you want to accelerate / decelerate at a "
+"relatively slow rate. It remains in the BUSY state until the motor stops."
+" It's not possible to interrupt the current positioning motion with "
+"another positioning motion."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:186
+msgid "Servo Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:188
+msgid ""
+"This is not a function of the motor driver, but a mode of driving "
+"implemented in the firmware. It constantly updates the constant speed "
+"operation to follow a given target position. This mode is similar to a "
+"radio controlled servo motor. No other motor motion commands can be sent "
+"while the motor is operating in this mode."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:196
+msgid "Types of Stops"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:198
+msgid "There are two options with a total of four different commands, as follows:"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:201
+msgid "Decelerating according to the speed profile or stop instantly"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:202
+msgid ""
+"Keeping magnetized/excited or entering a high impedance (High Z) state "
+"after stopping"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:206
+msgid "State after stop"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:206
+msgid "Deceleration stop"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:206
+msgid "Immediate stop"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:208
+msgid "Excited"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:208
+msgid "SoftStop"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:208
+msgid "HardStop"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:209
+msgid "HiZ"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:209
+msgid "SoftHiZ"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:209
+msgid "HardHiZ"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:212
+msgid ""
+"The excited state is the state in which voltage or current (torque) is "
+"maintained to hold the motor's position according to ``KVAL_HOLD`` or "
+"``TVAL_HOLD``, respectively. The high impedence (HiZ) state is when the "
+"current is cut off and no holding torque is maintained. **Any loads the "
+"motor is moving may fall or lose their positioning during HiZ.**"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:220
+msgid "Homing"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:222
+msgid ""
+"When the system powers up, it doesn't know where the motor is currently "
+"positioned. It could be pointing to various directions depending on the "
+"timing of the last time the system was shut off."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:226
+msgid ""
+"Also, if the stepper motor receives exceeding external force, the step "
+"will slip out of alignment (**stall**). If this happens, the motor will "
+"continue to work with an unknown offset between the expected position and"
+" its actual."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:231
+msgid ""
+"Therefore, applications that have position or orientation must use "
+"sensors to detect a reference position on startup or periodically while "
+"it is active. This action is called **homing**."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:237
+msgid "Switches and Sensors"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:242
+msgid "Two different configurations of a homing sensor"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:244
+msgid ""
+"Photointerrupters are often used as home sensors. On the left, a white "
+"piece of plastic attached to the slider blocks the photointerrupter's "
+"light-emitting and receiving parts. The right side is an example of a "
+"rotary table where the photo interrupter responds to the black screw."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:249
+msgid ""
+"Other devices such as microswitches or photoelectric sensors are also "
+"used for the sensing."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:252
+msgid ""
+"To make interfacing with these sensors and switches from the controller, "
+"we provide `pre-made connection cables`_ (scroll all the way down to the "
+"bottom of the page when you click \"BUY\")."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:259
+msgid "HOME and LIMIT Sensors"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:261
+msgid ""
+"Each axis of both the STEP400 and STEP800 has a HOME connector which can "
+"connect sensors or switches. The STEP400 has LIMIT sensor inputs in "
+"addition to HOME inputs. 5V is supplied to each connector for the sensing"
+" power source."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:270
+msgid ""
+"This input is connected directly to the motor driver chip and can be used"
+" in conjunction with the driver's homing function. Usually, this "
+"connector is used for the home sensor."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:276
+msgid "LIMIT (STEP400 Only)"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:278
+msgid ""
+"Some applications may require two sensors. For example, a slider has a "
+"limited operating range and if it stalls during operation, it may collide"
+" with one of either end. In such cases, installing sensors on both ends "
+"of the slider will prevent collisions."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:283
+msgid ""
+"The motor can be set to force-stop when these sensors respond, but these "
+"can also be used as simple switch inputs separated from the motor "
+"operation. For example, you can connect a push button to one of them and "
+"press to send an OSC message."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:290
+msgid "Collision Prevention Settings"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:292
+msgid ""
+"You can limit the motor's rotate direction when the HOME or LIMIT sensors"
+" are activated. With the commands `/setProhibitMotionOnHomeSw`_ and "
+"`/setProhibitMotionOnLimitSw`_, you can prohibit the actuator from moving"
+" towards ``homingDirection`` when the HOME sensor is active, or the "
+"reverse direction towards ``homingDirection`` when the LIMIT sensor is "
+"active. With this, you can prevent the mechanism from colliding with its "
+"bounds."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:300
+msgid ""
+"``homingDirection`` can be set with `/setHomingDirection`_ or with the "
+"`Config Tool`_. This setting is also used for the `/homing`_ command."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:307
+msgid "Homing Direction"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:311
+msgid "Homing Commands"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:313
+msgid ""
+"The homing command on the STEP400 is `/homing`_. This command consists of"
+" two commands, ``/goUntil`` and ``/releaseSw``, which are inherited from "
+"the powerSTEP01 motor driver chip. Let's look closer at those commands."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:320
+msgid "`/goUntil`_"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:322
+msgid ""
+"First, use this command to move towards the home sensor. The motor will "
+"decelerate and then stop when the home sensor activates (if it has been "
+"set up as such)."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:328
+msgid "`/releaseSw`_"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:330
+msgid ""
+"This command slowly moves the motor in the opposite direction from the "
+"current position and stops immediately when the HOME sensor reading is no"
+" longer active. The position where the motor stops is the origin/home "
+"position! However, strictly speaking, the ``/goUntil`` command does not "
+"stop immediately, but stop after deceleration. Its current position has a"
+" slight negative offset from the point where the sensor actually "
+"responded. This is not accounted for in the firmware as every environment"
+" is different."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:339
+msgid ""
+"Both commands can be configured to reset the current position to zero the"
+" moment the sensor responds with `/setHomeSwMode`_."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:342
+msgid "To better illustrate this interaction, here is a demo video."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:352
+msgid "`/homing`_"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:354
+msgid ""
+"It is possible to send above two commands over OSC one after another, "
+"however, the ``/homing`` command executes this sequence in single "
+"operation. It will automatically complete the home sequence according to "
+"the homing direction and homing speed which are pre-configured with the "
+"`Config Tool`_ or with the commands `/setHomingDirection`_ and "
+"`/setHomingSpeed`_, respectively."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:363
+msgid "Homing Timeouts"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:365
+msgid ""
+"Both ``/goUntil`` and ``/releaseSw`` have pre-configured timeouts. When "
+"either command times out--that is, the HOME sensor's state has not "
+"changed after a period of time--the controller will halt the movement of "
+"the motor. This is to prevent the moving part from being pushed against "
+"other mechanical objects endlessly and for safety."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:373
+msgid "Normally Open and Normally Closed"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:377
+msgid "Electrical Connections"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:379
+msgid ""
+"Let's explore \"sensor reaction” a little bit more in detail. The pin "
+"assignments of HOME and LIMIT connectors are as follows."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:383
+#: ../../step-series/submodules/functionality-descriptions.rst:405
+msgid "Pin number"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:386
+#: ../../step-series/submodules/functionality-descriptions.rst:408
+msgid "Switch/Sensor input"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:387
+#: ../../step-series/submodules/functionality-descriptions.rst:409
+msgid "5V Power Output"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:390
+msgid ""
+"Each sensor pin (2) on HOME and LIMIT is pulled up to 3.3V. To connect "
+"the switch, connect the GND (1) and the sensor terminal (2). When the "
+"switch is pressed, it is connected to the GND pin and the voltage drops "
+"from 3.3V to 0V. When the voltage changes from HIGH level to LOW level "
+"(a.k.a. **Falling Edge**), the sensor is considered to have activated."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:396
+msgid ""
+"Let's take photo interrupter `EE-SX671A`_ as an example, where the "
+"connection is as follows:"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:402
+msgid "EE-SX671A Diagram"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:405
+msgid "Sensor pin"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:408
+msgid "OUT"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:414
+msgid "Light or No Light Activation"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:416
+msgid "This is the part you need to consider carefully before ordering a sensor."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:422
+msgid "Dark on or Light on"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:422
+msgid "Dark activated or light activated"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:424
+msgid ""
+"In the case of the left picture, the light enters into the sensor at the "
+"home position, but in the picture on the right, the light is blocked at "
+"the home position."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:428
+msgid ""
+"There are two types of sensors, one that turns on when light enters and "
+"one that turns on when light is interrupted. In the case of the above "
+"Omron sensor, the action is toggled by connecting the \"L\" and \"+\"\" "
+"terminals."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:433
+msgid ""
+"The mechanism and sensor must be combined in such a way that the sensor "
+"pin goes from HIGH to LOW at the home position."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:438
+msgid "Rotary Tables"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:440
+msgid ""
+"In the left example on the picture above, the response position of the "
+"home sensor will differ between clockwise and counterclockwise, depending"
+" on the size of the hole. The STEP400 can notify both HIGH to LOW and LOW"
+" to HIGH changes of the home sensor by OSC messages. The message also "
+"includes the rotation direction, so you can align the home position if "
+"you write a conditional sequence for each rotation direction. This "
+"reporting can be configured with `/enableHomeSwReport`_."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:450
+msgid "Servo Mode Explained"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:452
+msgid ""
+"As stated above, servo mode is not a function native to the motor driver "
+"chip on the board. While seemingly similar to positional commands, servo "
+"mode commands allow you to define a new target position *while the motor "
+"is moving*. This is not possible with positional commands which require "
+"the position to be set in advance of the motor's movements. New "
+"positional targets are not updated until after the current target is "
+"reached. While this mode is active, other functional commands cannot be "
+"sent."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:467
+msgid "*Example Behavior of Servo Mode*"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:471
+msgid "Initializing Steps for Servo Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:475
+msgid "Toggling the Mode"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:477
+msgid ""
+"The command `/enableServoMode`_ enables or disables Servo Mode. Upon "
+"starting Servo Mode, the driver must not be in the BUSY state."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:482
+msgid "Updating the Target Position"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:484
+msgid ""
+"The target position can be updated by the `/setTargetPosition`_ command. "
+"When the Arduino Sketch receives a new target position, it will compare "
+"the new position with the current one and change the rotation speed of "
+"the motor. Additionally, you can send target positions to all four motors"
+" at the same time with `/setTargetPositionList`_."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:492
+msgid "Types of Control Parameters"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:494
+msgid ""
+"The motor's rotation speed is calculated by a technique called \"PID "
+"Control\". To better illustrate the purpose of PID, refer to the "
+"following graph:"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:501
+msgid ""
+"Please refer to this graph when the control parameters are discussed "
+"below. These parameters can be set with the command `/setServoParam`_."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:506
+msgid "Proportional Gain (kP)"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:508
+msgid ""
+"PID control uses differences of current position and target position "
+"(deviation) for the control. That is, it approaches the target position "
+"by rotating faster when the deviation is large, and rotates slower when "
+"the deviation is small. The proportional gain defines how much influence "
+"to the speed will be given from the deviation. If the value is too small,"
+" it will take time to approach the target position, and if the value is "
+"too large, an \"overshoot\" may occur in which case the target position "
+"is passed."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:519
+msgid "Integral Gain (kI)"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:521
+msgid ""
+"If there is only the proportional control, the rotation speed will get "
+"slower and takes very long time to compensate the offset when approaching"
+" to the target position. In this case, adding the time integral of the "
+"deviation to the control value will effectively compensate the offset. By"
+" applying large integral gain, you could compensate the offset quickly; "
+"however, it may cause the overshoot, or even the continuous oscillation "
+"by trying to compensate the overshoot."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:531
+msgid "Differential Gain (kD)"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:533
+msgid ""
+"In case an overshoot or oscillation related errors occurs, this parameter"
+" is used to eliminate steep changes in deviation--that is to say, it acts"
+" like a spring that continually decreases each oscillation."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:539
+msgid "Methods for Determining PID Parameters"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:543
+msgid "Step by Step Procedures"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:545
+msgid ""
+"PID Control Parameters must be determined from the actual acceleration, "
+"deceleration, and the maximum rotation speed (speed profile). Determine "
+"the control parameters by following these steps:"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:549
+msgid ""
+"Decide the KVAL (in case of current mode, TVAL) that is matched to the "
+"rated value and load."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:551
+msgid ""
+"Decide the operational acceleration, deceleration, and the maximum "
+"rotation speed (speed profile)."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:553
+msgid "Adjust the PID control gains."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:557
+msgid "The Decisions of PID Control Gain"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:559
+msgid ""
+"There are multiple methods for deciding the optimal PID Control Gain. "
+"However, it may also depend on the factors like the objective of "
+"movement, or the frequency of target position change. Therefore we "
+"determine the values by steps described as follows and do trial and error"
+" on the actual set up."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:567
+msgid "1. kP"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:569
+msgid ""
+"Set all kP, kI, kD, to 0.0 and gradually raise the kP until the motor "
+"starts to oscillate around its target position. When the target position "
+"changes only sometimes, we often set only kP while keeping other kI and "
+"kD values at 0.0."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:576
+msgid "2. kI"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:578
+msgid ""
+"In case when the target position only changing once every couple of "
+"seconds, you set the movement to quick and responsive by raising the kI "
+"value. Yet for example, when the target position is sent at 60fps, the "
+"acceleration towards the each new target position would cause the "
+"vibration and loose smooth transition. Depending on the priority of the "
+"quickly response to the target position or smooth movement for the whole "
+"operation, the preferrable values may change."
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:588
+msgid "3. kD"
+msgstr ""
+
+#: ../../step-series/submodules/functionality-descriptions.rst:590
+msgid ""
+"We gradually raise the kD if oscillation or overshoot is observed when "
+"approaching the target."
 msgstr ""
 
 #: ../../step-series/index.rst:3
@@ -2075,5 +2693,63 @@ msgstr ""
 #~ "We gradually raise the kD if "
 #~ "oscillation or overshoot is observed "
 #~ "when approaching to the target."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "+================+=================+==============+ |State "
+#~ "after stop|Deceleration stop|Immediate stop| "
+#~ "+================+=================+==============+ |Excitation"
+#~ "      |SoftStop         |HardStop      | "
+#~ "+----------------+-----------------+--------------+ |HiZ"
+#~ "             |SoftHiZ          |HardHiZ       | "
+#~ "+----------------+-----------------+--------------+"
+#~ msgstr ""
+
+#~ msgid "Functionality Overview"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The commands `/goTo`_, `/goToDir`, `/move`,"
+#~ " `/setTargetPosition` and `/setTargetPositionList` "
+#~ "are all considered positioning commands."
+#~ msgstr ""
+
+#~ msgid "Decelerated stop"
+#~ msgstr ""
+
+#~ msgid "Excited"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is not a function of the "
+#~ "motor driver, but a mode of "
+#~ "driving implemented in the firmware. It"
+#~ " constantly updates the constant speed "
+#~ "operation to follow a given target "
+#~ "position. This mode is similar to "
+#~ "the radio controlled servo motor. No "
+#~ "other motor motion commands can be "
+#~ "sent while the motor is operating "
+#~ "in this mode."
+#~ msgstr ""
+
+#~ msgid "Decelerate according to the speed profile or stop instantly"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Keep magnetized / excited or go to"
+#~ " the high impedance(High Z) state "
+#~ "after stop"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The excited state is the state in"
+#~ " which the torque is applied to "
+#~ "hold the motor's position according to"
+#~ " ``KVAL_HOLD`` voltage, or current set "
+#~ "by the ``TVAL_HOLD`` value. The high "
+#~ "impedance state is the state where "
+#~ "the current is cut off and there"
+#~ " is no holding torque."
 #~ msgstr ""
 
