@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../step-series/about.rst:11
 msgid "About"
-msgstr ""
+msgstr "概要"
 
 #: ../../step-series/about.rst:14
 msgid ""
@@ -37,6 +37,10 @@ msgid ""
 "review the datasheets for both chips to better understand how they work "
 "and what each command is doing."
 msgstr ""
+"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。"
+"両機種ともMCUとして`Arduino Zero`_を使用しています。"
+"モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ 、STEP800は同社の `L6470`_ で、多くの機能はこれらのドライバICの機能を継承したものです。"
+"データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
 
 #: ../../step-series/about.rst:20
 msgid ""

@@ -21,22 +21,22 @@ msgstr ""
 
 #: ../../index.rst:8
 msgid "Contents:"
-msgstr ""
+msgstr "目次"
 
 #: ../../index.rst:2
 msgid "``Step-Series Docs``: Ponoor Experiments Official Documentation"
-msgstr ""
+msgstr "``STEP-series Docs``: Ponoor Experiments 公式ドキュメント"
 
 #: ../../index.rst:4
 msgid ""
 "Welcome to Ponoor Experiments's Step-Series motor controller "
 "documentation. To begin, choose one of the links below to learn how to "
 "setup and operate your device, and to use the official Python API."
-msgstr ""
+msgstr "Ponoor ExperimentsのSTEPシリーズのドキュメントです。セットアップ方法、Python APIの使い方を説明しています。"
 
 #: ../../index.rst:17
 msgid "Indices and Tables"
-msgstr ""
+msgstr "索引"
 
 #: ../../index.rst:19
 msgid ":ref:`genindex`"
