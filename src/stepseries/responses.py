@@ -135,7 +135,7 @@ class Busy(OSCResponse):
 
     address: str = field(default="/busy", init=False)
     motorID: int
-    state: bool
+    state: int
 
 
 @dataclass
@@ -144,7 +144,7 @@ class HiZ(OSCResponse):
 
     address: str = field(default="/HiZ", init=False)
     motorID: int
-    state: bool
+    state: int
 
 
 @dataclass
@@ -171,7 +171,7 @@ class Uvlo(OSCResponse):
 
     address: str = field(default="/uvlo", init=False)
     motorID: int
-    state: bool
+    state: int
 
 
 @dataclass
@@ -211,7 +211,7 @@ class DestIP(OSCResponse):
     destIp1: int
     destIp2: int
     destIp3: int
-    isNewDestIp: bool
+    isNewDestIp: int
 
 
 @dataclass
@@ -235,9 +235,9 @@ class ConfigName(OSCResponse):
 
     address: str = field(default="/configName", init=False)
     configName: str
-    sdInitializeSucceeded: bool
-    configFileOpenSucceeded: bool
-    configFileParseSucceeded: bool
+    sdInitializeSucceeded: int
+    configFileOpenSucceeded: int
+    configFileParseSucceeded: int
 
 
 # Motor Driver Settings
@@ -259,7 +259,7 @@ class LowSpeedOptimizeThreshold(OSCResponse):
     address: str = field(default="/lowSpeedOptimizeThreshold", init=False)
     motorID: int
     lowSpeedOptimizeThreshold: float
-    optimizationEnabled: bool
+    optimizationEnabled: int
 
 
 @dataclass
@@ -268,7 +268,7 @@ class Dir(OSCResponse):
 
     address: str = field(default="/dir", init=False)
     motorID: int
-    direction: bool
+    direction: int
 
 
 @dataclass
@@ -325,7 +325,7 @@ class ProhibitMotionOnHomeSw(OSCResponse):
 
     address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
-    enable: bool
+    enable: int
 
 
 @dataclass
@@ -334,7 +334,7 @@ class ProhibitMotionOnLimitSw(OSCResponse):
 
     address: str = field(default="/prohibitMotionOnLimitSw", init=False)
     motorID: int
-    enable: bool
+    enable: int
 
 
 # Voltage and Current Mode Settings
@@ -449,7 +449,7 @@ class HomingDirection(OSCResponse):
 
     address: str = field(default="/homingDirection", init=False)
     motorID: int
-    homingDirection: bool
+    homingDirection: int
 
 
 @dataclass
@@ -496,8 +496,8 @@ class HomeSw(OSCResponse):
 
     address: str = field(default="/homeSw", init=False)
     motorID: int
-    swState: bool
-    direction: bool
+    swState: int
+    direction: int
 
 
 @dataclass
@@ -506,8 +506,8 @@ class LimitSw(OSCResponse):
 
     address: str = field(default="/limitSw", init=False)
     motorID: int
-    swState: bool
-    direction: bool
+    swState: int
+    direction: int
 
 
 @dataclass
@@ -516,7 +516,7 @@ class HomeSwMode(OSCResponse):
 
     address: str = field(default="/homeSwMode", init=False)
     motorID: int
-    swMode: bool
+    swMode: int
 
 
 @dataclass
@@ -525,7 +525,7 @@ class LimitSwMode(OSCResponse):
 
     address: str = field(default="/limitSwMode", init=False)
     motorID: int
-    swMode: bool
+    swMode: int
 
 
 # Position Management
