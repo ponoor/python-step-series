@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../../module-reference.rst:2
 msgid "``stepseries.commands`` -- Device Commands"
-msgstr ""
+msgstr "``stepseries.commands`` -- デバイスへのコマンド"
 
 #: of stepseries.commands:1
 msgid "Messages to send to the device."
-msgstr ""
+msgstr "デバイスへ送信するメッセージです。"
 
 #: of stepseries.commands:3
 msgid ""
