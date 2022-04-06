@@ -9,7 +9,9 @@ Development version
 Version 1.0.0, 2022-04-XX
 -------------------------
 
-- Documentation
+- Add documentation for both English and Japanese
+- Update responses module to reflect upstream changes (always return int instead of bool)
+- Make ``SetDestIp`` a get command instead of a set (still todo)
 
 Current versions
 ================
