@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-27 22:54-0500\n"
+"POT-Creation-Date: 2022-04-18 21:36-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,10 +37,10 @@ msgid ""
 "review the datasheets for both chips to better understand how they work "
 "and what each command is doing."
 msgstr ""
-"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。"
-"両機種ともMCUとして`Arduino Zero`_を使用しています。"
-"モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ 、STEP800は同社の `L6470`_ で、多くの機能はこれらのドライバICの機能を継承したものです。"
-"データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
+"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。両機種ともMCUとして`Arduino "
+"Zero`_を使用しています。モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ "
+"、STEP800は同社の `L6470`_ "
+"で、多くの機能はこれらのドライバICの機能を継承したものです。データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
 
 #: ../../step-series/about.rst:20
 msgid ""
@@ -1866,6 +1866,188 @@ msgstr ""
 
 #: ../../step-series/index.rst:3
 msgid "STEPXXX Series"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:3
+msgid "Technical Information"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:5
+msgid ""
+"Advanced information regarding firmware and the actual hardware around "
+"the boards is contained here. A basic understanding of programming "
+"Arduinos and the Arduino IDE or PlatformIO with VSCode is assumed."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:11
+msgid "Firmware"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:13
+msgid ""
+"Because the main control unit (MCU) is an Arduino Zero, the firmware is "
+"actually an Arduino sketch. This means uploading the firmware is done "
+"using the Arduino IDE or PlatformIO in VSCode."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:17
+msgid ""
+"The latest firware version can be viewed at this `GitHub Releases`_ page."
+" The code itself lives in this `GitHub Repository`_ where it can be "
+"downloaded for use throughout this module."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:23
+msgid "Checking the Version"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:25
+msgid "Two methods exist to check the current version of the firmware:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:27
+msgid "Using the OSC command ``/getVersion``"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:28
+msgid "Connecting a USB cable to the board and typing ``s`` in the Serial Monitor"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:33
+msgid "Method 1: OSC Command"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:35
+msgid ""
+"This method only requires you to send the ``/getVersion`` command to the "
+"board. The resulting response will tell you the current version of the "
+"firmware."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:39
+#: ../../step-series/submodules/technical-information.rst:53
+msgid "For example:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:47
+msgid "Method 2: Over USB"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:49
+msgid ""
+"Connect the USB-C cable to the board and to your PC. Then open Serial "
+"Monitor in the IDE you're using. Send the command ``s`` and you should "
+"receive a response containing the version."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:64
+msgid "Uploading New Versions"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:68
+msgid "Compiling with PlatformIO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:70
+msgid ""
+"The firmware is primarily developed using `PlatformIO`_. Each repository "
+"has a dedicated directory you can open using the \"Open Project\" menu of"
+" PlatformIO. All dependencies are automatically installed when you "
+"compile the project for the first-time."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:77
+msgid "Compiling with Arduino"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:79
+msgid ""
+"Using the Arduino IDE requires a bit of manual setup than PlatformIO. To "
+"begin, the Arduino Zero board must be first installed in the IDE using "
+"the Board Manager. This `Quickstart Page`_ is a great resource for how to"
+" do this procedure."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:84
+msgid ""
+"Next, the following libraries need to be installed. Here's a page "
+"describing how to `install libraries`_."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:87
+msgid "`OSC Library`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:88
+msgid "`ArduinoJSON`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:89
+msgid "`Adafruit SleepyDog Arduino Library`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:90
+msgid "STEP400 only: `Ponoor PowerSTEP01 Library`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:91
+msgid "STEP800 only: `Ponoor L6470 Library`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:93
+msgid ""
+"There many OSC libraries that may be listed in the Library Manager. This "
+"project uses the library made by CNMAT and is listed as **OSC**. Note "
+"that the creators are listed as Adrian Freed and Yotam Mann, not CNMAT."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:103
+msgid "Compiling/Uploading the Sketch"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:105
+msgid ""
+"Before compiling, ensure the ``.ino`` file is open and the board "
+"\"Arduino Zero (Native USB Port)\" in Tools **>** Boards is selected for "
+"the Arduino IDE."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:109
+msgid ""
+"PlatformIO should already be configured for this project, so no action "
+"should be taken."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:112
+msgid "Now the firmware can be compiled and uploaded using either IDE."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:116
+msgid "Extra Notes"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:118
+msgid ""
+"As a safety precaution, the electromagnetic brake should be disconnected "
+"from the board. While uploading the firmware, defaults are sometimes "
+"reset which may lead to the load being held by the brake to be dropped."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:122
+msgid ""
+"Connecting just the USB-C cable is not enough to power the motor driver "
+"chips on either board. So, while you can upload sketches and perform some"
+" basic commands on the board, no movement will be possible unless "
+"additional power is provided."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:126
+msgid ""
+"Ocassionally, the Arduino Zero may fail to write. In case this happens, "
+"try double-clicking the RESET switch and putting the board in bootloader "
+"mode. Then try uploading again. In this mode, the sketch will not boot "
+"and the LED ``L`` will begin to fade. You also have to reselect a "
+"different serial port."
 msgstr ""
 
 #~ msgid "Overview"
