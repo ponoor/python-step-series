@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-18 21:36-0500\n"
+"POT-Creation-Date: 2022-04-18 21:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1864,10 +1864,6 @@ msgid ""
 "approaching the target."
 msgstr ""
 
-#: ../../step-series/index.rst:3
-msgid "STEPXXX Series"
-msgstr ""
-
 #: ../../step-series/submodules/technical-information.rst:3
 msgid "Technical Information"
 msgstr ""
@@ -2043,11 +2039,15 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:126
 msgid ""
-"Ocassionally, the Arduino Zero may fail to write. In case this happens, "
+"Occasionally, the Arduino Zero may fail to write. In case this happens, "
 "try double-clicking the RESET switch and putting the board in bootloader "
 "mode. Then try uploading again. In this mode, the sketch will not boot "
 "and the LED ``L`` will begin to fade. You also have to reselect a "
 "different serial port."
+msgstr ""
+
+#: ../../step-series/index.rst:3
+msgid "STEPXXX Series"
 msgstr ""
 
 #~ msgid "Overview"
@@ -2937,5 +2937,17 @@ msgstr ""
 #~ "impedance state is the state where "
 #~ "the current is cut off and there"
 #~ " is no holding torque."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Ocassionally, the Arduino Zero may fail"
+#~ " to write. In case this happens, "
+#~ "try double-clicking the RESET switch "
+#~ "and putting the board in bootloader "
+#~ "mode. Then try uploading again. In "
+#~ "this mode, the sketch will not "
+#~ "boot and the LED ``L`` will begin"
+#~ " to fade. You also have to "
+#~ "reselect a different serial port."
 #~ msgstr ""
 
