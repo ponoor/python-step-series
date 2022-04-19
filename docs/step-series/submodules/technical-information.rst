@@ -123,7 +123,7 @@ Extra Notes
   driver chips on either board. So, while you can upload sketches and
   perform some basic commands on the board, no movement will be possible
   unless additional power is provided.
-* Ocassionally, the Arduino Zero may fail to write. In case this
+* Occasionally, the Arduino Zero may fail to write. In case this
   happens, try double-clicking the RESET switch and putting the board in
   bootloader mode. Then try uploading again. In this mode, the sketch
   will not boot and the LED ``L`` will begin to fade. You also have to
