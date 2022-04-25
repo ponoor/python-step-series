@@ -37,10 +37,10 @@ msgid ""
 "review the datasheets for both chips to better understand how they work "
 "and what each command is doing."
 msgstr ""
-"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。両機種ともMCUとして`Arduino "
-"Zero`_を使用しています。モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ "
-"、STEP800は同社の `L6470`_ "
-"で、多くの機能はこれらのドライバICの機能を継承したものです。データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
+"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。"
+"両機種ともMCUとして `Arduino Zero`_ を使用しています。"
+"モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ 、STEP800は同社の `L6470`_ で、多くの機能はこれらのドライバICの機能を継承したものです。"
+"データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
 
 #: ../../step-series/about.rst:20
 msgid ""
@@ -48,14 +48,17 @@ msgid ""
 "marked in the API Reference. So, unless you see ``STEP400 Only`` or "
 "``STEP800 Only``, assume the command is compatible with both devices."
 msgstr ""
+"STEP400/800の両者は同じコマンド体系を持っています。"
+"特別な注記がない場合は両方の機種に共通のコマンドです。"
+"いくつかの例外があり、それらは``STEP400のみ`` ``STEP800`` のみと表記されています。"
 
 #: ../../step-series/submodules/getting-started.rst:3
 msgid "Getting Started"
-msgstr ""
+msgstr "チュートリアル"
 
 #: ../../step-series/submodules/getting-started.rst:7
 msgid "Example Files"
-msgstr ""
+msgstr "サンプルファイル"
 
 #: ../../step-series/submodules/getting-started.rst:9
 msgid ""
@@ -64,10 +67,13 @@ msgid ""
 "applications can also communicate with these devices, so example "
 "configuration and setup files are provided in the list below:"
 msgstr ""
+"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `protocol_` を用いて通信を行います。"
+"``python-step-series`` 以外にも、数多くのアプリケーションから制御が可能です。"
+"いくつかの環境のサンプルファイルを準備しています。"
 
 #: ../../step-series/submodules/getting-started.rst:13
 msgid "`Max`_ (recommended, `download`_)"
-msgstr ""
+msgstr "`Max`_ (おすすめ, `download`_)"
 
 #: ../../step-series/submodules/getting-started.rst:14
 msgid "`Processing`_ (thanks `@yuskegoto`_)"
@@ -91,11 +97,11 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:22
 msgid "Wiring"
-msgstr ""
+msgstr "接続"
 
 #: ../../step-series/submodules/getting-started.rst:26
 msgid "Communication"
-msgstr ""
+msgstr "通信"
 
 #: ../../step-series/submodules/getting-started.rst:28
 msgid ""
@@ -105,16 +111,23 @@ msgid ""
 "if this is not possible for you, then plugging the device into a network "
 "switch is also viable."
 msgstr ""
+"STEP400/800ともEthernetを用いて通信します。すなわち、制御に使うPCにはEthernetポート"
+"またはUSB-Ethernet変換などが必要です。"
+"このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。"
+"もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
 
 #: ../../step-series/submodules/getting-started.rst:33
 msgid "Please plug the ethernet cable in now."
-msgstr ""
+msgstr "まずEthernetケーブルを接続してください。"
 
 #: ../../step-series/submodules/getting-started.rst:35
 msgid ""
 "Ensure your switch is actually a switch. Do not plug these devices into a"
 " router as router ports behave differently than switch ports do."
 msgstr ""
+"ネットワークスイッチが、ルータではなく本当にスイッチかどうか確認してください。"
+"例えばWiFiルータにはルータポートとスイッチポートがあり、ルータポートは挙動がスイッチと異なるため、"
+"STEPシリーズは必ずスイッチポートに接続します。"
 
 #: ../../step-series/submodules/getting-started.rst:38
 msgid ""
@@ -122,10 +135,12 @@ msgid ""
 "tutorial. You will be asked to connect the power supply in the upcoming "
 "sections, but make sure it is **not** on."
 msgstr ""
+"この時点では電源を接続しないでください。後ほど電源を接続する段になりますが、"
+"その時点で電源がオンになっていないことを確認してください。"
 
 #: ../../step-series/submodules/getting-started.rst:43
 msgid "Stepper Motors"
-msgstr ""
+msgstr "ステッピングモータ"
 
 #: ../../step-series/submodules/getting-started.rst:45
 msgid ""
@@ -137,7 +152,10 @@ msgid ""
 "``SM-42BYG011-25`` can be purchased from one the (unaffiliated) "
 "recommended sites below:"
 msgstr ""
-
+"本デバイスで使用できるのは、「バイポーラ型」のステッピングモータです。"
+"入手しやすいモータの例としては、MERCURY MOTORの ``SM-42BYG011-25`` があります。"
+"使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは"
+"``SM-42BYG011-25`` を使用していると仮定して進めます。このモータは例えば下記の場所で入手できます。"
 #: ../../step-series/submodules/getting-started.rst:51
 msgid "`Sparkfun`_"
 msgstr ""
@@ -148,13 +166,14 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:53
 msgid "`Akizuki Denshi`_"
-msgstr ""
+msgstr "秋月電子通商"
 
 #: ../../step-series/submodules/getting-started.rst:58
 msgid ""
 "From the wiring diagram found in the `datasheet`_ for this motor, we can "
 "see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
 msgstr ""
+"このモータのデータシートはこちらにあります。 これをみると、コイルのペアは 赤と緑、黄と青、になっていることがわかります。"
 
 #: ../../step-series/submodules/getting-started.rst:63
 msgid "The wiring to the terminal block should look like this:"
