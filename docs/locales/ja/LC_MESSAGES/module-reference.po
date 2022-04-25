@@ -50,13 +50,13 @@ msgstr ""
 
 #: of stepseries.commands.Activate:1
 msgid "Enables or disables the electromagnetic brake."
-msgstr ""
+msgstr "電磁ブレーキの有効、無効を切り替えます。"
 
 #: of stepseries.commands.Activate:3 stepseries.commands.Free:6
 msgid ""
 ":py:class:`stepseries.commands.EnableElectromagnetBrake` must be enabled "
 "for this command to have an effect."
-msgstr ""
+msgstr "あらかじめ :py:class:`stepseries.commands.EnableElectromagnetBrake` が有効になっている必要があります。"
 
 #: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
 #: stepseries.commands.EnableDirReport:4
@@ -130,7 +130,7 @@ msgstr ""
 #: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
 #: stepseries.commands.SoftStop:10
 msgid "Executable Timing"
-msgstr ""
+msgstr "実行可能タイミング"
 
 #: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
 #: stepseries.commands.EnableDirReport:4
@@ -195,7 +195,7 @@ msgstr ""
 #: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
 #: stepseries.commands.SoftStop:10
 msgid "Always"
-msgstr ""
+msgstr "常時"
 
 #: ../../docstring of stepseries.commands.Activate.motorID:2
 #: stepseries.commands.EnableBusyReport.motorID:2
@@ -557,7 +557,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.Activate.state:2
 msgid "Motor engaged, brake released"
-msgstr ""
+msgstr "モータ励磁、電磁ブレーキ開放"
 
 #: ../../docstring of stepseries.commands.Activate.state:4
 #: stepseries.commands.EnableThermalStatusReport:26
@@ -574,12 +574,12 @@ msgid "1"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.Activate.state:4
-msgid "Motor released, brake engaged"
+msgid "モータ励磁解除、電磁ブレーキ保持"
 msgstr ""
 
 #: of stepseries.commands.EnableBusyReport:1
 msgid "Enable or disable the automatic reporting of busy status changes."
-msgstr ""
+msgstr "BUSY状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:1
 #: stepseries.commands.EnableDirReport.enable:1
@@ -594,7 +594,7 @@ msgstr ""
 #: stepseries.commands.EnableUvloReport.enable:1
 #: stepseries.commands.ReportError.enable:1
 msgid "If True, enable the reporting."
-msgstr ""
+msgstr "True で有効"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
 #: stepseries.commands.EnableDirReport.enable:4
@@ -653,7 +653,7 @@ msgstr ""
 #: stepseries.commands.SetTval.runTVAL:6
 #: stepseries.commands.SetTval.setDecTVAL:6
 msgid "Default"
-msgstr ""
+msgstr "初期値"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
 #: stepseries.commands.EnableDirReport.enable:4
@@ -677,44 +677,47 @@ msgstr ""
 
 #: of stepseries.commands.EnableDirReport:1
 msgid "Enable or disable the automatic reporting of direction changes."
-msgstr ""
+msgstr "モータ回転方向に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:1
 msgid "Enable or disable electromagnetic brake operation."
-msgstr ""
+msgstr "電磁ブレーキモードの有効・無効を切り替えます。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:3
 msgid ""
 "Not to be confused with :py:class:`stepseries.commands.Activate` which "
 "activates or deactivates the brake."
 msgstr ""
+"実際にブレーキを動作させる :py:class:`stepseries.commands.Activate` と混同しないように注意してください。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:6
 msgid ""
 "While enabled, the controller will reply with ``ERROR_BRAKE_ENGAGED`` if "
 "a movement command is sent without releasing the brake."
 msgstr ""
+"電磁ブレーキモードが有効になると、電磁ブレーキを開放しないままモータを回すコマンドを送ると"
+"デバイスから ``ERROR_BRAKE_ENGAGED`` が送られます。"
 
 #: ../../docstring of stepseries.commands.EnableElectromagnetBrake.enable:1
 msgid "If True, enable the brake."
-msgstr ""
+msgstr "True で有効"
 
 #: of stepseries.commands.EnableHiZReport:1
 msgid "Enable or disable the automatic reporting of HiZ status changes."
-msgstr ""
+msgstr "HiZ状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableHomeSwReport:1
 #: stepseries.commands.EnableSwEventReport:1
 msgid "Enable or disable the automatic reporting of home switch changes."
-msgstr ""
+msgstr "HOMEスイッチの状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableHomeSwReport:3
 msgid "Also see :py:class:`stepseries.commands.EnableSwEventReport`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.EnableSwEventReport` もご参照ください。"
 
 #: of stepseries.commands.EnableLimitSwReport:1
 msgid "Enable or disable automatic reporting of limit switch changes."
-msgstr ""
+msgstr "LIMITスイッチの状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableLimitSwReport:3 stepseries.commands.GetAdcVal:7
 #: stepseries.commands.GetDecayModeParam:3 stepseries.commands.GetLimitSw:3
@@ -726,11 +729,11 @@ msgstr ""
 #: stepseries.commands.SetProhibitMotionOnLimitSw:7
 #: stepseries.commands.SetTval:3 stepseries.commands.SetVoltageMode:3
 msgid "``STEP400 Only``"
-msgstr ""
+msgstr "``STEP400のみ``"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:1
 msgid "Enable or disable low speed optimization."
-msgstr ""
+msgstr "低速回転時の相電流ひずみ補正の有効無効を切り替えます。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:3
 msgid ""
@@ -739,35 +742,39 @@ msgid ""
 "This optimizer attempts to compensate for that. When enabled, the minimum"
 " speed of the speed profile is forced to zero."
 msgstr ""
+"低い電圧で非常にゆっくり回転させると、相電流の歪みにより、モータはスムーズな回転を維持するのがむずかしくなります。"
+"その影響を減らすための補正です。この補正が電圧モードでのみ有効で、有効時は ``Min Speed`` が強制的に0になります。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:8
 msgid "See the datasheet for more details."
-msgstr ""
+msgstr "詳しくはデータシートを参照してください。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:11 stepseries.commands.Move:7
 #: stepseries.commands.SetAcc:4 stepseries.commands.SetDec:4
 #: stepseries.commands.SetElPos:7 stepseries.commands.SetMinSpeed:10
 #: stepseries.commands.SetPosition:4 stepseries.commands.SetSpeedProfile:7
 msgid "Stopped"
-msgstr ""
+msgstr "モータ停止時"
 
 #: ../../docstring of stepseries.commands.EnableLowSpeedOptimize.enable:1
 msgid "If True, enable the optimizer."
-msgstr ""
+msgstr "True で補正有効"
 
 #: of stepseries.commands.EnableMotorStatusReport:1
 msgid "Enable or disable the automatic reporting of motor op changes."
-msgstr ""
+msgstr "モータの回転状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableMotorStatusReport:3
 msgid ""
 "The reports are sent when the motor changes its current op like "
 "acceleration, constant speed, deceleration or stopping."
 msgstr ""
+"有効になっている場合、モータに停止中、加速中、一定速運転中、減速中という状態の変化に発生したら、"
+"報告のメッセージを送信します。"
 
 #: of stepseries.commands.EnableOverCurrentReport:1
 msgid "Enable or disable the automatic reporting of overcurrent events."
-msgstr ""
+msgstr "過電流状態になったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableOverCurrentReport:3
 msgid ""
@@ -775,18 +782,20 @@ msgid ""
 "configured threshold. This threshold can be set using "
 ":py:class:`stepseries.commands.SetOverCurrentThreshold`."
 msgstr ""
+"指定した電流閾値を越えて電流が流れた場合に報告のメッセージを送信します。"
+"この閾値は :py:class:`stepseries.commands.SetOverCurrentThreshold` で指定します。"
 
 #: of stepseries.commands.EnableOverCurrentReport:7
 msgid ""
 "When overcurrent draw is detected, the device automatically enters a HiZ "
 "state with or without notification."
-msgstr ""
+msgstr "モータドライバが過電流状態になった場合は、通知の有無にかかわらず自動でHiZ状態になります。"
 
 #: of stepseries.commands.EnableOverCurrentReport:10
 #: stepseries.commands.EnableThermalStatusReport:13
 #: stepseries.commands.EnableUvloReport:8
 msgid "This report is enabled by default."
-msgstr ""
+msgstr "この設定は初期状態で有効になっています。"
 
 #: ../../docstring of stepseries.commands.EnableOverCurrentReport.enable:4
 #: stepseries.commands.EnableThermalStatusReport.enable:4
@@ -800,22 +809,24 @@ msgstr ""
 
 #: of stepseries.commands.EnableServoMode:1
 msgid "Enable or disable servo mode (position tracking mode)."
-msgstr ""
+msgstr "サーボモード（位置追従モード）の有効無効を切り替えます。"
 
 #: of stepseries.commands.EnableServoMode:3
 msgid ""
 "It is not possible to send other control commands such as "
-":py:class:`stepseries.commands.Run` or "
+":py:class:`stepseries.commands.SetOverCurrentThreshold` or "
 ":py:class:`stepseries.commands.GoTo` when in this mode."
 msgstr ""
+"このモードで動作している間は、 :py:class:`stepseries.commands.SetOverCurrentThreshold` や"
+":py:class:`stepseries.commands.GoTo` など、他のモータ回転コマンドを送ることはできません。"
 
 #: ../../docstring of stepseries.commands.EnableServoMode.enable:1
 msgid "If True, enable servo mode."
-msgstr ""
+msgstr "True で有効"
 
 #: of stepseries.commands.EnableStallReport:1
 msgid "Enable or disable the automatic reporting of stall events."
-msgstr ""
+msgstr "モータのストールを検出した際に自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableStallReport:3
 msgid ""
