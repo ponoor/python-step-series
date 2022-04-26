@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-18 21:46-0500\n"
+"POT-Creation-Date: 2022-04-25 22:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.10.1\n"
 
 #: ../../step-series/about.rst:5
 msgid "STEP400/STEP800"
@@ -37,10 +37,10 @@ msgid ""
 "review the datasheets for both chips to better understand how they work "
 "and what each command is doing."
 msgstr ""
-"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。"
-"両機種ともMCUとして `Arduino Zero`_ を使用しています。"
-"モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ 、STEP800は同社の `L6470`_ で、多くの機能はこれらのドライバICの機能を継承したものです。"
-"データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
+"STEP400/STEP800はEthernet経由で多軸制御が可能なステッピングモータドライバです。両機種ともMCUとして `Arduino "
+"Zero`_ を使用しています。モータドライバとしてSTEP400はSTMicroelectronicsの `PowerSTEP01`_ "
+"、STEP800は同社の `L6470`_ "
+"で、多くの機能はこれらのドライバICの機能を継承したものです。データシートに一度目を通しておくと、機能やコマンドが理解しやすいと思います。"
 
 #: ../../step-series/about.rst:20
 msgid ""
@@ -48,9 +48,8 @@ msgid ""
 "marked in the API Reference. So, unless you see ``STEP400 Only`` or "
 "``STEP800 Only``, assume the command is compatible with both devices."
 msgstr ""
-"STEP400/800の両者は同じコマンド体系を持っています。"
-"特別な注記がない場合は両方の機種に共通のコマンドです。"
-"いくつかの例外があり、それらは``STEP400のみ`` ``STEP800`` のみと表記されています。"
+"STEP400/800の両者は同じコマンド体系を持っています。特別な注記がない場合は両方の機種に共通のコマンドです。いくつかの例外があり、それらは``STEP400のみ``"
+" ``STEP800`` のみと表記されています。"
 
 #: ../../step-series/submodules/getting-started.rst:3
 msgid "Getting Started"
@@ -67,9 +66,9 @@ msgid ""
 "applications can also communicate with these devices, so example "
 "configuration and setup files are provided in the list below:"
 msgstr ""
-"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `protocol_` を用いて通信を行います。"
-"``python-step-series`` 以外にも、数多くのアプリケーションから制御が可能です。"
-"いくつかの環境のサンプルファイルを準備しています。"
+"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `protocol_` を用いて通信を行います"
+"。``python-step-series`` "
+"以外にも、数多くのアプリケーションから制御が可能です。いくつかの環境のサンプルファイルを準備しています。"
 
 #: ../../step-series/submodules/getting-started.rst:13
 msgid "`Max`_ (recommended, `download`_)"
@@ -111,10 +110,8 @@ msgid ""
 "if this is not possible for you, then plugging the device into a network "
 "switch is also viable."
 msgstr ""
-"STEP400/800ともEthernetを用いて通信します。すなわち、制御に使うPCにはEthernetポート"
-"またはUSB-Ethernet変換などが必要です。"
-"このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。"
-"もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
+"STEP400/800ともEthernetを用いて通信します。すなわち、制御に使うPCにはEthernetポートまたはUSB-"
+"Ethernet変換などが必要です。このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
 
 #: ../../step-series/submodules/getting-started.rst:33
 msgid "Please plug the ethernet cable in now."
@@ -124,19 +121,14 @@ msgstr "まずEthernetケーブルを接続してください。"
 msgid ""
 "Ensure your switch is actually a switch. Do not plug these devices into a"
 " router as router ports behave differently than switch ports do."
-msgstr ""
-"ネットワークスイッチが、ルータではなく本当にスイッチかどうか確認してください。"
-"例えばWiFiルータにはルータポートとスイッチポートがあり、ルータポートは挙動がスイッチと異なるため、"
-"STEPシリーズは必ずスイッチポートに接続します。"
+msgstr "ネットワークスイッチが、ルータではなく本当にスイッチかどうか確認してください。例えばWiFiルータにはルータポートとスイッチポートがあり、ルータポートは挙動がスイッチと異なるため、STEPシリーズは必ずスイッチポートに接続します。"
 
 #: ../../step-series/submodules/getting-started.rst:38
 msgid ""
 "Please do not power the device until directed to do so later in the "
 "tutorial. You will be asked to connect the power supply in the upcoming "
 "sections, but make sure it is **not** on."
-msgstr ""
-"この時点では電源を接続しないでください。後ほど電源を接続する段になりますが、"
-"その時点で電源がオンになっていないことを確認してください。"
+msgstr "この時点では電源を接続しないでください。後ほど電源を接続する段になりますが、その時点で電源がオンになっていないことを確認してください。"
 
 #: ../../step-series/submodules/getting-started.rst:43
 msgid "Stepper Motors"
@@ -152,10 +144,10 @@ msgid ""
 "``SM-42BYG011-25`` can be purchased from one the (unaffiliated) "
 "recommended sites below:"
 msgstr ""
-"本デバイスで使用できるのは、「バイポーラ型」のステッピングモータです。"
-"入手しやすいモータの例としては、MERCURY MOTORの ``SM-42BYG011-25`` があります。"
-"使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは"
-"``SM-42BYG011-25`` を使用していると仮定して進めます。このモータは例えば下記の場所で入手できます。"
+"本デバイスで使用できるのは、「バイポーラ型」のステッピングモータです。入手しやすいモータの例としては、MERCURY MOTORの ``SM-"
+"42BYG011-25`` があります。使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは``SM-"
+"42BYG011-25`` を使用していると仮定して進めます。このモータは例えば下記の場所で入手できます。"
+
 #: ../../step-series/submodules/getting-started.rst:51
 msgid "`Sparkfun`_"
 msgstr ""
@@ -172,8 +164,7 @@ msgstr "秋月電子通商"
 msgid ""
 "From the wiring diagram found in the `datasheet`_ for this motor, we can "
 "see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
-msgstr ""
-"このモータのデータシートはこちらにあります。 これをみると、コイルのペアは 赤と緑、黄と青、になっていることがわかります。"
+msgstr "このモータのデータシートはこちらにあります。 これをみると、コイルのペアは 赤と緑、黄と青、になっていることがわかります。"
 
 #: ../../step-series/submodules/getting-started.rst:63
 msgid "The wiring to the terminal block should look like this:"
@@ -215,6 +206,9 @@ msgstr ""
 #: ../../step-series/submodules/getting-started.rst:221
 #: ../../step-series/submodules/getting-started.rst:354
 #: ../../step-series/submodules/other-connections-settings.rst:39
+#: ../../step-series/submodules/technical-information.rst:219
+#: ../../step-series/submodules/technical-information.rst:356
+#: ../../step-series/submodules/technical-information.rst:365
 msgid "Description"
 msgstr ""
 
@@ -222,6 +216,7 @@ msgstr ""
 #: ../../step-series/submodules/functionality-descriptions.rst:407
 #: ../../step-series/submodules/getting-started.rst:88
 #: ../../step-series/submodules/other-connections-settings.rst:63
+#: ../../step-series/submodules/technical-information.rst:368
 msgid "1"
 msgstr ""
 
@@ -233,6 +228,7 @@ msgstr ""
 #: ../../step-series/submodules/functionality-descriptions.rst:408
 #: ../../step-series/submodules/getting-started.rst:90
 #: ../../step-series/submodules/other-connections-settings.rst:65
+#: ../../step-series/submodules/technical-information.rst:369
 msgid "2"
 msgstr ""
 
@@ -244,6 +240,7 @@ msgstr ""
 #: ../../step-series/submodules/functionality-descriptions.rst:409
 #: ../../step-series/submodules/getting-started.rst:92
 #: ../../step-series/submodules/other-connections-settings.rst:67
+#: ../../step-series/submodules/technical-information.rst:370
 msgid "3"
 msgstr ""
 
@@ -252,6 +249,7 @@ msgid "USB-C Port"
 msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/technical-information.rst:371
 msgid "4"
 msgstr ""
 
@@ -753,6 +751,7 @@ msgid "Holding KVAL"
 msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/technical-information.rst:367
 msgid "0"
 msgstr ""
 
@@ -858,6 +857,7 @@ msgid "LIMIT"
 msgstr ""
 
 #: ../../step-series/submodules/other-connections-settings.rst:25
+#: ../../step-series/submodules/technical-information.rst:276
 msgid "``STEP400 Only``"
 msgstr ""
 
@@ -2063,6 +2063,346 @@ msgid ""
 "mode. Then try uploading again. In this mode, the sketch will not boot "
 "and the LED ``L`` will begin to fade. You also have to reselect a "
 "different serial port."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:135
+msgid "Diagnosing via USB"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:137
+msgid ""
+"Apart from uploading new firmware, the USB-C port on the device is also "
+"used to debug and monitor."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:140
+msgid ""
+"The USB-C port only powers the Arduino portion of the device. If you wish"
+" to run any motors, be sure to also connect (only) one of the primary "
+"power inputs."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:144
+msgid ""
+"If providing supplemental power, be sure to connect the USB-C cable last "
+"(or press RESET after doing so). Because the motor controllers will be in"
+" an unknown state if this process is flipped, you may encounter undefined"
+" behavior."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:151
+msgid "Serial Monitor"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:153
+msgid ""
+"This portion of the tutorial assumes you're using the Arduino IDE. Any "
+"serial port terminal client that can send and receive text strings can "
+"also be used."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:159
+msgid "Selecting the Port"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:161
+msgid "**Tools** > **Port** > **COMXXX (Arduino Zero (Native USB Port))**"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:168
+msgid "Open Serial Monitor"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:170
+msgid ""
+"The Serial Monitor is what you use to communicate the with device. "
+"Opening this tool can be done in a few ways."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:173
+msgid "First way: Click the magnifying glass"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:177
+msgid "Second way: **Tools** > **Serial Monitor**"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:179
+msgid "Third way: **CTRL + SHIFT + M**"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:183
+msgid "Diagnosis Menu"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:185
+msgid ""
+"With the Serial Monitor now open, ensure that the baud rate is set to "
+"115200. Changing the baud rate may cause the board to reset, so keep that"
+" in mind if a load is connected to your board--it may fall."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:189
+msgid ""
+"Next, type the letter *m* and press *Enter* or click **Send**. You should"
+" now see something like the following:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:197
+msgid "Status"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:199
+msgid "Sending *s* allows you to retrieve it's hardware status."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:201
+msgid ""
+"The first output block you will see is the firmware information on the "
+"MCU."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:214
+msgid ""
+"``Loaded config version`` shows the config.txt version number read from "
+"the microSD card. Depending on the version of the config and the "
+"firmware, you'll get one of the following messages:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:219
+msgid "Message"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:221
+msgid "CONFIG_VERSION_UNDEFINED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:221
+msgid "Unknown config version"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:222
+#: ../../step-series/submodules/technical-information.rst:223
+msgid "CONFIG_VERSION_NOTLOADED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:222
+msgid "The config could not be read from the microSD card"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:223
+msgid "The config version is old"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:224
+msgid "CONFIG_VERSION_APPLICABLE"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:224
+msgid "The config and firmware versions matched"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:225
+msgid "CONFIG_VERSION_NEW"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:225
+msgid "The config file's version is newer than the firmware (the firmware is old)"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:228
+msgid "Next output is the DIP Switch."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:236
+msgid ""
+"``BIN``: The current positions of all switches on the board. Please note "
+"that on the board, the left-most position is the right-most position here"
+" in tool."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:239
+msgid "``DEC``: The decimal representation of the switch."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:241
+msgid "Ethernet status is shown next."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:250
+msgid ""
+"``Ethernet hardare status``: The status of the built-in ethernet "
+"controller. If everything is worker, ``EthernetW5500`` will be shown. "
+"``EthernetNoHardware`` indicates an issue is present."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:253
+msgid ""
+"``Ethernet link status``: The status of the ethernet cable. ``LinkOn`` "
+"and ``LinkOff`` are self-explanatory. If ``Unknown`` is present, that "
+"indicates an issue with the controller is likely present."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:256
+msgid "``isDestIpSet``: Shows if ``/setDestIp`` has been recieved."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:258
+msgid "And finally, the status for the microSD card is shown."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:267
+msgid "``SD library initialize succeeded``: ``No`` if the card is not inserted."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:269
+msgid ""
+"``SD config file open succeeded``: Shows if ``config.txt`` was "
+"successfully opened on the card."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:271
+msgid ""
+"``SD config JSON parse succeeded``: Shows if the content of "
+"``config.txt`` (JSON) was read correctly."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:274
+msgid "We now move into status information for the motor driver chips."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:301
+msgid ""
+"If communication with the PowerSTEP01 driver chips is unsuccessful "
+"because the chips are unpowered, for example, ``PowerSTEP01 ID#<1-4>`` "
+"will not be shown."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:305
+msgid "``STEP800 Only``"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:337
+msgid ""
+"Like the STEP800 above, ``L6470 ID#<1-8>`` will only be shown if "
+"connection to the driver chips was successful."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:340
+msgid "Next are the modes and electromagnetic brake and homing statuses."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:356
+msgid "Brake status"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:358
+msgid "BRAKE_ENGAGED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:358
+msgid "Brake is engaged"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:359
+msgid "BRAKE_DISENGAGE_WAITING"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:359
+msgid "In transition to brake release"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:360
+msgid "BRAKE_DISENGAGED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:360
+msgid "Brake released"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:361
+msgid "BRAKE_MOTORHIZ_WAITING"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:361
+msgid "In transition to brake engage"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:365
+msgid "ID"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:365
+msgid "Homing status"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:367
+msgid "HOMING_UNDEFINED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:367
+msgid "Not homing yet"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:368
+msgid "HOMING_GOUNTIL"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:368
+msgid "Moving towards sensor"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:369
+msgid "HOMING_RELEASESW"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:369
+msgid "Leaving from sensor active area"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:370
+msgid "HOMING_COMPLETED"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:370
+msgid "Homing completed"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:371
+msgid "HOMING_TIMEOUT"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:371
+msgid "Time out was detected while homing"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:376
+msgid "Config"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:378
+msgid ""
+"By entering the letter *c*, you are able to retrieve the current "
+"configurations of the board. Note that the output reflects the current "
+"settings on the device, not what is loaded on the microSD card if you "
+"have one inserted."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:383
+msgid ""
+"For example, the following output may shown if the STEP400 is booted "
+"without a microSD card:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:472
+msgid "Test Motion"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:474
+msgid ""
+"Motors can also be tested via the Serial Monitor by entering the letter "
+"*t*. All motors will rotate 25600 steps, or one rotation at 200 steps "
+"with 1/128 microstepping enabled."
 msgstr ""
 
 #: ../../step-series/index.rst:3
