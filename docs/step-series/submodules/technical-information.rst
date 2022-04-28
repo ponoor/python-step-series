@@ -476,6 +476,341 @@ Motors can also be tested via the Serial Monitor by entering the letter
 with 1/128 microstepping enabled.
 
 
+==================
+Hardware - STEP400
+==================
+
+--------------
+PCB Dimensions
+--------------
+
+``120x84x1.6mm``
+
+There are five M3 mounting holes on all four corners and one included in
+the middle. The extraneous material at the top and bottom of the picture
+below is removed during production.
+
+.. image:: /img/step400-dimension-800x661.png
+
+
+We also provide a `PDF drawing <https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_dimension.pdf>`_
+of the board and it's components for your convenience.
+
+------
+System
+------
+
+.. image:: /img/step400-system-diagram.png
+
+Like above, we also provide the `wiring schematics <https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_schematics.pdf>`_
+of the board.
+
+The primary components of the board are as follows:
+
+=================== ================== ===============
+Components          Manufacturer       Model number
+=================== ================== ===============
+MCU                 Microchip          `ATSAMD21G18A`_
+Ethernet Controller Wiznet             `W5500`_
+Stepper Driver      STMicroelectronics `PowerSTEP01`_
+DC-DC Converter     ROHM               `BD9G341AEFJ`_
+=================== ================== ===============
+
+
+---------------
+Pin Assignments
+---------------
+
+======== ================= ==========
+Pin      Function          Notes
+======== ================= ==========
+D0       DIPSW8
+D1       Brake4
+D2       DIPSW5
+D3       DIPSW7
+D4       SD_CS
+D5       Brake3
+D6       PowerSTEP01_MISO
+D7       DIPSW1
+D8       Brake2
+D9       DIPSW6
+D10      W5500_CS
+D11      PowerSTEP01_MOSI
+D12      PowerSTEP01_SCK
+D13      L
+D20/SDA  NC                Pad on PCB
+D21/SCL  NC                Pad on PCB
+D22/MISO W5500_MISO
+D23/MOSI W5500_MOSI
+D24/SCK  W5500_SCK
+D30      DIPSW2
+D31      DIPSW4
+D38      NC                Pad on PCB
+A0       PowerSTEP01_CS
+A1       Brake1
+A2       PowerSTEP01_RESET
+A3       W5500_RESET
+A4       SD_DETECT
+A5       DIPSW3
+======== ================= ==========
+
+.. note:: Since the ``PowerSTEP01_RESET`` and ``W5500_RESET`` are
+  connected independently to their respective chip's reset pins, be sure
+  to set ``pinMode`` to ``OUTPUT`` and set each of the state pins' to
+  ``HIGH``.
+
+---------------------------
+Pads on the PCB's Rear Side
+---------------------------
+
+There are unassigned pins and power pads on the rear side of the PCB.
+They are 2.54mm pitch, so you can attach surface-mount pin headers and
+IC sockets. R35 and R36 can be used for the pull-up of the I2C data
+(SDA) and clock (SCL) pins. The chip size is 1608 (0603).
+
+Since these pins are not implemented or controlled in the firmware we
+provide, it is on you to customize the firmware to implement the
+functionality you need.
+
+.. image:: /img/step400-pads-800x533.jpg
+
+--------------
+SPI Assignment
+--------------
+
+The STEP400 uses different SPI ports for the PowerSTEP01 motor driver
+chips and the W5500 ethernet controller for easing control via the
+firmware. Here is a very informative guide about `SPI allocation`_ on
+the ATSAMD21.
+
+-----
+W5500
+-----
+
+======== ======== ====== ==========
+Pin      Function SERCOM SERCOM Alt
+======== ======== ====== ==========
+D22/MISO MISO     -      SERCOM4.0
+D23/MOSI MOSI     -      SERCOM4.2
+D24/SCK  SCK      -      SERCOM4.3
+======== ======== ====== ==========
+
+-----------
+PowerSTEP01
+-----------
+
+=== ======== ====== ==========
+Pin Function SERCOM SERCOM Alt
+=== ======== ====== ==========
+D6  MISO     -      SERCOM3.2
+D11 MOSI     -      SERCOM3.0
+D12 SCK      -      SERCOM3.3
+=== ======== ====== ==========
+
+^^^^^
+Clock
+^^^^^
+
+A 16MHz crystal oscillator is connected to the OSCIN of motor ID 1's
+PowerSTEP01. From there, OSCOUT and OSCIN are daisy chained in order of
+IDs, so please set each PowerSTEP01 to **External 16MHz input, Inverted
+Output (``EXT_16MHZ_OSCOUT_INVERT``)**. If the internal clock is used,
+gradual shifts in movement may occur during constant speed operation of
+the motors.
+
+-------------------------------------------------------
+Unavailable PowerSTEP01 Features Due to Hardware Design
+-------------------------------------------------------
+
+^^^^
+STCK
+^^^^
+
+Since it is not wired, Step Clock operation is not possible.
+
+^^^^^
+ADCIN
+^^^^^
+
+This is used for the limit sensor inputs and therefore not used for its
+original intent being supply voltage compensation. Be sure to disable
+``UVLO_ADC`` which will raise an alarm based on the value of the ADC
+input.
+
+
+==================
+Hardware - STEP800
+==================
+
+--------------
+PCB Dimensions
+--------------
+
+``120x84x1.6mm``
+
+There are five M3 mounting holes on all four corners and one included in
+the middle. The extraneous material at the top and bottom of the picture
+below is removed during production.
+
+.. image:: /img/step800_r1_0_0_dimension-1.png
+
+
+We also provide a `PDF drawing <https://ponoor.com/cms/wp-content/uploads/2021/09/step800_r1_0_0_dimension.pdf>`_
+of the board and it's components for your convenience.
+
+------
+System
+------
+
+.. image:: /img/step800-system-diagram.png
+
+Like above, we also provide the `wiring schematics <https://github.com/ponoor/STEP800/blob/main/hardware/step800_r1_0_0_schematics.pdf>`_
+of the board.
+
+The primary components of the board are as follows:
+
+=================== ================== ===============
+Components          Manufacturer       Model number
+=================== ================== ===============
+MCU                 Microchip          `ATSAMD21G18A`_
+Ethernet Controller Wiznet             `W5500`_
+Stepper Driver      STMicroelectronics `L6470`_
+DC-DC Converter     ROHM               `P78E05-1000`_
+=================== ================== ===============
+
+.. L6470 link above is in about.rst
+
+---------------
+Pin Assignments
+---------------
+
+======== ===================== =============================
+Pin      Function              Notes
+======== ===================== =============================
+D0       Shift Register SCK
+D1       NC                    Pad exposed in soldering side
+D2       Shift Register MOSI
+D3       Shift Register MISO
+D4       SD_CS
+D5       Shift Register ENABLE
+D6       L6470 MISO
+D7       NC                    Pad exposed in soldering side
+D8       NC                    Pad exposed in soldering side
+D9       NC                    Pad exposed in soldering side
+D10      W5500_CS
+D11      L6470 MOSI
+D12      L6470 SCK
+D13      L
+D20/SDA  NC                    Pad exposed in soldering side
+D21/SCL  NC                    Pad exposed in soldering side
+D22/MISO W5500_MISO
+D23/MOSI W5500_MOSI
+D24/SCK  W5500_SCK
+D30      NC
+D31      NC
+D38      NC                    Pad exposed in soldering side
+A0       L6470_CS
+A1       NC                    Pad exposed in soldering side
+A2       L6470_RESET
+A3       W5500_RESET
+A4       SD_DETECT
+A5       Shift Register CS
+======== ===================== =============================
+
+.. note:: Since the ``L6470_RESET`` and ``W5500_RESET`` are connected
+  independently to their respective chip's reset pins, be sure to set
+  ``pinMode`` to ``OUTPUT`` and set each of the state pins' to ``HIGH``.
+
+
+---------------------------
+Pads on the PCB's Rear Side
+---------------------------
+
+There are unassigned pins and power pads on the rear side of the PCB.
+They are 2.54mm pitch, so you can attach surface-mount pin headers and
+IC sockets. R35 and R36 can be used for the pull-up of the I2C data
+(SDA) and clock (SCL) pins. The chip size is 1608 (0603).
+
+Since these pins are not implemented or controlled in the firmware we
+provide, it is on you to customize the firmware to implement the
+functionality you need.
+
+.. image:: /img/step800_reserved_pads.jpg
+
+--------------
+SPI Assignment
+--------------
+
+The STEP800 uses different SPI ports for the PowerSTEP01 motor driver
+chips and the W5500 ethernet controller for easing control via the
+firmware. Here is a very informative guide about `SPI allocation`_ on
+the ATSAMD21.
+
+-----
+W5500
+-----
+
+======== ======== ====== ==========
+Pin      Function SERCOM SERCOM Alt
+======== ======== ====== ==========
+D22/MISO MISO     -      SERCOM4.0
+D23/MOSI MOSI     -      SERCOM4.2
+D24/SCK  SCK      -      SERCOM4.3
+======== ======== ====== ==========
+
+------------------------------------------
+Shift registers (DIP switch, brake output)
+------------------------------------------
+
+=== ======== ========= ==========
+Pin Function SERCOM    SERCOM Alt
+=== ======== ========= ==========
+D3  MISO     -         SERCOM2.1
+D2  MOSI     SERCOM2.2 -
+D0  SCK      -         SERCOM2.3
+=== ======== ========= ==========
+
+-----
+L6470
+-----
+
+=== ======== ====== ==========
+Pin Function SERCOM SERCOM Alt
+=== ======== ====== ==========
+D6  MISO     -      SERCOM3.2
+D11 MOSI     -      SERCOM3.0
+D12 SCK      -      SERCOM3.3
+=== ======== ====== ==========
+
+^^^^^
+Clock
+^^^^^
+
+A 16MHz crystal oscillator is connected to the OSCIN of motor ID 1's
+PowerSTEP01. From there, OSCOUT and OSCIN are daisy chained in order of
+IDs, so please set each PowerSTEP01 to **External 16MHz input, Inverted
+Output (``EXT_16MHZ_OSCOUT_INVERT``)**. If the internal clock is used,
+gradual shifts in movement may occur during constant speed operation of
+the motors.
+
+-------------------------------------------------------
+Unavailable PowerSTEP01 Features Due to Hardware Design
+-------------------------------------------------------
+
+^^^^
+STCK
+^^^^
+
+Since it is not wired, Step Clock operation is not possible.
+
+^^^^^
+ADCIN
+^^^^^
+
+This is wired directly to GND and is therefore unusable.
+
+
+
 .. _GitHub Releases: https://github.com/ponoor/step-series-universal-firmware/releases/
 .. _GitHub Repository: https://github.com/ponoor/step-series-universal-firmware
 .. _PlatformIO: https://platformio.org/
@@ -487,3 +822,11 @@ with 1/128 microstepping enabled.
 .. _Adafruit SleepyDog Arduino Library: https://github.com/adafruit/Adafruit_SleepyDog
 .. _Ponoor PowerSTEP01 Library: https://github.com/ponoor/Ponoor_PowerSTEP01_Library
 .. _Ponoor L6470 Library: https://github.com/ponoor/Ponoor_L6470_Library
+
+.. _ATSAMD21G18A: https://www.microchip.com/wwwproducts/en/ATsamd21g18
+.. _W5500: https://www.wiznet.io/product-item/w5500/
+.. _PowerSTEP01: https://www.st.com/en/motor-drivers/powerstep01.html
+.. _BD9G341AEFJ: https://www.rohm.com/products/power-management/switching-regulators/integrated-fet/buck-converters-nonsynchronous/bd9g341aefj-product
+.. _P78E05-1000: https://www.jp.cui.com/product/dc-dc-converters/non-isolated/p78e-1000-series
+
+.. _SPI allocation: https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-25 22:20-0500\n"
+"POT-Creation-Date: 2022-04-27 22:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -927,6 +927,8 @@ msgid ""
 msgstr ""
 
 #: ../../step-series/submodules/other-connections-settings.rst:53
+#: ../../step-series/submodules/technical-information.rst:522
+#: ../../step-series/submodules/technical-information.rst:685
 msgid "Pin Assignments"
 msgstr ""
 
@@ -946,6 +948,13 @@ msgstr ""
 #: ../../step-series/submodules/functionality-descriptions.rst:383
 #: ../../step-series/submodules/functionality-descriptions.rst:405
 #: ../../step-series/submodules/other-connections-settings.rst:61
+#: ../../step-series/submodules/technical-information.rst:525
+#: ../../step-series/submodules/technical-information.rst:591
+#: ../../step-series/submodules/technical-information.rst:603
+#: ../../step-series/submodules/technical-information.rst:688
+#: ../../step-series/submodules/technical-information.rst:754
+#: ../../step-series/submodules/technical-information.rst:766
+#: ../../step-series/submodules/technical-information.rst:778
 msgid "Function"
 msgstr ""
 
@@ -2403,6 +2412,706 @@ msgid ""
 "Motors can also be tested via the Serial Monitor by entering the letter "
 "*t*. All motors will rotate 25600 steps, or one rotation at 200 steps "
 "with 1/128 microstepping enabled."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:481
+msgid "Hardware - STEP400"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:485
+#: ../../step-series/submodules/technical-information.rst:647
+msgid "PCB Dimensions"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:487
+#: ../../step-series/submodules/technical-information.rst:649
+msgid "``120x84x1.6mm``"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:489
+#: ../../step-series/submodules/technical-information.rst:651
+msgid ""
+"There are five M3 mounting holes on all four corners and one included in "
+"the middle. The extraneous material at the top and bottom of the picture "
+"below is removed during production."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:496
+msgid ""
+"We also provide a `PDF drawing "
+"<https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_dimension.pdf>`_"
+" of the board and it's components for your convenience."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:501
+#: ../../step-series/submodules/technical-information.rst:663
+msgid "System"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:505
+msgid ""
+"Like above, we also provide the `wiring schematics "
+"<https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_schematics.pdf>`_"
+" of the board."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:508
+#: ../../step-series/submodules/technical-information.rst:670
+msgid "The primary components of the board are as follows:"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:511
+#: ../../step-series/submodules/technical-information.rst:673
+msgid "Components"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:511
+#: ../../step-series/submodules/technical-information.rst:673
+msgid "Manufacturer"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:511
+#: ../../step-series/submodules/technical-information.rst:673
+msgid "Model number"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:513
+#: ../../step-series/submodules/technical-information.rst:675
+msgid "MCU"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:513
+#: ../../step-series/submodules/technical-information.rst:675
+msgid "Microchip"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:513
+#: ../../step-series/submodules/technical-information.rst:675
+msgid "`ATSAMD21G18A`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:514
+#: ../../step-series/submodules/technical-information.rst:676
+msgid "Ethernet Controller"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:514
+#: ../../step-series/submodules/technical-information.rst:676
+msgid "Wiznet"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:514
+#: ../../step-series/submodules/technical-information.rst:676
+msgid "`W5500`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:515
+#: ../../step-series/submodules/technical-information.rst:677
+msgid "Stepper Driver"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:515
+#: ../../step-series/submodules/technical-information.rst:677
+msgid "STMicroelectronics"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:515
+msgid "`PowerSTEP01`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:516
+#: ../../step-series/submodules/technical-information.rst:678
+msgid "DC-DC Converter"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:516
+#: ../../step-series/submodules/technical-information.rst:678
+msgid "ROHM"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:516
+msgid "`BD9G341AEFJ`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:525
+#: ../../step-series/submodules/technical-information.rst:591
+#: ../../step-series/submodules/technical-information.rst:603
+#: ../../step-series/submodules/technical-information.rst:688
+#: ../../step-series/submodules/technical-information.rst:754
+#: ../../step-series/submodules/technical-information.rst:766
+#: ../../step-series/submodules/technical-information.rst:778
+msgid "Pin"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:525
+#: ../../step-series/submodules/technical-information.rst:688
+msgid "Notes"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:527
+#: ../../step-series/submodules/technical-information.rst:690
+#: ../../step-series/submodules/technical-information.rst:770
+msgid "D0"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:527
+msgid "DIPSW8"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:528
+#: ../../step-series/submodules/technical-information.rst:691
+msgid "D1"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:528
+msgid "Brake4"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:529
+#: ../../step-series/submodules/technical-information.rst:692
+#: ../../step-series/submodules/technical-information.rst:769
+msgid "D2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:529
+msgid "DIPSW5"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:530
+#: ../../step-series/submodules/technical-information.rst:693
+#: ../../step-series/submodules/technical-information.rst:768
+msgid "D3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:530
+msgid "DIPSW7"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:531
+#: ../../step-series/submodules/technical-information.rst:694
+msgid "D4"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:531
+#: ../../step-series/submodules/technical-information.rst:694
+msgid "SD_CS"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:532
+#: ../../step-series/submodules/technical-information.rst:695
+msgid "D5"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:532
+msgid "Brake3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:533
+#: ../../step-series/submodules/technical-information.rst:605
+#: ../../step-series/submodules/technical-information.rst:696
+#: ../../step-series/submodules/technical-information.rst:780
+msgid "D6"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:533
+msgid "PowerSTEP01_MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:534
+#: ../../step-series/submodules/technical-information.rst:697
+msgid "D7"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:534
+msgid "DIPSW1"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:535
+#: ../../step-series/submodules/technical-information.rst:698
+msgid "D8"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:535
+msgid "Brake2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:536
+#: ../../step-series/submodules/technical-information.rst:699
+msgid "D9"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:536
+msgid "DIPSW6"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:537
+#: ../../step-series/submodules/technical-information.rst:700
+msgid "D10"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:537
+#: ../../step-series/submodules/technical-information.rst:700
+msgid "W5500_CS"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:538
+#: ../../step-series/submodules/technical-information.rst:606
+#: ../../step-series/submodules/technical-information.rst:701
+#: ../../step-series/submodules/technical-information.rst:781
+msgid "D11"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:538
+msgid "PowerSTEP01_MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:539
+#: ../../step-series/submodules/technical-information.rst:607
+#: ../../step-series/submodules/technical-information.rst:702
+#: ../../step-series/submodules/technical-information.rst:782
+msgid "D12"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:539
+msgid "PowerSTEP01_SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:540
+#: ../../step-series/submodules/technical-information.rst:703
+msgid "D13"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:540
+#: ../../step-series/submodules/technical-information.rst:703
+msgid "L"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:541
+#: ../../step-series/submodules/technical-information.rst:704
+msgid "D20/SDA"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:541
+#: ../../step-series/submodules/technical-information.rst:542
+#: ../../step-series/submodules/technical-information.rst:548
+#: ../../step-series/submodules/technical-information.rst:691
+#: ../../step-series/submodules/technical-information.rst:697
+#: ../../step-series/submodules/technical-information.rst:698
+#: ../../step-series/submodules/technical-information.rst:699
+#: ../../step-series/submodules/technical-information.rst:704
+#: ../../step-series/submodules/technical-information.rst:705
+#: ../../step-series/submodules/technical-information.rst:709
+#: ../../step-series/submodules/technical-information.rst:710
+#: ../../step-series/submodules/technical-information.rst:711
+#: ../../step-series/submodules/technical-information.rst:713
+msgid "NC"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:541
+#: ../../step-series/submodules/technical-information.rst:542
+#: ../../step-series/submodules/technical-information.rst:548
+msgid "Pad on PCB"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:542
+#: ../../step-series/submodules/technical-information.rst:705
+msgid "D21/SCL"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:543
+#: ../../step-series/submodules/technical-information.rst:593
+#: ../../step-series/submodules/technical-information.rst:706
+#: ../../step-series/submodules/technical-information.rst:756
+msgid "D22/MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:543
+#: ../../step-series/submodules/technical-information.rst:706
+msgid "W5500_MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:544
+#: ../../step-series/submodules/technical-information.rst:594
+#: ../../step-series/submodules/technical-information.rst:707
+#: ../../step-series/submodules/technical-information.rst:757
+msgid "D23/MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:544
+#: ../../step-series/submodules/technical-information.rst:707
+msgid "W5500_MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:545
+#: ../../step-series/submodules/technical-information.rst:595
+#: ../../step-series/submodules/technical-information.rst:708
+#: ../../step-series/submodules/technical-information.rst:758
+msgid "D24/SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:545
+#: ../../step-series/submodules/technical-information.rst:708
+msgid "W5500_SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:546
+#: ../../step-series/submodules/technical-information.rst:709
+msgid "D30"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:546
+msgid "DIPSW2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:547
+#: ../../step-series/submodules/technical-information.rst:710
+msgid "D31"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:547
+msgid "DIPSW4"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:548
+#: ../../step-series/submodules/technical-information.rst:711
+msgid "D38"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:549
+#: ../../step-series/submodules/technical-information.rst:712
+msgid "A0"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:549
+msgid "PowerSTEP01_CS"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:550
+#: ../../step-series/submodules/technical-information.rst:713
+msgid "A1"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:550
+msgid "Brake1"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:551
+#: ../../step-series/submodules/technical-information.rst:714
+msgid "A2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:551
+msgid "PowerSTEP01_RESET"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:552
+#: ../../step-series/submodules/technical-information.rst:715
+msgid "A3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:552
+#: ../../step-series/submodules/technical-information.rst:715
+msgid "W5500_RESET"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:553
+#: ../../step-series/submodules/technical-information.rst:716
+msgid "A4"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:553
+#: ../../step-series/submodules/technical-information.rst:716
+msgid "SD_DETECT"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:554
+#: ../../step-series/submodules/technical-information.rst:717
+msgid "A5"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:554
+msgid "DIPSW3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:557
+msgid ""
+"Since the ``PowerSTEP01_RESET`` and ``W5500_RESET`` are connected "
+"independently to their respective chip's reset pins, be sure to set "
+"``pinMode`` to ``OUTPUT`` and set each of the state pins' to ``HIGH``."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:564
+#: ../../step-series/submodules/technical-information.rst:727
+msgid "Pads on the PCB's Rear Side"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:566
+#: ../../step-series/submodules/technical-information.rst:729
+msgid ""
+"There are unassigned pins and power pads on the rear side of the PCB. "
+"They are 2.54mm pitch, so you can attach surface-mount pin headers and IC"
+" sockets. R35 and R36 can be used for the pull-up of the I2C data (SDA) "
+"and clock (SCL) pins. The chip size is 1608 (0603)."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:571
+#: ../../step-series/submodules/technical-information.rst:734
+msgid ""
+"Since these pins are not implemented or controlled in the firmware we "
+"provide, it is on you to customize the firmware to implement the "
+"functionality you need."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:579
+#: ../../step-series/submodules/technical-information.rst:742
+msgid "SPI Assignment"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:581
+msgid ""
+"The STEP400 uses different SPI ports for the PowerSTEP01 motor driver "
+"chips and the W5500 ethernet controller for easing control via the "
+"firmware. Here is a very informative guide about `SPI allocation`_ on the"
+" ATSAMD21."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:588
+#: ../../step-series/submodules/technical-information.rst:751
+msgid "W5500"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:591
+#: ../../step-series/submodules/technical-information.rst:603
+#: ../../step-series/submodules/technical-information.rst:754
+#: ../../step-series/submodules/technical-information.rst:766
+#: ../../step-series/submodules/technical-information.rst:778
+msgid "SERCOM"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:591
+#: ../../step-series/submodules/technical-information.rst:603
+#: ../../step-series/submodules/technical-information.rst:754
+#: ../../step-series/submodules/technical-information.rst:766
+#: ../../step-series/submodules/technical-information.rst:778
+msgid "SERCOM Alt"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:593
+#: ../../step-series/submodules/technical-information.rst:605
+#: ../../step-series/submodules/technical-information.rst:756
+#: ../../step-series/submodules/technical-information.rst:768
+#: ../../step-series/submodules/technical-information.rst:780
+msgid "MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:593
+#: ../../step-series/submodules/technical-information.rst:756
+msgid "SERCOM4.0"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:594
+#: ../../step-series/submodules/technical-information.rst:606
+#: ../../step-series/submodules/technical-information.rst:757
+#: ../../step-series/submodules/technical-information.rst:769
+#: ../../step-series/submodules/technical-information.rst:781
+msgid "MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:594
+#: ../../step-series/submodules/technical-information.rst:757
+msgid "SERCOM4.2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:595
+#: ../../step-series/submodules/technical-information.rst:607
+#: ../../step-series/submodules/technical-information.rst:758
+#: ../../step-series/submodules/technical-information.rst:770
+#: ../../step-series/submodules/technical-information.rst:782
+msgid "SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:595
+#: ../../step-series/submodules/technical-information.rst:758
+msgid "SERCOM4.3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:600
+msgid "PowerSTEP01"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:605
+#: ../../step-series/submodules/technical-information.rst:780
+msgid "SERCOM3.2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:606
+#: ../../step-series/submodules/technical-information.rst:781
+msgid "SERCOM3.0"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:607
+#: ../../step-series/submodules/technical-information.rst:782
+msgid "SERCOM3.3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:612
+#: ../../step-series/submodules/technical-information.rst:787
+msgid "Clock"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:614
+#: ../../step-series/submodules/technical-information.rst:789
+msgid ""
+"A 16MHz crystal oscillator is connected to the OSCIN of motor ID 1's "
+"PowerSTEP01. From there, OSCOUT and OSCIN are daisy chained in order of "
+"IDs, so please set each PowerSTEP01 to **External 16MHz input, Inverted "
+"Output (``EXT_16MHZ_OSCOUT_INVERT``)**. If the internal clock is used, "
+"gradual shifts in movement may occur during constant speed operation of "
+"the motors."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:623
+#: ../../step-series/submodules/technical-information.rst:798
+msgid "Unavailable PowerSTEP01 Features Due to Hardware Design"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:627
+#: ../../step-series/submodules/technical-information.rst:802
+msgid "STCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:629
+#: ../../step-series/submodules/technical-information.rst:804
+msgid "Since it is not wired, Step Clock operation is not possible."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:633
+#: ../../step-series/submodules/technical-information.rst:808
+msgid "ADCIN"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:635
+msgid ""
+"This is used for the limit sensor inputs and therefore not used for its "
+"original intent being supply voltage compensation. Be sure to disable "
+"``UVLO_ADC`` which will raise an alarm based on the value of the ADC "
+"input."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:643
+msgid "Hardware - STEP800"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:658
+msgid ""
+"We also provide a `PDF drawing <https://ponoor.com/cms/wp-"
+"content/uploads/2021/09/step800_r1_0_0_dimension.pdf>`_ of the board and "
+"it's components for your convenience."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:667
+msgid ""
+"Like above, we also provide the `wiring schematics "
+"<https://github.com/ponoor/STEP800/blob/main/hardware/step800_r1_0_0_schematics.pdf>`_"
+" of the board."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:677
+msgid "`L6470`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:678
+msgid "`P78E05-1000`_"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:690
+msgid "Shift Register SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:691
+#: ../../step-series/submodules/technical-information.rst:697
+#: ../../step-series/submodules/technical-information.rst:698
+#: ../../step-series/submodules/technical-information.rst:699
+#: ../../step-series/submodules/technical-information.rst:704
+#: ../../step-series/submodules/technical-information.rst:705
+#: ../../step-series/submodules/technical-information.rst:711
+#: ../../step-series/submodules/technical-information.rst:713
+msgid "Pad exposed in soldering side"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:692
+msgid "Shift Register MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:693
+msgid "Shift Register MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:695
+msgid "Shift Register ENABLE"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:696
+msgid "L6470 MISO"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:701
+msgid "L6470 MOSI"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:702
+msgid "L6470 SCK"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:712
+msgid "L6470_CS"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:714
+msgid "L6470_RESET"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:717
+msgid "Shift Register CS"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:720
+msgid ""
+"Since the ``L6470_RESET`` and ``W5500_RESET`` are connected independently"
+" to their respective chip's reset pins, be sure to set ``pinMode`` to "
+"``OUTPUT`` and set each of the state pins' to ``HIGH``."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:744
+msgid ""
+"The STEP800 uses different SPI ports for the PowerSTEP01 motor driver "
+"chips and the W5500 ethernet controller for easing control via the "
+"firmware. Here is a very informative guide about `SPI allocation`_ on the"
+" ATSAMD21."
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:763
+msgid "Shift registers (DIP switch, brake output)"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:768
+msgid "SERCOM2.1"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:769
+msgid "SERCOM2.2"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:770
+msgid "SERCOM2.3"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:775
+msgid "L6470"
+msgstr ""
+
+#: ../../step-series/submodules/technical-information.rst:810
+msgid "This is wired directly to GND and is therefore unusable."
 msgstr ""
 
 #: ../../step-series/index.rst:3
