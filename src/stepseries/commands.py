@@ -23,7 +23,7 @@ from typing import Callable, Optional, Tuple
 from pythonosc.osc_message import OscMessage
 from pythonosc.osc_message_builder import OscMessageBuilder
 
-from . import responses
+from stepseries import responses
 
 
 @dataclass
