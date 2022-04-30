@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Stepper motor driver with an Ethernet interface."""
 
 

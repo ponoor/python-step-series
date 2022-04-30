@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""4 axis stepper motor driver with Ethernet interface."""
+"""8 axis stepper motor driver with Ethernet interface."""
 
 
 from typing import List, Union

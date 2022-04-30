@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """4 axis stepper motor driver with and Ethernet interface."""
 
 

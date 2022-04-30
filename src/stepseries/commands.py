@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Messages to send to the device.
 
 This module provides dataclass objects that act as templates for you to

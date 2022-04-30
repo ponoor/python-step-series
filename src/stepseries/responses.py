@@ -1,13 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Messages received from the device."""
 
 
 import ast
 import re
-from dataclasses import dataclass as _dataclass
-from dataclasses import field
+from dataclasses import dataclass as _dataclass, field
 from typing import Any, Callable, Dict, Tuple, TypeVar, Union
 
 # Pylance custom dataclass work around
