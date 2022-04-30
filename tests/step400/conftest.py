@@ -115,7 +115,7 @@ def device(wait_for) -> STEP400:
         TestPresets.address,
         TestPresets.port,
         TestPresets.server_address,
-        TestPresets.server_port
+        TestPresets.server_port,
     )
 
     # Send the start-up command

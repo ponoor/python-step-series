@@ -151,7 +151,8 @@ class ReportError(OSCSetCommand):
 
     address: str = field(default="/reportError", init=False)
     response_cls: Tuple[responses.ErrorCommand, responses.ErrorOSC] = field(
-        default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC), init=False,
+        default_factory=lambda: (responses.ErrorCommand, responses.ErrorOSC),
+        init=False,
     )
     enable: bool
     """If True, enable the reporting.

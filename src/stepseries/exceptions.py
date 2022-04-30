@@ -1,10 +1,13 @@
 """Custom exceptions raised by this library."""
 
 
+from typing import Optional
+
+
 class StepSeriesException(Exception):
     """Base exception for the library."""
 
-    original_exc: Exception = None
+    original_exc: Optional[Exception] = None
 
 
 class ClientNotFoundError(Exception):

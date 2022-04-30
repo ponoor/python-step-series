@@ -4,7 +4,13 @@
 from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
-from stepseries.commands import OSCGetCommand, OSCSetCommand, ReportError, ResetDevice, SetDestIP
+from stepseries.commands import (
+    OSCGetCommand,
+    OSCSetCommand,
+    ReportError,
+    ResetDevice,
+    SetDestIP,
+)
 from stepseries.exceptions import ClientClosedError, ParseError, StepSeriesException
 from stepseries.responses import DestIP, ErrorCommand, ErrorOSC, OSCResponse
 from stepseries.server import DEFAULT_SERVER

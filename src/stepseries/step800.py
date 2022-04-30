@@ -78,7 +78,10 @@ class STEP800(STEPXXX):
         ]
 
     def get(
-        self, command: commands.OSCGetCommand, with_callback: bool = True, wait: bool = True,
+        self,
+        command: commands.OSCGetCommand,
+        with_callback: bool = True,
+        wait: bool = True,
     ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 

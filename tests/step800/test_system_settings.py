@@ -13,7 +13,7 @@ from stepseries.step800 import STEP800
 @pytest.mark.skip_800_disconnected
 class TestSystemMessages:
     def test_set_dest_ip(self, device: STEP800, wait_for, presets) -> None:
-                # Send the command and wait for the device's response
+        # Send the command and wait for the device's response
         response: responses.DestIP = wait_for(
             device, commands.SetDestIP(), responses.DestIP
         )
