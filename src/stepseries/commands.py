@@ -121,9 +121,9 @@ class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
 class GetVersion(OSCGetCommand):
     """Retrieve the current firmware version of the controller.
 
-    +-----------------+---------------------+
-    |Executable Timing|Always               |
-    +-----------------+---------------------+
+    +-----------------+------+
+    |Executable Timing|Always|
+    +-----------------+------+
     """
 
     address: str = field(default="/getVersion", init=False)
