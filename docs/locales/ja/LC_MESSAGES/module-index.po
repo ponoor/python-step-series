@@ -22,4 +22,3 @@ msgstr ""
 #: ../../module-index.rst:2
 msgid "``python-step-series``: API Documentation"
 msgstr ""
-

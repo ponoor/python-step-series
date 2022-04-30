@@ -4018,4 +4018,3 @@ msgstr ""
 #~ " to fade. You also have to "
 #~ "reselect a different serial port."
 #~ msgstr ""
-

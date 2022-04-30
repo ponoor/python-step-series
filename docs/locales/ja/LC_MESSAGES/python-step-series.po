@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 19:43-0500\n"
+"POT-Creation-Date: 2022-04-29 20:49-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.10.1\n"
 
 #: ../../python-step-series/about.rst:5
 msgid "API Documentation"
@@ -2883,7 +2883,7 @@ msgid "``stepseries.step800`` -- STEP800 Device"
 msgstr ""
 
 #: of stepseries.step800:1
-msgid "4 axis stepper motor driver with Ethernet interface."
+msgid "8 axis stepper motor driver with Ethernet interface."
 msgstr ""
 
 #: of stepseries.step800.STEP800:1
@@ -2937,4 +2937,7 @@ msgstr ""
 #: ../../python-step-series/index.rst:3
 msgid "python-step-series"
 msgstr ""
+
+#~ msgid "4 axis stepper motor driver with Ethernet interface."
+#~ msgstr ""
 

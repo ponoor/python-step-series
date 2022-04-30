@@ -49,4 +49,3 @@ msgstr ""
 #: ../../index.rst:21
 msgid ":ref:`search`"
 msgstr ""
-
