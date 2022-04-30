@@ -52,17 +52,17 @@ purchased from one the (unaffiliated) recommended sites below:
 - `Strawberry Linux`_
 - `Akizuki Denshi`_
 
-.. image:: ../img/09238-01.jpg
+.. image:: /img/09238-01.jpg
 
 
 From the wiring diagram found in the `datasheet`_ for this motor, we can see that the wiring pairs
 are ``Red - Green`` and ``Yellow - Blue``.
 
-.. image:: ../img/motor-wiring-diagram-sample.png
+.. image:: /img/motor-wiring-diagram-sample.png
 
 The wiring to the terminal block should look like this:
 
-.. image:: ../img/SM-42BYG-wiring-700x525.jpg
+.. image:: /img/SM-42BYG-wiring-700x525.jpg
 
 We've calculated register values for some motors and made them available as `configuration files`_.
 
@@ -80,34 +80,29 @@ but **do not** connect power to both primary inputs.
 .. note:: Again, make sure not to power the device. You may connect the supply, but make sure it is
     not on.
 
-.. image:: ../img/step400_connectors_numbering.jpg
+.. image:: /img/step400_connectors_numbering.jpg
 
-+------+----------------------------------------+
-|Number|Description                             |
-+======+========================================+
-|1     |Electromagnetic brake terminal (STEP400)|
-+------+----------------------------------------+
-|2     |Ethernet Port                           |
-+------+----------------------------------------+
-|3     |USB-C Port                              |
-+------+----------------------------------------+
-|4     |(Primary Power Input) DC Barrel Plug    |
-+------+----------------------------------------+
-|5     |(Primary Power Input) Screw Terminal    |
-+------+----------------------------------------+
+====== ========================================
+Number Description
+====== ========================================
+1      Electromagnetic brake terminal (STEP400)
+2      Ethernet Port
+3      USB-C Port
+4      (Primary Power Input) DC Barrel Plug
+5      (Primary Power Input) Screw Terminal
+====== ========================================
 
 .. warning:: Again, **do NOT** connect both 4 and 5. This will damage your controller.
 
 As stated above, both devices have different power ratings and different ratings for each primary
 input.
 
-+----------+----------------------+-----------+--------------+
-|Controller|Board Max Power Rating|Barrel Jack|Screw Terminal|
-+==========+======================+===========+==============+
-|STEP400   |12V-76V @ 20A         |24V @ 5A   |76V @ 20A     |
-+----------+----------------------+-----------+--------------+
-|STEP800   |9V-36V @ 16A          |24V @ 5A   |36V @ 16A     |
-+----------+----------------------+-----------+--------------+
+========== ====================== =========== ==============
+Controller Board Max Power Rating Barrel Jack Screw Terminal
+========== ====================== =========== ==============
+STEP400    12V-76V @ 20A          24V @ 5A    76V @ 20A
+STEP800    9V-36V @ 16A           24V @ 5A    36V @ 16A
+========== ====================== =========== ==============
 
 The amps listed here reflect the cumulative maximum phase current draw of all motors, not the
 maximum current capacity of the power supply. Look at :ref:`Current Capacity` for more information.
@@ -157,7 +152,7 @@ boards have their maximum voltages, so keep that in mind when choosing a supply.
 articulate this point, see the following graph and note the correlation between a higher voltage
 providing higher current (aka torque) and a higher maximum speed.
 
-.. image:: ../img/motor_current_example_graph-800x570.png
+.. image:: /img/motor_current_example_graph-800x570.png
 
 The required voltage varies greatly depending on the motor's rating, required speed, and required
 torque. But, in general, the required voltage is roughly as follows:
@@ -174,7 +169,7 @@ minimum required voltage, there may be cases wjere the STEP400 resets on a sligh
 is especially the case during a motor's inrush current, therefore we do not recommend a 12V power
 supply unless if you are driving a small motor at a low load.
 
-.. figure:: ../img/update-48V-configuration-800x533.jpg
+.. figure:: /img/update-48V-configuration-800x533.jpg
 
     A STEP400 being supplied 48V through two 24V power supplies in series.
 
@@ -217,19 +212,16 @@ Dip Switches
 The DIP switches on the board must be set to 1. This means only the left-most switch is ON and the
 rest are OFF. With this configuration, the board has the following network settings:
 
-+--------------+----------+------------------------------------------------------+
-|Name          |Value     |Description                                           |
-+==============+==========+======================================================+
-|IP Address    |10.0.0.101|The IP address of the device                          |
-+--------------+----------+------------------------------------------------------+
-|Server Address|10.0.0.10 |The IP address of the server (i.e. your PC)           |
-+--------------+----------+------------------------------------------------------+
-|Local Port    |50000     |The port the device is listening on                   |
-+--------------+----------+------------------------------------------------------+
-|Server Port   |50101     |The port on the server that the server is listening on|
-+--------------+----------+------------------------------------------------------+
+============== ========== ======================================================
+Name           Value      Description
+============== ========== ======================================================
+IP Address     10.0.0.101 The IP address of the device
+Server Address 10.0.0.10  The IP address of the server (i.e. your PC)
+Local Port     50000      The port the device is listening on
+Server Port    50101      The port on the server that the server is listening on
+============== ========== ======================================================
 
-.. figure:: ../img/IMG_0704.jpg
+.. figure:: /img/IMG_0704.jpg
 
     Configured DIP switches on the STEP400.
 
@@ -245,17 +237,14 @@ PC Configuration
 As seen in the table above, the device will expect your PC (server) to exist at a certain IP
 address. If you need to, you can set it statically by reviewing the guides linked below:
 
-+---------------+-------------+
-|Name           |Value        |
-+===============+=============+
-|IP Address     |10.0.0.10    |
-+---------------+-------------+
-|Subnet Mask    |255.255.255.0|
-+---------------+-------------+
-|DNS            |<Leave Empty>|
-+---------------+-------------+
-|Default Gateway|<Leave Empty>|
-+---------------+-------------+
+=============== =============
+Name            Value
+=============== =============
+IP Address      10.0.0.10
+Subnet Mask     255.255.255.0
+DNS             <Leave Empty>
+Default Gateway <Leave Empty>
+=============== =============
 
 - `Windows`_
 - `Mac`_
@@ -350,17 +339,14 @@ will run on 24V at 255, or 12V for 128, and so-on.
 
 Each parameter in the ``/setKVAL`` command has a unique function.
 
-+--------+-------------------+-------------+
-|Name    |Description        |Initial Value|
-+========+===================+=============+
-|holdKVAL|Holding KVAL       |0            |
-+--------+-------------------+-------------+
-|runKVAL |Constant speed KVAL|16           |
-+--------+-------------------+-------------+
-|accKVAL |Acceleration KVAL  |16           |
-+--------+-------------------+-------------+
-|decKVAL |Deceleration KVAL  |16           |
-+--------+-------------------+-------------+
+======== =================== =============
+Name     Description         Initial Value
+======== =================== =============
+holdKVAL Holding KVAL        0
+runKVAL  Constant speed KVAL 16
+accKVAL  Acceleration KVAL   16
+decKVAL  Deceleration KVAL   16
+======== =================== =============
 
 Let's adjust these values while the motor is running. Send the command ``/run 1 200``.
 

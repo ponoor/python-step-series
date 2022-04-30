@@ -35,15 +35,13 @@ Connection Terminals
 We use the XA series connectors from JST (J.S.T.MFG.CO., LTD.). For compatible connectors, please
 refer to the following:
 
-+--------------------+--------------------+---------------------------------------+
-|Name                |Model Number        |Description                            |
-+====================+====================+=======================================+
-|(Reference) PCB Post|B03B-XASK-1 (LF)(SN)|Female connector on the PCB            |
-+--------------------+--------------------+---------------------------------------+
-|Housing             |XAP-03V-1           |Male plastic housing                   |
-+--------------------+--------------------+---------------------------------------+
-|Contact             |BXA-001T-P0.6       |Crimp contact inserted into the housing|
-+--------------------+--------------------+---------------------------------------+
+==================== ==================== =======================================
+Name                 Model Number         Description
+==================== ==================== =======================================
+(Reference) PCB Post B03B-XASK-1 (LF)(SN) Female connector on the PCB
+Housing              XAP-03V-1            Male plastic housing
+Contact              BXA-001T-P0.6        Crimp contact inserted into the housing
+==================== ==================== =======================================
 
 .. tip:: We also sell pre-crimped sensor cables for your convenience. These are available here:
     https://ponoor.com/en/products/sensor-cable/
@@ -57,15 +55,13 @@ are looking at your board. We assume you are viewing the board with the board's 
 and the power/ethernet ports at the top. This table is for the left-side ports; the right-side ports
 will be inverted as they are upside-down.
 
-+-------------------+------------------+
-|Pin (left-to-right)|Function          |
-+===================+==================+
-|1                  |5V Output         |
-+-------------------+------------------+
-|2                  |3v3 (Switch Input)|
-+-------------------+------------------+
-|3                  |GND               |
-+-------------------+------------------+
+=================== ==================
+Pin (left-to-right) Function
+=================== ==================
+1                   5V Output
+2                   3v3 (Switch Input)
+3                   GND
+=================== ==================
 
 .. tip:: They are also printed on the bottom of the boards for your convenience.
 
@@ -80,7 +76,7 @@ Network and DIP Switch
 Dip Switch Settings
 -------------------
 
-.. figure:: ../img/step400-dipSw.jpg
+.. figure:: /img/step400-dipSw.jpg
 
     The DIP switch specifies the ID that is used to reply to OSC messages and is also reflected in
     the local IP address and expected server port number. The ID is set in binary with more
@@ -94,19 +90,15 @@ Network Settings
 Initial Settings
 ^^^^^^^^^^^^^^^^
 
-+--------------------+-------------------------------------+
-|Item                |Initial Value                        |
-+====================+=====================================+
-|IP Address          |10.0.0.100+ID                        |
-+--------------------+-------------------------------------+
-|MAC Address         |0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID|
-+--------------------+-------------------------------------+
-|Server IP Address   |10.0.0.10                            |
-+--------------------+-------------------------------------+
-|Local Port          |50000                                |
-+--------------------+-------------------------------------+
-|Expected Server Port|50100+ID                             |
-+--------------------+-------------------------------------+
+==================== =====================================
+Item                 Initial Value
+==================== =====================================
+IP Address           10.0.0.100+ID
+MAC Address          0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID
+Server IP Address    10.0.0.10
+Local Port           50000
+Expected Server Port 50100+ID
+==================== =====================================
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 IP Address and Expected Server Port
