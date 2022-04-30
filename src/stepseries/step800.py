@@ -6,11 +6,10 @@
 
 from typing import List, Union
 
-from . import commands
-from .commands import OSCGetCommand, OSCSetCommand
-from .exceptions import InvalidCommandError
-from .responses import OSCResponse
-from .stepXXX import STEPXXX
+from stepseries import commands
+from stepseries.exceptions import InvalidCommandError
+from stepseries.responses import OSCResponse
+from stepseries.stepXXX import STEPXXX
 
 
 class STEP800(STEPXXX):
@@ -46,7 +45,7 @@ class STEP800(STEPXXX):
             (the default behavior on the device). Defaults to `True`.
     """
 
-    _invalid_commands: List[Union[OSCGetCommand, OSCSetCommand]]
+    _invalid_commands: List[Union[commands.OSCGetCommand, commands.OSCSetCommand]]
 
     def __init__(
         self,
@@ -82,7 +81,7 @@ class STEP800(STEPXXX):
         ]
 
     def get(
-        self, command: OSCGetCommand, with_callback: bool = True, wait: bool = True
+        self, command: commands.OSCGetCommand, with_callback: bool = True, wait: bool = True,
     ) -> Union[OSCResponse, List[OSCResponse]]:
         """Send a 'get' command to the device and return the response.
 
@@ -111,7 +110,7 @@ class STEP800(STEPXXX):
                 `command` cannot run on a STEP800.
         """
 
-        if not isinstance(command, OSCGetCommand):
+        if not isinstance(command, commands.OSCGetCommand):
             raise TypeError(
                 "argument 'command' expected to be 'OSCGetCommand', "
                 f"'{type(command).__name__}' found"
@@ -127,7 +126,7 @@ class STEP800(STEPXXX):
 
         return super().get(command, with_callback, wait)
 
-    def set(self, command: OSCSetCommand) -> None:
+    def set(self, command: commands.OSCSetCommand) -> None:
         """Send a 'set' command to the device.
 
         Args:
@@ -139,7 +138,7 @@ class STEP800(STEPXXX):
                 `command` is not an `OSCSetCommand`.
         """
 
-        if not isinstance(command, OSCSetCommand):
+        if not isinstance(command, commands.OSCSetCommand):
             raise TypeError(
                 "argument 'command' expected to be 'OSCSetCommand', "
                 f"'{type(command).__name__}' found"

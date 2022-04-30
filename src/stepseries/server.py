@@ -18,7 +18,7 @@ from stepseries.exceptions import ClientNotFoundError
 # Work around for this circular import; allows annotations while
 # writing code and doesn't break when running it.
 try:
-    from .stepXXX import STEPXXX
+    from stepseries.stepXXX import STEPXXX
 except ImportError:
     STEPXXX = Any
 

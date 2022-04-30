@@ -4,7 +4,7 @@
 """4 axis stepper motor driver with and Ethernet interface."""
 
 
-from .stepXXX import STEPXXX
+from stepseries.stepXXX import STEPXXX
 
 
 class STEP400(STEPXXX):

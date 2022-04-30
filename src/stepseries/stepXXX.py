@@ -7,13 +7,13 @@
 from queue import Empty, Queue
 from typing import Any, Callable, Dict, List, Tuple, Union
 
-from .commands import OSCGetCommand, OSCSetCommand, ReportError, ResetDevice, SetDestIP
-from .exceptions import ClientClosedError, ParseError, StepSeriesException
-from .responses import DestIP, ErrorCommand, ErrorOSC, OSCResponse
-from .server import DEFAULT_SERVER
+from stepseries.commands import OSCGetCommand, OSCSetCommand, ReportError, ResetDevice, SetDestIP
+from stepseries.exceptions import ClientClosedError, ParseError, StepSeriesException
+from stepseries.responses import DestIP, ErrorCommand, ErrorOSC, OSCResponse
+from stepseries.server import DEFAULT_SERVER
 
 
-class STEPXXX:
+class STEPXXX(object):
     """Send and receive data from a STEP-series motor driver.
 
     Args:
