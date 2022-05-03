@@ -390,6 +390,8 @@ load.
 .. _protocol: http://opensoundcontrol.org/
 
 .. _datasheet: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
+.. _データシート: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
+
 
 .. _Max: https://github.com/ponoor/step-series-example-Max
 .. _Processing: https://github.com/yuskegoto/STEP400_Processing
@@ -407,8 +409,11 @@ load.
 .. _Sparkfun: https://www.sparkfun.com/products/9238
 .. _Strawberry Linux: http://strawberry-linux.com/catalog/items?code=12026
 .. _Akizuki Denshi: https://akizukidenshi.com/catalog/g/gP-05372/
+.. _秋月電子通商: https://akizukidenshi.com/catalog/g/gP-05372/
 
 .. _configuration files: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/
+.. _設定ファイル: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/
+
 .. _Configuration Tool: http://ponoor.com/tools/step400-config/
 
 .. _Windows: https://support.microsoft.com/en-us/windows/change-tcp-ip-settings-bd0a07af-15f5-cd6a-363f-ca2b6f391ace
