@@ -165,7 +165,7 @@ produce high torque in a small form factor and vice versa with a large form fact
 imperative you review your motor's voltage and current ratings.**
 
 The STEP400 does work with a minimum of 12V; however, since that is its on-board DC-DC converter's
-minimum required voltage, there may be cases wjere the STEP400 resets on a slight voltage drop. This
+minimum required voltage, there may be cases where the STEP400 resets on a slight voltage drop. This
 is especially the case during a motor's inrush current, therefore we do not recommend a 12V power
 supply unless if you are driving a small motor at a low load.
 
