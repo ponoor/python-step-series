@@ -111,7 +111,8 @@ msgid ""
 "switch is also viable."
 msgstr ""
 "STEP400/800ともEthernetを用いて通信します。すなわち、制御に使うPCにはEthernetポートまたはUSB-"
-"Ethernet変換などが必要です。このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
+"Ethernet変換などが必要です。このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。"
+"もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
 
 #: ../../step-series/submodules/getting-started.rst:33
 msgid "Please plug the ethernet cable in now."
@@ -147,7 +148,7 @@ msgid ""
 "recommended sites below:"
 msgstr ""
 "本デバイスで使用できるのは、「バイポーラ型」のステッピングモータです。入手しやすいモータの例としては、MERCURY MOTORの ``SM-"
-"42BYG011-25`` があります。使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは``SM-"
+"42BYG011-25`` があります。使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは ``SM-"
 "42BYG011-25`` を使用していると仮定して進めます。このモータは例えば下記の場所で入手できます。"
 
 #: ../../step-series/submodules/getting-started.rst:51
@@ -332,55 +333,64 @@ msgid ""
 "at :ref:`Current Capacity` for more information. The STEP800 has a "
 "maximum phase current draw of 2A per motor whereas the STEP400 has a "
 "maximum of 5A. Please keep these limits in mind when choosing your motor."
+<<<<<<< Updated upstream
 msgstr "電流値は各モータの最大相電流を合計したもので、電源の最大定格を表したものではありません詳しくは :ref:`電流容量` "
+=======
+msgstr ""
+"電流値は各モータの最大相電流を合計したもので、電源の最大定格を表したものではありません。"
+"詳しくは :ref:`電流容量` を参照してください。"
+"STEP400の最大相電流は5A, STEP800の最大相電流は2Aです。"
+"この上限値に収まるモータを選定してください。"
+>>>>>>> Stashed changes
 
 #: ../../step-series/submodules/getting-started.rst:114
 msgid "DC Barrel Plug"
-msgstr ""
+msgstr "DCジャック"
 
 #: ../../step-series/submodules/getting-started.rst:116
 msgid "The DC barrel has the following specifications beyond its power rating:"
-msgstr ""
+msgstr "DCジャックは以下の仕様になっています。"
 
 #: ../../step-series/submodules/getting-started.rst:118
 msgid "5.5mm outer diameter"
-msgstr ""
+msgstr "外径5.5mm"
 
 #: ../../step-series/submodules/getting-started.rst:119
 msgid "2.1mm inner diameter"
-msgstr ""
+msgstr "内径2.1mm"
 
 #: ../../step-series/submodules/getting-started.rst:120
 msgid "Center positive"
-msgstr ""
+msgstr "センタープラス"
 
 #: ../../step-series/submodules/getting-started.rst:126
 msgid ""
 "The screw terminal has the following specifications beyond its power "
 "rating:"
-msgstr ""
+msgstr "ねじ式ターミナルは以下の仕様になっています。"
 
 #: ../../step-series/submodules/getting-started.rst:128
 msgid "Negative left side, positive right side"
-msgstr ""
+msgstr "左側：マイナス、右側：プラス"
 
 #: ../../step-series/submodules/getting-started.rst:129
 msgid "M3 screw diameter"
-msgstr ""
+msgstr "ねじ径M3"
 
 #: ../../step-series/submodules/getting-started.rst:130
 msgid ""
 "Use a wire terminal like the ``NICHIFU TMEX1.25-3N`` for a more secure "
 "connection"
 msgstr ""
+"確実な接続のために、 ``NICHIFU TMEX1.25-3N`` などの専用圧着端子を使用してください。"
 
 #: ../../step-series/submodules/getting-started.rst:134
 msgid "Power Supply & Stepper Motor Ratings"
-msgstr ""
+msgstr "電源とモータの定格の関係"
 
 #: ../../step-series/submodules/getting-started.rst:138
 msgid "Current vs Voltage"
-msgstr ""
+msgstr "電流 vs 電圧"
 
 #: ../../step-series/submodules/getting-started.rst:140
 msgid ""
@@ -391,10 +401,15 @@ msgid ""
 "its maximum. Because the motor's torque is virtually proportional to it's"
 " phase current, that means higher speeds means lower torque."
 msgstr ""
+"ステッピングモータの内部の巻線は、インダクタンスとして振る舞います。"
+"インダクタンスに電圧をかけてもすぐには電流が流れずに、時間をかけて電流が立ち上がります。"
+"ステッピングモータのように、ステップごとにON/OFFを繰り返す場合は、回転数が上がってくると"
+"ON/OFFの周期が短くなり、十分に電流が流れなくなってきます。ステッピングモータのトルクは、"
+"電流にほぼ比例していますので、高速に回転すると最大トルクが低下します。"
 
 #: ../../step-series/submodules/getting-started.rst:148
 msgid "Overcoming the Tradeoff"
-msgstr ""
+msgstr "トレードオフを克服する"
 
 #: ../../step-series/submodules/getting-started.rst:150
 msgid ""
@@ -404,6 +419,12 @@ msgid ""
 "point, see the following graph and note the correlation between a higher "
 "voltage providing higher current (aka torque) and a higher maximum speed."
 msgstr ""
+"このインダクタンスに打ち勝ってモータに電流を流し込むには、できるだけ高い電圧の電源を使う必要があります。"
+"モータのデータシートを見ると、定格電圧として非常に低い数値が書かれていることがありますが、"
+"モータを回転させるとその電圧で必要な電流を流すことはできません。実際にはその何倍もの電圧が必要です。"
+"ただどちらのボードにも最大定格電圧があるので、電源を選ぶ際にはそれを念頭に置いてください。"
+"次のグラフは、ST社のデータシートから抜粋した電圧と電流の関係の例です。"
+"高い電圧が高い電流（別名トルク）を供給し、高い最高速度が得られるという相関関係に注目してください。"
 
 #: ../../step-series/submodules/getting-started.rst:157
 msgid ""
@@ -411,14 +432,16 @@ msgid ""
 "required speed, and required torque. But, in general, the required "
 "voltage is roughly as follows:"
 msgstr ""
+"実際に必要な電圧はモータの定格や必要な回転速さ、必要なトルクよって大きく変わりますが、"
+"大雑把には以下のような電圧になるでしょう。"
 
 #: ../../step-series/submodules/getting-started.rst:160
 msgid "NEMA17 and under: 24V"
-msgstr ""
+msgstr "NEMA17以下: 24V"
 
 #: ../../step-series/submodules/getting-started.rst:161
 msgid "NEMA23 and bigger: 48V (or 72V for high speed)"
-msgstr ""
+msgstr "NEMA23以上: 48V, 高速回転の場合は72V"
 
 #: ../../step-series/submodules/getting-started.rst:163
 msgid ""
@@ -427,6 +450,9 @@ msgid ""
 "vice versa with a large form factor. **It's imperative you review your "
 "motor's voltage and current ratings.**"
 msgstr ""
+"すなわちNEMA23サイズ以上の場合はSTEP800で駆動するのは難しいかもしれません。 "
+"とは言ってもモータによっては小さなサイズでも高トルクが出せたり、"
+"逆に大きなサイズでも電流があまり流せないものもありますので、 **モータの定格を確認することが重要です** 。"
 
 #: ../../step-series/submodules/getting-started.rst:167
 msgid ""
@@ -436,6 +462,9 @@ msgid ""
 " case during a motor's inrush current, therefore we do not recommend a "
 "12V power supply unless if you are driving a small motor at a low load."
 msgstr ""
+"STEP400についてはDC12Vでも動作しますが、DC-DCコンバータの動作電圧の下限に当たるため、"
+"モータを回した瞬間の突入電流によって電源装置からの配線で電圧降下が発生し、STEP400がリセットされてしまうことがあります。"
+"小型のモータを低トルクで回すような場合以外はおすすめしません。"
 
 #: ../../step-series/submodules/getting-started.rst:174
 msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
