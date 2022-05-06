@@ -66,7 +66,7 @@ msgid ""
 "applications can also communicate with these devices, so example "
 "configuration and setup files are provided in the list below:"
 msgstr ""
-"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `protocol_` を用いて通信を行います"
+"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `プロトコル`_ を用いて通信を行います"
 "。``python-step-series`` "
 "以外にも、数多くのアプリケーションから制御が可能です。いくつかの環境のサンプルファイルを準備しています。"
 
@@ -251,7 +251,7 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:90
 msgid "USB-C Port"
-msgstr "USB-C端"
+msgstr "USB-C端子"
 
 #: ../../step-series/submodules/getting-started.rst:91
 #: ../../step-series/submodules/technical-information.rst:371
@@ -333,15 +333,11 @@ msgid ""
 "at :ref:`Current Capacity` for more information. The STEP800 has a "
 "maximum phase current draw of 2A per motor whereas the STEP400 has a "
 "maximum of 5A. Please keep these limits in mind when choosing your motor."
-<<<<<<< Updated upstream
-msgstr "電流値は各モータの最大相電流を合計したもので、電源の最大定格を表したものではありません詳しくは :ref:`電流容量` "
-=======
 msgstr ""
 "電流値は各モータの最大相電流を合計したもので、電源の最大定格を表したものではありません。"
 "詳しくは :ref:`電流容量` を参照してください。"
 "STEP400の最大相電流は5A, STEP800の最大相電流は2Aです。"
 "この上限値に収まるモータを選定してください。"
->>>>>>> Stashed changes
 
 #: ../../step-series/submodules/getting-started.rst:114
 msgid "DC Barrel Plug"
@@ -452,7 +448,7 @@ msgid ""
 msgstr ""
 "すなわちNEMA23サイズ以上の場合はSTEP800で駆動するのは難しいかもしれません。 "
 "とは言ってもモータによっては小さなサイズでも高トルクが出せたり、"
-"逆に大きなサイズでも電流があまり流せないものもありますので、 **モータの定格を確認することが重要です** 。"
+"逆に大きなサイズでも電流があまり流せないものもありますので、 **必ずモータの定格を確認することが重要です** 。"
 
 #: ../../step-series/submodules/getting-started.rst:167
 msgid ""
@@ -468,11 +464,11 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:174
 msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
-msgstr ""
+msgstr "24Vの電源を2台直列に接続し、STEP400に48Vを供給しています。"
 
 #: ../../step-series/submodules/getting-started.rst:178
 msgid "Current Capacity"
-msgstr ""
+msgstr "電流容量"
 
 #: ../../step-series/submodules/getting-started.rst:180
 msgid ""
@@ -486,15 +482,15 @@ msgid ""
 "they are under load). Depending on the quantity of motors, their "
 "usecases, as well as your circuit protection settings, we recommend a "
 "supply with at least 10A-20A capacity."
-msgstr ""
+msgstr "電源が供給できる電流も重要な要素です。脱調した瞬間に大きな電流が流れることがあり、電流容量に余裕がないと、電源側で保護機能が働いて電源が落ちてしまうことがあります。小型のモータを低速で回している場合は数アンペアの電流容量でも回せますが、大型モータを動かす場合や高速回転させる場合は10Aから20Aといった容量が必要なことが多いです。モータの個数や動かし方、電源装置側の保護回路の仕様などによって変化するため、できる限り余裕をもって選定してください。"
 
 #: ../../step-series/submodules/getting-started.rst:190
 msgid "Networking"
-msgstr ""
+msgstr "ネットワーク接続"
 
 #: ../../step-series/submodules/getting-started.rst:194
 msgid "Configuration Tool"
-msgstr ""
+msgstr "設定ツール"
 
 #: ../../step-series/submodules/getting-started.rst:196
 msgid ""
@@ -502,13 +498,14 @@ msgid ""
 "this slot, you can just about completely configure the device using our "
 "convenient `Configuration Tool`_. This tool is a webpage, that can be "
 "accessed through your browser--so no third party software is required."
-msgstr ""
+msgstr "両製品ともmicroSDカードを差し込めるようになっています。設定ファイルを書き込んだmicroSDカードを本デバイスに差し込んで起動すると、起動時にファイルに書かれた設定で初期化をすることができます。 設定ファイルは `設定ツール`_ (Config Tool) を使って書き出せます。microSDカードを差し込まずに起動した場合は、ファームウェアに書かれた初期値が使用されます。"
+"設定ツールはウェブページですので、ブラウザで動作します。"
 
 #: ../../step-series/submodules/getting-started.rst:200
 msgid ""
 "This tutorial uses default settings, so we will not be using the microSD "
 "card. Just leave the slot empty."
-msgstr ""
+msgstr "このチュートリアルでは初期設定のままで使用しますので、microSDカードは使いません。"
 
 #: ../../step-series/submodules/getting-started.rst:203
 msgid ""
@@ -516,36 +513,37 @@ msgid ""
 "connected to an existing VLAN, you may need to use the configuration tool"
 " to pre-configure the device's network settings and override those that "
 "will be set by the DIP switches as described below."
-msgstr ""
+msgstr "もし本デバイスをつないだスイッチングハブが既存のVLANに接続している場合は、設定ツールを使って本デバイスのネットワーク設定を事前に行う必要があります。"
 
 #: ../../step-series/submodules/getting-started.rst:210
 msgid "Dip Switches"
-msgstr ""
+msgstr "DIPスイッチ"
 
 #: ../../step-series/submodules/getting-started.rst:212
 msgid ""
 "The DIP switches on the board must be set to 1. This means only the left-"
 "most switch is ON and the rest are OFF. With this configuration, the "
 "board has the following network settings:"
-msgstr ""
+msgstr "基板上のIDスイッチ(8桁のDIPスイッチ)は1に設定してください。すなわち1の桁のみON, ほかの桁はすべてOFFの状態です。向かって左側が小さい桁になっていることに注意してください。"
+"この状態でのネットワーク設定は以下のようになります。"
 
 #: ../../step-series/submodules/getting-started.rst:216
 #: ../../step-series/submodules/getting-started.rst:241
 #: ../../step-series/submodules/getting-started.rst:343
 #: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Name"
-msgstr ""
+msgstr "項目"
 
 #: ../../step-series/submodules/getting-started.rst:216
 #: ../../step-series/submodules/getting-started.rst:241
 msgid "Value"
-msgstr ""
+msgstr "設定値"
 
 #: ../../step-series/submodules/getting-started.rst:218
 #: ../../step-series/submodules/getting-started.rst:243
 #: ../../step-series/submodules/other-connections-settings.rst:96
 msgid "IP Address"
-msgstr ""
+msgstr "IPアドレス"
 
 #: ../../step-series/submodules/getting-started.rst:218
 msgid "10.0.0.101"
@@ -553,11 +551,11 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:218
 msgid "The IP address of the device"
-msgstr ""
+msgstr "本デバイスのIPアドレス"
 
 #: ../../step-series/submodules/getting-started.rst:219
 msgid "Server Address"
-msgstr ""
+msgstr "サーバのアドレス"
 
 #: ../../step-series/submodules/getting-started.rst:219
 #: ../../step-series/submodules/getting-started.rst:243
@@ -567,7 +565,7 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:219
 msgid "The IP address of the server (i.e. your PC)"
-msgstr ""
+msgstr "サーバのIPアドレス（あなたのPCなど）"
 
 #: ../../step-series/submodules/getting-started.rst:220
 #: ../../step-series/submodules/other-connections-settings.rst:99
@@ -581,7 +579,7 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:220
 msgid "The port the device is listening on"
-msgstr ""
+msgstr "本デバイスが受信するポート"
 
 #: ../../step-series/submodules/getting-started.rst:221
 msgid "Server Port"
@@ -593,11 +591,11 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:221
 msgid "The port on the server that the server is listening on"
-msgstr ""
+msgstr "本デバイスが送信するポート"
 
 #: ../../step-series/submodules/getting-started.rst:226
 msgid "Configured DIP switches on the STEP400."
-msgstr ""
+msgstr "DIPスイッチが設定された状態のSTEP400"
 
 #: ../../step-series/submodules/getting-started.rst:228
 msgid ""
@@ -606,22 +604,24 @@ msgid ""
 "bottom side of the board does have high-voltage and high-current pins, so"
 " either place the board on non-conductive material or attach spacers to "
 "avoid damaging the board or hurting yourself."
-msgstr ""
+msgstr "これでモータ、電源、LANケーブルが接続され、DIPスイッチも設定された状態になりました。ここで電源を投入します。"
+"基板裏側には高い電圧が印加されたピンが出ていますので、電気を通しやすい素材の上に基板を直接置くと、デバイスを損傷したり、あなた自身がけがをする可能性があります。"
+"必ず電気を通さない素材の上に置くか、基板にスペーサを取り付けて使用してください。"
 
 #: ../../step-series/submodules/getting-started.rst:235
 msgid "PC Configuration"
-msgstr ""
+msgstr "PCの設定"
 
 #: ../../step-series/submodules/getting-started.rst:237
 msgid ""
 "As seen in the table above, the device will expect your PC (server) to "
 "exist at a certain IP address. If you need to, you can set it statically "
 "by reviewing the guides linked below:"
-msgstr ""
+msgstr "上でみたように、本デバイスはあなたのPC (server) があるIPアドレス上にあることを想定しています。必要な場合はPCに固定IPアドレスを設定してください。"
 
 #: ../../step-series/submodules/getting-started.rst:244
 msgid "Subnet Mask"
-msgstr ""
+msgstr "サブネットマスク"
 
 #: ../../step-series/submodules/getting-started.rst:244
 msgid "255.255.255.0"
@@ -634,11 +634,11 @@ msgstr ""
 #: ../../step-series/submodules/getting-started.rst:245
 #: ../../step-series/submodules/getting-started.rst:246
 msgid "<Leave Empty>"
-msgstr ""
+msgstr "<空欄のまま>"
 
 #: ../../step-series/submodules/getting-started.rst:246
 msgid "Default Gateway"
-msgstr ""
+msgstr "デフォルト・ゲートウェイ"
 
 #: ../../step-series/submodules/getting-started.rst:249
 msgid "`Windows`_"
@@ -654,18 +654,18 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:255
 msgid "Running Basic Commands"
-msgstr ""
+msgstr "基本的なコマンドを試す"
 
 #: ../../step-series/submodules/getting-started.rst:259
 msgid "Verifying the Connection"
-msgstr ""
+msgstr "通信の確認"
 
 #: ../../step-series/submodules/getting-started.rst:261
 msgid ""
 "After configuring the above settings, you can verify your connection by "
 "running ``ping 10.0.0.101`` from your terminal (Command Prompt on "
 "Windows)."
-msgstr ""
+msgstr "ここまでうまく設定できていれば、ターミナル（Windowsの場合はコマンドプロンプト）から ``ping 10.0.0.101`` を実行して接続を確認できると思います。"
 
 #: ../../step-series/submodules/getting-started.rst:264
 msgid ""

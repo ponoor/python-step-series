@@ -388,6 +388,7 @@ load.
 
 
 .. _protocol: http://opensoundcontrol.org/
+.. _プロトコル: http://opensoundcontrol.org/
 
 .. _datasheet: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
 .. _データシート: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
@@ -415,6 +416,7 @@ load.
 .. _設定ファイル: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/
 
 .. _Configuration Tool: http://ponoor.com/tools/step400-config/
+.. _設定ツール: http://ponoor.com/tools/step400-config/
 
 .. _Windows: https://support.microsoft.com/en-us/windows/change-tcp-ip-settings-bd0a07af-15f5-cd6a-363f-ca2b6f391ace
 .. _Mac: https://support.apple.com/en-us/HT202480
