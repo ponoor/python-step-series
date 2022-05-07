@@ -592,7 +592,13 @@ approaching the target.
 
 
 .. _this presentation PDF: https://www.st.com/content/dam/AME/2019/developers-conference-2019/presentations/STDevCon19_3.6_Using%20Powerstep01.pdf
+.. _プレゼンテーション資料: https://www.st.com/content/dam/AME/2019/developers-conference-2019/presentations/STDevCon19_3.6_Using%20Powerstep01.pdf
+
+.. _フォーラム: https://github.com/ponoor/step-series-support/discussions
+
 .. _STMicroelectronic's application notes: https://www.st.com/resource/en/application_note/dm00061093-voltage-mode-control-operation-and-parameter-optimization-stmicroelectronics.pdf
+.. _アプリケーションノート: https://www.st.com/resource/en/application_note/dm00061093-voltage-mode-control-operation-and-parameter-optimization-stmicroelectronics.pdf
+
 .. _/setBemfParam: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#setbemfparam_intmotorid_intint_speed_intst_slp_intfn_slp_acc_intfn_slp_dec
 .. _Config Tool: http://ponoor.com/tools/step400-config/
 .. _configuration files: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/

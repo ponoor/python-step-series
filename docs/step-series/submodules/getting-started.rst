@@ -423,3 +423,4 @@ load.
 .. _Linux: https://www.youtube.com/watch?v=Yr6qI6v1QCY
 
 .. _Soundhouse's Documentation: https://www.soundhouse.co.jp/howto/light/dmx-dip/
+.. _ディップスイッチによるチャンネル設定: https://www.soundhouse.co.jp/howto/light/dmx-dip/
