@@ -1150,7 +1150,7 @@ msgid ""
 " the STEP400 can switch between both voltage and current modes. The "
 "difference between these modes is well-explained in `this presentation "
 "PDF`_ by STMicroelectronics."
-msgstr "ステッピングモータの制御方式には定電圧制御（**電圧モード**）と定電流制御（**電流モード**）の2種のモードがあり、STEP800は電圧モード、STEP400では電圧モードと電流モードの両方を切り替えて使うことができます。これらの制御モードの違いについてはSTMicroelectronics社の `プレゼンテーション資料`_ があり、わかりやすくまとめられています。"
+msgstr "ステッピングモータの制御方式には定電圧制御（ **電圧モード** ）と定電流制御（ **電流モード** ）の2種のモードがあり、STEP800は電圧モード、STEP400では電圧モードと電流モードの両方を切り替えて使うことができます。これらの制御モードの違いについてはSTMicroelectronics社の `プレゼンテーション資料`_ があり、わかりやすくまとめられています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:20
 msgid "The differences can be described as follows:"
@@ -1199,7 +1199,7 @@ msgid ""
 "motors. Although they are the same registers internally in the driver, "
 "our firmware keeps them separated and rewrites them when the modes are "
 "changed."
-msgstr "電圧モードの場合は**KVAL**レジスタで電圧を制御して, 電流モードの場合は**TVAL**レジスタで電流を制御します。それらはドライバ内部では物理的に同じレジスタですが、モードを切り替えた際に意図しない値になることを避けるために、ファームウェアでそれぞれ別の値として保持しておいて、モード切替時に書き換えています。"
+msgstr "電圧モードの場合は **KVAL** レジスタで電圧を制御して, 電流モードの場合は **TVAL** レジスタで電流を制御します。それらはドライバ内部では物理的に同じレジスタですが、モードを切り替えた際に意図しない値になることを避けるために、ファームウェアでそれぞれ別の値として保持しておいて、モード切替時に書き換えています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:58
 msgid "Notes on Voltage Mode"
@@ -1332,26 +1332,26 @@ msgid ""
 "You can also set the minimum speed (minSpeed) as a function of the motor "
 "driver, but it is fixed at 0 in the firmware because it is unlikely to be"
 " used for any actual application."
-msgstr ""
+msgstr "モータドライバの機能としては最小速さminSpeedも設定できますが、実際の現場で使うことはほぼ無いと思われるため、ファームウェア側で0に固定しています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:143
 msgid "Setting the Profile"
-msgstr ""
+msgstr "設定コマンド"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:145
 msgid ""
 "Use `/setSpeedProfile`_ to set the above three values. Acc and dec cannot"
 " be set unless the motor is stopped; however, maxSpeed can be set at any "
 "time."
-msgstr ""
+msgstr "`/setSpeedProfile`_ コマンドで、上記3つの値を設定できます。acc, dec はモータが停止していないと変更できませんが、 maxSpeedは常時変更が可能です。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:151
 msgid "Types of Motor Operation"
-msgstr ""
+msgstr "モータ動作の種類"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:155
 msgid "Constant Speed"
-msgstr ""
+msgstr "一定速運転"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:157
 msgid ""
@@ -1364,14 +1364,16 @@ msgid ""
 "cause the motor's speed to be truncated to that setting. The motor will "
 "be kept in the BUSY state during the acceleration and deceleration."
 msgstr ""
+"あらかじめ設定されたスピードプロファイルの加速度・減速度で指定された速度へ到達し、その後一定速を維持するコマンドです。速度に0を指定するか、停止コマンドを送るまで回り続けます。指定できる速度の範囲は、スピードプロファイルの最大速さに制限されます。加速中と減速中はBUSY状態になります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:166
 msgid "`/goUntil`_ and `/releaseSw`_ are also considered constant speed commands."
 msgstr ""
+"一定速運転をする代表的なコマンドが `/run`_ です。そのほかにも `/goUntil`_ や `/releaseSw`_ なども含まれます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:171
 msgid "Positioning"
-msgstr ""
+msgstr "位置決め運転"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:173
 msgid ""
@@ -1386,10 +1388,13 @@ msgid ""
 " It's not possible to interrupt the current positioning motion with "
 "another positioning motion."
 msgstr ""
+"指定された位置へ向かって、スピードプロファイルに従って台形運転を行います。すなわち、スピードプロファイルの加速度に従って加速し、最大速さまで到達したら一定速で運転し、その後指定の減速度で減速しますが、指定位置で停止するように逆算したタイミングで減速を開始します。移動距離に比べてゆっくり加減速した場合などには、最大速さに達する前に減速を開始することもあります。"
+"モータが停止するまでBUSY状態になります。位置決め運転の途中で割り込んで次の位置決め運転をすることはできません。"
+"位置決め運転をする代表的なコマンドが `/goTo`_ や `/move`_ です。その他にも `/goHome`_, `/goMark`_, `/goToDir`_ などが含まれます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:186
 msgid "Servo Mode"
-msgstr ""
+msgstr "サーボモード"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:188
 msgid ""
@@ -1399,40 +1404,41 @@ msgid ""
 "radio controlled servo motor. No other motor motion commands can be sent "
 "while the motor is operating in this mode."
 msgstr ""
+"これはモータドライバの機能ではなく、ファームウェアで実装されている運転の種類です。一定速運転の速度を常時更新して、与えられた目標位置に追従するようにします。ラジコンのサーボモータのような動作方法です。このモードで動いている間は、ほかのモータ動作コマンドを送ることはできません。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:196
 msgid "Types of Stops"
-msgstr ""
+msgstr "停止の種類"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:198
 msgid "There are two options with a total of four different commands, as follows:"
-msgstr ""
+msgstr "以下の2種類の選択肢があり、合計4種類のコマンドがあります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:201
 msgid "Decelerating according to the speed profile or stop instantly"
-msgstr ""
+msgstr "スピードプロファイルに従って減速するか、瞬時に停止するか"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:202
 msgid ""
 "Keeping magnetized/excited or entering a high impedance (High Z) state "
 "after stopping"
-msgstr ""
+msgstr "停止後も励磁状態を保つか、ハイ・インピーダンス状態 (HiZ) にするか"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:206
 msgid "State after stop"
-msgstr ""
+msgstr "停止後の状態"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:206
 msgid "Deceleration stop"
-msgstr ""
+msgstr "減速停止"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:206
 msgid "Immediate stop"
-msgstr ""
+msgstr "瞬間停止"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:208
 msgid "Excited"
-msgstr ""
+msgstr "励磁"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:208
 msgid "SoftStop"
@@ -1462,17 +1468,18 @@ msgid ""
 "current is cut off and no holding torque is maintained. **Any loads the "
 "motor is moving may fall or lose their positioning during HiZ.**"
 msgstr ""
+"励磁状態とは、 ``KVAL_HOLD`` に応じた電圧や ``TVAL_HOLD`` の値に応じた電流が流れて、モータの位置を保持するトルクがかかっている状態です。ハイ・インピーダンス状態は、電流が遮断されて保持トルクがない状態です。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:220
 msgid "Homing"
-msgstr ""
+msgstr "原点復帰"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:222
 msgid ""
 "When the system powers up, it doesn't know where the motor is currently "
 "positioned. It could be pointing to various directions depending on the "
 "timing of the last time the system was shut off."
-msgstr ""
+msgstr "システムの電源投入時は、モータが現在どの位置で止まっているかが不明の状態です。前回電源を切った時のタイミング次第でいろんな方向に向いている可能性があります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:226
 msgid ""
@@ -1480,22 +1487,22 @@ msgid ""
 "will slip out of alignment (**stall**). If this happens, the motor will "
 "continue to work with an unknown offset between the expected position and"
 " its actual."
-msgstr ""
+msgstr "またステッピングモータは限界を超える外力がかかるとステップがずれてしまいます（脱調）。そうなると、プログラム上の位置と物理的な位置がずれたまま動き続けてしまいます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:231
 msgid ""
 "Therefore, applications that have position or orientation must use "
 "sensors to detect a reference position on startup or periodically while "
 "it is active. This action is called **homing**."
-msgstr ""
+msgstr "そのため、位置や向きがある使い方の場合は、起動時に、あるいは定期的にセンサを使って基準位置を検出する必要があります。この動作は **原点復帰** と呼ばれます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:237
 msgid "Switches and Sensors"
-msgstr ""
+msgstr "センサとスイッチ"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:242
 msgid "Two different configurations of a homing sensor"
-msgstr ""
+msgstr "原点センサの設置2例"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:244
 msgid ""
@@ -1503,24 +1510,24 @@ msgid ""
 "piece of plastic attached to the slider blocks the photointerrupter's "
 "light-emitting and receiving parts. The right side is an example of a "
 "rotary table where the photo interrupter responds to the black screw."
-msgstr ""
+msgstr "原点センサにはフォトインタラプタがよく使われています。左はスライダに取り付けられた白い樹脂がフォトインタラプタの発光部と受光部を遮るようになっています。右は回転テーブルの例で、フォトインタラプタが黒いねじに反応するようになっています。 "
 
 #: ../../step-series/submodules/functionality-descriptions.rst:249
 msgid ""
 "Other devices such as microswitches or photoelectric sensors are also "
 "used for the sensing."
-msgstr ""
+msgstr "ほかにもマイクロスイッチや光電センサなどが使われます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:252
 msgid ""
 "To make interfacing with these sensors and switches from the controller, "
 "we provide `pre-made connection cables`_ (scroll all the way down to the "
 "bottom of the page when you click \"BUY\")."
-msgstr ""
+msgstr "本デバイスとの接続のために `コネクタ取り付け済みケーブル`_ を用意しています。""
 
 #: ../../step-series/submodules/functionality-descriptions.rst:259
 msgid "HOME and LIMIT Sensors"
-msgstr ""
+msgstr "HOMEセンサとLIMITセンサ"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:261
 msgid ""
@@ -1528,18 +1535,18 @@ msgid ""
 "connect sensors or switches. The STEP400 has LIMIT sensor inputs in "
 "addition to HOME inputs. 5V is supplied to each connector for the sensing"
 " power source."
-msgstr ""
+msgstr "STEP400/800は各軸に対してHOME端子があり、センサやスイッチを接続できるようになっています。また端子にはセンサ用の5V電源も供給されています。 STEP400ではHOME端子に加えてLIMIT端子も準備されています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:270
 msgid ""
 "This input is connected directly to the motor driver chip and can be used"
 " in conjunction with the driver's homing function. Usually, this "
 "connector is used for the home sensor."
-msgstr ""
+msgstr "モータドライバチップに直接接続されていて、ドライバの原点復帰機能と組み合わせて使うことができます。通常はこのコネクタを原点センサ用に使います。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:276
 msgid "LIMIT (STEP400 Only)"
-msgstr ""
+msgstr "LIMIT (STEP400のみ)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:278
 msgid ""
@@ -1547,7 +1554,7 @@ msgid ""
 "limited operating range and if it stalls during operation, it may collide"
 " with one of either end. In such cases, installing sensors on both ends "
 "of the slider will prevent collisions."
-msgstr ""
+msgstr "使用方法によってはセンサが2つ必要なこともあります。例えばスライダなどは動作範囲が限定されているため、動作中に脱調するとどちらかの端に衝突してしまう可能性があります。このような場合に両端にセンサを設置しておくと衝突を防ぐことができます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:283
 msgid ""
@@ -1555,11 +1562,11 @@ msgid ""
 "can also be used as simple switch inputs separated from the motor "
 "operation. For example, you can connect a push button to one of them and "
 "press to send an OSC message."
-msgstr ""
+msgstr "これらの端子が反応するとモータを強制的に停止する設定が可能ですが、逆にモータ動作と切り離して単純なスイッチ入力として使うこともできます。例えば押しボタンを接続しておいて、押されたらOSCメッセージで通知する、という使い方もできます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:290
 msgid "Collision Prevention Settings"
-msgstr ""
+msgstr "衝突防止設定"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:292
 msgid ""
@@ -1570,28 +1577,28 @@ msgid ""
 "reverse direction towards ``homingDirection`` when the LIMIT sensor is "
 "active. With this, you can prevent the mechanism from colliding with its "
 "bounds."
-msgstr ""
+msgstr "HOMEやLIMITセンサが反応しているときに、モータが回転できる方向を制限することができます。 `/setProhibitMotionOnHomeSw`_ コマンドと `/setProhibitMotionOnLimitSw`_ コマンドによって、それぞれHOMEセンサが反応している場合は ``homingDirection`` 方向へ、LIMITセンサが反応している場合には ``homingDirection`` と逆方向へのモータ動作が禁止できます。これによって、誤ったコマンドによるメカの衝突が回避できます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:300
 msgid ""
 "``homingDirection`` can be set with `/setHomingDirection`_ or with the "
 "`Config Tool`_. This setting is also used for the `/homing`_ command."
-msgstr ""
+msgstr "``homingDirection`` は `/setHomingDirection`_ または `設定ツール`_ で設定できます。これは下記の `/homing`_ コマンドでも使用されます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:307
 msgid "Homing Direction"
-msgstr ""
+msgstr "原点復帰方向 ( ``homingDirection`` )"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:311
 msgid "Homing Commands"
-msgstr ""
+msgstr "原点復帰コマンド"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:313
 msgid ""
 "The homing command on the STEP400 is `/homing`_. This command consists of"
 " two commands, ``/goUntil`` and ``/releaseSw``, which are inherited from "
 "the powerSTEP01 motor driver chip. Let's look closer at those commands."
-msgstr ""
+msgstr "本デバイスで原点復帰を行うコマンドは `/homing`_ です。このコマンドの動作を分解すると、モータドライバチップから継承した `/goUntil`_ と `/releaseSw`_ のふたつのコマンドから成り立っています。まずはこれらのコマンドの動きを見てみます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:320
 msgid "`/goUntil`_"
@@ -1602,7 +1609,7 @@ msgid ""
 "First, use this command to move towards the home sensor. The motor will "
 "decelerate and then stop when the home sensor activates (if it has been "
 "set up as such)."
-msgstr ""
+msgstr "まずはこのコマンドで原点センサに向かって移動していきます。（そのように設定している場合は）原点センサが反応するとモータが減速停止します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:328
 msgid "`/releaseSw`_"
@@ -1619,16 +1626,17 @@ msgid ""
 "responded. This is not accounted for in the firmware as every environment"
 " is different."
 msgstr ""
+"モータが停止した位置が原点です！ただ厳密には、 ``/goUnitl`` コマンドでは瞬間に停止するのではなく、減速して停止したため、センサが反応した瞬間からずれて停止します。このコマンドは現在位置からゆっくりと逆方向へ移動し、センサが反応しなくなったところで即時停止します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:339
 msgid ""
 "Both commands can be configured to reset the current position to zero the"
 " moment the sensor responds with `/setHomeSwMode`_."
-msgstr ""
+msgstr "どちらのコマンドも `/setHomeSwMode`_ によってセンサが反応した時点で現在位置の座標をゼロにリセットする設定にできます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:342
 msgid "To better illustrate this interaction, here is a demo video."
-msgstr ""
+msgstr "これらのコマンドと動作の実例はこちらの映像をご覧ください。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:352
 msgid "`/homing`_"
@@ -1642,11 +1650,11 @@ msgid ""
 "the homing direction and homing speed which are pre-configured with the "
 "`Config Tool`_ or with the commands `/setHomingDirection`_ and "
 "`/setHomingSpeed`_, respectively."
-msgstr ""
+msgstr "上記2つのコマンドをOSC経由で順次動かすこともできますが、このシーケンスを一つのコマンドで実行するのが `/homing`_ です。 `設定ツール`_ やOSCコマンドにてあらかじめ設定しておいた原点復帰方向や原点復帰スピードに従って、自動で原点復帰シーケンスが完了します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:363
 msgid "Homing Timeouts"
-msgstr ""
+msgstr "原点復帰のタイムアウト"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:365
 msgid ""
@@ -1655,36 +1663,36 @@ msgid ""
 "changed after a period of time--the controller will halt the movement of "
 "the motor. This is to prevent the moving part from being pushed against "
 "other mechanical objects endlessly and for safety."
-msgstr ""
+msgstr "``/goUntil`` ``/releaseSw`` それぞれにタイムアウト時間が設定可能で、この時間内にセンサ状態に変化がなかった場合はタイムアウトとして動作を中止します。これは何らかの理由でセンサが反応しなくなった場合に、延々とメカが行き止まりに押し当てられているような状況を防ぐために、ある時点で原点復帰動作をあきらめて停止するものです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:373
 msgid "Normally Open and Normally Closed"
-msgstr ""
+msgstr "常時開と常時閉"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:377
 msgid "Electrical Connections"
-msgstr ""
+msgstr "電気的接続"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:379
 msgid ""
 "Let's explore \"sensor reaction” a little bit more in detail. The pin "
 "assignments of HOME and LIMIT connectors are as follows."
-msgstr ""
+msgstr "「センサが反応する」をもう少し厳密に考えてみます。 HOMEとLIMITの各コネクタのピン配置は以下の通りです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:383
 #: ../../step-series/submodules/functionality-descriptions.rst:405
 msgid "Pin number"
-msgstr ""
+msgstr "ピン番号"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:386
 #: ../../step-series/submodules/functionality-descriptions.rst:408
 msgid "Switch/Sensor input"
-msgstr ""
+msgstr "スイッチ・センサ入力"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:387
 #: ../../step-series/submodules/functionality-descriptions.rst:409
 msgid "5V Power Output"
-msgstr ""
+msgstr "5V電源出力"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:390
 msgid ""
@@ -1693,21 +1701,21 @@ msgid ""
 "switch is pressed, it is connected to the GND pin and the voltage drops "
 "from 3.3V to 0V. When the voltage changes from HIGH level to LOW level "
 "(a.k.a. **Falling Edge**), the sensor is considered to have activated."
-msgstr ""
+msgstr "HOMEとLIMITの各センサピンは3.3Vでプルアップされています。スイッチをつなぐ場合は1番のGNDと2番のセンサ端子を接続します。スイッチが押されるとGNDピンとつながって、3.3Vから0Vへ電圧が落下します。このHIGHレベルからLOWレベルへの電圧の変化時 (**Falling Edge**) に、センサが反応したという判定が発生します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:396
 msgid ""
 "Let's take photo interrupter `EE-SX671A`_ as an example, where the "
 "connection is as follows:"
-msgstr ""
+msgstr "センサの場合は、 `EE-SX671A`_ を例にとると次のような接続になります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:402
 msgid "EE-SX671A Diagram"
-msgstr ""
+msgstr "EE-SX671A 構成図"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:405
 msgid "Sensor pin"
-msgstr ""
+msgstr "センサピン"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:408
 msgid "OUT"
@@ -1715,11 +1723,11 @@ msgstr ""
 
 #: ../../step-series/submodules/functionality-descriptions.rst:414
 msgid "Light or No Light Activation"
-msgstr ""
+msgstr "センサの反応時に入光するのか遮光するのか"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:416
 msgid "This is the part you need to consider carefully before ordering a sensor."
-msgstr ""
+msgstr "ここはセンサを買いに行く前によく考えておかなければならない部分です。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:422
 msgid "Dark on or Light on"
@@ -1727,14 +1735,14 @@ msgstr ""
 
 #: ../../step-series/submodules/functionality-descriptions.rst:422
 msgid "Dark activated or light activated"
-msgstr ""
+msgstr "入光時反応と遮光時反応"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:424
 msgid ""
 "In the case of the left picture, the light enters into the sensor at the "
 "home position, but in the picture on the right, the light is blocked at "
 "the home position."
-msgstr ""
+msgstr "左の場合は、原点位置でセンサに入光するようになっていますが、右の場合は原点位置でセンサが遮光されるようになっています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:428
 msgid ""
@@ -1742,17 +1750,17 @@ msgid ""
 "one that turns on when light is interrupted. In the case of the above "
 "Omron sensor, the action is toggled by connecting the \"L\" and \"+\"\" "
 "terminals."
-msgstr ""
+msgstr "センサにも、入光時にONになるタイプと遮光時にONになるタイプがあります。また切替式のセンサもあって、上記のオムロン製センサの場合はLという端子と+端子をショートすると動作が切り替わります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:433
 msgid ""
 "The mechanism and sensor must be combined in such a way that the sensor "
 "pin goes from HIGH to LOW at the home position."
-msgstr ""
+msgstr "原点位置でセンサピンがHIGH→LOWになるように機構とセンサを組み合わせなければなりません。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:438
 msgid "Rotary Tables"
-msgstr ""
+msgstr "回転テーブル"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:440
 msgid ""
@@ -1763,11 +1771,11 @@ msgid ""
 "includes the rotation direction, so you can align the home position if "
 "you write a conditional sequence for each rotation direction. This "
 "reporting can be configured with `/enableHomeSwReport`_."
-msgstr ""
+msgstr "例えば上の写真の左の回転テーブルで考えた場合、時計回りの場合と反時計回りの場合で原点センサの反応位置が穴のサイズ分ずれてしまいます。本デバイスでは原点センサのHIGH→LOWとLOW→HIGHの変化どちらともOSCメッセージで通知させることができます。このメッセージには回転方向も含まれていますので、 `/enableHomeSwReport`_ を用いて回転方向によって場合分けすれば原点位置をそろえることができます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:450
 msgid "Servo Mode Explained"
-msgstr ""
+msgstr "サーボモード"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:452
 msgid ""
@@ -1779,29 +1787,29 @@ msgid ""
 "positional targets are not updated until after the current target is "
 "reached. While this mode is active, other functional commands cannot be "
 "sent."
-msgstr ""
+msgstr "モータドライバICの機能として備わっている位置決め運転では、事前に目標位置を定めておく必要があり、また運転が完了するまでは新しい目標位置を設定することはできないため、リアルタイムに目標位置が変化するような動作はできません。 サーボモードでは、Arduinoスケッチでの処理によって、目標位置へリアルタイムに追従する動作を可能にします。ラジコンのサーボモータのような動作方法です。このモードで動いている間は、ほかのモータ動作コマンドを送ることはできません。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:467
 msgid "*Example Behavior of Servo Mode*"
-msgstr ""
+msgstr "*サーボモードの動作例*"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:471
 msgid "Initializing Steps for Servo Mode"
-msgstr ""
+msgstr "サーボモードの起動手順"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:475
 msgid "Toggling the Mode"
-msgstr ""
+msgstr "動作開始と終了"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:477
 msgid ""
 "The command `/enableServoMode`_ enables or disables Servo Mode. Upon "
 "starting Servo Mode, the driver must not be in the BUSY state."
-msgstr ""
+msgstr "`/enableServoMode`_ メッセージによってサーボモードを開始・終了します。サーボモードの開始時は、BUSY解除状態である必要があります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:482
 msgid "Updating the Target Position"
-msgstr ""
+msgstr "目標位置の更新"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:484
 msgid ""
@@ -1810,28 +1818,28 @@ msgid ""
 "the new position with the current one and change the rotation speed of "
 "the motor. Additionally, you can send target positions to all four motors"
 " at the same time with `/setTargetPositionList`_."
-msgstr ""
+msgstr "`/setTargetPosition`_ メッセージによって目標位置を更新します。Arduinoスケッチでは新しい目標位置を受け取ると、現在位置と比較して、モータの回転速度を更新します。 全モータ分の目標位置をまとめて送るための `/setTargetPositionList`_ メッセージもあります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:492
 msgid "Types of Control Parameters"
-msgstr ""
+msgstr "制御パラメータの種類"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:494
 msgid ""
 "The motor's rotation speed is calculated by a technique called \"PID "
 "Control\". To better illustrate the purpose of PID, refer to the "
 "following graph:"
-msgstr ""
+msgstr "モータの回転速度は、PID制御という手法によって算出しています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:501
 msgid ""
 "Please refer to this graph when the control parameters are discussed "
 "below. These parameters can be set with the command `/setServoParam`_."
-msgstr ""
+msgstr "`/setServoParam` コマンドによって制御パラメータを調整できます。パラメータは以下の3つです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:506
 msgid "Proportional Gain (kP)"
-msgstr ""
+msgstr "比例ゲイン(kP)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:508
 msgid ""
@@ -1843,11 +1851,11 @@ msgid ""
 " it will take time to approach the target position, and if the value is "
 "too large, an \"overshoot\" may occur in which case the target position "
 "is passed."
-msgstr ""
+msgstr "PID制御は目標位置と現在位置の差（偏差）を使って制御します。すなわち、偏差が大きい場合は速く、差が小さい場合は遅く回転させて目標位置に近づけています。比例ゲインは偏差をどの程度回転速度に反映させるかを決定します。値が小さすぎると目標位置に近づくのに時間がかかり、大きすぎると目標位置を通り過ぎるオーバーシュートが発生します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:519
 msgid "Integral Gain (kI)"
-msgstr ""
+msgstr "積分ゲイン(kI)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:521
 msgid ""
@@ -1858,53 +1866,53 @@ msgid ""
 " applying large integral gain, you could compensate the offset quickly; "
 "however, it may cause the overshoot, or even the continuous oscillation "
 "by trying to compensate the overshoot."
-msgstr ""
+msgstr "比例制御だけだと、目標位置に近づくにつれ回転が遅くなっていき、最後のわずかな偏差を解消するのに非常に時間がかかってしまいます。そこで偏差を時間積分して制御量に加えることによって、最後に長く残ってしまう偏差を解消できます。積分ゲインを大きくするとより素早く偏差を解消できますが、オーバーシュートしたり、さらにそれを解消するための動作が発生して振動が続く状態になってしまうことがあります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:531
 msgid "Differential Gain (kD)"
-msgstr ""
+msgstr "微分ゲイン(kD)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:533
 msgid ""
 "In case an overshoot or oscillation related errors occurs, this parameter"
 " is used to eliminate steep changes in deviation--that is to say, it acts"
 " like a spring that continually decreases each oscillation."
-msgstr ""
+msgstr "オーバーシュートや振動が発生している場合などに、偏差の急な変化を打ち消す用に作用するパラメータです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:539
 msgid "Methods for Determining PID Parameters"
-msgstr ""
+msgstr "制御パラメータの決定方法"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:543
 msgid "Step by Step Procedures"
-msgstr ""
+msgstr "全体の流れ"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:545
 msgid ""
 "PID Control Parameters must be determined from the actual acceleration, "
 "deceleration, and the maximum rotation speed (speed profile). Determine "
 "the control parameters by following these steps:"
-msgstr ""
+msgstr "PID制御のパラメータは、動作可能な加減速度、回転速さの最大値（スピードプロファイル）によって変化します。従って、制御パラメータを決めるには以下の手順になります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:549
 msgid ""
 "Decide the KVAL (in case of current mode, TVAL) that is matched to the "
 "rated value and load."
-msgstr ""
+msgstr "モータの定格や負荷に合わせたKVAL（電流モードの場合はTVAL）を決める"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:551
 msgid ""
 "Decide the operational acceleration, deceleration, and the maximum "
 "rotation speed (speed profile)."
-msgstr ""
+msgstr "動作可能な加減速度、回転速さの最大値（スピードプロファイル）を決める"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:553
 msgid "Adjust the PID control gains."
-msgstr ""
+msgstr "PID制御ゲインを決める"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:557
 msgid "The Decisions of PID Control Gain"
-msgstr ""
+msgstr "PID制御ゲインの決定"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:559
 msgid ""
@@ -1913,7 +1921,7 @@ msgid ""
 "movement, or the frequency of target position change. Therefore we "
 "determine the values by steps described as follows and do trial and error"
 " on the actual set up."
-msgstr ""
+msgstr "最適なPID制御ゲインの決定方法は様々な手段が提案されているようですが、目標位置の更新頻度や動きの目的にもよって変化しますので、弊社では以下のような手順で実際に動かしてみながらトライ＆エラーで決めています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:567
 msgid "1. kP"
@@ -1925,7 +1933,7 @@ msgid ""
 "starts to oscillate around its target position. When the target position "
 "changes only sometimes, we often set only kP while keeping other kI and "
 "kD values at 0.0."
-msgstr ""
+msgstr "kP, kI, kDすべてを0.0にして、kPを徐々に上げていきます。目標位置が随時変化する場合は、kI, kDは0.0のままで、kPを設定するだけにすることも多いです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:576
 msgid "2. kI"
@@ -1940,7 +1948,7 @@ msgid ""
 "vibration and loose smooth transition. Depending on the priority of the "
 "quickly response to the target position or smooth movement for the whole "
 "operation, the preferrable values may change."
-msgstr ""
+msgstr "目標位置が数秒に1回しか変化しないような場合は、kIの値を上げていくと、動きを俊敏にできます。ただし、例えば60fpsで目標位置を送っているような場合は、目標位置更新の度に動き出しの加速の振動が発生し、動きの滑らかさが損なわれることがあります。目標位置に素早く到達することが重要なのか、全体で滑らかな動きを実現することが重要なのか、によって設定するべき値は変化します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:588
 msgid "3. kD"
@@ -1950,7 +1958,7 @@ msgstr ""
 msgid ""
 "We gradually raise the kD if oscillation or overshoot is observed when "
 "approaching the target."
-msgstr ""
+msgstr "目標位置に近づく際に少しオーバーシュートや振動が出ている場合は、kDを上げていきます。"
 
 #: ../../step-series/submodules/technical-information.rst:3
 msgid "Technical Information"

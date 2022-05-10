@@ -25,7 +25,7 @@ msgstr "目次"
 
 #: ../../index.rst:2
 msgid "``Step-Series Docs``: Ponoor Experiments Official Documentation"
-msgstr "``STEP-series Docs``: Ponoor Experiments 公式ドキュメント"
+msgstr "``STEP-series Docs``: STEPシリーズドキュメント"
 
 #: ../../index.rst:4
 msgid ""

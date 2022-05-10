@@ -611,6 +611,7 @@ approaching the target.
 .. _/releaseSw: https://ponoor.com/en/docs/step400/osc-command-reference/homing/#releasesw_intmotorid_boolact_booldir
 
 .. _pre-made connection cables: https://ponoor.com/en/products/sensor-cable/
+.. _コネクタ取り付け済みケーブル: https://ponoor.com/en/products/sensor-cable/
 
 .. _/setProhibitMotionOnHomeSw: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setprohibitmotiononhomesw_intmotorid_boolenable
 .. _/setProhibitMotionOnLimitSw: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#setprohibitmotiononlimitsw_intmotorid_boolenable
