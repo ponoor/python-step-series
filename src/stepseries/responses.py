@@ -90,7 +90,7 @@ def dataclass(*args: Tuple[Any], **kwargs: Dict[str, Any]):
 
 
 @dataclass
-class OSCResponse:
+class OSCResponse(object):
     """An abstract class meant to be implemented by OSC resp objects."""
 
     address: str
