@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-29 20:49-0500\n"
+"POT-Creation-Date: 2022-05-09 21:12-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -349,6 +349,8 @@ msgstr ""
 #: stepseries.commands.SetTval.motorID:2
 #: stepseries.commands.SetVoltageMode.motorID:2
 #: stepseries.commands.SoftHiZ.motorID:2 stepseries.commands.SoftStop.motorID:2
+#: stepseries.responses.ErrorCommand.motorID:2
+#: stepseries.responses.ErrorOSC.motorID:2
 msgid "STEP400"
 msgstr ""
 
@@ -521,6 +523,8 @@ msgstr ""
 #: stepseries.commands.SetStallThreshold.motorID:4
 #: stepseries.commands.SetTargetPosition.motorID:4
 #: stepseries.commands.SoftHiZ.motorID:4 stepseries.commands.SoftStop.motorID:4
+#: stepseries.responses.ErrorCommand.motorID:4
+#: stepseries.responses.ErrorOSC.motorID:4
 msgid "STEP800"
 msgstr ""
 
@@ -928,10 +932,13 @@ msgstr ""
 msgid "TH_STATUS"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:22
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:22
 #: stepseries.commands.EnableThermalStatusReport:36
 #: stepseries.commands.GetThermalStatus:13
 #: stepseries.commands.GetThermalStatus:27
+#: stepseries.responses.Booted.deviceID:2
+#: stepseries.responses.ErrorCommand.errorText:2
+#: stepseries.responses.ErrorOSC.errorText:2
 msgid "Description"
 msgstr ""
 
@@ -1703,6 +1710,7 @@ msgstr ""
 #: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.holdKVAL:4
 #: stepseries.commands.SetKval.runKVAL:4
 #: stepseries.commands.SetKval.setDecKVAL:4
+#: stepseries.responses.Booted.deviceID:4
 msgid "0-255"
 msgstr ""
 
@@ -2545,9 +2553,36 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.Booted:1
+msgid "Sent when the device (re)starts."
+msgstr ""
+
+#: of stepseries.responses.Booted:3
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#booted"
+"This message is sent regardless if "
+":py:class:`stepseries.commands.SetDestIP` has been recieved. By watching "
+"for this message, you can determine when the device restarts even if "
+"unexpectedly."
+msgstr ""
+
+#: of stepseries.responses.Booted:8
+msgid ""
+"When the firmware has started and an ethernet uplink is confirmed, this "
+"message will be sent."
+msgstr ""
+
+#: of stepseries.responses.Booted:11
+msgid ""
+"This is a broadcast message meaning it is sent to all devices on the "
+"subnet (address ``255.255.255.255``). If this is unacceptable for your "
+"network, you can disable it via the `Config Tool`_."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Booted.deviceID:2
+msgid "Range"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Booted.deviceID:4
+msgid "The device ID set by the DIP switch"
 msgstr ""
 
 #: of stepseries.responses.BrakeTransitionDuration:1
@@ -2603,15 +2638,122 @@ msgid "Bases: :py:class:`stepseries.responses.OSCResponse`, :py:class:`Exception
 msgstr ""
 
 #: of stepseries.responses.ErrorCommand:1
+msgid "Sent if an error is detected while executing a command."
+msgstr ""
+
+#: of stepseries.responses.ErrorCommand:3
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#errorcommand"
+"Can be enabled or disabled with "
+":py:class:`stepseries.commands.ReportError`."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:2
+#: stepseries.responses.ErrorOSC.errorText:2
+msgid "errorText"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
+msgid "CommandIgnored"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
+msgid "The command is currently not executable. Also refer Timing section."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:5
+msgid "MotorIdNotMatch"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:5
+msgid "Motor ID is not appropriate."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
+msgid "BrakeEngaging"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
+msgid "A motion command was sent while the electromagnet brake was active."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
+msgid "HomeSwActivating"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
+msgid "Movement from home sensor position towards the origin point."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
+msgid "LimitSwActivating"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
+msgid ""
+"Movement from limit sensor position towards the opposite direction from "
+"origin."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
+msgid "GoUntilTimeout"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
+msgid "Timeout while executing /goUntil command."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
+msgid "ReleaseSwTimeout"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
+msgid "Timeout while executing /releaseSw command."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
+msgid "InServoMode"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
+msgid "Received a command which can not be executed while servo mode."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.motorID:2
+#: stepseries.responses.ErrorOSC.motorID:2
+msgid "1-4"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorCommand.motorID:4
+#: stepseries.responses.ErrorOSC.motorID:4
+msgid "1-8"
 msgstr ""
 
 #: of stepseries.responses.ErrorOSC:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#errorosc"
+msgid "Sent if any error is detected in the OSC command."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:4
+msgid "messageNotMatch"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:4
+msgid "There is no corresponding command"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:5
+msgid "oscSyntaxError"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:5
+msgid "The OSC format is out of standard"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:6
+msgid "WrongDataType"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ErrorOSC.errorText:6
+msgid "Wrong datatype of in argument(s)"
 msgstr ""
 
 #: of stepseries.responses.FullstepSpeed:1
@@ -3066,5 +3208,23 @@ msgid "Module contents"
 msgstr ""
 
 #~ msgid "4 axis stepper motor driver with Ethernet interface."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#booted"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#errorcommand"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#errorosc"
 #~ msgstr ""
 

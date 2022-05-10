@@ -3,7 +3,8 @@
 
 import ast
 import re
-from dataclasses import dataclass as _dataclass, field
+from dataclasses import dataclass as _dataclass
+from dataclasses import field
 from typing import Any, Callable, Dict, Tuple, TypeVar, Union
 
 # Pylance custom dataclass work around
@@ -101,28 +102,91 @@ class OSCResponse(object):
 
 @dataclass
 class Booted(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#booted"""  # noqa
+    """Sent when the device (re)starts.
+
+    This message is sent regardless if
+    :py:class:`stepseries.commands.SetDestIP` has been recieved. By
+    watching for this message, you can determine when the device
+    restarts even if unexpectedly.
+
+    When the firmware has started and an ethernet uplink is confirmed,
+    this message will be sent.
+
+    This is a broadcast message meaning it is sent to all devices on the
+    subnet (address ``255.255.255.255``). If this is unacceptable for
+    your network, you can disable it via the `Config Tool`_.
+
+    .. _Config Tool: http://ponoor.com/tools/step400-config/
+    """
 
     address: str = field(default="/booted", init=False)
     deviceID: int
+    """
+    ===== ===================================
+    Range Description
+    ===== ===================================
+    0-255 The device ID set by the DIP switch
+    ===== ===================================
+    """
 
 
 @dataclass
 class ErrorCommand(OSCResponse, Exception):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#errorcommand"""  # noqa
+    """Sent if an error is detected while executing a command.
+
+    Can be enabled or disabled with
+    :py:class:`stepseries.commands.ReportError`.
+    """
 
     address: str = field(default="/error/command", init=False)
     errorText: str
+    """
+    ================= ===============================================================================
+    errorText	      Description
+    ================= ===============================================================================
+    CommandIgnored	  The command is currently not executable. Also refer Timing section.
+    MotorIdNotMatch	  Motor ID is not appropriate.
+    BrakeEngaging	  A motion command was sent while the electromagnet brake was active.
+    HomeSwActivating  Movement from home sensor position towards the origin point.
+    LimitSwActivating Movement from limit sensor position towards the opposite direction from origin.
+    GoUntilTimeout    Timeout while executing /goUntil command.
+    ReleaseSwTimeout  Timeout while executing /releaseSw command.
+    InServoMode       Received a command which can not be executed while servo mode.
+    ================= ===============================================================================
+    """
     motorID: int = None
+    """
+    +-------+---+
+    |STEP400|1-4|
+    +-------+---+
+    |STEP800|1-8|
+    +-------+---+
+    """
 
 
 @dataclass
 class ErrorOSC(OSCResponse, Exception):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#errorosc"""  # noqa
+    """Sent if any error is detected in the OSC command."""
 
     address: str = field(default="/error/osc", init=False)
     errorText: str
+    """
+    =============== =================================
+    errorText	    Description
+    =============== =================================
+    messageNotMatch	There is no corresponding command
+    oscSyntaxError	The OSC format is out of standard
+    WrongDataType	Wrong datatype of in argument(s)
+    =============== =================================
+    """
     motorID: int = None
+    """
+    +-------+---+
+    |STEP400|1-4|
+    +-------+---+
+    |STEP800|1-8|
+    +-------+---+
+    """
 
 
 @dataclass
