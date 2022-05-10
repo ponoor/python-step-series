@@ -165,7 +165,7 @@ produce high torque in a small form factor and vice versa with a large form fact
 imperative you review your motor's voltage and current ratings.**
 
 The STEP400 does work with a minimum of 12V; however, since that is its on-board DC-DC converter's
-minimum required voltage, there may be cases wjere the STEP400 resets on a slight voltage drop. This
+minimum required voltage, there may be cases where the STEP400 resets on a slight voltage drop. This
 is especially the case during a motor's inrush current, therefore we do not recommend a 12V power
 supply unless if you are driving a small motor at a low load.
 
@@ -388,8 +388,11 @@ load.
 
 
 .. _protocol: http://opensoundcontrol.org/
+.. _プロトコル: http://opensoundcontrol.org/
 
 .. _datasheet: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
+.. _データシート: https://www.sparkfun.com/datasheets/Robotics/SM-42BYG011-25.pdf
+
 
 .. _Max: https://github.com/ponoor/step-series-example-Max
 .. _Processing: https://github.com/yuskegoto/STEP400_Processing
@@ -407,12 +410,17 @@ load.
 .. _Sparkfun: https://www.sparkfun.com/products/9238
 .. _Strawberry Linux: http://strawberry-linux.com/catalog/items?code=12026
 .. _Akizuki Denshi: https://akizukidenshi.com/catalog/g/gP-05372/
+.. _秋月電子通商: https://akizukidenshi.com/catalog/g/gP-05372/
 
 .. _configuration files: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/
+.. _設定ファイル: https://ponoor.com/en/docs/step-series/settings/example-parameter-values-for-example-steppers/
+
 .. _Configuration Tool: http://ponoor.com/tools/step400-config/
+.. _設定ツール: http://ponoor.com/tools/step400-config/
 
 .. _Windows: https://support.microsoft.com/en-us/windows/change-tcp-ip-settings-bd0a07af-15f5-cd6a-363f-ca2b6f391ace
 .. _Mac: https://support.apple.com/en-us/HT202480
 .. _Linux: https://www.youtube.com/watch?v=Yr6qI6v1QCY
 
 .. _Soundhouse's Documentation: https://www.soundhouse.co.jp/howto/light/dmx-dip/
+.. _ディップスイッチによるチャンネル設定: https://www.soundhouse.co.jp/howto/light/dmx-dip/

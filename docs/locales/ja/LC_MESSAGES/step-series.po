@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 22:19-0500\n"
+"POT-Creation-Date: 2022-05-03 18:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,8 +48,8 @@ msgid ""
 "marked in the API Reference. So, unless you see ``STEP400 Only`` or "
 "``STEP800 Only``, assume the command is compatible with both devices."
 msgstr ""
-"STEP400/800の両者は同じコマンド体系を持っています。特別な注記がない場合は両方の機種に共通のコマンドです。いくつかの例外があり、それらは``STEP400のみ``"
-" ``STEP800`` のみと表記されています。"
+"STEP400/800の両者は同じコマンド体系を持っています。特別な注記がない場合は両方の機種に共通のコマンドです。いくつかの例外があり、それらは"
+" ``STEP400のみ`` ``STEP800`` のみと表記されています。"
 
 #: ../../step-series/submodules/getting-started.rst:3
 msgid "Getting Started"
@@ -66,7 +66,7 @@ msgid ""
 "applications can also communicate with these devices, so example "
 "configuration and setup files are provided in the list below:"
 msgstr ""
-"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `protocol_` を用いて通信を行います"
+"STEP400とSTEP800はどちらも ``Open Sound Control`` (OSC) `プロトコル`_ を用いて通信を行います"
 "。``python-step-series`` "
 "以外にも、数多くのアプリケーションから制御が可能です。いくつかの環境のサンプルファイルを準備しています。"
 
@@ -111,7 +111,8 @@ msgid ""
 "switch is also viable."
 msgstr ""
 "STEP400/800ともEthernetを用いて通信します。すなわち、制御に使うPCにはEthernetポートまたはUSB-"
-"Ethernet変換などが必要です。このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
+"Ethernet変換などが必要です。このチュートリアルでは、PCと本デバイスを直接一対一で接続していると仮定して進めます。"
+"もちろん、ネットワークスイッチ（スイッチングハブ）を経由して接続することもできます。"
 
 #: ../../step-series/submodules/getting-started.rst:33
 msgid "Please plug the ethernet cable in now."
@@ -121,7 +122,9 @@ msgstr "まずEthernetケーブルを接続してください。"
 msgid ""
 "Ensure your switch is actually a switch. Do not plug these devices into a"
 " router as router ports behave differently than switch ports do."
-msgstr "ネットワークスイッチが、ルータではなく本当にスイッチかどうか確認してください。例えばWiFiルータにはルータポートとスイッチポートがあり、ルータポートは挙動がスイッチと異なるため、STEPシリーズは必ずスイッチポートに接続します。"
+msgstr ""
+"ネットワークスイッチが、ルータではなく本当にスイッチかどうか確認してください。例えばWiFiルータにはルータポートとスイッチポートがあり、ルータポートは挙動がスイッチと異なるため、PC,"
+" STEPシリーズとも必ずスイッチポートに接続します。"
 
 #: ../../step-series/submodules/getting-started.rst:38
 msgid ""
@@ -145,7 +148,7 @@ msgid ""
 "recommended sites below:"
 msgstr ""
 "本デバイスで使用できるのは、「バイポーラ型」のステッピングモータです。入手しやすいモータの例としては、MERCURY MOTORの ``SM-"
-"42BYG011-25`` があります。使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは``SM-"
+"42BYG011-25`` があります。使うモータによって電源電圧や各種設定が変わってきますが、このチュートリアルでは ``SM-"
 "42BYG011-25`` を使用していると仮定して進めます。このモータは例えば下記の場所で入手できます。"
 
 #: ../../step-series/submodules/getting-started.rst:51
@@ -158,27 +161,27 @@ msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:53
 msgid "`Akizuki Denshi`_"
-msgstr "秋月電子通商"
+msgstr "`秋月電子通商`_"
 
 #: ../../step-series/submodules/getting-started.rst:58
 msgid ""
 "From the wiring diagram found in the `datasheet`_ for this motor, we can "
 "see that the wiring pairs are ``Red - Green`` and ``Yellow - Blue``."
-msgstr "このモータのデータシートはこちらにあります。 これをみると、コイルのペアは 赤と緑、黄と青、になっていることがわかります。"
+msgstr "このモータの `データシート`_ はこちらにあります。 これをみると、コイルのペアは 赤と緑、黄と青、になっていることがわかります。"
 
 #: ../../step-series/submodules/getting-started.rst:63
 msgid "The wiring to the terminal block should look like this:"
-msgstr ""
+msgstr "ターミナルブロックへのケーブルの接続は以下のようになります："
 
 #: ../../step-series/submodules/getting-started.rst:67
 msgid ""
 "We've calculated register values for some motors and made them available "
 "as `configuration files`_."
-msgstr ""
+msgstr "いくつかのモータについて、設定値を計算して `設定ファイル`_ として公開しています。"
 
 #: ../../step-series/submodules/getting-started.rst:71
 msgid "Power Supply"
-msgstr ""
+msgstr "電源"
 
 #: ../../step-series/submodules/getting-started.rst:73
 msgid ""
@@ -191,137 +194,139 @@ msgid ""
 "input (4 and 5 in the picture below) and have USB connected, but **do "
 "not** connect power to both primary inputs."
 msgstr ""
+"STEP400とSTEP800では電源入力電圧の定格が異なっています。両機種とも2種類の電源入力端子を備えています。USB-"
+"C端子はUSB通信用で、USBからモータ電源を供給することはできません。2つの電源入力端子（下図4番と5番）両方へ給電することは非常に危険ですので絶対に行わないでください。"
 
 #: ../../step-series/submodules/getting-started.rst:80
 msgid ""
 "Again, make sure not to power the device. You may connect the supply, but"
 " make sure it is not on."
-msgstr ""
+msgstr "繰り返しになりますが、電源は線を接続するだけで、まだ実際にオンにしないでください。"
 
 #: ../../step-series/submodules/getting-started.rst:86
 msgid "Number"
-msgstr ""
+msgstr "番号"
 
 #: ../../step-series/submodules/getting-started.rst:86
-#: ../../step-series/submodules/getting-started.rst:221
-#: ../../step-series/submodules/getting-started.rst:354
+#: ../../step-series/submodules/getting-started.rst:216
+#: ../../step-series/submodules/getting-started.rst:343
 #: ../../step-series/submodules/other-connections-settings.rst:39
 #: ../../step-series/submodules/technical-information.rst:219
 #: ../../step-series/submodules/technical-information.rst:356
 #: ../../step-series/submodules/technical-information.rst:365
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:385
 #: ../../step-series/submodules/functionality-descriptions.rst:407
 #: ../../step-series/submodules/getting-started.rst:88
-#: ../../step-series/submodules/other-connections-settings.rst:63
+#: ../../step-series/submodules/other-connections-settings.rst:61
 #: ../../step-series/submodules/technical-information.rst:368
 msgid "1"
 msgstr ""
 
 #: ../../step-series/submodules/getting-started.rst:88
 msgid "Electromagnetic brake terminal (STEP400)"
-msgstr ""
+msgstr "電磁ブレーキ基板用端子 (STEP400)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:386
 #: ../../step-series/submodules/functionality-descriptions.rst:408
-#: ../../step-series/submodules/getting-started.rst:90
-#: ../../step-series/submodules/other-connections-settings.rst:65
+#: ../../step-series/submodules/getting-started.rst:89
+#: ../../step-series/submodules/other-connections-settings.rst:62
 #: ../../step-series/submodules/technical-information.rst:369
 msgid "2"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:90
+#: ../../step-series/submodules/getting-started.rst:89
 msgid "Ethernet Port"
-msgstr ""
+msgstr "Ethernet端子"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:387
 #: ../../step-series/submodules/functionality-descriptions.rst:409
-#: ../../step-series/submodules/getting-started.rst:92
-#: ../../step-series/submodules/other-connections-settings.rst:67
+#: ../../step-series/submodules/getting-started.rst:90
+#: ../../step-series/submodules/other-connections-settings.rst:63
 #: ../../step-series/submodules/technical-information.rst:370
 msgid "3"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:92
+#: ../../step-series/submodules/getting-started.rst:90
 msgid "USB-C Port"
-msgstr ""
+msgstr "USB-C端子"
 
-#: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/getting-started.rst:91
 #: ../../step-series/submodules/technical-information.rst:371
 msgid "4"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:94
+#: ../../step-series/submodules/getting-started.rst:91
 msgid "(Primary Power Input) DC Barrel Plug"
-msgstr ""
+msgstr "電源用DCジャック"
 
-#: ../../step-series/submodules/getting-started.rst:96
+#: ../../step-series/submodules/getting-started.rst:92
 msgid "5"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:96
+#: ../../step-series/submodules/getting-started.rst:92
 msgid "(Primary Power Input) Screw Terminal"
-msgstr ""
+msgstr "電源用ねじ式ターミナル"
 
-#: ../../step-series/submodules/getting-started.rst:99
+#: ../../step-series/submodules/getting-started.rst:95
 msgid "Again, **do NOT** connect both 4 and 5. This will damage your controller."
-msgstr ""
+msgstr "4番と5番を両方接続しないでください。製品または電源を破損する可能性があります。"
 
-#: ../../step-series/submodules/getting-started.rst:101
+#: ../../step-series/submodules/getting-started.rst:97
 msgid ""
 "As stated above, both devices have different power ratings and different "
 "ratings for each primary input."
-msgstr ""
+msgstr "上で見たように、各機種にはそれぞれ電源入力電圧の定格範囲があり、また端子ごとにも定格があります。"
 
-#: ../../step-series/submodules/getting-started.rst:105
+#: ../../step-series/submodules/getting-started.rst:101
 msgid "Controller"
-msgstr ""
+msgstr "機種"
 
-#: ../../step-series/submodules/getting-started.rst:105
+#: ../../step-series/submodules/getting-started.rst:101
 msgid "Board Max Power Rating"
-msgstr ""
+msgstr "基板自体の定格"
 
-#: ../../step-series/submodules/getting-started.rst:105
+#: ../../step-series/submodules/getting-started.rst:101
 msgid "Barrel Jack"
-msgstr ""
+msgstr "DCジャック"
 
-#: ../../step-series/submodules/getting-started.rst:105
-#: ../../step-series/submodules/getting-started.rst:129
+#: ../../step-series/submodules/getting-started.rst:101
+#: ../../step-series/submodules/getting-started.rst:124
 msgid "Screw Terminal"
-msgstr ""
+msgstr "ねじ式端子"
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:103
 msgid "STEP400"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:103
 msgid "12V-76V @ 20A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:103
+#: ../../step-series/submodules/getting-started.rst:104
 msgid "24V @ 5A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:107
+#: ../../step-series/submodules/getting-started.rst:103
 msgid "76V @ 20A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:104
 msgid "STEP800"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:104
 msgid "9V-36V @ 16A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:109
+#: ../../step-series/submodules/getting-started.rst:104
 msgid "36V @ 16A"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:112
+#: ../../step-series/submodules/getting-started.rst:107
 msgid ""
 "The amps listed here reflect the cumulative maximum phase current draw of"
 " all motors, not the maximum current capacity of the power supply. Look "
@@ -329,56 +334,61 @@ msgid ""
 "maximum phase current draw of 2A per motor whereas the STEP400 has a "
 "maximum of 5A. Please keep these limits in mind when choosing your motor."
 msgstr ""
+"電流値は各モータの最大相電流を合計したもので、電源の最大定格を表したものではありません。"
+"詳しくは :ref:`電流容量` を参照してください。"
+"STEP400の最大相電流は5A, STEP800の最大相電流は2Aです。"
+"この上限値に収まるモータを選定してください。"
+
+#: ../../step-series/submodules/getting-started.rst:114
+msgid "DC Barrel Plug"
+msgstr "DCジャック"
+
+#: ../../step-series/submodules/getting-started.rst:116
+msgid "The DC barrel has the following specifications beyond its power rating:"
+msgstr "DCジャックは以下の仕様になっています。"
+
+#: ../../step-series/submodules/getting-started.rst:118
+msgid "5.5mm outer diameter"
+msgstr "外径5.5mm"
 
 #: ../../step-series/submodules/getting-started.rst:119
-msgid "DC Barrel Plug"
-msgstr ""
-
-#: ../../step-series/submodules/getting-started.rst:121
-msgid "The DC barrel has the following specifications beyond its power rating:"
-msgstr ""
-
-#: ../../step-series/submodules/getting-started.rst:123
-msgid "5.5mm outer diameter"
-msgstr ""
-
-#: ../../step-series/submodules/getting-started.rst:124
 msgid "2.1mm inner diameter"
-msgstr ""
+msgstr "内径2.1mm"
 
-#: ../../step-series/submodules/getting-started.rst:125
+#: ../../step-series/submodules/getting-started.rst:120
 msgid "Center positive"
-msgstr ""
+msgstr "センタープラス"
 
-#: ../../step-series/submodules/getting-started.rst:131
+#: ../../step-series/submodules/getting-started.rst:126
 msgid ""
 "The screw terminal has the following specifications beyond its power "
 "rating:"
-msgstr ""
+msgstr "ねじ式ターミナルは以下の仕様になっています。"
 
-#: ../../step-series/submodules/getting-started.rst:133
+#: ../../step-series/submodules/getting-started.rst:128
 msgid "Negative left side, positive right side"
-msgstr ""
+msgstr "左側：マイナス、右側：プラス"
 
-#: ../../step-series/submodules/getting-started.rst:134
+#: ../../step-series/submodules/getting-started.rst:129
 msgid "M3 screw diameter"
-msgstr ""
+msgstr "ねじ径M3"
 
-#: ../../step-series/submodules/getting-started.rst:135
+#: ../../step-series/submodules/getting-started.rst:130
 msgid ""
 "Use a wire terminal like the ``NICHIFU TMEX1.25-3N`` for a more secure "
 "connection"
 msgstr ""
+"確実な接続のために、 ``NICHIFU TMEX1.25-3N`` などの専用圧着端子を使用してください。"
 
-#: ../../step-series/submodules/getting-started.rst:139
+#: ../../step-series/submodules/getting-started.rst:134
 msgid "Power Supply & Stepper Motor Ratings"
-msgstr ""
+msgstr "電源とモータの定格の関係"
 
-#: ../../step-series/submodules/getting-started.rst:143
+#: ../../step-series/submodules/getting-started.rst:138
 msgid "Current vs Voltage"
-msgstr ""
+msgstr "電流 vs 電圧"
 
-#: ../../step-series/submodules/getting-started.rst:145
+#: ../../step-series/submodules/getting-started.rst:140
 msgid ""
 "The copper windings inside a stepper motor behave as an inductor. When "
 "power is supplied to the inductor, current rises gradually--it is not "
@@ -387,12 +397,17 @@ msgid ""
 "its maximum. Because the motor's torque is virtually proportional to it's"
 " phase current, that means higher speeds means lower torque."
 msgstr ""
+"ステッピングモータの内部の巻線は、インダクタンスとして振る舞います。"
+"インダクタンスに電圧をかけてもすぐには電流が流れずに、時間をかけて電流が立ち上がります。"
+"ステッピングモータのように、ステップごとにON/OFFを繰り返す場合は、回転数が上がってくると"
+"ON/OFFの周期が短くなり、十分に電流が流れなくなってきます。ステッピングモータのトルクは、"
+"電流にほぼ比例していますので、高速に回転すると最大トルクが低下します。"
 
-#: ../../step-series/submodules/getting-started.rst:153
+#: ../../step-series/submodules/getting-started.rst:148
 msgid "Overcoming the Tradeoff"
-msgstr ""
+msgstr "トレードオフを克服する"
 
-#: ../../step-series/submodules/getting-started.rst:155
+#: ../../step-series/submodules/getting-started.rst:150
 msgid ""
 "To overcome this tradeoff, you need to use a power supply with a high "
 "voltage rating. Remember, both boards have their maximum voltages, so "
@@ -400,48 +415,62 @@ msgid ""
 "point, see the following graph and note the correlation between a higher "
 "voltage providing higher current (aka torque) and a higher maximum speed."
 msgstr ""
+"このインダクタンスに打ち勝ってモータに電流を流し込むには、できるだけ高い電圧の電源を使う必要があります。"
+"モータのデータシートを見ると、定格電圧として非常に低い数値が書かれていることがありますが、"
+"モータを回転させるとその電圧で必要な電流を流すことはできません。実際にはその何倍もの電圧が必要です。"
+"ただどちらのボードにも最大定格電圧があるので、電源を選ぶ際にはそれを念頭に置いてください。"
+"次のグラフは、ST社のデータシートから抜粋した電圧と電流の関係の例です。"
+"高い電圧が高い電流（別名トルク）を供給し、高い最高速度が得られるという相関関係に注目してください。"
 
-#: ../../step-series/submodules/getting-started.rst:162
+#: ../../step-series/submodules/getting-started.rst:157
 msgid ""
 "The required voltage varies greatly depending on the motor's rating, "
 "required speed, and required torque. But, in general, the required "
 "voltage is roughly as follows:"
 msgstr ""
+"実際に必要な電圧はモータの定格や必要な回転速さ、必要なトルクよって大きく変わりますが、"
+"大雑把には以下のような電圧になるでしょう。"
 
-#: ../../step-series/submodules/getting-started.rst:165
+#: ../../step-series/submodules/getting-started.rst:160
 msgid "NEMA17 and under: 24V"
-msgstr ""
+msgstr "NEMA17以下: 24V"
 
-#: ../../step-series/submodules/getting-started.rst:166
+#: ../../step-series/submodules/getting-started.rst:161
 msgid "NEMA23 and bigger: 48V (or 72V for high speed)"
-msgstr ""
+msgstr "NEMA23以上: 48V, 高速回転の場合は72V"
 
-#: ../../step-series/submodules/getting-started.rst:168
+#: ../../step-series/submodules/getting-started.rst:163
 msgid ""
 "This means the STEP800 may not be suitable for driving larger motors; "
 "however, some motors may produce high torque in a small form factor and "
 "vice versa with a large form factor. **It's imperative you review your "
 "motor's voltage and current ratings.**"
 msgstr ""
+"すなわちNEMA23サイズ以上の場合はSTEP800で駆動するのは難しいかもしれません。 "
+"とは言ってもモータによっては小さなサイズでも高トルクが出せたり、"
+"逆に大きなサイズでも電流があまり流せないものもありますので、 **必ずモータの定格を確認することが重要です** 。"
 
-#: ../../step-series/submodules/getting-started.rst:172
+#: ../../step-series/submodules/getting-started.rst:167
 msgid ""
 "The STEP400 does work with a minimum of 12V; however, since that is its "
 "on-board DC-DC converter's minimum required voltage, there may be cases "
-"wjere the STEP400 resets on a slight voltage drop. This is especially the"
+"where the STEP400 resets on a slight voltage drop. This is especially the"
 " case during a motor's inrush current, therefore we do not recommend a "
 "12V power supply unless if you are driving a small motor at a low load."
 msgstr ""
+"STEP400についてはDC12Vでも動作しますが、DC-DCコンバータの動作電圧の下限に当たるため、"
+"モータを回した瞬間の突入電流によって電源装置からの配線で電圧降下が発生し、STEP400がリセットされてしまうことがあります。"
+"小型のモータを低トルクで回すような場合以外はおすすめしません。"
 
-#: ../../step-series/submodules/getting-started.rst:179
+#: ../../step-series/submodules/getting-started.rst:174
 msgid "A STEP400 being supplied 48V through two 24V power supplies in series."
-msgstr ""
+msgstr "24Vの電源を2台直列に接続し、STEP400に48Vを供給しています。"
 
-#: ../../step-series/submodules/getting-started.rst:183
+#: ../../step-series/submodules/getting-started.rst:178
 msgid "Current Capacity"
-msgstr ""
+msgstr "電流容量"
 
-#: ../../step-series/submodules/getting-started.rst:185
+#: ../../step-series/submodules/getting-started.rst:180
 msgid ""
 "The current capacity of the power supply is as equally important as its "
 "voltage. If a motor stalls it may draw a high amount of current that may "
@@ -453,188 +482,192 @@ msgid ""
 "they are under load). Depending on the quantity of motors, their "
 "usecases, as well as your circuit protection settings, we recommend a "
 "supply with at least 10A-20A capacity."
-msgstr ""
+msgstr "電源が供給できる電流も重要な要素です。脱調した瞬間に大きな電流が流れることがあり、電流容量に余裕がないと、電源側で保護機能が働いて電源が落ちてしまうことがあります。小型のモータを低速で回している場合は数アンペアの電流容量でも回せますが、大型モータを動かす場合や高速回転させる場合は10Aから20Aといった容量が必要なことが多いです。モータの個数や動かし方、電源装置側の保護回路の仕様などによって変化するため、できる限り余裕をもって選定してください。"
 
-#: ../../step-series/submodules/getting-started.rst:195
+#: ../../step-series/submodules/getting-started.rst:190
 msgid "Networking"
-msgstr ""
+msgstr "ネットワーク接続"
 
-#: ../../step-series/submodules/getting-started.rst:199
+#: ../../step-series/submodules/getting-started.rst:194
 msgid "Configuration Tool"
-msgstr ""
+msgstr "設定ツール"
 
-#: ../../step-series/submodules/getting-started.rst:201
+#: ../../step-series/submodules/getting-started.rst:196
 msgid ""
 "Both devices do have a microSD card slot included on the board. Using "
 "this slot, you can just about completely configure the device using our "
 "convenient `Configuration Tool`_. This tool is a webpage, that can be "
 "accessed through your browser--so no third party software is required."
-msgstr ""
+msgstr "両製品ともmicroSDカードを差し込めるようになっています。設定ファイルを書き込んだmicroSDカードを本デバイスに差し込んで起動すると、起動時にファイルに書かれた設定で初期化をすることができます。 設定ファイルは `設定ツール`_ (Config Tool) を使って書き出せます。microSDカードを差し込まずに起動した場合は、ファームウェアに書かれた初期値が使用されます。"
+"設定ツールはウェブページですので、ブラウザで動作します。"
 
-#: ../../step-series/submodules/getting-started.rst:205
+#: ../../step-series/submodules/getting-started.rst:200
 msgid ""
 "This tutorial uses default settings, so we will not be using the microSD "
 "card. Just leave the slot empty."
-msgstr ""
+msgstr "このチュートリアルでは初期設定のままで使用しますので、microSDカードは使いません。"
 
-#: ../../step-series/submodules/getting-started.rst:208
+#: ../../step-series/submodules/getting-started.rst:203
 msgid ""
 "If you are connecting the board through a network switch that is "
 "connected to an existing VLAN, you may need to use the configuration tool"
 " to pre-configure the device's network settings and override those that "
 "will be set by the DIP switches as described below."
-msgstr ""
+msgstr "もし本デバイスをつないだスイッチングハブが既存のVLANに接続している場合は、設定ツールを使って本デバイスのネットワーク設定を事前に行う必要があります。"
 
-#: ../../step-series/submodules/getting-started.rst:215
+#: ../../step-series/submodules/getting-started.rst:210
 msgid "Dip Switches"
-msgstr ""
+msgstr "DIPスイッチ"
 
-#: ../../step-series/submodules/getting-started.rst:217
+#: ../../step-series/submodules/getting-started.rst:212
 msgid ""
 "The DIP switches on the board must be set to 1. This means only the left-"
 "most switch is ON and the rest are OFF. With this configuration, the "
 "board has the following network settings:"
-msgstr ""
+msgstr "基板上のIDスイッチ(8桁のDIPスイッチ)は1に設定してください。すなわち1の桁のみON, ほかの桁はすべてOFFの状態です。向かって左側が小さい桁になっていることに注意してください。"
+"この状態でのネットワーク設定は以下のようになります。"
 
-#: ../../step-series/submodules/getting-started.rst:221
-#: ../../step-series/submodules/getting-started.rst:249
-#: ../../step-series/submodules/getting-started.rst:354
+#: ../../step-series/submodules/getting-started.rst:216
+#: ../../step-series/submodules/getting-started.rst:241
+#: ../../step-series/submodules/getting-started.rst:343
 #: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Name"
-msgstr ""
+msgstr "項目"
 
-#: ../../step-series/submodules/getting-started.rst:221
-#: ../../step-series/submodules/getting-started.rst:249
+#: ../../step-series/submodules/getting-started.rst:216
+#: ../../step-series/submodules/getting-started.rst:241
 msgid "Value"
-msgstr ""
+msgstr "設定値"
 
-#: ../../step-series/submodules/getting-started.rst:223
-#: ../../step-series/submodules/getting-started.rst:251
-#: ../../step-series/submodules/other-connections-settings.rst:100
+#: ../../step-series/submodules/getting-started.rst:218
+#: ../../step-series/submodules/getting-started.rst:243
+#: ../../step-series/submodules/other-connections-settings.rst:96
 msgid "IP Address"
-msgstr ""
+msgstr "IPアドレス"
 
-#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:218
 msgid "10.0.0.101"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:223
+#: ../../step-series/submodules/getting-started.rst:218
 msgid "The IP address of the device"
-msgstr ""
+msgstr "本デバイスのIPアドレス"
 
-#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:219
 msgid "Server Address"
-msgstr ""
+msgstr "サーバのアドレス"
 
-#: ../../step-series/submodules/getting-started.rst:225
-#: ../../step-series/submodules/getting-started.rst:251
-#: ../../step-series/submodules/other-connections-settings.rst:104
+#: ../../step-series/submodules/getting-started.rst:219
+#: ../../step-series/submodules/getting-started.rst:243
+#: ../../step-series/submodules/other-connections-settings.rst:98
 msgid "10.0.0.10"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:225
+#: ../../step-series/submodules/getting-started.rst:219
 msgid "The IP address of the server (i.e. your PC)"
-msgstr ""
+msgstr "サーバのIPアドレス（あなたのPCなど）"
 
-#: ../../step-series/submodules/getting-started.rst:227
-#: ../../step-series/submodules/other-connections-settings.rst:106
+#: ../../step-series/submodules/getting-started.rst:220
+#: ../../step-series/submodules/other-connections-settings.rst:99
 msgid "Local Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:227
-#: ../../step-series/submodules/other-connections-settings.rst:106
+#: ../../step-series/submodules/getting-started.rst:220
+#: ../../step-series/submodules/other-connections-settings.rst:99
 msgid "50000"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:227
+#: ../../step-series/submodules/getting-started.rst:220
 msgid "The port the device is listening on"
-msgstr ""
+msgstr "本デバイスが受信するポート"
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:221
 msgid "Server Port"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:221
 msgid "50101"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:229
+#: ../../step-series/submodules/getting-started.rst:221
 msgid "The port on the server that the server is listening on"
-msgstr ""
+msgstr "本デバイスが送信するポート"
 
-#: ../../step-series/submodules/getting-started.rst:234
+#: ../../step-series/submodules/getting-started.rst:226
 msgid "Configured DIP switches on the STEP400."
-msgstr ""
+msgstr "DIPスイッチが設定された状態のSTEP400"
 
-#: ../../step-series/submodules/getting-started.rst:236
+#: ../../step-series/submodules/getting-started.rst:228
 msgid ""
 "Now with the motor, power supply, and ethernet cord connected; and the "
 "DIP switches set, you may now power-on the device. Please remember the "
 "bottom side of the board does have high-voltage and high-current pins, so"
 " either place the board on non-conductive material or attach spacers to "
 "avoid damaging the board or hurting yourself."
-msgstr ""
+msgstr "これでモータ、電源、LANケーブルが接続され、DIPスイッチも設定された状態になりました。ここで電源を投入します。"
+"基板裏側には高い電圧が印加されたピンが出ていますので、電気を通しやすい素材の上に基板を直接置くと、デバイスを損傷したり、あなた自身がけがをする可能性があります。"
+"必ず電気を通さない素材の上に置くか、基板にスペーサを取り付けて使用してください。"
 
-#: ../../step-series/submodules/getting-started.rst:243
+#: ../../step-series/submodules/getting-started.rst:235
 msgid "PC Configuration"
-msgstr ""
+msgstr "PCの設定"
 
-#: ../../step-series/submodules/getting-started.rst:245
+#: ../../step-series/submodules/getting-started.rst:237
 msgid ""
 "As seen in the table above, the device will expect your PC (server) to "
 "exist at a certain IP address. If you need to, you can set it statically "
 "by reviewing the guides linked below:"
-msgstr ""
+msgstr "上でみたように、本デバイスはあなたのPC (server) があるIPアドレス上にあることを想定しています。必要な場合はPCに固定IPアドレスを設定してください。"
 
-#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/getting-started.rst:244
 msgid "Subnet Mask"
-msgstr ""
+msgstr "サブネットマスク"
 
-#: ../../step-series/submodules/getting-started.rst:253
+#: ../../step-series/submodules/getting-started.rst:244
 msgid "255.255.255.0"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:255
+#: ../../step-series/submodules/getting-started.rst:245
 msgid "DNS"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:255
-#: ../../step-series/submodules/getting-started.rst:257
+#: ../../step-series/submodules/getting-started.rst:245
+#: ../../step-series/submodules/getting-started.rst:246
 msgid "<Leave Empty>"
-msgstr ""
+msgstr "<空欄のまま>"
 
-#: ../../step-series/submodules/getting-started.rst:257
+#: ../../step-series/submodules/getting-started.rst:246
 msgid "Default Gateway"
-msgstr ""
+msgstr "デフォルト・ゲートウェイ"
 
-#: ../../step-series/submodules/getting-started.rst:260
+#: ../../step-series/submodules/getting-started.rst:249
 msgid "`Windows`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:261
+#: ../../step-series/submodules/getting-started.rst:250
 msgid "`Mac`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:262
+#: ../../step-series/submodules/getting-started.rst:251
 msgid "`Linux`_"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:266
+#: ../../step-series/submodules/getting-started.rst:255
 msgid "Running Basic Commands"
-msgstr ""
+msgstr "基本的なコマンドを試す"
 
-#: ../../step-series/submodules/getting-started.rst:270
+#: ../../step-series/submodules/getting-started.rst:259
 msgid "Verifying the Connection"
-msgstr ""
+msgstr "通信の確認"
 
-#: ../../step-series/submodules/getting-started.rst:272
+#: ../../step-series/submodules/getting-started.rst:261
 msgid ""
 "After configuring the above settings, you can verify your connection by "
 "running ``ping 10.0.0.101`` from your terminal (Command Prompt on "
 "Windows)."
-msgstr ""
+msgstr "ここまでうまく設定できていれば、ターミナル（Windowsの場合はコマンドプロンプト）から ``ping 10.0.0.101`` を実行して接続を確認できると思います。"
 
-#: ../../step-series/submodules/getting-started.rst:275
+#: ../../step-series/submodules/getting-started.rst:264
 msgid ""
 "From this point forward, how you send commands to the device will "
 "completely depend on if you're using ``python-step-series`` or one of the"
@@ -642,9 +675,10 @@ msgid ""
 "each command and provide the code for ``python-step-series``; however, it"
 " will be up to you to determine how to send the commands through your "
 "program of choice."
-msgstr ""
+msgstr "ここから先は、 ``python-step-series`` を使うか、あるいは :ref:`サンプルファイル` にある各プログラミング環境でのサンプルを使うかによって、実際のコマンドの送り方は全く異なります。"
+"このチュートリアルでは、各OSCコマンドに加えて ``python-step-series`` のコードも示しています。"
 
-#: ../../step-series/submodules/getting-started.rst:280
+#: ../../step-series/submodules/getting-started.rst:269
 msgid ""
 "Before sending configuration commands to the device, you must first send "
 "the command ``/setDestIp``. This tells the device where response messages"
@@ -657,141 +691,152 @@ msgid ""
 " number between the dots in your PC's IP address and ``isNewDestIp`` will"
 " indicate if the dest ip has changed (``1``) or not (``0``)."
 msgstr ""
+"本デバイスに設定コマンドを送る前に、まずメッセージの返信先アドレスを教えるコマンドである ``/setDestIp`` を送る必要があります。このコマンドが届くまでは、本デバイス側からはOSCメッセージの返送を行いません (``/booted`` を除く)。"
+"これは存在しないあて先にOSCメッセージを送り続けると本デバイスの動作が不安定になることがあるためです。"
+"``/setDestIp`` が問題なく受信されると、次のような応答があるはずです。"
+"``/destIp octet1 octet2 octet3 octet4 isNewDestIp``"
+"``octed<N>`` は制御PCのIPアドレスの各桁に対応し、 ``isNewDestIp`` はdestIpが変更されたかどうかを示します。変更されていると ``1``, すでに同じアドレスが設定されていた場合は``0`` です。"
 
-#: ../../step-series/submodules/getting-started.rst:289
+#: ../../step-series/submodules/getting-started.rst:278
 msgid "For ``python-step-series``, the code may look like this:"
-msgstr ""
+msgstr "``python-step-series`` でのコードは以下のようになります。"
 
-#: ../../step-series/submodules/getting-started.rst:303
+#: ../../step-series/submodules/getting-started.rst:292
 msgid "We are now ready to configure and control the device."
-msgstr ""
+msgstr "これでメッセージをやり取りする準備が整いました。"
 
-#: ../../step-series/submodules/getting-started.rst:307
+#: ../../step-series/submodules/getting-started.rst:296
 msgid "Get the Motor Running"
-msgstr ""
+msgstr "動かしてみる"
 
-#: ../../step-series/submodules/getting-started.rst:309
+#: ../../step-series/submodules/getting-started.rst:298
 msgid ""
 "Let's send the command to run the motor at a desired speed: ``/run "
 "(int)motorID (float)speed``."
 msgstr ""
+"さっそく、指定速度でモータを回すコマンド ``/run (int)motorID (float)speed`` を送ってみましょう。"
 
-#: ../../step-series/submodules/getting-started.rst:311
+#: ../../step-series/submodules/getting-started.rst:300
 msgid ""
 "``motorID`` specifies which motor to run (1-4 on the STEP400, 1-8 on the "
 "STEP800). Each ID is printed on the board for your convenience. "
 "Specifying ``255`` will indicate to run all motors at your desired speed "
 "and is a valid parameter for almost every command requiring ``motorID``."
 msgstr ""
+"``motorID`` とは、どのモータを動かすかを本デバイスの基板に印刷されている番号で指定するものです。"
+"``255`` を指定すると、すべてのモータへコマンドを送ることができます。これは ``motorID`` を指定するほとんどのコマンドで使用できます。"
 
-#: ../../step-series/submodules/getting-started.rst:315
+#: ../../step-series/submodules/getting-started.rst:304
 msgid ""
 "``speed`` specifies the speed and direction of the motor. The range you "
 "can set is from -15625.0 to 15625.0 steps/second. If you're using a motor"
 " with 200 steps per revolution, specifying ``200.0`` will run the motor "
 "at 1 revolution per second (RPS). Negative values will run the motor "
 "backwards."
-msgstr ""
+msgstr "``speed`` はモータの回転速さと向きを指定します。指定できる範囲は -15625.0 - 15625.0 で、単位は [step/s] です。もし1周が200stepのモータを使っているとすると、1秒で1回転させるには ``200.0`` を指定します。マイナスの値を指定すると逆向きに回ります。"
 
-#: ../../step-series/submodules/getting-started.rst:319
+#: ../../step-series/submodules/getting-started.rst:308
 msgid ""
 "For example, to run an ``SM-42BYG011-25`` at 1 RPS, the command ``/run 1 "
 "200`` can be sent."
-msgstr ""
+msgstr "例えば ``SM-42BYG011-25`` を 1 RPS (1秒に1回転）で動かすには ``/run 1 200.`` というOSCメッセージになります。"
 
-#: ../../step-series/submodules/getting-started.rst:326
+#: ../../step-series/submodules/getting-started.rst:315
 msgid ""
 "Is the motor now slowly spinning? If there is an issue, or you would like"
 " to stop it, set the speed to 0 using the ``/run`` command or send  "
 "``/hardHiZ 255``:"
 msgstr ""
+"無事回ったでしょうか？何かモータの様子が変でとりあえず停止させたい場合は、``/run`` のspeedに0.0を指定するか、すべてのモータを停止する ``/hardHiZ 255`` というメッセージを送ってください。"
 
-#: ../../step-series/submodules/getting-started.rst:334
+#: ../../step-series/submodules/getting-started.rst:323
 msgid ""
 "Do **not** disconnect the motor while it is active and running. This will"
 " damage your board."
-msgstr ""
+msgstr "モータ回転中にモータ配線を取り外さないでください。基板を痛める可能性があります。"
 
-#: ../../step-series/submodules/getting-started.rst:338
+#: ../../step-series/submodules/getting-started.rst:327
 msgid ""
 "If everything succeeded, then congratulations! You've successfully ran "
 "your first motor. But, you may have noticed the motor ran a little rough"
 "--lots of vibration and possibly noisy. This is where ``KVAL`` and "
 "``TVAL`` come in."
 msgstr ""
+"問題なく回った方、おめでとうございます！でも多くの場合は異音がしたり、大きく振動したりしてきれいに回らなかったのではないかと思います。"
+"モータに合わせたパラメータの調整が必要ですので、引き続き設定していきます。"
 
-#: ../../step-series/submodules/getting-started.rst:344
+#: ../../step-series/submodules/getting-started.rst:333
 msgid "Setting KVAL"
-msgstr ""
+msgstr "KVALの設定"
 
-#: ../../step-series/submodules/getting-started.rst:346
+#: ../../step-series/submodules/getting-started.rst:335
 msgid ""
 "In most cases, the reason for rough operation of a motor is insufficient,"
 " or excessive, drive voltage. The KVAL register sets this voltage on a "
 "scale of 0-255 where 0 means no voltage (cannot move) and 255 is the same"
 " as your supply voltage. So, if you have a 24V supply, the motor will run"
 " on 24V at 255, or 12V for 128, and so-on."
-msgstr ""
+msgstr "きれいに回らない原因の多くは駆動電圧が不足していることによるもの（高すぎてきれいに回らないこともあります）で、KVALレジスタで調整します。これはモータを駆動する電圧を0から255の数値で指定するもので、0にすると0V（回りません）、255にすると電源電圧のほぼそのままがモータ駆動電圧になります。 例えば24Vの電源を使っていて、KVALに128を指定した場合は、モータは約12Vで駆動されることになります。"
 
-#: ../../step-series/submodules/getting-started.rst:351
+#: ../../step-series/submodules/getting-started.rst:340
 msgid "Each parameter in the ``/setKVAL`` command has a unique function."
-msgstr ""
+msgstr "KVALは4種類あり、それぞれ個別の役割があります。"
 
-#: ../../step-series/submodules/getting-started.rst:354
-#: ../../step-series/submodules/other-connections-settings.rst:98
+#: ../../step-series/submodules/getting-started.rst:343
+#: ../../step-series/submodules/other-connections-settings.rst:94
 msgid "Initial Value"
-msgstr ""
+msgstr "初期値"
 
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:345
 msgid "holdKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:345
 msgid "Holding KVAL"
-msgstr ""
+msgstr "モータ停止中のKVAL"
 
-#: ../../step-series/submodules/getting-started.rst:356
+#: ../../step-series/submodules/getting-started.rst:345
 #: ../../step-series/submodules/technical-information.rst:367
 msgid "0"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:358
+#: ../../step-series/submodules/getting-started.rst:346
 msgid "runKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:358
+#: ../../step-series/submodules/getting-started.rst:346
 msgid "Constant speed KVAL"
-msgstr ""
+msgstr "モータが一定速で回転中のKVAL"
 
-#: ../../step-series/submodules/getting-started.rst:358
-#: ../../step-series/submodules/getting-started.rst:360
-#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:346
+#: ../../step-series/submodules/getting-started.rst:347
+#: ../../step-series/submodules/getting-started.rst:348
 msgid "16"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:360
+#: ../../step-series/submodules/getting-started.rst:347
 msgid "accKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:360
+#: ../../step-series/submodules/getting-started.rst:347
 msgid "Acceleration KVAL"
-msgstr ""
+msgstr "モータが加速中のKVAL"
 
-#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:348
 msgid "decKVAL"
 msgstr ""
 
-#: ../../step-series/submodules/getting-started.rst:362
+#: ../../step-series/submodules/getting-started.rst:348
 msgid "Deceleration KVAL"
-msgstr ""
+msgstr "モータが減速中のKVAL"
 
-#: ../../step-series/submodules/getting-started.rst:365
+#: ../../step-series/submodules/getting-started.rst:351
 msgid ""
 "Let's adjust these values while the motor is running. Send the command "
 "``/run 1 200``."
-msgstr ""
+msgstr "モータを一定速で回転させながら、KVAL_RUNを調整してみましょう。 ``/run 1 200`` を送ってモータを回転させます。"
 
-#: ../../step-series/submodules/getting-started.rst:372
+#: ../../step-series/submodules/getting-started.rst:358
 msgid ""
 "You can set individual KVAL parameters using commands like "
 "``/setRunKval``, but we are going to set all 4 parameters at once. Let's "
@@ -800,8 +845,11 @@ msgid ""
 "24``. The syntax of the command is ``/setKval (int)motorID (int)holdKVAL "
 "(int)runKVAL (int)accKVAL (int)decKVAL``."
 msgstr ""
+"例えば ``/setRunKval`` というコマンドで runKVAL だけ設定することもできますが、ここでは4つまとめて設定できるメッセージ ``/setKval (int)motorID (int)holdKVAL (int)runKVAL (int)accKVAL (int)setDecKVAL`` を使用してみます。"
+"まず停止中のKVALは0, 加速、減速については一定速のKVALと同じ値に設定しながら、徐々に数値を増やしてみます。"
+"``/setKval 1 0 24 24 24`` というメッセージを送ってください。"
 
-#: ../../step-series/submodules/getting-started.rst:382
+#: ../../step-series/submodules/getting-started.rst:368
 #, python-format
 msgid ""
 "This message specifies the first motor's ``holdKval`` as 0 and the rest "
@@ -809,27 +857,30 @@ msgid ""
 " the values until the motor begins to turn quietly. For example: "
 "``/setKval 1 0 32 32 32``, then ``/setKval 1 0 40 40 40``, etc."
 msgstr ""
+"このOSCメッセージを送ると、1番目のモータのKVALを、停止時は0, それ以外は24（電源電圧の約9%）に設定します。ここから徐々に数値を ``/setKval 1 0 32 32 32``, ``/setKval 1 0 40 40 40``"
+"というように上げていくと、どこかで静かに回り始めるはずです。"
 
-#: ../../step-series/submodules/getting-started.rst:396
+#: ../../step-series/submodules/getting-started.rst:382
 msgid ""
 "As you increase each parameter, the motor's torque will also increase; "
 "however, the motor will also begin to vibrate more and produce more heat."
 " Be sure to set the parameters appropriately for your load."
-msgstr ""
+msgstr "KVALを上げるとトルクが上がっていきますが、モータの発熱が大きくなったり、振動が再び大きくなってきたりしますので、負荷に合わせて調整してください。"
 
-#: ../../step-series/submodules/getting-started.rst:400
+#: ../../step-series/submodules/getting-started.rst:386
 msgid ""
 "Remember: we've already calculated `configuration files`_ for a variety "
 "of motors for you if you would like to use them."
 msgstr ""
+"リマインド：いくつかのモータについては各設定値を計算済みの `設定ファイル`_ を準備しています。"
 
 #: ../../step-series/submodules/other-connections-settings.rst:3
 msgid "Other Connections and Settings"
-msgstr ""
+msgstr "その他の接続と設定"
 
 #: ../../step-series/submodules/other-connections-settings.rst:7
 msgid "Sensors and Switches"
-msgstr ""
+msgstr "センサとスイッチ"
 
 #: ../../step-series/submodules/other-connections-settings.rst:9
 msgid ""
@@ -837,7 +888,7 @@ msgid ""
 "allows for you to plug-in some form of limit switch or equivalent sensor."
 " Additionally, the STEP400 has ``LIMIT`` inputs for each axis in addition"
 " to the ``HOME`` inputs."
-msgstr ""
+msgstr "STEP400/800の各軸にはHOME端子があり、センサやスイッチを接続できます。STEP400ではそれに加えてLIMIT端子もあります。各端子の役割は以下のようになっています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:268
 #: ../../step-series/submodules/other-connections-settings.rst:15
@@ -850,7 +901,7 @@ msgid ""
 " is required to return to the home position on boot-up. It is directly "
 "connected to the motor driver IC and can be used for position management."
 " The pin is pulled up to 3v3 (3.3V) inside the driver IC."
-msgstr ""
+msgstr "原点検出用入力端子です。ステッピングモータは自分の位置を検出することができないため、別途センサを使って起動時に原点復帰の動作が必要です。 モータドライバICに直接接続されていて、ドライバでの座標管理に使用することができます。入力端子はドライバIC内部で3.3Vでプルアップされています。"
 
 #: ../../step-series/submodules/other-connections-settings.rst:23
 msgid "LIMIT"
@@ -859,7 +910,7 @@ msgstr ""
 #: ../../step-series/submodules/other-connections-settings.rst:25
 #: ../../step-series/submodules/technical-information.rst:276
 msgid "``STEP400 Only``"
-msgstr ""
+msgstr "``STEP400のみ``"
 
 #: ../../step-series/submodules/other-connections-settings.rst:27
 msgid ""
@@ -868,25 +919,25 @@ msgid ""
 "configure these inputs to halt the motor, or to be used as another input "
 "for another purpose. Like the ``HOME`` input, this input is also pulled "
 "up to 3v3."
-msgstr ""
+msgstr "原点とは別に、動作範囲のリミットセンサなどに使用可能な端子です。設定でモータを停止する機能を持たせることもできますが、全く独立して使用することもできます。 入力端子は3.3Vにプルアップされています。"
 
 #: ../../step-series/submodules/other-connections-settings.rst:33
 msgid "Connection Terminals"
-msgstr ""
+msgstr "接続端子"
 
 #: ../../step-series/submodules/other-connections-settings.rst:35
 msgid ""
 "We use the XA series connectors from JST (J.S.T.MFG.CO., LTD.). For "
 "compatible connectors, please refer to the following:"
-msgstr ""
+msgstr "JST（日本圧着端子製造株式会社）のXAシリーズコネクタです。適合するコネクタは下記を参照してください。"
 
 #: ../../step-series/submodules/other-connections-settings.rst:39
 msgid "Model Number"
-msgstr ""
+msgstr "品名"
 
 #: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "(Reference) PCB Post"
-msgstr ""
+msgstr "（参考）基板ポスト"
 
 #: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "B03B-XASK-1 (LF)(SN)"
@@ -894,45 +945,46 @@ msgstr ""
 
 #: ../../step-series/submodules/other-connections-settings.rst:41
 msgid "Female connector on the PCB"
-msgstr ""
+msgstr "基板上へ実装されているレセプタクル"
 
-#: ../../step-series/submodules/other-connections-settings.rst:43
+#: ../../step-series/submodules/other-connections-settings.rst:42
 msgid "Housing"
-msgstr ""
+msgstr "ハウジング"
 
-#: ../../step-series/submodules/other-connections-settings.rst:43
+#: ../../step-series/submodules/other-connections-settings.rst:42
 msgid "XAP-03V-1"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:43
+#: ../../step-series/submodules/other-connections-settings.rst:42
 msgid "Male plastic housing"
-msgstr ""
+msgstr "差し込むコネクタ部本体"
 
-#: ../../step-series/submodules/other-connections-settings.rst:45
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "Contact"
-msgstr ""
+msgstr "コンタクト"
 
-#: ../../step-series/submodules/other-connections-settings.rst:45
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "BXA-001T-P0.6"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:45
+#: ../../step-series/submodules/other-connections-settings.rst:43
 msgid "Crimp contact inserted into the housing"
-msgstr ""
+msgstr "ハウジングへ挿入する接続部"
 
-#: ../../step-series/submodules/other-connections-settings.rst:48
+#: ../../step-series/submodules/other-connections-settings.rst:46
 msgid ""
 "We also sell pre-crimped sensor cables for your convenience. These are "
 "available here: https://ponoor.com/en/products/sensor-cable/"
 msgstr ""
+"端子を圧着済みのケーブルを販売しています: https://ponoor.com/en/products/sensor-cable/"
 
-#: ../../step-series/submodules/other-connections-settings.rst:53
+#: ../../step-series/submodules/other-connections-settings.rst:51
 #: ../../step-series/submodules/technical-information.rst:522
 #: ../../step-series/submodules/technical-information.rst:685
 msgid "Pin Assignments"
-msgstr ""
+msgstr "ピン配置"
 
-#: ../../step-series/submodules/other-connections-settings.rst:55
+#: ../../step-series/submodules/other-connections-settings.rst:53
 msgid ""
 "The pin assignments for both inputs are the same. The order of these pins"
 " are relative to how you are looking at your board. We assume you are "
@@ -940,14 +992,15 @@ msgid ""
 "power/ethernet ports at the top. This table is for the left-side ports; "
 "the right-side ports will be inverted as they are upside-down."
 msgstr ""
+"ピン配置はHOMEとLIMIT共通です。"
 
-#: ../../step-series/submodules/other-connections-settings.rst:61
+#: ../../step-series/submodules/other-connections-settings.rst:59
 msgid "Pin (left-to-right)"
-msgstr ""
+msgstr "ピン番号"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:383
 #: ../../step-series/submodules/functionality-descriptions.rst:405
-#: ../../step-series/submodules/other-connections-settings.rst:61
+#: ../../step-series/submodules/other-connections-settings.rst:59
 #: ../../step-series/submodules/technical-information.rst:525
 #: ../../step-series/submodules/technical-information.rst:591
 #: ../../step-series/submodules/technical-information.rst:603
@@ -956,103 +1009,106 @@ msgstr ""
 #: ../../step-series/submodules/technical-information.rst:766
 #: ../../step-series/submodules/technical-information.rst:778
 msgid "Function"
-msgstr ""
+msgstr "機能"
 
-#: ../../step-series/submodules/other-connections-settings.rst:63
+#: ../../step-series/submodules/other-connections-settings.rst:61
 msgid "5V Output"
-msgstr ""
+msgstr "5V出力"
 
-#: ../../step-series/submodules/other-connections-settings.rst:65
+#: ../../step-series/submodules/other-connections-settings.rst:62
 msgid "3v3 (Switch Input)"
-msgstr ""
+msgstr "スイッチ・センサ入力"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:385
 #: ../../step-series/submodules/functionality-descriptions.rst:407
-#: ../../step-series/submodules/other-connections-settings.rst:67
+#: ../../step-series/submodules/other-connections-settings.rst:63
 msgid "GND"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:70
+#: ../../step-series/submodules/other-connections-settings.rst:66
 msgid "They are also printed on the bottom of the boards for your convenience."
-msgstr ""
+msgstr "ピン番号はコネクタのデータシートで確認できますが、各ピンの名称は基板裏側に印刷されています。"
 
-#: ../../step-series/submodules/other-connections-settings.rst:72
+#: ../../step-series/submodules/other-connections-settings.rst:68
 msgid ""
 "The driver responds when the input falls from ``HIGH (3v3)`` to ``LOW "
 "(0V)``. Therefore, the switch must behave as \"normally open\"."
 msgstr ""
+"ドライバ側は、入力端子がHigh(3.3v)からLow(0V)に遷移したタイミングで反応しますので、通常時に接点が開いている（ノーマルオープン）状態になるように機構とセンサ（またはスイッチ）を組み合わせる必要があります。"
+
+#: ../../step-series/submodules/other-connections-settings.rst:73
+msgid "Network and DIP Switch"
+msgstr "ネットワークとDIPスイッチの設定"
 
 #: ../../step-series/submodules/other-connections-settings.rst:77
-msgid "Network and DIP Switch"
-msgstr ""
+msgid "Dip Switch Settings"
+msgstr "DIPスイッチの設定"
 
 #: ../../step-series/submodules/other-connections-settings.rst:81
-msgid "Dip Switch Settings"
-msgstr ""
-
-#: ../../step-series/submodules/other-connections-settings.rst:85
 msgid ""
 "The DIP switch specifies the ID that is used to reply to OSC messages and"
 " is also reflected in the local IP address and expected server port "
 "number. The ID is set in binary with more information provided by "
 "`Soundhouse's Documentation`_."
 msgstr ""
+"基板上のDIPスイッチを用いてIDを設定します。IDはOSCメッセージの返答に使われるほか、IPアドレスや送信ポート番号にも反映されます。 IDは2進数で設定します。DIPスイッチによる2進数での設定はこちらが参考になります。"
+"`ディップスイッチによるチャンネル設定`_"
+
+#: ../../step-series/submodules/other-connections-settings.rst:87
+msgid "Network Settings"
+msgstr "ネットワークの設定"
 
 #: ../../step-series/submodules/other-connections-settings.rst:91
-msgid "Network Settings"
-msgstr ""
-
-#: ../../step-series/submodules/other-connections-settings.rst:95
 msgid "Initial Settings"
-msgstr ""
+msgstr "初期設定"
 
-#: ../../step-series/submodules/other-connections-settings.rst:98
+#: ../../step-series/submodules/other-connections-settings.rst:94
 msgid "Item"
-msgstr ""
+msgstr "項目"
 
-#: ../../step-series/submodules/other-connections-settings.rst:100
+#: ../../step-series/submodules/other-connections-settings.rst:96
 msgid "10.0.0.100+ID"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:102
-#: ../../step-series/submodules/other-connections-settings.rst:124
+#: ../../step-series/submodules/other-connections-settings.rst:97
+#: ../../step-series/submodules/other-connections-settings.rst:116
 msgid "MAC Address"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:102
+#: ../../step-series/submodules/other-connections-settings.rst:97
 msgid "0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:104
+#: ../../step-series/submodules/other-connections-settings.rst:98
 msgid "Server IP Address"
-msgstr ""
+msgstr "サーバIPアドレス（制御PCのアドレス）"
 
-#: ../../step-series/submodules/other-connections-settings.rst:108
+#: ../../step-series/submodules/other-connections-settings.rst:100
 msgid "Expected Server Port"
-msgstr ""
+msgstr "サーバ側受信ポート"
 
-#: ../../step-series/submodules/other-connections-settings.rst:108
+#: ../../step-series/submodules/other-connections-settings.rst:100
 msgid "50100+ID"
 msgstr ""
 
-#: ../../step-series/submodules/other-connections-settings.rst:113
+#: ../../step-series/submodules/other-connections-settings.rst:105
 msgid "IP Address and Expected Server Port"
-msgstr ""
+msgstr "IPアドレスとサーバ側受信ポート"
 
-#: ../../step-series/submodules/other-connections-settings.rst:115
+#: ../../step-series/submodules/other-connections-settings.rst:107
 msgid ""
 "In its initial state, an ID will be added to IP address's final octet and"
 " the expected server port. With this mechanism, you are able to operate "
 "multiple devices with the same firmware and settings file. On the server,"
 " if you are able to retrieve the IP address of the device, you can "
 "configure the device to not add its ID to the expected server port."
-msgstr ""
+msgstr "初期状態では、IPアドレスの最終バイトと、OSC送信ポートにIDが加算されるようになっています。 これによって、同じファームウェアと設定ファイルを用いて複数のデバイスを制御できるようになります。OSC送信ポートについては、受信側でメッセージの送信元IPアドレスが取り出せる場合は、IDを加算せずに同一のポート番号へ送信するようにして構いません。"
 
-#: ../../step-series/submodules/other-connections-settings.rst:120
+#: ../../step-series/submodules/other-connections-settings.rst:112
 msgid "This feature can be disabled via the microSD card configuration."
-msgstr ""
+msgstr "これらの機能は、microSDカードによる初期設定を行うことでオフにできます。"
 
-#: ../../step-series/submodules/other-connections-settings.rst:126
+#: ../../step-series/submodules/other-connections-settings.rst:118
 msgid ""
 "A unique MAC address is assigned to the device; however, its initial "
 "value is set as seen in the table above. The unique MAC address is "
@@ -1061,16 +1117,19 @@ msgid ""
 "assigned MAC address, please generate the settings file from the "
 "`Configuration Tool`_ and load it onto the microSD card."
 msgstr ""
+"本デバイスには個別のMACアドレスを割り振っていますが、初期値は上記の通りになっています。このアドレスは弊社で確保しているMACアドレスのうち、テスト用に社内で割り振っているものです。"
+"各デバイスに割り振られたMACアドレスは、基板裏面のシールで確認できます。"
+"上のPから始める番号はシリアル番号で、その下の段の12桁の16進数がMACアドレスです。 割り振られたMACアドレスを使用するには、`設定ツール`_ を用いて設定ファイルを作成し、microSDカードから読み込ませてください。"
 
-#: ../../step-series/submodules/other-connections-settings.rst:131
+#: ../../step-series/submodules/other-connections-settings.rst:123
 msgid ""
 "A variety of settings can be preconfigured on the microSD card. See "
 ":ref:`microSD Card Setup`."
-msgstr ""
+msgstr "その他さまざまな設定をmicroSDカードを使用して行うことができます。 :ref:`microSDカードを用いた設定` を参照してください。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:3
 msgid "Functionality Descriptions"
-msgstr ""
+msgstr "機能解説"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:5
 msgid ""
@@ -1078,11 +1137,11 @@ msgid ""
 "offered by both boards are and what they do. Please refer to the "
 ":ref:`Command Reference` for what commands to send to control these "
 "different functionalities."
-msgstr ""
+msgstr "このセクションではSTEPシリーズの各機能について詳しく見ていきます。実際に送信するコマンドについては :ref:`コマンドリファレンス` を参照してください。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:12
 msgid "Voltage vs. Current Mode"
-msgstr ""
+msgstr "電圧モードと電流モード"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:14
 msgid ""
@@ -1091,25 +1150,25 @@ msgid ""
 " the STEP400 can switch between both voltage and current modes. The "
 "difference between these modes is well-explained in `this presentation "
 "PDF`_ by STMicroelectronics."
-msgstr ""
+msgstr "ステッピングモータの制御方式には定電圧制御（**電圧モード**）と定電流制御（**電流モード**）の2種のモードがあり、STEP800は電圧モード、STEP400では電圧モードと電流モードの両方を切り替えて使うことができます。これらの制御モードの違いについてはSTMicroelectronics社の `プレゼンテーション資料`_ があり、わかりやすくまとめられています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:20
 msgid "The differences can be described as follows:"
-msgstr ""
+msgstr "実際に使う側にとっての違いを簡単にまとめると、以下の通りです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:22
 msgid "Voltage mode is quiet and smooth, but is limited to lower speeds"
-msgstr ""
+msgstr "電圧モードは静かに滑らかに回るが、低速でしか回せない。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:23
 msgid "Current mode is noisy, but can reach higher speeds"
-msgstr ""
+msgstr "電流モードは音がうるさいが、高速まで回せる。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:25
 msgid ""
 "To better illustrate this point, here is a demostration video to show the"
 " differences between these two modes."
-msgstr ""
+msgstr "このデモ映像では、各モードの動作の違いをとらえています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:34
 msgid ""
@@ -1118,18 +1177,18 @@ msgid ""
 " at about 1,400 steps/sec. Overall, the motor runs quietly until the "
 "vibration starts. A microphone is attached to the motor so that we can "
 "capture the smallest noises."
-msgstr ""
+msgstr "まず最初は電圧モードで動かしています。回転数が800step/secを超えたあたりからうまく回らずに振動が発生して、1,400step/secくらいで脱調して完全に停止してしまいます。振動が発生するまでは静かに回りますが、この映像では微細な音もとらえるためにモータ本体にマイクを張り付けています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:40
 msgid ""
 "Next, the motor is switched to constant current mode. It is noisy, but "
 "can drive to a higher speed. In this mode, we were able to achieve more "
 "than 11,000 steps/sec before the motor started to vibrate and stall."
-msgstr ""
+msgstr "次に電流モードに切り替えて動かしています。動作音は大きいですが、高速域まで回転できます。今回のセッティングでは11,000step/sec以上まで回転できました。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:46
 msgid "KVAL and TVAL"
-msgstr ""
+msgstr "KVALとTVAL"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:48
 msgid ""
@@ -1140,11 +1199,11 @@ msgid ""
 "motors. Although they are the same registers internally in the driver, "
 "our firmware keeps them separated and rewrites them when the modes are "
 "changed."
-msgstr ""
+msgstr "電圧モードの場合は**KVAL**レジスタで電圧を制御して, 電流モードの場合は**TVAL**レジスタで電流を制御します。それらはドライバ内部では物理的に同じレジスタですが、モードを切り替えた際に意図しない値になることを避けるために、ファームウェアでそれぞれ別の値として保持しておいて、モード切替時に書き換えています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:58
 msgid "Notes on Voltage Mode"
-msgstr ""
+msgstr "電圧モードの設定"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:60
 msgid ""
@@ -1157,7 +1216,7 @@ msgid ""
 "values is described in `STMicroelectronic's application notes`_. In the "
 "STEP400, these registers can be set with `/setBemfParam`_ command or with"
 " the `Config Tool`_."
-msgstr ""
+msgstr "STEP400/STEP800の電圧モードでは、KVALというレジスタを使って、電源電圧の何パーセントをモータに印加するかを指定できます。 また高い電圧の電源を使った場合、低速で回っているときには必要以上の電流が流れてしまうことがあります。この電流の不均衡を調整するために、低速回転時には相対的に印加電圧を下げて、回転数が大きくなると印加電圧を上げる補正を行うためのレジスタ群があります。 これらのレジスタ値の算出方法はSTMicroelectronicsの `アプリケーションノート`_ に記載されています。これらのレジスタ値は `/setBemfParam`_ コマンドで設定できるほか、 `設定ツール`_ からも設定できます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:70
 msgid ""
@@ -1169,10 +1228,11 @@ msgid ""
 "determined these configurations on your own, we would deeply appreciate "
 "you sharing your configurations with us and the community."
 msgstr ""
-
+"いくつかのモータについては、データシートの数値と実測した数値をもとにレジスタの値を算出し、 `設定ファイル`_ を公開しています。モータの数は限られていますが、徐々に拡充していきたいと思います。"
+"リストにないモータを使用していて、モータがちゃんと動くパラメータを割り出したものがありましたら、設定ファイルを `フォーラム`_ で共有いただけると幸いです！"
 #: ../../step-series/submodules/functionality-descriptions.rst:80
 msgid "Notes on Current Mode"
-msgstr ""
+msgstr "電流モードの設定"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:82
 msgid ""
@@ -1186,30 +1246,30 @@ msgid ""
 "torque is considerably strong, and the tiniest mistake may lead to great "
 "physical danger. In such situations we recommend to use use an industrial"
 " grade motor driver."
-msgstr ""
+msgstr "STEP400で利用可能な電流モードでは、TVALというレジスタを使って目標値となる電流値を設定します。STEP400では78mA刻みで5Aまで設定できます。高速に回転させているときに目標の電流を流すにはやはり高い電圧の電源が必要です。PowerSTEP01の本来の能力は10Aまで制御可能ですが、STEP400では電流検出抵抗の定格電力の制限で5Aが上限です。相電流が5Aとなるとかなり強いトルクで、少しのミスが大きな危険につながります。このような状況では産業用ドライバを使用するのが良いと思います。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:95
 msgid "Switching Between the Modes"
-msgstr ""
+msgstr "モードの切替方法"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:97
 msgid "Use the following commands to switch between the modes:"
-msgstr ""
+msgstr "各モードに切り替える場合は以下のコマンドを使用します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:99
 msgid "`/setVoltageMode`_ - switch to voltage mode"
-msgstr ""
+msgstr "`/setVoltageMode`_ - 電圧モードに切り替える"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:100
 msgid "`/setCurrentMode`_ - switch to current mode"
-msgstr ""
+msgstr "`/setCurrentMode`_ - 電流モードに切り替える"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:102
 msgid ""
 "The motor must be in the high impedance (High Z) state before switching "
 "the mode. For example, if you are going to switch the Motor 1 to current "
 "mode, send these commands in the following order:"
-msgstr ""
+msgstr "切り替える前に、当該モータがハイ・インピーダンス状態になっている必要があります。例えばモータ1を電流モードに切り替える場合に送るコマンドは以下の順になります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:106
 msgid "``/hardHiZ 1``"
@@ -1227,45 +1287,45 @@ msgid ""
 "shaft rotation of a 200 step motor in 1/128 microstepping mode, "
 "200x128=25600 steps are made; but one rotation in 1/16 microstepping mode"
 " is 200x16=3200 steps."
-msgstr ""
+msgstr "電流制御ではマイクロステッピングモードは1/16までしか使えませんので、それより小さい値になっていた場合は強制的に1/16に切り替わります。マイクロステッピングモードが切り替わると、座標体系も変化します。例えば1周200stepのモータでは、1/128マイクロステッピングモードでは1周は200x128=25600stepですが、1/16マイクロステッピングモードでは200x16=3200stepになります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:118
 msgid "Speed Profile"
-msgstr ""
+msgstr "スピードプロファイル"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:122
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:124
 msgid ""
 "Speed profile sets the acceleration (acc), deceleration (dec), and "
 "maximum speed (maxSpeed) values of the motor prior to the motor moving. "
 "These values depend on the following:"
-msgstr ""
+msgstr "スピードプロファイルとは、モータ動作に先立ち、あらかじめ設定しておく動作の加速度(acc)、減速度(dec)、最大速さ(maxSpeed)です。 これらは以下の要素によって値の範囲が変化します。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:128
 msgid "Motor Specifications"
-msgstr ""
+msgstr "モータの仕様"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:129
 msgid "Power supply voltage"
-msgstr ""
+msgstr "電源電圧"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:130
 msgid "Load"
-msgstr ""
+msgstr "負荷"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:131
 msgid "Voltage mode or current mode"
-msgstr ""
+msgstr "電圧制御か、電流制御か"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:133
 msgid ""
 "While we provide some example defaults, you need to set these values "
 "according to your actual environment. This requires some trial and error "
 "on your part."
-msgstr ""
+msgstr "どの値が適しているか、どこまで大きくできるか、というのは実際の環境で確かめながらトライ＆エラーで値を設定をしていく必要があります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:137
 msgid ""
@@ -4018,3 +4078,18 @@ msgstr ""
 #~ " to fade. You also have to "
 #~ "reselect a different serial port."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "The STEP400 does work with a "
+#~ "minimum of 12V; however, since that "
+#~ "is its on-board DC-DC converter's"
+#~ " minimum required voltage, there may "
+#~ "be cases wjere the STEP400 resets "
+#~ "on a slight voltage drop. This is"
+#~ " especially the case during a motor's"
+#~ " inrush current, therefore we do not"
+#~ " recommend a 12V power supply unless"
+#~ " if you are driving a small "
+#~ "motor at a low load."
+#~ msgstr ""
+
