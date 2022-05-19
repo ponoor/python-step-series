@@ -156,11 +156,12 @@ class ErrorCommand(OSCResponse, Exception):
     """
     motorID: int = None
     """
-    +-------+---+
-    |STEP400|1-4|
-    +-------+---+
-    |STEP800|1-8|
-    +-------+---+
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
     """
 
 
@@ -181,39 +182,88 @@ class ErrorOSC(OSCResponse, Exception):
     """
     motorID: int = None
     """
-    +-------+---+
-    |STEP400|1-4|
-    +-------+---+
-    |STEP800|1-8|
-    +-------+---+
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
     """
 
 
 @dataclass
 class Busy(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#busy"""  # noqa
+    """The BUSY state of a motor."""
 
     address: str = field(default="/busy", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     state: int
+    """
+    ===== ====================
+    Range Description
+    ===== ====================
+    0-1   1: BUSY, 0: Not BUSY
+    ===== ====================
+    """
 
 
 @dataclass
 class HiZ(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#hiz"""  # noqa
+    """The high-impedance (HiZ) state of a motor."""
 
     address: str = field(default="/HiZ", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     state: int
+    """
+    ===== ==================
+    Range Description
+    ===== ==================
+    0-1   1: HiZ, 0: Not HiZ
+    ===== ==================
+    """
 
 
 @dataclass
 class MotorStatus(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#motorstatus"""  # noqa
+    """The operating status of a motor."""
 
     address: str = field(default="/motorStatus", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     MOT_STATUS: int
+    """
+    ===== ==============
+    Range Description
+    ===== ==============
+    0     Stopped
+    1     Acceleration
+    2     Deceleration
+    3     Constant Speed
+    ===== ==============
+    """
 
 
 @dataclass
@@ -222,25 +272,81 @@ class HomingStatus(OSCResponse):
 
     address: str = field(default="/homingStatus", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     homingStatus: int
 
 
 @dataclass
 class Uvlo(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#uvlo"""  # noqa
+    """The current state of undervoltage lockout of a motor."""
 
     address: str = field(default="/uvlo", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     state: int
+    """
+    ===== ===================
+    Range Description
+    ===== ===================
+    0-1   1: UVLO, 0: No UVLO
+    ===== ===================
+    """
 
 
 @dataclass
 class ThermalStatus(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#thermalstatus"""  # noqa
+    """The thermal status of a motor.
+
+    The thresholds between the STEP400 and STEP800 do vary.
+    """
 
     address: str = field(default="/thermalStatus", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     thermalStatus: int
+    """
+    **STEP400**:
+
+    ===== =============== ============= =================
+    Range Description     Set Threshold Release Threshold
+    ===== =============== ============= =================
+    0     Normal          N/A           N/A
+    1     Warning         135°C         125°C
+    2     Bridge Shutdown 155°C         145°C
+    3     Device Shutdown 170°C         130°C
+    ===== =============== ============= =================
+
+    **STEP800**:
+
+    ===== =============== ============= =================
+    Range Description     Set Threshold Release Threshold
+    ===== =============== ============= =================
+    0     Normal          N/A           N/A
+    1     Warning         130°C         130°C
+    2     Bridge Shutdown 160°C         130°C
+    ===== =============== ============= =================
+    """
 
 
 @dataclass
@@ -249,6 +355,14 @@ class OverCurrent(OSCResponse):
 
     address: str = field(default="/overCurrent", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
 
 
 @dataclass
@@ -257,6 +371,14 @@ class Stall(OSCResponse):
 
     address: str = field(default="/stall", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
 
 
 # System Settings
@@ -264,40 +386,56 @@ class Stall(OSCResponse):
 
 @dataclass
 class DestIP(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#setdestip"""  # noqa
+    """Confirmation :py:class:`stepseries.commands.SetDestIP` has been
+    recieved.
+    """
 
     address: str = field(default="/destIp", init=False)
     destIp0: int
+    """The first octet of the IP address set."""
     destIp1: int
+    """The second octet of the IP address set."""
     destIp2: int
+    """The third octet of the IP address set."""
     destIp3: int
+    """The fourth octet of the IP address set."""
     isNewDestIp: int
+    """Indicates if the IP address has changed from what is already set."""
 
 
 @dataclass
 class Version(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getversion"""  # noqa
+    """The firmware version burnt onto the chip."""
 
     address: str = field(default="/version", init=False)
     firmware_name: str
+    """Name of the firmware."""
     firmware_version: str
+    """Version of the firmware."""
     compile_date: str
+    """Compile date of the firmware"""
 
     # Custom regex to breakout
     compile_date_re: re.Pattern = field(
-        default=re.compile(r"\w+ ? \d{1,2} \d{4} .+"), init=False, repr=False
+        default=re.compile(r"\w+ ? \d{1,2} \d{4} .+"),
+        init=False,
+        repr=False,
     )
 
 
 @dataclass
 class ConfigName(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/system-settings/#getconfigname"""  # noqa
+    """Metadata about the configuration file."""
 
     address: str = field(default="/configName", init=False)
     configName: str
+    """Name of the configuration."""
     sdInitializeSucceeded: int
+    """If the microSD card was successfully read."""
     configFileOpenSucceeded: int
+    """If the device could open the configuration file."""
     configFileParseSucceeded: int
+    """If the configuration was successfully parsed."""
 
 
 # Motor Driver Settings
@@ -305,48 +443,155 @@ class ConfigName(OSCResponse):
 
 @dataclass
 class MicrostepMode(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getmicrostepmode_intmotorid"""  # noqa
+    """The microstep mode of the motor."""
 
     address: str = field(default="/microstepMode", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     STEP_SEL: int
+    """
+    ===== ===========
+    Range Description
+    ===== ===========
+    0     Full-step
+    1     Half-step
+    2     1/4 step
+    3     1/8 step
+    4     1/16 step
+    5     1/32 step
+    6     1/64 step
+    7     1/128 step
+    ===== ===========
+    """
 
 
 @dataclass
 class LowSpeedOptimizeThreshold(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"""  # noqa
+    """The threshold to enable low speed optimization."""
 
     address: str = field(default="/lowSpeedOptimizeThreshold", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     lowSpeedOptimizeThreshold: float
+    """0.0 - 976.3 steps/s"""
     optimizationEnabled: int
+    """
+    ===== =======================
+    Range Description
+    ===== =======================
+    0-1   1: Enabled, 0: Disabled
+    ===== =======================
+    """
 
 
 @dataclass
 class Dir(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getdir_intmotorid"""  # noqa
+    """The direction of a motor."""
 
     address: str = field(default="/dir", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     direction: int
+    """
+    ===== ======================
+    Range Description
+    ===== ======================
+    0-1   1: Forward, 0: Reverse
+    ===== ======================
+    """
 
 
 @dataclass
 class AdcVal(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getadcval_intmotorid"""  # noqa
+    """The ADC_OUT register value from the PowerSTEP01 chip."""
 
     address: str = field(default="/adcVal", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     ADC_OUT: int
+    """
+    ===== ======================================
+    Range Description
+    ===== ======================================
+    0-31  5-bit read out of the ADC_OUT register
+    ===== ======================================
+    """
 
 
 @dataclass
 class Status(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getstatus_intmotorid"""  # noqa
+    """The STATUS of a motor.
+
+    Refer to STATUS in the datasheet for the information contained in
+    the registers. Some bits are latched and reset when the STATUS
+    registers are read out. Because the firmware constantly reads these
+    registers, they are immediately reset. It is possible to setup event
+    to be reported depending on the data read, so please use those
+    commands.
+
+    ================ ======================== =========================================================
+    STEP400 Bits     STEP800 Bits             Configuration Command
+    ================ ======================== =========================================================
+    UVLO             UVLO                     :py:class:`stepseries.commands.EnableUvloReport`
+    UVLO_ADC         N/A                      Not implemented
+    OCD              OCD                      :py:class:`stepseries.commands.EnableOverCurrentReport`
+    STALL_A, STALL_B STEP_LOSS_A, STEP_LOSS_B :py:class:`stepseries.commands.EnableStallReport`
+    CMD_ERROR        WRONG_CMD, NOTPREF_CMD   :py:class:`stepseries.commands.EnableCommandErrorReport`
+    TH_STATUS        TH_WRN, TH_SD            :py:class:`stepseries.commands.EnableThermalStatusReport`
+    SW_EVN           SW_EVN                   :py:class:`stepseries.commands.EnableHomeSwReport`
+    MOT_STATUS       MOT_STATUS               :py:class:`stepseries.commands.EnableMotorStatusReport`
+    SW_F             SW_F                     :py:class:`stepseries.commands.EnableHomeSwReport`
+    BUSY             BUSY                     :py:class:`stepseries.commands.EnableBusyReport`
+    HIZ              HIZ                      :py:class:`stepseries.commands.EnableHiZReport`
+    ================ ======================== =========================================================
+    """
 
     address: str = field(default="/status", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     status: int
+    """
+    ===== ======================================
+    Range Description
+    ===== ======================================
+    0-31  5-bit read out of the ADC_OUT register
+    ===== ======================================
+    """
 
 
 @dataclass
@@ -355,6 +600,14 @@ class ConfigRegister(OSCResponse):
 
     address: str = field(default="/configRegister", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     CONFIG: int
 
 
@@ -367,6 +620,14 @@ class OverCurrentThreshold(OSCResponse):
 
     address: str = field(default="/overCurrentThreshold", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     overCurrentThreshold: float
 
 
@@ -376,6 +637,14 @@ class StallThreshold(OSCResponse):
 
     address: str = field(default="/stallThreshold", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     stallThreshold: float
 
 
@@ -385,6 +654,14 @@ class ProhibitMotionOnHomeSw(OSCResponse):
 
     address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     enable: int
 
 
@@ -394,6 +671,14 @@ class ProhibitMotionOnLimitSw(OSCResponse):
 
     address: str = field(default="/prohibitMotionOnLimitSw", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     enable: int
 
 
@@ -406,6 +691,14 @@ class Kval(OSCResponse):
 
     address: str = field(default="/kval", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     holdKVAL: int
     runKVAL: int
     accKVAL: int
@@ -418,6 +711,14 @@ class BemfParam(OSCResponse):
 
     address: str = field(default="/bemfParam", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     INT_SPEED: int
     ST_SLP: int
     FN_SLP_ACC: int
@@ -430,6 +731,14 @@ class Tval(OSCResponse):
 
     address: str = field(default="/tval", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     holdTVAL: int
     runTVAL: int
     accTVAL: int
@@ -442,6 +751,14 @@ class Tval_mA(OSCResponse):
 
     address: str = field(default="/tval_mA", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     holdTVAL_mA: float
     runTVAL_mA: float
     accTVAL_mA: float
@@ -454,6 +771,14 @@ class DecayModeParam(OSCResponse):
 
     address: str = field(default="/decayModeParam", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     T_FAST: int
     TON_MIN: int
     TOFF_MIN: int
@@ -468,6 +793,14 @@ class SpeedProfile(OSCResponse):
 
     address: str = field(default="/speedProfile", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     acc: float
     dec: float
     maxSpeed: float
@@ -479,6 +812,14 @@ class FullstepSpeed(OSCResponse):
 
     address: str = field(default="/fullstepSpeed", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     fullstepSpeed: float
 
 
@@ -488,6 +829,14 @@ class MinSpeed(OSCResponse):
 
     address: str = field(default="/minSpeed", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     minSpeed: float
 
 
@@ -497,6 +846,14 @@ class Speed(OSCResponse):
 
     address: str = field(default="/speed", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     speed: float
 
 
@@ -509,6 +866,14 @@ class HomingDirection(OSCResponse):
 
     address: str = field(default="/homingDirection", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     homingDirection: int
 
 
@@ -518,6 +883,14 @@ class HomingSpeed(OSCResponse):
 
     address: str = field(default="/homingSpeed", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     homingSpeed: float
 
 
@@ -527,6 +900,14 @@ class GoUntilTimeout(OSCResponse):
 
     address: str = field(default="/goUntilTimeout", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     timeout: int
 
 
@@ -536,6 +917,14 @@ class ReleaseSwTimeout(OSCResponse):
 
     address: str = field(default="/releaseSwTimeout", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     timeout: int
 
 
@@ -548,6 +937,14 @@ class SwEvent(OSCResponse):
 
     address: str = field(default="/swEvent", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
 
 
 @dataclass
@@ -556,6 +953,14 @@ class HomeSw(OSCResponse):
 
     address: str = field(default="/homeSw", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     swState: int
     direction: int
 
@@ -566,6 +971,14 @@ class LimitSw(OSCResponse):
 
     address: str = field(default="/limitSw", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     swState: int
     direction: int
 
@@ -576,6 +989,14 @@ class HomeSwMode(OSCResponse):
 
     address: str = field(default="/homeSwMode", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     swMode: int
 
 
@@ -585,6 +1006,14 @@ class LimitSwMode(OSCResponse):
 
     address: str = field(default="/limitSwMode", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     swMode: int
 
 
@@ -597,6 +1026,14 @@ class Position(OSCResponse):
 
     address: str = field(default="/position", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     ABS_POS: int
 
 
@@ -621,6 +1058,14 @@ class ElPos(OSCResponse):
 
     address: str = field(default="/elPos", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     fullstep: int
     microstep: int
 
@@ -631,6 +1076,14 @@ class Mark(OSCResponse):
 
     address: str = field(default="/mark", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     MARK: int
 
 
@@ -643,6 +1096,14 @@ class BrakeTransitionDuration(OSCResponse):
 
     address: str = field(default="/brakeTransitionDuration", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     duration: int
 
 
@@ -655,6 +1116,14 @@ class ServoParam(OSCResponse):
 
     address: str = field(default="/servoParam", init=False)
     motorID: int
+    """
+    ========== ===========
+    Controller Motor Range
+    ========== ===========
+    STEP400    1-4
+    STEP800    1-8
+    ========== ===========
+    """
     kP: float
     kI: float
     kD: float

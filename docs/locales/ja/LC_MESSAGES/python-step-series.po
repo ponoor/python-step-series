@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 21:12-0500\n"
+"POT-Creation-Date: 2022-05-18 21:28-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -428,8 +428,44 @@ msgstr ""
 #: stepseries.commands.SetTval.motorID:2
 #: stepseries.commands.SetVoltageMode.motorID:2
 #: stepseries.commands.SoftHiZ.motorID:2 stepseries.commands.SoftStop.motorID:2
-#: stepseries.responses.ErrorCommand.motorID:2
-#: stepseries.responses.ErrorOSC.motorID:2
+#: stepseries.responses.AdcVal.motorID:4
+#: stepseries.responses.BemfParam.motorID:4
+#: stepseries.responses.BrakeTransitionDuration.motorID:4
+#: stepseries.responses.Busy.motorID:4
+#: stepseries.responses.ConfigRegister.motorID:4
+#: stepseries.responses.DecayModeParam.motorID:4
+#: stepseries.responses.Dir.motorID:4 stepseries.responses.ElPos.motorID:4
+#: stepseries.responses.ErrorCommand.motorID:4
+#: stepseries.responses.ErrorOSC.motorID:4
+#: stepseries.responses.FullstepSpeed.motorID:4
+#: stepseries.responses.GoUntilTimeout.motorID:4
+#: stepseries.responses.HiZ.motorID:4 stepseries.responses.HomeSw.motorID:4
+#: stepseries.responses.HomeSwMode.motorID:4
+#: stepseries.responses.HomingDirection.motorID:4
+#: stepseries.responses.HomingSpeed.motorID:4
+#: stepseries.responses.HomingStatus.motorID:4
+#: stepseries.responses.Kval.motorID:4 stepseries.responses.LimitSw.motorID:4
+#: stepseries.responses.LimitSwMode.motorID:4
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:4
+#: stepseries.responses.Mark.motorID:4
+#: stepseries.responses.MicrostepMode.motorID:4
+#: stepseries.responses.MinSpeed.motorID:4
+#: stepseries.responses.MotorStatus.motorID:4
+#: stepseries.responses.OverCurrent.motorID:4
+#: stepseries.responses.OverCurrentThreshold.motorID:4
+#: stepseries.responses.Position.motorID:4
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:4
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:4
+#: stepseries.responses.ReleaseSwTimeout.motorID:4
+#: stepseries.responses.ServoParam.motorID:4
+#: stepseries.responses.Speed.motorID:4
+#: stepseries.responses.SpeedProfile.motorID:4
+#: stepseries.responses.Stall.motorID:4
+#: stepseries.responses.StallThreshold.motorID:4
+#: stepseries.responses.Status.motorID:4 stepseries.responses.SwEvent.motorID:4
+#: stepseries.responses.ThermalStatus.motorID:4
+#: stepseries.responses.Tval.motorID:4 stepseries.responses.Tval_mA.motorID:4
+#: stepseries.responses.Uvlo.motorID:4
 msgid "STEP400"
 msgstr ""
 
@@ -602,8 +638,44 @@ msgstr ""
 #: stepseries.commands.SetStallThreshold.motorID:4
 #: stepseries.commands.SetTargetPosition.motorID:4
 #: stepseries.commands.SoftHiZ.motorID:4 stepseries.commands.SoftStop.motorID:4
-#: stepseries.responses.ErrorCommand.motorID:4
-#: stepseries.responses.ErrorOSC.motorID:4
+#: stepseries.responses.AdcVal.motorID:5
+#: stepseries.responses.BemfParam.motorID:5
+#: stepseries.responses.BrakeTransitionDuration.motorID:5
+#: stepseries.responses.Busy.motorID:5
+#: stepseries.responses.ConfigRegister.motorID:5
+#: stepseries.responses.DecayModeParam.motorID:5
+#: stepseries.responses.Dir.motorID:5 stepseries.responses.ElPos.motorID:5
+#: stepseries.responses.ErrorCommand.motorID:5
+#: stepseries.responses.ErrorOSC.motorID:5
+#: stepseries.responses.FullstepSpeed.motorID:5
+#: stepseries.responses.GoUntilTimeout.motorID:5
+#: stepseries.responses.HiZ.motorID:5 stepseries.responses.HomeSw.motorID:5
+#: stepseries.responses.HomeSwMode.motorID:5
+#: stepseries.responses.HomingDirection.motorID:5
+#: stepseries.responses.HomingSpeed.motorID:5
+#: stepseries.responses.HomingStatus.motorID:5
+#: stepseries.responses.Kval.motorID:5 stepseries.responses.LimitSw.motorID:5
+#: stepseries.responses.LimitSwMode.motorID:5
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:5
+#: stepseries.responses.Mark.motorID:5
+#: stepseries.responses.MicrostepMode.motorID:5
+#: stepseries.responses.MinSpeed.motorID:5
+#: stepseries.responses.MotorStatus.motorID:5
+#: stepseries.responses.OverCurrent.motorID:5
+#: stepseries.responses.OverCurrentThreshold.motorID:5
+#: stepseries.responses.Position.motorID:5
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:5
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:5
+#: stepseries.responses.ReleaseSwTimeout.motorID:5
+#: stepseries.responses.ServoParam.motorID:5
+#: stepseries.responses.Speed.motorID:5
+#: stepseries.responses.SpeedProfile.motorID:5
+#: stepseries.responses.Stall.motorID:5
+#: stepseries.responses.StallThreshold.motorID:5
+#: stepseries.responses.Status.motorID:5 stepseries.responses.SwEvent.motorID:5
+#: stepseries.responses.ThermalStatus.motorID:5
+#: stepseries.responses.Tval.motorID:5 stepseries.responses.Tval_mA.motorID:5
+#: stepseries.responses.Uvlo.motorID:5
 msgid "STEP800"
 msgstr ""
 
@@ -697,6 +769,10 @@ msgstr ""
 #: stepseries.commands.SetOverCurrentThreshold.OCD_TH:26
 #: stepseries.commands.SetStallThreshold.STALL_TH:8
 #: stepseries.commands.SetStallThreshold.STALL_TH:26
+#: stepseries.responses.MicrostepMode.STEP_SEL:4
+#: stepseries.responses.MotorStatus.MOT_STATUS:4
+#: stepseries.responses.ThermalStatus.thermalStatus:6
+#: stepseries.responses.ThermalStatus.thermalStatus:17
 msgid "0"
 msgstr ""
 
@@ -715,6 +791,10 @@ msgstr ""
 #: stepseries.commands.SetOverCurrentThreshold.OCD_TH:28
 #: stepseries.commands.SetStallThreshold.STALL_TH:10
 #: stepseries.commands.SetStallThreshold.STALL_TH:28
+#: stepseries.responses.MicrostepMode.STEP_SEL:5
+#: stepseries.responses.MotorStatus.MOT_STATUS:5
+#: stepseries.responses.ThermalStatus.thermalStatus:7
+#: stepseries.responses.ThermalStatus.thermalStatus:18
 msgid "1"
 msgstr ""
 
@@ -889,10 +969,12 @@ msgstr ""
 msgid "See the datasheet for more details."
 msgstr ""
 
-#: of stepseries.commands.EnableLowSpeedOptimize:11 stepseries.commands.Move:7
-#: stepseries.commands.SetAcc:4 stepseries.commands.SetDec:4
-#: stepseries.commands.SetElPos:7 stepseries.commands.SetMinSpeed:10
-#: stepseries.commands.SetPosition:4 stepseries.commands.SetSpeedProfile:7
+#: ../../docstring of stepseries.commands.EnableLowSpeedOptimize:11
+#: stepseries.commands.Move:7 stepseries.commands.SetAcc:4
+#: stepseries.commands.SetDec:4 stepseries.commands.SetElPos:7
+#: stepseries.commands.SetMinSpeed:10 stepseries.commands.SetPosition:4
+#: stepseries.commands.SetSpeedProfile:7
+#: stepseries.responses.MotorStatus.MOT_STATUS:4
 msgid "Stopped"
 msgstr ""
 
@@ -1007,7 +1089,7 @@ msgstr ""
 #: of stepseries.commands.EnableThermalStatusReport:22
 #: stepseries.commands.EnableThermalStatusReport:36
 #: stepseries.commands.GetThermalStatus:13
-#: stepseries.commands.GetThermalStatus:27
+#: stepseries.commands.GetThermalStatus:27 stepseries.responses.Status:18
 msgid "TH_STATUS"
 msgstr ""
 
@@ -1015,9 +1097,17 @@ msgstr ""
 #: stepseries.commands.EnableThermalStatusReport:36
 #: stepseries.commands.GetThermalStatus:13
 #: stepseries.commands.GetThermalStatus:27
-#: stepseries.responses.Booted.deviceID:2
+#: stepseries.responses.AdcVal.ADC_OUT:2 stepseries.responses.Booted.deviceID:2
+#: stepseries.responses.Busy.state:2 stepseries.responses.Dir.direction:2
 #: stepseries.responses.ErrorCommand.errorText:2
-#: stepseries.responses.ErrorOSC.errorText:2
+#: stepseries.responses.ErrorOSC.errorText:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
+#: stepseries.responses.MicrostepMode.STEP_SEL:2
+#: stepseries.responses.MotorStatus.MOT_STATUS:2
+#: stepseries.responses.Status.status:2
+#: stepseries.responses.ThermalStatus.thermalStatus:4
+#: stepseries.responses.ThermalStatus.thermalStatus:15
+#: stepseries.responses.Uvlo.state:2
 msgid "Description"
 msgstr ""
 
@@ -1035,27 +1125,33 @@ msgstr ""
 msgid "Disable Threshold"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:24
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:24
 #: stepseries.commands.EnableThermalStatusReport:38
 #: stepseries.commands.GetThermalStatus:15
 #: stepseries.commands.GetThermalStatus:29
+#: stepseries.responses.ThermalStatus.thermalStatus:6
+#: stepseries.responses.ThermalStatus.thermalStatus:17
 msgid "Normal"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:26
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:26
 #: stepseries.commands.EnableThermalStatusReport:40
 #: stepseries.commands.GetThermalStatus:17
 #: stepseries.commands.GetThermalStatus:31
+#: stepseries.responses.ThermalStatus.thermalStatus:7
+#: stepseries.responses.ThermalStatus.thermalStatus:18
 msgid "Warning"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:26
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:26
 #: stepseries.commands.GetThermalStatus:17
+#: stepseries.responses.ThermalStatus.thermalStatus:7
 msgid "135°C"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:26
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:26
 #: stepseries.commands.GetThermalStatus:17
+#: stepseries.responses.ThermalStatus.thermalStatus:7
 msgid "125°C"
 msgstr ""
 
@@ -1064,6 +1160,10 @@ msgstr ""
 #: stepseries.commands.GetThermalStatus:19
 #: stepseries.commands.GetThermalStatus:33
 #: stepseries.commands.SetMicrostepMode.STEP_SEL:10
+#: stepseries.responses.MicrostepMode.STEP_SEL:6
+#: stepseries.responses.MotorStatus.MOT_STATUS:6
+#: stepseries.responses.ThermalStatus.thermalStatus:8
+#: stepseries.responses.ThermalStatus.thermalStatus:19
 msgid "2"
 msgstr ""
 
@@ -1074,19 +1174,24 @@ msgstr ""
 msgid "Bridge shutdown"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:28
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:28
 #: stepseries.commands.GetThermalStatus:19
+#: stepseries.responses.ThermalStatus.thermalStatus:8
 msgid "155°C"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:28
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:28
 #: stepseries.commands.GetThermalStatus:19
+#: stepseries.responses.ThermalStatus.thermalStatus:8
 msgid "145°C"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.EnableThermalStatusReport:30
 #: stepseries.commands.GetThermalStatus:21
 #: stepseries.commands.SetMicrostepMode.STEP_SEL:12
+#: stepseries.responses.MicrostepMode.STEP_SEL:7
+#: stepseries.responses.MotorStatus.MOT_STATUS:7
+#: stepseries.responses.ThermalStatus.thermalStatus:9
 msgid "3"
 msgstr ""
 
@@ -1095,17 +1200,21 @@ msgstr ""
 msgid "Device shutdown"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:30
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:30
 #: stepseries.commands.GetThermalStatus:21
+#: stepseries.responses.ThermalStatus.thermalStatus:9
 msgid "170°C"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:30
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:30
 #: stepseries.commands.EnableThermalStatusReport:40
 #: stepseries.commands.EnableThermalStatusReport:42
 #: stepseries.commands.GetThermalStatus:21
 #: stepseries.commands.GetThermalStatus:31
 #: stepseries.commands.GetThermalStatus:33
+#: stepseries.responses.ThermalStatus.thermalStatus:9
+#: stepseries.responses.ThermalStatus.thermalStatus:18
+#: stepseries.responses.ThermalStatus.thermalStatus:19
 msgid "130°C"
 msgstr ""
 
@@ -1116,8 +1225,9 @@ msgstr ""
 msgid "**STEP800:**"
 msgstr ""
 
-#: of stepseries.commands.EnableThermalStatusReport:42
+#: ../../docstring of stepseries.commands.EnableThermalStatusReport:42
 #: stepseries.commands.GetThermalStatus:33
+#: stepseries.responses.ThermalStatus.thermalStatus:19
 msgid "160°C"
 msgstr ""
 
@@ -2123,6 +2233,7 @@ msgid "1/8 microstep"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:14
+#: stepseries.responses.MicrostepMode.STEP_SEL:8
 msgid "4"
 msgstr ""
 
@@ -2131,6 +2242,7 @@ msgid "1/16 microstep"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:16
+#: stepseries.responses.MicrostepMode.STEP_SEL:9
 msgid "5"
 msgstr ""
 
@@ -2139,6 +2251,7 @@ msgid "1/32 microstep"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:18
+#: stepseries.responses.MicrostepMode.STEP_SEL:10
 msgid "6"
 msgstr ""
 
@@ -2147,6 +2260,7 @@ msgid "1/64 microstep"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:20
+#: stepseries.responses.MicrostepMode.STEP_SEL:11
 msgid "7"
 msgstr ""
 
@@ -2543,9 +2657,194 @@ msgid "Messages received from the device."
 msgstr ""
 
 #: of stepseries.responses.AdcVal:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getadcval_intmotorid"
+msgid "The ADC_OUT register value from the PowerSTEP01 chip."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:2
+#: stepseries.responses.Booted.deviceID:2 stepseries.responses.Busy.state:2
+#: stepseries.responses.Dir.direction:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
+#: stepseries.responses.MicrostepMode.STEP_SEL:2
+#: stepseries.responses.MotorStatus.MOT_STATUS:2
+#: stepseries.responses.Status.status:2
+#: stepseries.responses.ThermalStatus.thermalStatus:4
+#: stepseries.responses.ThermalStatus.thermalStatus:15
+#: stepseries.responses.Uvlo.state:2
+msgid "Range"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
+#: stepseries.responses.Status.status:4
+msgid "0-31"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
+#: stepseries.responses.Status.status:4
+msgid "5-bit read out of the ADC_OUT register"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.motorID:2
+#: stepseries.responses.BemfParam.motorID:2
+#: stepseries.responses.BrakeTransitionDuration.motorID:2
+#: stepseries.responses.Busy.motorID:2
+#: stepseries.responses.ConfigRegister.motorID:2
+#: stepseries.responses.DecayModeParam.motorID:2
+#: stepseries.responses.Dir.motorID:2 stepseries.responses.ElPos.motorID:2
+#: stepseries.responses.ErrorCommand.motorID:2
+#: stepseries.responses.ErrorOSC.motorID:2
+#: stepseries.responses.FullstepSpeed.motorID:2
+#: stepseries.responses.GoUntilTimeout.motorID:2
+#: stepseries.responses.HiZ.motorID:2 stepseries.responses.HomeSw.motorID:2
+#: stepseries.responses.HomeSwMode.motorID:2
+#: stepseries.responses.HomingDirection.motorID:2
+#: stepseries.responses.HomingSpeed.motorID:2
+#: stepseries.responses.HomingStatus.motorID:2
+#: stepseries.responses.Kval.motorID:2 stepseries.responses.LimitSw.motorID:2
+#: stepseries.responses.LimitSwMode.motorID:2
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:2
+#: stepseries.responses.Mark.motorID:2
+#: stepseries.responses.MicrostepMode.motorID:2
+#: stepseries.responses.MinSpeed.motorID:2
+#: stepseries.responses.MotorStatus.motorID:2
+#: stepseries.responses.OverCurrent.motorID:2
+#: stepseries.responses.OverCurrentThreshold.motorID:2
+#: stepseries.responses.Position.motorID:2
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:2
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:2
+#: stepseries.responses.ReleaseSwTimeout.motorID:2
+#: stepseries.responses.ServoParam.motorID:2
+#: stepseries.responses.Speed.motorID:2
+#: stepseries.responses.SpeedProfile.motorID:2
+#: stepseries.responses.Stall.motorID:2
+#: stepseries.responses.StallThreshold.motorID:2
+#: stepseries.responses.Status.motorID:2 stepseries.responses.SwEvent.motorID:2
+#: stepseries.responses.ThermalStatus.motorID:2
+#: stepseries.responses.Tval.motorID:2 stepseries.responses.Tval_mA.motorID:2
+#: stepseries.responses.Uvlo.motorID:2
+msgid "Controller"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.motorID:2
+#: stepseries.responses.BemfParam.motorID:2
+#: stepseries.responses.BrakeTransitionDuration.motorID:2
+#: stepseries.responses.Busy.motorID:2
+#: stepseries.responses.ConfigRegister.motorID:2
+#: stepseries.responses.DecayModeParam.motorID:2
+#: stepseries.responses.Dir.motorID:2 stepseries.responses.ElPos.motorID:2
+#: stepseries.responses.ErrorCommand.motorID:2
+#: stepseries.responses.ErrorOSC.motorID:2
+#: stepseries.responses.FullstepSpeed.motorID:2
+#: stepseries.responses.GoUntilTimeout.motorID:2
+#: stepseries.responses.HiZ.motorID:2 stepseries.responses.HomeSw.motorID:2
+#: stepseries.responses.HomeSwMode.motorID:2
+#: stepseries.responses.HomingDirection.motorID:2
+#: stepseries.responses.HomingSpeed.motorID:2
+#: stepseries.responses.HomingStatus.motorID:2
+#: stepseries.responses.Kval.motorID:2 stepseries.responses.LimitSw.motorID:2
+#: stepseries.responses.LimitSwMode.motorID:2
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:2
+#: stepseries.responses.Mark.motorID:2
+#: stepseries.responses.MicrostepMode.motorID:2
+#: stepseries.responses.MinSpeed.motorID:2
+#: stepseries.responses.MotorStatus.motorID:2
+#: stepseries.responses.OverCurrent.motorID:2
+#: stepseries.responses.OverCurrentThreshold.motorID:2
+#: stepseries.responses.Position.motorID:2
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:2
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:2
+#: stepseries.responses.ReleaseSwTimeout.motorID:2
+#: stepseries.responses.ServoParam.motorID:2
+#: stepseries.responses.Speed.motorID:2
+#: stepseries.responses.SpeedProfile.motorID:2
+#: stepseries.responses.Stall.motorID:2
+#: stepseries.responses.StallThreshold.motorID:2
+#: stepseries.responses.Status.motorID:2 stepseries.responses.SwEvent.motorID:2
+#: stepseries.responses.ThermalStatus.motorID:2
+#: stepseries.responses.Tval.motorID:2 stepseries.responses.Tval_mA.motorID:2
+#: stepseries.responses.Uvlo.motorID:2
+msgid "Motor Range"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.motorID:4
+#: stepseries.responses.BemfParam.motorID:4
+#: stepseries.responses.BrakeTransitionDuration.motorID:4
+#: stepseries.responses.Busy.motorID:4
+#: stepseries.responses.ConfigRegister.motorID:4
+#: stepseries.responses.DecayModeParam.motorID:4
+#: stepseries.responses.Dir.motorID:4 stepseries.responses.ElPos.motorID:4
+#: stepseries.responses.ErrorCommand.motorID:4
+#: stepseries.responses.ErrorOSC.motorID:4
+#: stepseries.responses.FullstepSpeed.motorID:4
+#: stepseries.responses.GoUntilTimeout.motorID:4
+#: stepseries.responses.HiZ.motorID:4 stepseries.responses.HomeSw.motorID:4
+#: stepseries.responses.HomeSwMode.motorID:4
+#: stepseries.responses.HomingDirection.motorID:4
+#: stepseries.responses.HomingSpeed.motorID:4
+#: stepseries.responses.HomingStatus.motorID:4
+#: stepseries.responses.Kval.motorID:4 stepseries.responses.LimitSw.motorID:4
+#: stepseries.responses.LimitSwMode.motorID:4
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:4
+#: stepseries.responses.Mark.motorID:4
+#: stepseries.responses.MicrostepMode.motorID:4
+#: stepseries.responses.MinSpeed.motorID:4
+#: stepseries.responses.MotorStatus.motorID:4
+#: stepseries.responses.OverCurrent.motorID:4
+#: stepseries.responses.OverCurrentThreshold.motorID:4
+#: stepseries.responses.Position.motorID:4
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:4
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:4
+#: stepseries.responses.ReleaseSwTimeout.motorID:4
+#: stepseries.responses.ServoParam.motorID:4
+#: stepseries.responses.Speed.motorID:4
+#: stepseries.responses.SpeedProfile.motorID:4
+#: stepseries.responses.Stall.motorID:4
+#: stepseries.responses.StallThreshold.motorID:4
+#: stepseries.responses.Status.motorID:4 stepseries.responses.SwEvent.motorID:4
+#: stepseries.responses.ThermalStatus.motorID:4
+#: stepseries.responses.Tval.motorID:4 stepseries.responses.Tval_mA.motorID:4
+#: stepseries.responses.Uvlo.motorID:4
+msgid "1-4"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.AdcVal.motorID:5
+#: stepseries.responses.BemfParam.motorID:5
+#: stepseries.responses.BrakeTransitionDuration.motorID:5
+#: stepseries.responses.Busy.motorID:5
+#: stepseries.responses.ConfigRegister.motorID:5
+#: stepseries.responses.DecayModeParam.motorID:5
+#: stepseries.responses.Dir.motorID:5 stepseries.responses.ElPos.motorID:5
+#: stepseries.responses.ErrorCommand.motorID:5
+#: stepseries.responses.ErrorOSC.motorID:5
+#: stepseries.responses.FullstepSpeed.motorID:5
+#: stepseries.responses.GoUntilTimeout.motorID:5
+#: stepseries.responses.HiZ.motorID:5 stepseries.responses.HomeSw.motorID:5
+#: stepseries.responses.HomeSwMode.motorID:5
+#: stepseries.responses.HomingDirection.motorID:5
+#: stepseries.responses.HomingSpeed.motorID:5
+#: stepseries.responses.HomingStatus.motorID:5
+#: stepseries.responses.Kval.motorID:5 stepseries.responses.LimitSw.motorID:5
+#: stepseries.responses.LimitSwMode.motorID:5
+#: stepseries.responses.LowSpeedOptimizeThreshold.motorID:5
+#: stepseries.responses.Mark.motorID:5
+#: stepseries.responses.MicrostepMode.motorID:5
+#: stepseries.responses.MinSpeed.motorID:5
+#: stepseries.responses.MotorStatus.motorID:5
+#: stepseries.responses.OverCurrent.motorID:5
+#: stepseries.responses.OverCurrentThreshold.motorID:5
+#: stepseries.responses.Position.motorID:5
+#: stepseries.responses.ProhibitMotionOnHomeSw.motorID:5
+#: stepseries.responses.ProhibitMotionOnLimitSw.motorID:5
+#: stepseries.responses.ReleaseSwTimeout.motorID:5
+#: stepseries.responses.ServoParam.motorID:5
+#: stepseries.responses.Speed.motorID:5
+#: stepseries.responses.SpeedProfile.motorID:5
+#: stepseries.responses.Stall.motorID:5
+#: stepseries.responses.StallThreshold.motorID:5
+#: stepseries.responses.Status.motorID:5 stepseries.responses.SwEvent.motorID:5
+#: stepseries.responses.ThermalStatus.motorID:5
+#: stepseries.responses.Tval.motorID:5 stepseries.responses.Tval_mA.motorID:5
+#: stepseries.responses.Uvlo.motorID:5
+msgid "1-8"
 msgstr ""
 
 #: of stepseries.responses.BemfParam:1
@@ -2579,10 +2878,6 @@ msgid ""
 "network, you can disable it via the `Config Tool`_."
 msgstr ""
 
-#: ../../docstring of stepseries.responses.Booted.deviceID:2
-msgid "Range"
-msgstr ""
-
 #: ../../docstring of stepseries.responses.Booted.deviceID:4
 msgid "The device ID set by the DIP switch"
 msgstr ""
@@ -2594,15 +2889,39 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.Busy:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#busy"
+msgid "The BUSY state of a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Busy.state:4
+#: stepseries.responses.Dir.direction:4 stepseries.responses.HiZ.state:4
+#: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:4
+#: stepseries.responses.Uvlo.state:4
+msgid "0-1"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Busy.state:4
+msgid "1: BUSY, 0: Not BUSY"
 msgstr ""
 
 #: of stepseries.responses.ConfigName:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/system-settings/#getconfigname"
+msgid "Metadata about the configuration file."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ConfigName.configFileOpenSucceeded:1
+msgid "If the device could open the configuration file."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.responses.ConfigName.configFileParseSucceeded:1
+msgid "If the configuration was successfully parsed."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ConfigName.configName:1
+msgid "Name of the configuration."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ConfigName.sdInitializeSucceeded:1
+msgid "If the microSD card was successfully read."
 msgstr ""
 
 #: of stepseries.responses.ConfigRegister:1
@@ -2618,15 +2937,35 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.DestIP:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/system-settings/#setdestip"
+msgid "Confirmation :py:class:`stepseries.commands.SetDestIP` has been recieved."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DestIP.destIp0:1
+msgid "The first octet of the IP address set."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DestIP.destIp1:1
+msgid "The second octet of the IP address set."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DestIP.destIp2:1
+msgid "The third octet of the IP address set."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DestIP.destIp3:1
+msgid "The fourth octet of the IP address set."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DestIP.isNewDestIp:1
+msgid "Indicates if the IP address has changed from what is already set."
 msgstr ""
 
 #: of stepseries.responses.Dir:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getdir_intmotorid"
+msgid "The direction of a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Dir.direction:4
+msgid "1: Forward, 0: Reverse"
 msgstr ""
 
 #: of stepseries.responses.ElPos:1
@@ -2716,16 +3055,6 @@ msgstr ""
 msgid "Received a command which can not be executed while servo mode."
 msgstr ""
 
-#: ../../docstring of stepseries.responses.ErrorCommand.motorID:2
-#: stepseries.responses.ErrorOSC.motorID:2
-msgid "1-4"
-msgstr ""
-
-#: ../../docstring of stepseries.responses.ErrorCommand.motorID:4
-#: stepseries.responses.ErrorOSC.motorID:4
-msgid "1-8"
-msgstr ""
-
 #: of stepseries.responses.ErrorOSC:1
 msgid "Sent if any error is detected in the OSC command."
 msgstr ""
@@ -2767,9 +3096,11 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.HiZ:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#hiz"
+msgid "The high-impedance (HiZ) state of a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.HiZ.state:4
+msgid "1: HiZ, 0: Not HiZ"
 msgstr ""
 
 #: of stepseries.responses.HomeSw:1
@@ -2821,9 +3152,17 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.LowSpeedOptimizeThreshold:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getlowspeedoptimizethreshold_intmotorid"
+msgid "The threshold to enable low speed optimization."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.responses.LowSpeedOptimizeThreshold.lowSpeedOptimizeThreshold:1
+msgid "0.0 - 976.3 steps/s"
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:4
+msgid "1: Enabled, 0: Disabled"
 msgstr ""
 
 #: of stepseries.responses.Mark:1
@@ -2833,9 +3172,39 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.MicrostepMode:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getmicrostepmode_intmotorid"
+msgid "The microstep mode of the motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:4
+msgid "Full-step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:5
+msgid "Half-step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:6
+msgid "1/4 step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:7
+msgid "1/8 step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:8
+msgid "1/16 step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:9
+msgid "1/32 step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:10
+msgid "1/64 step"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:11
+msgid "1/128 step"
 msgstr ""
 
 #: of stepseries.responses.MinSpeed:1
@@ -2845,9 +3214,19 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.MotorStatus:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#motorstatus"
+msgid "The operating status of a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:5
+msgid "Acceleration"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:6
+msgid "Deceleration"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:7
+msgid "Constant Speed"
 msgstr ""
 
 #: of stepseries.responses.OSCResponse:1
@@ -2927,9 +3306,126 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.Status:1
+msgid "The STATUS of a motor."
+msgstr ""
+
+#: of stepseries.responses.Status:3
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getstatus_intmotorid"
+"Refer to STATUS in the datasheet for the information contained in the "
+"registers. Some bits are latched and reset when the STATUS registers are "
+"read out. Because the firmware constantly reads these registers, they are"
+" immediately reset. It is possible to setup event to be reported "
+"depending on the data read, so please use those commands."
+msgstr ""
+
+#: of stepseries.responses.Status:11
+msgid "STEP400 Bits"
+msgstr ""
+
+#: of stepseries.responses.Status:11
+msgid "STEP800 Bits"
+msgstr ""
+
+#: of stepseries.responses.Status:11
+msgid "Configuration Command"
+msgstr ""
+
+#: of stepseries.responses.Status:13
+msgid "UVLO"
+msgstr ""
+
+#: of stepseries.responses.Status:13
+msgid ":py:class:`stepseries.commands.EnableUvloReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:14
+msgid "UVLO_ADC"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Status:14
+#: stepseries.responses.ThermalStatus.thermalStatus:6
+#: stepseries.responses.ThermalStatus.thermalStatus:17
+msgid "N/A"
+msgstr ""
+
+#: of stepseries.responses.Status:14
+msgid "Not implemented"
+msgstr ""
+
+#: of stepseries.responses.Status:15
+msgid "OCD"
+msgstr ""
+
+#: of stepseries.responses.Status:15
+msgid ":py:class:`stepseries.commands.EnableOverCurrentReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:16
+msgid "STALL_A, STALL_B"
+msgstr ""
+
+#: of stepseries.responses.Status:16
+msgid "STEP_LOSS_A, STEP_LOSS_B"
+msgstr ""
+
+#: of stepseries.responses.Status:16
+msgid ":py:class:`stepseries.commands.EnableStallReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:17
+msgid "CMD_ERROR"
+msgstr ""
+
+#: of stepseries.responses.Status:17
+msgid "WRONG_CMD, NOTPREF_CMD"
+msgstr ""
+
+#: of stepseries.responses.Status:17
+msgid ":py:class:`stepseries.commands.EnableCommandErrorReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:18
+msgid "TH_WRN, TH_SD"
+msgstr ""
+
+#: of stepseries.responses.Status:18
+msgid ":py:class:`stepseries.commands.EnableThermalStatusReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:19
+msgid "SW_EVN"
+msgstr ""
+
+#: of stepseries.responses.Status:19 stepseries.responses.Status:21
+msgid ":py:class:`stepseries.commands.EnableHomeSwReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:20
+msgid "MOT_STATUS"
+msgstr ""
+
+#: of stepseries.responses.Status:20
+msgid ":py:class:`stepseries.commands.EnableMotorStatusReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:21
+msgid "SW_F"
+msgstr ""
+
+#: of stepseries.responses.Status:22
+msgid "BUSY"
+msgstr ""
+
+#: of stepseries.responses.Status:22
+msgid ":py:class:`stepseries.commands.EnableBusyReport`"
+msgstr ""
+
+#: of stepseries.responses.Status:23
+msgid "HIZ"
+msgstr ""
+
+#: of stepseries.responses.Status:23
+msgid ":py:class:`stepseries.commands.EnableHiZReport`"
 msgstr ""
 
 #: of stepseries.responses.SwEvent:1
@@ -2940,9 +3436,38 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.ThermalStatus:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#thermalstatus"
+msgid "The thermal status of a motor."
+msgstr ""
+
+#: of stepseries.responses.ThermalStatus:3
+msgid "The thresholds between the STEP400 and STEP800 do vary."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:1
+msgid "**STEP400**:"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:4
+#: stepseries.responses.ThermalStatus.thermalStatus:15
+msgid "Set Threshold"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:4
+#: stepseries.responses.ThermalStatus.thermalStatus:15
+msgid "Release Threshold"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:8
+#: stepseries.responses.ThermalStatus.thermalStatus:19
+msgid "Bridge Shutdown"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:9
+msgid "Device Shutdown"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:12
+msgid "**STEP800**:"
 msgstr ""
 
 #: of stepseries.responses.Tval:1
@@ -2958,15 +3483,27 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.Uvlo:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/automatically-sent-messages-from-step-400/#uvlo"
+msgid "The current state of undervoltage lockout of a motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Uvlo.state:4
+msgid "1: UVLO, 0: No UVLO"
 msgstr ""
 
 #: of stepseries.responses.Version:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/system-settings/#getversion"
+msgid "The firmware version burnt onto the chip."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Version.compile_date:1
+msgid "Compile date of the firmware"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Version.firmware_name:1
+msgid "Name of the firmware."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Version.firmware_version:1
+msgid "Version of the firmware."
 msgstr ""
 
 #: ../../python-step-series/api/stepseries.rst:20
@@ -3099,5 +3636,80 @@ msgstr ""
 #~ "Documentation: https://ponoor.com/en/docs/step-series"
 #~ "/osc-command-reference/automatically-sent-"
 #~ "messages-from-step-400/#errorosc"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getadcval_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#busy"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/system-settings/#getconfigname"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/system-settings/#setdestip"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getdir_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#hiz"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getlowspeedoptimizethreshold_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getmicrostepmode_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#motorstatus"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getstatus_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#thermalstatus"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/automatically-sent-"
+#~ "messages-from-step-400/#uvlo"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/system-settings/#getversion"
 #~ msgstr ""
 
