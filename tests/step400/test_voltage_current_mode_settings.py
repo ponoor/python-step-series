@@ -38,7 +38,7 @@ class TestVoltageCurrentMessages:
         assert response.holdKVAL == presets.kval_hold
         assert response.runKVAL == presets.kval_run
         assert response.accKVAL == presets.kval_acc
-        assert response.setDecKVAL == presets.kval_dec
+        assert response.decKVAL == presets.kval_dec
 
     def test_bemf_param(self, device: STEP400, motor_id: int, presets) -> None:
         # Verify the motor is in a HiZ state

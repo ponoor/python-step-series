@@ -1348,7 +1348,7 @@ class SetKval(OSCSetCommand):
     |Default    |16   |
     +-----------+-----+
     """
-    setDecKVAL: int
+    decKVAL: int
     """KVAL for decelerating the motor's speed.
 
     +-----------+-----+

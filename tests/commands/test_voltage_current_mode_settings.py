@@ -31,7 +31,7 @@ def test_set_kval() -> None:
     assert params[1] == builder.holdKVAL
     assert params[2] == builder.runKVAL
     assert params[3] == builder.accKVAL
-    assert params[4] == builder.setDecKVAL
+    assert params[4] == builder.decKVAL
     assert osc_message_str == "/setKval 2 100 125 150 175"
 
 

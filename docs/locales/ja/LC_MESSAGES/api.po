@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-18 21:28-0500\n"
+"POT-Creation-Date: 2022-05-21 07:31-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -374,6 +374,7 @@ msgstr ""
 #: stepseries.responses.MotorStatus.motorID:4
 #: stepseries.responses.OverCurrent.motorID:4
 #: stepseries.responses.OverCurrentThreshold.motorID:4
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:4
 #: stepseries.responses.Position.motorID:4
 #: stepseries.responses.ProhibitMotionOnHomeSw.motorID:4
 #: stepseries.responses.ProhibitMotionOnLimitSw.motorID:4
@@ -383,6 +384,7 @@ msgstr ""
 #: stepseries.responses.SpeedProfile.motorID:4
 #: stepseries.responses.Stall.motorID:4
 #: stepseries.responses.StallThreshold.motorID:4
+#: stepseries.responses.StallThreshold.stallThreshold:4
 #: stepseries.responses.Status.motorID:4 stepseries.responses.SwEvent.motorID:4
 #: stepseries.responses.ThermalStatus.motorID:4
 #: stepseries.responses.Tval.motorID:4 stepseries.responses.Tval_mA.motorID:4
@@ -584,6 +586,7 @@ msgstr ""
 #: stepseries.responses.MotorStatus.motorID:5
 #: stepseries.responses.OverCurrent.motorID:5
 #: stepseries.responses.OverCurrentThreshold.motorID:5
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:5
 #: stepseries.responses.Position.motorID:5
 #: stepseries.responses.ProhibitMotionOnHomeSw.motorID:5
 #: stepseries.responses.ProhibitMotionOnLimitSw.motorID:5
@@ -593,6 +596,7 @@ msgstr ""
 #: stepseries.responses.SpeedProfile.motorID:5
 #: stepseries.responses.Stall.motorID:5
 #: stepseries.responses.StallThreshold.motorID:5
+#: stepseries.responses.StallThreshold.stallThreshold:5
 #: stepseries.responses.Status.motorID:5 stepseries.responses.SwEvent.motorID:5
 #: stepseries.responses.ThermalStatus.motorID:5
 #: stepseries.responses.Tval.motorID:5 stepseries.responses.Tval_mA.motorID:5
@@ -772,9 +776,8 @@ msgstr ""
 #: stepseries.commands.SetHomeSwMode.SW_MODE:8
 #: stepseries.commands.SetHomingDirection.direction:4
 #: stepseries.commands.SetHomingSpeed.speed:6
-#: stepseries.commands.SetKval.accKVAL:6 stepseries.commands.SetKval.holdKVAL:6
-#: stepseries.commands.SetKval.runKVAL:6
-#: stepseries.commands.SetKval.setDecKVAL:6
+#: stepseries.commands.SetKval.accKVAL:6 stepseries.commands.SetKval.decKVAL:6
+#: stepseries.commands.SetKval.holdKVAL:6 stepseries.commands.SetKval.runKVAL:6
 #: stepseries.commands.SetLimitSwMode.SW_MODE:8
 #: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:4
 #: stepseries.commands.SetMaxSpeed.maxSpeed:6
@@ -1022,9 +1025,13 @@ msgstr ""
 #: stepseries.responses.Busy.state:2 stepseries.responses.Dir.direction:2
 #: stepseries.responses.ErrorCommand.errorText:2
 #: stepseries.responses.ErrorOSC.errorText:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.Kval.accKVAL:2 stepseries.responses.Kval.decKVAL:2
+#: stepseries.responses.Kval.holdKVAL:2 stepseries.responses.Kval.runKVAL:2
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
 #: stepseries.responses.MicrostepMode.STEP_SEL:2
 #: stepseries.responses.MotorStatus.MOT_STATUS:2
+#: stepseries.responses.ProhibitMotionOnHomeSw.enable:2
+#: stepseries.responses.ProhibitMotionOnLimitSw.enable:2
 #: stepseries.responses.Status.status:2
 #: stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
@@ -1474,9 +1481,8 @@ msgstr ""
 #: stepseries.commands.SetFullstepSpeed.fullstepSpeed:4
 #: stepseries.commands.SetGoUntilTimeout.timeOut:4
 #: stepseries.commands.SetHomingSpeed.speed:4
-#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.holdKVAL:4
-#: stepseries.commands.SetKval.runKVAL:4
-#: stepseries.commands.SetKval.setDecKVAL:4
+#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.decKVAL:4
+#: stepseries.commands.SetKval.holdKVAL:4 stepseries.commands.SetKval.runKVAL:4
 #: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:2
 #: stepseries.commands.SetMaxSpeed.maxSpeed:4
 #: stepseries.commands.SetMinSpeed.minSpeed:4
@@ -1817,10 +1823,11 @@ msgstr ""
 #: stepseries.commands.SetDecayModeParam.TOFF_MIN:4
 #: stepseries.commands.SetDecayModeParam.TON_MIN:4
 #: stepseries.commands.SetDecayModeParam.T_FAST:4
-#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.holdKVAL:4
-#: stepseries.commands.SetKval.runKVAL:4
-#: stepseries.commands.SetKval.setDecKVAL:4
-#: stepseries.responses.Booted.deviceID:4
+#: stepseries.commands.SetKval.accKVAL:4 stepseries.commands.SetKval.decKVAL:4
+#: stepseries.commands.SetKval.holdKVAL:4 stepseries.commands.SetKval.runKVAL:4
+#: stepseries.responses.Booted.deviceID:4 stepseries.responses.Kval.accKVAL:4
+#: stepseries.responses.Kval.decKVAL:4 stepseries.responses.Kval.holdKVAL:4
+#: stepseries.responses.Kval.runKVAL:4
 msgid "0-255"
 msgstr ""
 
@@ -2064,12 +2071,15 @@ msgid "KVAL for accelerating the motor's speed."
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetKval.accKVAL:6
-#: stepseries.commands.SetKval.holdKVAL:6 stepseries.commands.SetKval.runKVAL:6
-#: stepseries.commands.SetKval.setDecKVAL:6
-#: stepseries.commands.SetTval.accTVAL:6 stepseries.commands.SetTval.holdTVAL:6
-#: stepseries.commands.SetTval.runTVAL:6
+#: stepseries.commands.SetKval.decKVAL:6 stepseries.commands.SetKval.holdKVAL:6
+#: stepseries.commands.SetKval.runKVAL:6 stepseries.commands.SetTval.accTVAL:6
+#: stepseries.commands.SetTval.holdTVAL:6 stepseries.commands.SetTval.runTVAL:6
 #: stepseries.commands.SetTval.setDecTVAL:6
 msgid "16"
+msgstr ""
+
+#: ../../docstring of stepseries.commands.SetKval.decKVAL:1
+msgid "KVAL for decelerating the motor's speed."
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetKval.holdKVAL:1
@@ -2078,10 +2088,6 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetKval.runKVAL:1
 msgid "KVAL for maintaining the motor's speed."
-msgstr ""
-
-#: ../../docstring of stepseries.commands.SetKval.setDecKVAL:1
-msgid "KVAL for decelerating the motor's speed."
 msgstr ""
 
 #: of stepseries.commands.SetLimitSwMode:1
@@ -2661,9 +2667,15 @@ msgstr ""
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:2
 #: stepseries.responses.Booted.deviceID:2 stepseries.responses.Busy.state:2
 #: stepseries.responses.Dir.direction:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.Kval.accKVAL:2 stepseries.responses.Kval.decKVAL:2
+#: stepseries.responses.Kval.holdKVAL:2 stepseries.responses.Kval.runKVAL:2
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
 #: stepseries.responses.MicrostepMode.STEP_SEL:2
 #: stepseries.responses.MotorStatus.MOT_STATUS:2
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:2
+#: stepseries.responses.ProhibitMotionOnHomeSw.enable:2
+#: stepseries.responses.ProhibitMotionOnLimitSw.enable:2
+#: stepseries.responses.StallThreshold.stallThreshold:2
 #: stepseries.responses.Status.status:2
 #: stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
@@ -2706,6 +2718,7 @@ msgstr ""
 #: stepseries.responses.MotorStatus.motorID:2
 #: stepseries.responses.OverCurrent.motorID:2
 #: stepseries.responses.OverCurrentThreshold.motorID:2
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:2
 #: stepseries.responses.Position.motorID:2
 #: stepseries.responses.ProhibitMotionOnHomeSw.motorID:2
 #: stepseries.responses.ProhibitMotionOnLimitSw.motorID:2
@@ -2715,6 +2728,7 @@ msgstr ""
 #: stepseries.responses.SpeedProfile.motorID:2
 #: stepseries.responses.Stall.motorID:2
 #: stepseries.responses.StallThreshold.motorID:2
+#: stepseries.responses.StallThreshold.stallThreshold:2
 #: stepseries.responses.Status.motorID:2 stepseries.responses.SwEvent.motorID:2
 #: stepseries.responses.ThermalStatus.motorID:2
 #: stepseries.responses.Tval.motorID:2 stepseries.responses.Tval_mA.motorID:2
@@ -2893,6 +2907,8 @@ msgstr ""
 #: ../../docstring of stepseries.responses.Busy.state:4
 #: stepseries.responses.Dir.direction:4 stepseries.responses.HiZ.state:4
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:4
+#: stepseries.responses.ProhibitMotionOnHomeSw.enable:4
+#: stepseries.responses.ProhibitMotionOnLimitSw.enable:4
 #: stepseries.responses.Uvlo.state:4
 msgid "0-1"
 msgstr ""
@@ -2923,9 +2939,11 @@ msgid "If the microSD card was successfully read."
 msgstr ""
 
 #: of stepseries.responses.ConfigRegister:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/motor-driver-settings/#getconfigregister_intmotorid"
+msgid "The 16-bit CONFIG register value from the motor driver."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ConfigRegister.CONFIG:1
+msgid "0-65535 (0xFFFF)"
 msgstr ""
 
 #: of stepseries.responses.DecayModeParam:1
@@ -3136,9 +3154,13 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.Kval:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/voltage-and-current-mode-settings/#getkval_intmotorid"
+msgid "All four KVALs together."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Kval.accKVAL:4
+#: stepseries.responses.Kval.decKVAL:4 stepseries.responses.Kval.holdKVAL:4
+#: stepseries.responses.Kval.runKVAL:4
+msgid "KVAL when stopped"
 msgstr ""
 
 #: of stepseries.responses.LimitSw:1
@@ -3242,9 +3264,18 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.OverCurrentThreshold:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/alarm-settings/#getovercurrentthreshold_intmotorid"
+msgid "The threshold of over current in mA."
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:4
+#: stepseries.responses.StallThreshold.stallThreshold:4
+msgid "312.5-10000.0"
+msgstr ""
+
+#: ../../docstring of
+#: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:5
+msgid "375.0-6000.0"
 msgstr ""
 
 #: of stepseries.responses.Position:1
@@ -3260,15 +3291,16 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.ProhibitMotionOnHomeSw:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"
+msgid "Whether motion towards origin is permitted when HomeSw is active."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ProhibitMotionOnHomeSw.enable:4
+#: stepseries.responses.ProhibitMotionOnLimitSw.enable:4
+msgid "1: Prohibited, 0: Allowed"
 msgstr ""
 
 #: of stepseries.responses.ProhibitMotionOnLimitSw:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"
+msgid "Whether motion away from origin is permitted when LimitSw is active."
 msgstr ""
 
 #: of stepseries.responses.ReleaseSwTimeout:1
@@ -3302,9 +3334,11 @@ msgid ""
 msgstr ""
 
 #: of stepseries.responses.StallThreshold:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/alarm-settings/#getstallthreshold_intmotorid"
+msgid "The stall detection threshold in mA."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.StallThreshold.stallThreshold:5
+msgid "31.25-4000.0"
 msgstr ""
 
 #: of stepseries.responses.Status:1
@@ -3838,5 +3872,41 @@ msgstr ""
 #~ msgid ""
 #~ "Documentation: https://ponoor.com/en/docs/step-series"
 #~ "/osc-command-reference/system-settings/#getversion"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/motor-driver-"
+#~ "settings/#getconfigregister_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/voltage-and-current-"
+#~ "mode-settings/#getkval_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/alarm-"
+#~ "settings/#getovercurrentthreshold_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/alarm-"
+#~ "settings/#getprohibitmotiononhomesw_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/alarm-"
+#~ "settings/#getprohibitmotiononlimitsw_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/alarm-"
+#~ "settings/#getstallthreshold_intmotorid"
 #~ msgstr ""
 

@@ -596,7 +596,7 @@ class Status(OSCResponse):
 
 @dataclass
 class ConfigRegister(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/motor-driver-settings/#getconfigregister_intmotorid"""  # noqa
+    """The 16-bit CONFIG register value from the motor driver."""
 
     address: str = field(default="/configRegister", init=False)
     motorID: int
@@ -609,6 +609,7 @@ class ConfigRegister(OSCResponse):
     ========== ===========
     """
     CONFIG: int
+    """0-65535 (0xFFFF)"""
 
 
 # Alarm Settings
@@ -616,7 +617,7 @@ class ConfigRegister(OSCResponse):
 
 @dataclass
 class OverCurrentThreshold(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getovercurrentthreshold_intmotorid"""  # noqa
+    """The threshold of over current in mA."""
 
     address: str = field(default="/overCurrentThreshold", init=False)
     motorID: int
@@ -629,11 +630,19 @@ class OverCurrentThreshold(OSCResponse):
     ========== ===========
     """
     overCurrentThreshold: float
+    """
+    ========== =============
+    Controller Range
+    ========== =============
+    STEP400    312.5-10000.0
+    STEP800    375.0-6000.0
+    ========== =============
+    """
 
 
 @dataclass
 class StallThreshold(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getstallthreshold_intmotorid"""  # noqa
+    """The stall detection threshold in mA."""
 
     address: str = field(default="/stallThreshold", init=False)
     motorID: int
@@ -646,11 +655,19 @@ class StallThreshold(OSCResponse):
     ========== ===========
     """
     stallThreshold: float
+    """
+    ========== =============
+    Controller Range
+    ========== =============
+    STEP400    312.5-10000.0
+    STEP800    31.25-4000.0
+    ========== =============
+    """
 
 
 @dataclass
 class ProhibitMotionOnHomeSw(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononhomesw_intmotorid"""  # noqa
+    """Whether motion towards origin is permitted when HomeSw is active."""
 
     address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
@@ -663,11 +680,20 @@ class ProhibitMotionOnHomeSw(OSCResponse):
     ========== ===========
     """
     enable: int
+    """
+    ===== =========================
+    Range Description
+    ===== =========================
+    0-1   1: Prohibited, 0: Allowed
+    ===== =========================
+    """
 
 
 @dataclass
 class ProhibitMotionOnLimitSw(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/alarm-settings/#getprohibitmotiononlimitsw_intmotorid"""  # noqa
+    """
+    Whether motion away from origin is permitted when LimitSw is active.
+    """
 
     address: str = field(default="/prohibitMotionOnLimitSw", init=False)
     motorID: int
@@ -680,6 +706,13 @@ class ProhibitMotionOnLimitSw(OSCResponse):
     ========== ===========
     """
     enable: int
+    """
+    ===== =========================
+    Range Description
+    ===== =========================
+    0-1   1: Prohibited, 0: Allowed
+    ===== =========================
+    """
 
 
 # Voltage and Current Mode Settings
@@ -687,7 +720,7 @@ class ProhibitMotionOnLimitSw(OSCResponse):
 
 @dataclass
 class Kval(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getkval_intmotorid"""  # noqa
+    """All four KVALs together."""
 
     address: str = field(default="/kval", init=False)
     motorID: int
@@ -700,9 +733,37 @@ class Kval(OSCResponse):
     ========== ===========
     """
     holdKVAL: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-255 KVAL when stopped
+    ===== =================
+    """
     runKVAL: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-255 KVAL when stopped
+    ===== =================
+    """
     accKVAL: int
-    setDecKVAL: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-255 KVAL when stopped
+    ===== =================
+    """
+    decKVAL: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-255 KVAL when stopped
+    ===== =================
+    """
 
 
 @dataclass
