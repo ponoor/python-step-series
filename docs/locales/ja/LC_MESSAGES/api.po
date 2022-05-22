@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 07:31-0500\n"
+"POT-Creation-Date: 2022-05-22 17:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1021,21 +1021,43 @@ msgstr ""
 #: stepseries.commands.EnableThermalStatusReport:36
 #: stepseries.commands.GetThermalStatus:13
 #: stepseries.commands.GetThermalStatus:27
-#: stepseries.responses.AdcVal.ADC_OUT:2 stepseries.responses.Booted.deviceID:2
-#: stepseries.responses.Busy.state:2 stepseries.responses.Dir.direction:2
+#: stepseries.responses.AdcVal.ADC_OUT:2
+#: stepseries.responses.BemfParam.FN_SLP_ACC:2
+#: stepseries.responses.BemfParam.FN_SLP_DEC:2
+#: stepseries.responses.BemfParam.INT_SPEED:2
+#: stepseries.responses.BemfParam.ST_SLP:2
+#: stepseries.responses.Booted.deviceID:2 stepseries.responses.Busy.state:2
+#: stepseries.responses.DecayModeParam.TOFF_MIN:2
+#: stepseries.responses.DecayModeParam.TON_MIN:2
+#: stepseries.responses.DecayModeParam.T_FAST:2
+#: stepseries.responses.Dir.direction:2 stepseries.responses.ElPos.fullstep:2
+#: stepseries.responses.ElPos.microstep:2
 #: stepseries.responses.ErrorCommand.errorText:2
 #: stepseries.responses.ErrorOSC.errorText:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.HomeSw.direction:2
+#: stepseries.responses.HomeSw.swState:2
+#: stepseries.responses.HomeSwMode.swMode:2
+#: stepseries.responses.HomingDirection.homingDirection:2
 #: stepseries.responses.Kval.accKVAL:2 stepseries.responses.Kval.decKVAL:2
 #: stepseries.responses.Kval.holdKVAL:2 stepseries.responses.Kval.runKVAL:2
+#: stepseries.responses.LimitSw.direction:2
+#: stepseries.responses.LimitSw.swState:2
+#: stepseries.responses.LimitSwMode.swMode:2
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
 #: stepseries.responses.MicrostepMode.STEP_SEL:2
 #: stepseries.responses.MotorStatus.MOT_STATUS:2
 #: stepseries.responses.ProhibitMotionOnHomeSw.enable:2
 #: stepseries.responses.ProhibitMotionOnLimitSw.enable:2
-#: stepseries.responses.Status.status:2
+#: stepseries.responses.ServoParam.kD:2 stepseries.responses.ServoParam.kI:2
+#: stepseries.responses.ServoParam.kP:2 stepseries.responses.Status.status:2
 #: stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
-#: stepseries.responses.Uvlo.state:2
+#: stepseries.responses.Tval.accTVAL:2 stepseries.responses.Tval.decTVAL:2
+#: stepseries.responses.Tval.holdTVAL:2 stepseries.responses.Tval.runTVAL:2
+#: stepseries.responses.Tval_mA.accTVAL_mA:2
+#: stepseries.responses.Tval_mA.decTVAL_mA:2
+#: stepseries.responses.Tval_mA.holdTVAL_mA:2
+#: stepseries.responses.Tval_mA.runTVAL_mA:2 stepseries.responses.Uvlo.state:2
 msgid "Description"
 msgstr ""
 
@@ -2555,6 +2577,9 @@ msgstr ""
 #: ../../docstring of stepseries.commands.SetTval.accTVAL:4
 #: stepseries.commands.SetTval.holdTVAL:4 stepseries.commands.SetTval.runTVAL:4
 #: stepseries.commands.SetTval.setDecTVAL:4
+#: stepseries.responses.ElPos.microstep:4 stepseries.responses.Tval.accTVAL:4
+#: stepseries.responses.Tval.decTVAL:4 stepseries.responses.Tval.holdTVAL:4
+#: stepseries.responses.Tval.runTVAL:4
 msgid "0-127"
 msgstr ""
 
@@ -2665,21 +2690,43 @@ msgid "The ADC_OUT register value from the PowerSTEP01 chip."
 msgstr ""
 
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:2
+#: stepseries.responses.BemfParam.FN_SLP_ACC:2
+#: stepseries.responses.BemfParam.FN_SLP_DEC:2
+#: stepseries.responses.BemfParam.INT_SPEED:2
+#: stepseries.responses.BemfParam.ST_SLP:2
 #: stepseries.responses.Booted.deviceID:2 stepseries.responses.Busy.state:2
-#: stepseries.responses.Dir.direction:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.DecayModeParam.TOFF_MIN:2
+#: stepseries.responses.DecayModeParam.TON_MIN:2
+#: stepseries.responses.DecayModeParam.T_FAST:2
+#: stepseries.responses.Dir.direction:2 stepseries.responses.ElPos.fullstep:2
+#: stepseries.responses.ElPos.microstep:2 stepseries.responses.HiZ.state:2
+#: stepseries.responses.HomeSw.direction:2
+#: stepseries.responses.HomeSw.swState:2
+#: stepseries.responses.HomeSwMode.swMode:2
+#: stepseries.responses.HomingDirection.homingDirection:2
 #: stepseries.responses.Kval.accKVAL:2 stepseries.responses.Kval.decKVAL:2
 #: stepseries.responses.Kval.holdKVAL:2 stepseries.responses.Kval.runKVAL:2
+#: stepseries.responses.LimitSw.direction:2
+#: stepseries.responses.LimitSw.swState:2
+#: stepseries.responses.LimitSwMode.swMode:2
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:2
 #: stepseries.responses.MicrostepMode.STEP_SEL:2
 #: stepseries.responses.MotorStatus.MOT_STATUS:2
 #: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:2
 #: stepseries.responses.ProhibitMotionOnHomeSw.enable:2
 #: stepseries.responses.ProhibitMotionOnLimitSw.enable:2
+#: stepseries.responses.ServoParam.kD:2 stepseries.responses.ServoParam.kI:2
+#: stepseries.responses.ServoParam.kP:2
 #: stepseries.responses.StallThreshold.stallThreshold:2
 #: stepseries.responses.Status.status:2
 #: stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
-#: stepseries.responses.Uvlo.state:2
+#: stepseries.responses.Tval.accTVAL:2 stepseries.responses.Tval.decTVAL:2
+#: stepseries.responses.Tval.holdTVAL:2 stepseries.responses.Tval.runTVAL:2
+#: stepseries.responses.Tval_mA.accTVAL_mA:2
+#: stepseries.responses.Tval_mA.decTVAL_mA:2
+#: stepseries.responses.Tval_mA.holdTVAL_mA:2
+#: stepseries.responses.Tval_mA.runTVAL_mA:2 stepseries.responses.Uvlo.state:2
 msgid "Range"
 msgstr ""
 
@@ -2860,9 +2907,36 @@ msgid "1-8"
 msgstr ""
 
 #: of stepseries.responses.BemfParam:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"
+msgid "Register values for the BEMF parameter."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
+#: stepseries.responses.BemfParam.FN_SLP_DEC:4
+#: stepseries.responses.BemfParam.ST_SLP:4
+#: stepseries.responses.DecayModeParam.TOFF_MIN:4
+#: stepseries.responses.DecayModeParam.TON_MIN:4
+#: stepseries.responses.DecayModeParam.T_FAST:4
+msgid "0-255 (0xFF)"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
+msgid "FN_SLP_ACC register value"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.FN_SLP_DEC:4
+msgid "FN_SLP_DEC register value"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.INT_SPEED:4
+msgid "0-16383 (0x3FFF)"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.INT_SPEED:4
+msgid "INT_SPEED register value"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BemfParam.ST_SLP:4
+msgid "ST_SLP register value"
 msgstr ""
 
 #: of stepseries.responses.Booted:1
@@ -2895,9 +2969,12 @@ msgid "The device ID set by the DIP switch"
 msgstr ""
 
 #: of stepseries.responses.BrakeTransitionDuration:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/brake/#getbraketransitionduration_intmotorid"
+msgid "The transitional duration when switching the brake mode."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.BrakeTransitionDuration.duration:1
+#: stepseries.responses.ReleaseSwTimeout.timeout:1
+msgid "0.0-10000.0 ms"
 msgstr ""
 
 #: of stepseries.responses.Busy:1
@@ -2906,6 +2983,13 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.Busy.state:4
 #: stepseries.responses.Dir.direction:4 stepseries.responses.HiZ.state:4
+#: stepseries.responses.HomeSw.direction:4
+#: stepseries.responses.HomeSw.swState:4
+#: stepseries.responses.HomeSwMode.swMode:4
+#: stepseries.responses.HomingDirection.homingDirection:4
+#: stepseries.responses.LimitSw.direction:4
+#: stepseries.responses.LimitSw.swState:4
+#: stepseries.responses.LimitSwMode.swMode:4
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:4
 #: stepseries.responses.ProhibitMotionOnHomeSw.enable:4
 #: stepseries.responses.ProhibitMotionOnLimitSw.enable:4
@@ -2947,9 +3031,19 @@ msgid "0-65535 (0xFFFF)"
 msgstr ""
 
 #: of stepseries.responses.DecayModeParam:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"
+msgid "Register values (parameters) for the current control algorithm."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DecayModeParam.TOFF_MIN:4
+msgid "TOFF_MIN register value"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DecayModeParam.TON_MIN:4
+msgid "TON_MIN register value"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.DecayModeParam.T_FAST:4
+msgid "T_FAST register value"
 msgstr ""
 
 #: of stepseries.responses.DestIP:1
@@ -2981,13 +3075,26 @@ msgid "The direction of a motor."
 msgstr ""
 
 #: ../../docstring of stepseries.responses.Dir.direction:4
+#: stepseries.responses.HomeSw.direction:4
+#: stepseries.responses.HomingDirection.homingDirection:4
+#: stepseries.responses.LimitSw.direction:4
 msgid "1: Forward, 0: Reverse"
 msgstr ""
 
 #: of stepseries.responses.ElPos:1
-msgid ""
-"Documentation https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/position-management/#getelpos_intmotorid"
+msgid "The electrical position of the motor."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ElPos.fullstep:4
+msgid "0-3"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ElPos.fullstep:4
+msgid "Fullstep position"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ElPos.microstep:4
+msgid "Microstep position"
 msgstr ""
 
 #: of stepseries.responses.ErrorCommand:1 stepseries.responses.ErrorOSC:1
@@ -3104,15 +3211,21 @@ msgid "Wrong datatype of in argument(s)"
 msgstr ""
 
 #: of stepseries.responses.FullstepSpeed:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/speed-profile/#getfullstepspeed_intmotorid"
+msgid "The threshold when microstepping switches to full-step mode."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.FullstepSpeed.fullstepSpeed:1
+msgid "7.63-15625.0 steps/s"
 msgstr ""
 
 #: of stepseries.responses.GoUntilTimeout:1
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/homing/#getgountiltimeout_intmotorid"
+"The timeout duration for the :py:class:`stepseries.commands.GoUntil` "
+"command."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.GoUntilTimeout.timeout:1
+msgid "0.0-65535.0 ms"
 msgstr ""
 
 #: of stepseries.responses.HiZ:1
@@ -3124,27 +3237,35 @@ msgid "1: HiZ, 0: Not HiZ"
 msgstr ""
 
 #: of stepseries.responses.HomeSw:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/home-and-limit-sensers/#gethomesw_intmotorid"
+msgid "The status of the HomeSw, whether open or closed."
 msgstr ""
 
-#: of stepseries.responses.HomeSwMode:1
+#: ../../docstring of stepseries.responses.HomeSw.swState:4
+#: stepseries.responses.LimitSw.swState:4
+msgid "1: Open, 0: Closed (detected)"
+msgstr ""
+
+#: of stepseries.responses.HomeSwMode:1 stepseries.responses.LimitSwMode:1
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/home-and-limit-sensers/#gethomeswmode_intmotorid"
+"The switch mode as described in "
+":py:class:`stepseries.commands.SetHomeSwMode.`"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.HomeSwMode.swMode:4
+#: stepseries.responses.LimitSwMode.swMode:4
+msgid "1: HardStop interrupt, 0: Notification (no stop)"
 msgstr ""
 
 #: of stepseries.responses.HomingDirection:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/homing/#gethomingdirection_intmotorid"
+msgid "In which direction the origin (home) is."
 msgstr ""
 
 #: of stepseries.responses.HomingSpeed:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/homing/#gethomingspeed_intmotorid"
+msgid "The speed the motor will run when homing."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.HomingSpeed.homingSpeed:1
+msgid "0.0-15625.0 steps/s"
 msgstr ""
 
 #: of stepseries.responses.HomingStatus:1
@@ -3164,15 +3285,7 @@ msgid "KVAL when stopped"
 msgstr ""
 
 #: of stepseries.responses.LimitSw:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/home-and-limit-sensers/#getlimitsw_intmotorid"
-msgstr ""
-
-#: of stepseries.responses.LimitSwMode:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/home-and-limit-sensers/#getlimitswmode_intmotorid"
+msgid "The status of the LimitSw, whether open or closed."
 msgstr ""
 
 #: of stepseries.responses.LowSpeedOptimizeThreshold:1
@@ -3190,9 +3303,20 @@ msgid "1: Enabled, 0: Disabled"
 msgstr ""
 
 #: of stepseries.responses.Mark:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/position-management/#getmark_intmotorid"
+msgid "The latest MARK position."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Mark.MARK:1
+#: stepseries.responses.Position.ABS_POS:1
+#: stepseries.responses.PositionList.position1:1
+#: stepseries.responses.PositionList.position2:1
+#: stepseries.responses.PositionList.position3:1
+#: stepseries.responses.PositionList.position4:1
+#: stepseries.responses.PositionList.position5:1
+#: stepseries.responses.PositionList.position6:1
+#: stepseries.responses.PositionList.position7:1
+#: stepseries.responses.PositionList.position8:1
+msgid "-2,097,152-2,097,151 steps"
 msgstr ""
 
 #: of stepseries.responses.MicrostepMode:1
@@ -3232,9 +3356,11 @@ msgid "1/128 step"
 msgstr ""
 
 #: of stepseries.responses.MinSpeed:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/speed-profile/#getminspeed_intmotorid"
+msgid "Minimum speed of the profile."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.MinSpeed.minSpeed:1
+msgid "0.0-976.3 steps/s"
 msgstr ""
 
 #: of stepseries.responses.MotorStatus:1
@@ -3279,15 +3405,17 @@ msgid "375.0-6000.0"
 msgstr ""
 
 #: of stepseries.responses.Position:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/position-management/#getposition_intmotorid"
+msgid "The ABS_POS register value aka \"the motor's current position\"."
 msgstr ""
 
 #: of stepseries.responses.PositionList:1
+msgid "The current position of all motors at once."
+msgstr ""
+
+#: of stepseries.responses.PositionList:3
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/position-management/#getpositionlist"
+"STEP400 users: ``position5-8`` will be None since there are only four "
+"drivers on the board."
 msgstr ""
 
 #: of stepseries.responses.ProhibitMotionOnHomeSw:1
@@ -3305,26 +3433,53 @@ msgstr ""
 
 #: of stepseries.responses.ReleaseSwTimeout:1
 msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"
+"The timeout duration for the :py:class:`stepseries.commands.ReleaseSw` "
+"command."
 msgstr ""
 
 #: of stepseries.responses.ServoParam:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/servo-mode/#getservoparam_intmotorid"
+msgid "The PID control gain."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ServoParam.kD:4
+#: stepseries.responses.ServoParam.kI:4 stepseries.responses.ServoParam.kP:4
+msgid "0.0-"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ServoParam.kD:4
+msgid "Derivative gain"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ServoParam.kI:4
+msgid "Integral gain"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.ServoParam.kP:4
+msgid "Proportional gain"
 msgstr ""
 
 #: of stepseries.responses.Speed:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/speed-profile/#getspeed_intmotorid"
+msgid "The current motor speed."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Speed.speed:1
+msgid "-15625.0-15625.0 steps/s"
 msgstr ""
 
 #: of stepseries.responses.SpeedProfile:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/speed-profile/#getspeedprofile_intmotorid"
+msgid "The acc, dec, and maxSpeed of the speed profile."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.SpeedProfile.acc:1
+msgid "14.55-59590.0 steps/s/s"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.SpeedProfile.dec:1
+msgid "14.55-59590.0 stesp/s/s"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.SpeedProfile.maxSpeed:1
+msgid "15.25-15610.0 steps/s"
 msgstr ""
 
 #: of stepseries.responses.Stall:1
@@ -3465,10 +3620,7 @@ msgid ":py:class:`stepseries.commands.EnableHiZReport`"
 msgstr ""
 
 #: of stepseries.responses.SwEvent:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/home-and-limit-"
-"sensers/#enablesweventreport_intmotorid_boolenable"
+msgid "Sent when the specified motor's HomeSw drops from HIGH to LOW."
 msgstr ""
 
 #: of stepseries.responses.ThermalStatus:1
@@ -3507,15 +3659,38 @@ msgid "**STEP800**:"
 msgstr ""
 
 #: of stepseries.responses.Tval:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/voltage-and-current-mode-settings/#gettval_intmotorid"
+msgid "All four TVALs together."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Tval.accTVAL:4
+#: stepseries.responses.Tval_mA.accTVAL_mA:4
+msgid "TVAL during acceleration"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Tval.decTVAL:4
+#: stepseries.responses.Tval_mA.decTVAL_mA:4
+msgid "TVAL during deceleration"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Tval.holdTVAL:4
+#: stepseries.responses.Tval_mA.holdTVAL_mA:4
+msgid "TVAL when stopped"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Tval.runTVAL:4
+#: stepseries.responses.Tval_mA.runTVAL_mA:4
+msgid "TVAL in constant speed mode"
 msgstr ""
 
 #: of stepseries.responses.Tval_mA:1
-msgid ""
-"Documentation: https://ponoor.com/en/docs/step-series/osc-command-"
-"reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"
+msgid "All four TVALs together but in mA, not register values."
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Tval_mA.accTVAL_mA:4
+#: stepseries.responses.Tval_mA.decTVAL_mA:4
+#: stepseries.responses.Tval_mA.holdTVAL_mA:4
+#: stepseries.responses.Tval_mA.runTVAL_mA:4
+msgid "78.125 - 5000.0"
 msgstr ""
 
 #: of stepseries.responses.Uvlo:1
@@ -3908,5 +4083,140 @@ msgstr ""
 #~ "Documentation: https://ponoor.com/en/docs/step-series"
 #~ "/osc-command-reference/alarm-"
 #~ "settings/#getstallthreshold_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/voltage-and-current-"
+#~ "mode-settings/#getbemfparam_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-"
+#~ "reference/brake/#getbraketransitionduration_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/voltage-and-current-"
+#~ "mode-settings/#getdecaymodeparam_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/position-"
+#~ "management/#getelpos_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/speed-"
+#~ "profile/#getfullstepspeed_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/homing/#getgountiltimeout_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/home-and-limit-"
+#~ "sensers/#gethomesw_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/home-and-limit-"
+#~ "sensers/#gethomeswmode_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/homing/#gethomingdirection_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/homing/#gethomingspeed_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/home-and-limit-"
+#~ "sensers/#getlimitsw_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/home-and-limit-"
+#~ "sensers/#getlimitswmode_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/position-"
+#~ "management/#getmark_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/speed-"
+#~ "profile/#getminspeed_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/position-"
+#~ "management/#getposition_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/position-"
+#~ "management/#getpositionlist"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-"
+#~ "reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/servo-"
+#~ "mode/#getservoparam_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/speed-"
+#~ "profile/#getspeed_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/speed-"
+#~ "profile/#getspeedprofile_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/home-and-limit-"
+#~ "sensers/#enablesweventreport_intmotorid_boolenable"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/voltage-and-current-"
+#~ "mode-settings/#gettval_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Documentation: https://ponoor.com/en/docs/step-series"
+#~ "/osc-command-reference/voltage-and-current-"
+#~ "mode-settings/#gettval_ma_intmotorid"
 #~ msgstr ""
 

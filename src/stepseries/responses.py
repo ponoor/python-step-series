@@ -768,7 +768,7 @@ class Kval(OSCResponse):
 
 @dataclass
 class BemfParam(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getbemfparam_intmotorid"""  # noqa
+    """Register values for the BEMF parameter."""
 
     address: str = field(default="/bemfParam", init=False)
     motorID: int
@@ -781,14 +781,42 @@ class BemfParam(OSCResponse):
     ========== ===========
     """
     INT_SPEED: int
+    """
+    ================ ========================
+    Range            Description
+    ================ ========================
+    0-16383 (0x3FFF) INT_SPEED register value
+    ================ ========================
+    """
     ST_SLP: int
+    """
+    ============ =====================
+    Range        Description
+    ============ =====================
+    0-255 (0xFF) ST_SLP register value
+    ============ =====================
+    """
     FN_SLP_ACC: int
+    """
+    ============ =========================
+    Range        Description
+    ============ =========================
+    0-255 (0xFF) FN_SLP_ACC register value
+    ============ =========================
+    """
     FN_SLP_DEC: int
+    """
+    ============ =========================
+    Range        Description
+    ============ =========================
+    0-255 (0xFF) FN_SLP_DEC register value
+    ============ =========================
+    """
 
 
 @dataclass
 class Tval(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_intmotorid"""  # noqa
+    """All four TVALs together."""
 
     address: str = field(default="/tval", init=False)
     motorID: int
@@ -801,14 +829,42 @@ class Tval(OSCResponse):
     ========== ===========
     """
     holdTVAL: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-127 TVAL when stopped
+    ===== =================
+    """
     runTVAL: int
+    """
+    ===== ===========================
+    Range Description
+    ===== ===========================
+    0-127 TVAL in constant speed mode
+    ===== ===========================
+    """
     accTVAL: int
+    """
+    ===== ========================
+    Range Description
+    ===== ========================
+    0-127 TVAL during acceleration
+    ===== ========================
+    """
     decTVAL: int
+    """
+    ===== ========================
+    Range Description
+    ===== ========================
+    0-127 TVAL during deceleration
+    ===== ========================
+    """
 
 
 @dataclass
 class Tval_mA(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#gettval_ma_intmotorid"""  # noqa
+    """All four TVALs together but in mA, not register values."""
 
     address: str = field(default="/tval_mA", init=False)
     motorID: int
@@ -821,14 +877,42 @@ class Tval_mA(OSCResponse):
     ========== ===========
     """
     holdTVAL_mA: float
+    """
+    =============== =================
+    Range           Description
+    =============== =================
+    78.125 - 5000.0 TVAL when stopped
+    =============== =================
+    """
     runTVAL_mA: float
+    """
+    =============== ===========================
+    Range           Description
+    =============== ===========================
+    78.125 - 5000.0 TVAL in constant speed mode
+    =============== ===========================
+    """
     accTVAL_mA: float
+    """
+    =============== ========================
+    Range           Description
+    =============== ========================
+    78.125 - 5000.0 TVAL during acceleration
+    =============== ========================
+    """
     decTVAL_mA: float
+    """
+    =============== ========================
+    Range           Description
+    =============== ========================
+    78.125 - 5000.0 TVAL during deceleration
+    =============== ========================
+    """
 
 
 @dataclass
 class DecayModeParam(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/voltage-and-current-mode-settings/#getdecaymodeparam_intmotorid"""  # noqa
+    """Register values (parameters) for the current control algorithm."""
 
     address: str = field(default="/decayModeParam", init=False)
     motorID: int
@@ -841,8 +925,29 @@ class DecayModeParam(OSCResponse):
     ========== ===========
     """
     T_FAST: int
+    """
+    ============ =====================
+    Range        Description
+    ============ =====================
+    0-255 (0xFF) T_FAST register value
+    ============ =====================
+    """
     TON_MIN: int
+    """
+    ============ ======================
+    Range        Description
+    ============ ======================
+    0-255 (0xFF) TON_MIN register value
+    ============ ======================
+    """
     TOFF_MIN: int
+    """
+    ============ =======================
+    Range        Description
+    ============ =======================
+    0-255 (0xFF) TOFF_MIN register value
+    ============ =======================
+    """
 
 
 # Speed Profile
@@ -850,7 +955,7 @@ class DecayModeParam(OSCResponse):
 
 @dataclass
 class SpeedProfile(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeedprofile_intmotorid"""  # noqa
+    """The acc, dec, and maxSpeed of the speed profile."""
 
     address: str = field(default="/speedProfile", init=False)
     motorID: int
@@ -863,13 +968,16 @@ class SpeedProfile(OSCResponse):
     ========== ===========
     """
     acc: float
+    """14.55-59590.0 steps/s/s"""
     dec: float
+    """14.55-59590.0 stesp/s/s"""
     maxSpeed: float
+    """15.25-15610.0 steps/s"""
 
 
 @dataclass
 class FullstepSpeed(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getfullstepspeed_intmotorid"""  # noqa
+    """The threshold when microstepping switches to full-step mode."""
 
     address: str = field(default="/fullstepSpeed", init=False)
     motorID: int
@@ -882,11 +990,12 @@ class FullstepSpeed(OSCResponse):
     ========== ===========
     """
     fullstepSpeed: float
+    """7.63-15625.0 steps/s"""
 
 
 @dataclass
 class MinSpeed(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getminspeed_intmotorid"""  # noqa
+    """Minimum speed of the profile."""
 
     address: str = field(default="/minSpeed", init=False)
     motorID: int
@@ -899,11 +1008,12 @@ class MinSpeed(OSCResponse):
     ========== ===========
     """
     minSpeed: float
+    """0.0-976.3 steps/s"""
 
 
 @dataclass
 class Speed(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/speed-profile/#getspeed_intmotorid"""  # noqa
+    """The current motor speed."""
 
     address: str = field(default="/speed", init=False)
     motorID: int
@@ -916,6 +1026,7 @@ class Speed(OSCResponse):
     ========== ===========
     """
     speed: float
+    """-15625.0-15625.0 steps/s"""
 
 
 # Homing
@@ -923,7 +1034,7 @@ class Speed(OSCResponse):
 
 @dataclass
 class HomingDirection(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingdirection_intmotorid"""  # noqa
+    """In which direction the origin (home) is."""
 
     address: str = field(default="/homingDirection", init=False)
     motorID: int
@@ -936,11 +1047,18 @@ class HomingDirection(OSCResponse):
     ========== ===========
     """
     homingDirection: int
+    """
+    ===== ======================
+    Range Description
+    ===== ======================
+    0-1   1: Forward, 0: Reverse
+    ===== ======================
+    """
 
 
 @dataclass
 class HomingSpeed(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#gethomingspeed_intmotorid"""  # noqa
+    """The speed the motor will run when homing."""
 
     address: str = field(default="/homingSpeed", init=False)
     motorID: int
@@ -953,11 +1071,15 @@ class HomingSpeed(OSCResponse):
     ========== ===========
     """
     homingSpeed: float
+    """0.0-15625.0 steps/s"""
 
 
 @dataclass
 class GoUntilTimeout(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#getgountiltimeout_intmotorid"""  # noqa
+    """
+    The timeout duration for the :py:class:`stepseries.commands.GoUntil`
+    command.
+    """
 
     address: str = field(default="/goUntilTimeout", init=False)
     motorID: int
@@ -970,11 +1092,15 @@ class GoUntilTimeout(OSCResponse):
     ========== ===========
     """
     timeout: int
+    """0.0-65535.0 ms"""
 
 
 @dataclass
 class ReleaseSwTimeout(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/homing/#setreleaseswtimeout_intmotorid_inttimeout"""  # noqa
+    """
+    The timeout duration for the
+    :py:class:`stepseries.commands.ReleaseSw` command.
+    """
 
     address: str = field(default="/releaseSwTimeout", init=False)
     motorID: int
@@ -987,6 +1113,7 @@ class ReleaseSwTimeout(OSCResponse):
     ========== ===========
     """
     timeout: int
+    """0.0-10000.0 ms"""
 
 
 # Home and Limit Sensors
@@ -994,7 +1121,7 @@ class ReleaseSwTimeout(OSCResponse):
 
 @dataclass
 class SwEvent(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#enablesweventreport_intmotorid_boolenable"""  # noqa
+    """Sent when the specified motor's HomeSw drops from HIGH to LOW."""
 
     address: str = field(default="/swEvent", init=False)
     motorID: int
@@ -1010,7 +1137,7 @@ class SwEvent(OSCResponse):
 
 @dataclass
 class HomeSw(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomesw_intmotorid"""  # noqa
+    """The status of the HomeSw, whether open or closed."""
 
     address: str = field(default="/homeSw", init=False)
     motorID: int
@@ -1023,12 +1150,26 @@ class HomeSw(OSCResponse):
     ========== ===========
     """
     swState: int
+    """
+    ===== =============================
+    Range Description
+    ===== =============================
+    0-1   1: Open, 0: Closed (detected)
+    ===== =============================
+    """
     direction: int
+    """
+    ===== ======================
+    Range Description
+    ===== ======================
+    0-1   1: Forward, 0: Reverse
+    ===== ======================
+    """
 
 
 @dataclass
 class LimitSw(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitsw_intmotorid"""  # noqa
+    """The status of the LimitSw, whether open or closed."""
 
     address: str = field(default="/limitSw", init=False)
     motorID: int
@@ -1041,12 +1182,29 @@ class LimitSw(OSCResponse):
     ========== ===========
     """
     swState: int
+    """
+    ===== =============================
+    Range Description
+    ===== =============================
+    0-1   1: Open, 0: Closed (detected)
+    ===== =============================
+    """
     direction: int
+    """
+    ===== ======================
+    Range Description
+    ===== ======================
+    0-1   1: Forward, 0: Reverse
+    ===== ======================
+    """
 
 
 @dataclass
 class HomeSwMode(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#gethomeswmode_intmotorid"""  # noqa
+    """
+    The switch mode as described in
+    :py:class:`stepseries.commands.SetHomeSwMode.`
+    """
 
     address: str = field(default="/homeSwMode", init=False)
     motorID: int
@@ -1059,11 +1217,21 @@ class HomeSwMode(OSCResponse):
     ========== ===========
     """
     swMode: int
+    """
+    ===== ================================================
+    Range Description
+    ===== ================================================
+    0-1   1: HardStop interrupt, 0: Notification (no stop)
+    ===== ================================================
+    """
 
 
 @dataclass
 class LimitSwMode(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/home-and-limit-sensers/#getlimitswmode_intmotorid"""  # noqa
+    """
+    The switch mode as described in
+    :py:class:`stepseries.commands.SetHomeSwMode.`
+    """
 
     address: str = field(default="/limitSwMode", init=False)
     motorID: int
@@ -1076,6 +1244,13 @@ class LimitSwMode(OSCResponse):
     ========== ===========
     """
     swMode: int
+    """
+    ===== ================================================
+    Range Description
+    ===== ================================================
+    0-1   1: HardStop interrupt, 0: Notification (no stop)
+    ===== ================================================
+    """
 
 
 # Position Management
@@ -1083,7 +1258,7 @@ class LimitSwMode(OSCResponse):
 
 @dataclass
 class Position(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getposition_intmotorid"""  # noqa
+    """The ABS_POS register value aka "the motor's current position"."""
 
     address: str = field(default="/position", init=False)
     motorID: int
@@ -1096,26 +1271,39 @@ class Position(OSCResponse):
     ========== ===========
     """
     ABS_POS: int
+    """-2,097,152-2,097,151 steps"""
 
 
 @dataclass
 class PositionList(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getpositionlist"""  # noqa
+    """The current position of all motors at once.
+
+    STEP400 users: ``position5-8`` will be None since there are only
+    four drivers on the board.
+    """
 
     address: str = field(default="/positionList", init=False)
     position1: int
+    """-2,097,152-2,097,151 steps"""
     position2: int
+    """-2,097,152-2,097,151 steps"""
     position3: int
+    """-2,097,152-2,097,151 steps"""
     position4: int
+    """-2,097,152-2,097,151 steps"""
     position5: int = None
+    """-2,097,152-2,097,151 steps"""
     position6: int = None
+    """-2,097,152-2,097,151 steps"""
     position7: int = None
+    """-2,097,152-2,097,151 steps"""
     position8: int = None
+    """-2,097,152-2,097,151 steps"""
 
 
 @dataclass
 class ElPos(OSCResponse):
-    """Documentation https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getelpos_intmotorid"""  # noqa
+    """The electrical position of the motor."""
 
     address: str = field(default="/elPos", init=False)
     motorID: int
@@ -1128,12 +1316,26 @@ class ElPos(OSCResponse):
     ========== ===========
     """
     fullstep: int
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0-3   Fullstep position
+    ===== =================
+    """
     microstep: int
+    """
+    ===== ==================
+    Range Description
+    ===== ==================
+    0-127 Microstep position
+    ===== ==================
+    """
 
 
 @dataclass
 class Mark(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/position-management/#getmark_intmotorid"""  # noqa
+    """The latest MARK position."""
 
     address: str = field(default="/mark", init=False)
     motorID: int
@@ -1146,6 +1348,7 @@ class Mark(OSCResponse):
     ========== ===========
     """
     MARK: int
+    """-2,097,152-2,097,151 steps"""
 
 
 # Electromagnetic Brake
@@ -1153,7 +1356,7 @@ class Mark(OSCResponse):
 
 @dataclass
 class BrakeTransitionDuration(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/brake/#getbraketransitionduration_intmotorid"""  # noqa
+    """The transitional duration when switching the brake mode."""
 
     address: str = field(default="/brakeTransitionDuration", init=False)
     motorID: int
@@ -1166,6 +1369,7 @@ class BrakeTransitionDuration(OSCResponse):
     ========== ===========
     """
     duration: int
+    """0.0-10000.0 ms"""
 
 
 # Servo Mode
@@ -1173,7 +1377,7 @@ class BrakeTransitionDuration(OSCResponse):
 
 @dataclass
 class ServoParam(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/servo-mode/#getservoparam_intmotorid"""  # noqa
+    """The PID control gain."""
 
     address: str = field(default="/servoParam", init=False)
     motorID: int
@@ -1186,5 +1390,26 @@ class ServoParam(OSCResponse):
     ========== ===========
     """
     kP: float
+    """
+    ===== =================
+    Range Description
+    ===== =================
+    0.0-  Proportional gain
+    ===== =================
+    """
     kI: float
+    """
+    ===== =============
+    Range Description
+    ===== =============
+    0.0-  Integral gain
+    ===== =============
+    """
     kD: float
+    """
+    ===== ===============
+    Range Description
+    ===== ===============
+    0.0-  Derivative gain
+    ===== ===============
+    """
