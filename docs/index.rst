@@ -10,8 +10,8 @@ setup and operate your device, and to use the official Python API.
     :Caption: Contents:
 
     step-series/index
-    python-step-series/index
     electromagnetic-brake/index
+    python-step-series/index
 
 
 Indices and Tables
