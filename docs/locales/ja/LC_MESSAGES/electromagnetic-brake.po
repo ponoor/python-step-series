@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev117+gc7f6ffa.d20220523\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 09:13-0500\n"
+"POT-Creation-Date: 2022-05-23 09:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,6 +204,66 @@ msgid ""
 "``/softStop`` and ``/hardStop`` have no change in behavior and will "
 "operate like normal. The brake is not engaged when these commands are "
 "sent and the motor is kept excited."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:3
+msgid "Specifications"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:7
+msgid "Basic Specifications"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:9
+msgid "Input voltage: 5-48V"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:10
+msgid "Control channels: 4 channels"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:11
+msgid "PCB size: 45x56mm"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:13
+msgid "When supplying voltage under 12V, the indicator LED may not be visible."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:18
+msgid "Driving Current"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:20
+msgid ""
+"According the `datasheet`_ of the switching MOSFET, the rating is 60V @ "
+"28A. However, the actual rating is limited to the rating of the power "
+"source terminal block which is 7A. Within this range, you can control "
+"other loads like LEDs or motors."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:27
+msgid "Drawings"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:31
+msgid "`PCB PDF`_"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:35
+msgid "`Circuit PDF`_"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:39
+msgid "Accessories"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:41
+msgid "3.81mm pitch 2pin Euro-style terminal block x5"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/specifications.rst:42
+msgid "6 pin ribbon cable"
 msgstr ""
 
 #: ../../electromagnetic-brake/index.rst:3
