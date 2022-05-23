@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev117+gc7f6ffa.d20220523\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 08:58-0500\n"
+"POT-Creation-Date: 2022-05-23 09:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,63 @@ msgid ""
 " to release/lock the brake depending on the status of the motor. This "
 "brake add-on board is designed to be controlled in conjunction with the "
 "STEP400 motor controller."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:3
+msgid "Operation"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:7
+msgid "What is an electromagnetic brake?"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:9
+msgid ""
+"Some stepper motors have an EM brake built-in. In operation, stepper "
+"motors maintain a holding torque even when stopped. However, if power is "
+"lost, then that torque is lost and any suspended load will move or drop."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:13
+msgid ""
+"The brake is a device to lock the shaft when power is lost--or when "
+"commanded--and releases when power is regained--or when commanded. This "
+"device is especially necessary in situations of vertically suspended "
+"loads."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:20
+msgid "Response Timing"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:22
+msgid ""
+"The EM brake locks the axis when the power to the brake is lost. However,"
+" this mechanism is not instant and requires a slight amount of time to "
+"engage. This means there must be a duration of time in which the brake "
+"and the motor are both engaged."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:27
+msgid ""
+"This transition duration, as it is called, does not affect how long it "
+"takes for the brake to engage. This duration instead affects how long to "
+"wait before releasing or engaging the motor after the brake. The initial "
+"value of this overlap time is set to 100ms in the STEP400. It can also be"
+" configured using the command ``/setBrakeTransitionDuration`` or from the"
+" config tool."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:38
+msgid "Built-in EM Brake Examples"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:42
+msgid "`STEPPER ONLINE`_"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/operation.rst:46
+msgid "`OrientalMotor`_ PKP243D23M2"
 msgstr ""
 
 #: ../../electromagnetic-brake/submodules/commands.rst:3
