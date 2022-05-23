@@ -11,6 +11,7 @@ setup and operate your device, and to use the official Python API.
 
     step-series/index
     python-step-series/index
+    electromagnetic-brake/index
 
 
 Indices and Tables

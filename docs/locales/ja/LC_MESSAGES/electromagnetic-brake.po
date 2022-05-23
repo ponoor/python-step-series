@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Ponoor Experiments
+# This file is distributed under the same license as the Step-Series
+# Documentation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Step-Series Documentation "
+"0.0.2.post1.dev117+gc7f6ffa.d20220523\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-22 21:35-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.1\n"
+
+#: ../../electromagnetic-brake/about.rst:5
+msgid "Electromagnetic Brake"
+msgstr ""
+
+#: ../../electromagnetic-brake/about.rst:13
+msgid "About"
+msgstr ""
+
+#: ../../electromagnetic-brake/about.rst:15
+msgid ""
+"Some stepper motors are made with an electromagnetic brake built-in. "
+"Typically, stepper motors have a holding torque which holds loads even "
+"when stopped; however, when power is lost, the holding force is lost and "
+"the suspended load will fall."
+msgstr ""
+
+#: ../../electromagnetic-brake/about.rst:20
+msgid ""
+"An electromagnetic brake is a device that locks the shaft of a motor and "
+"only releases when the shaft is energized. In the event of a power "
+"failure to the motor, the brake will immediately lock the shaft which "
+"prevents the load from moving or falling. Vertically moving loads should "
+"especially consider using one of these devices."
+msgstr ""
+
+#: ../../electromagnetic-brake/about.rst:26
+msgid ""
+"When using a stepper motor with an electromagnetic brake, it is necessary"
+" to release/lock the brake depending on the status of the motor. This "
+"brake add-on board is designed to be controlled in conjunction with the "
+"STEP400 motor controller."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/commands.rst:3
+msgid "Sending Commands"
+msgstr ""
+
+#: ../../electromagnetic-brake/index.rst:3
+msgid "Electromagnetic Brake (STEP400)"
+msgstr ""
+
