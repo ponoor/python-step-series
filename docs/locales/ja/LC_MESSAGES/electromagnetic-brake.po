@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev117+gc7f6ffa.d20220523\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 09:26-0500\n"
+"POT-Creation-Date: 2022-05-23 09:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,6 +107,89 @@ msgstr ""
 
 #: ../../electromagnetic-brake/submodules/operation.rst:46
 msgid "`OrientalMotor`_ PKP243D23M2"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:3
+msgid "Wiring"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:7
+msgid "Wiring the Power Source"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:11
+msgid "Power Source Voltage"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:13
+msgid ""
+"Supply power for the electromagnetic brake. Many EM brakes use 24V, but "
+"please refer to the datasheet of your motor."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:18
+msgid "Power Supply Terminals"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:20
+msgid ""
+"There are two types of power supply terminals: the DC barrel jack and the"
+" Euro-style terminal block."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:23
+msgid "As these are connected on the PCB, **DO NOT SUPPLY BOTH AT THE SAME TIME**"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:28
+msgid "DC Jack"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:30
+msgid "Outer diameter 5.5mm"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:31
+msgid "Inner diameter 2.1mm"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:32
+msgid "Center positive"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:36
+msgid "Euro-style Terminal Block"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:38
+msgid ""
+"A 3.81mm pitch, 2pin Euro-style terminal block is built-in. Refer to the "
+"polarity described on the PC for connecting your DC supply correctly."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:45
+msgid "Connecting the Motor"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:47
+msgid ""
+"Connect the wires from the EM brake's terminal block to the corresponding"
+" motor. Note how each terminal on the brake is numbered just like the "
+"STEP400--make sure these match in terms of wiring."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:51
+msgid ""
+"Like most EM brakes, this brake has a polarity requirement, so wire your "
+"motor as stated on the PCB."
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:56
+msgid "Connecting the STEP400"
+msgstr ""
+
+#: ../../electromagnetic-brake/submodules/wiring.rst:58
+msgid "Connect the STEP400 using the provided 6-pin ribbon cable."
 msgstr ""
 
 #: ../../electromagnetic-brake/submodules/commands.rst:3
