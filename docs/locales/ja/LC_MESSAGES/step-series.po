@@ -695,7 +695,7 @@ msgstr ""
 "これは存在しないあて先にOSCメッセージを送り続けると本デバイスの動作が不安定になることがあるためです。"
 "``/setDestIp`` が問題なく受信されると、次のような応答があるはずです。"
 "``/destIp octet1 octet2 octet3 octet4 isNewDestIp``"
-"``octed<N>`` は制御PCのIPアドレスの各桁に対応し、 ``isNewDestIp`` はdestIpが変更されたかどうかを示します。変更されていると ``1``, すでに同じアドレスが設定されていた場合は``0`` です。"
+"``octed<N>`` は制御PCのIPアドレスの各桁に対応し、 ``isNewDestIp`` はdestIpが変更されたかどうかを示します。変更されていると ``1``, すでに同じアドレスが設定されていた場合は ``0`` です。"
 
 #: ../../step-series/submodules/getting-started.rst:278
 msgid "For ``python-step-series``, the code may look like this:"
@@ -976,7 +976,7 @@ msgid ""
 "We also sell pre-crimped sensor cables for your convenience. These are "
 "available here: https://ponoor.com/en/products/sensor-cable/"
 msgstr ""
-"端子を圧着済みのケーブルを販売しています: https://ponoor.com/en/products/sensor-cable/"
+"端子を圧着済みのケーブルを販売しています: https://ponoor.com/products/sensor-cable/"
 
 #: ../../step-series/submodules/other-connections-settings.rst:51
 #: ../../step-series/submodules/technical-information.rst:522
@@ -1073,7 +1073,7 @@ msgstr ""
 #: ../../step-series/submodules/other-connections-settings.rst:97
 #: ../../step-series/submodules/other-connections-settings.rst:116
 msgid "MAC Address"
-msgstr ""
+msgstr "MACアドレス"
 
 #: ../../step-series/submodules/other-connections-settings.rst:97
 msgid "0x60, 0x95, 0xCE, 0x10, 0x02, 0x00+ID"
@@ -1962,7 +1962,7 @@ msgstr "目標位置に近づく際に少しオーバーシュートや振動が
 
 #: ../../step-series/submodules/technical-information.rst:3
 msgid "Technical Information"
-msgstr ""
+msgstr "技術情報"
 
 #: ../../step-series/submodules/technical-information.rst:5
 msgid ""
@@ -1970,10 +1970,12 @@ msgid ""
 "the boards is contained here. A basic understanding of programming "
 "Arduinos and the Arduino IDE or PlatformIO with VSCode is assumed."
 msgstr ""
+"ファームウェアのコンパイルについてやハードウェアの構成など、本デバイスをカスタマイズする際に必要になる情報をまとめています。"
+"Arduinoプログラミングの基礎や、Arduino IDE, PlatformIOの理解を前提としています。"
 
 #: ../../step-series/submodules/technical-information.rst:11
 msgid "Firmware"
-msgstr ""
+msgstr "ファームウェア"
 
 #: ../../step-series/submodules/technical-information.rst:13
 msgid ""
@@ -1981,6 +1983,8 @@ msgid ""
 "actually an Arduino sketch. This means uploading the firmware is done "
 "using the Arduino IDE or PlatformIO in VSCode."
 msgstr ""
+"マイコン(MCU)はArduino Zeroですので、ファームウェアの実体はArduinoスケッチです。"
+"すなわち、ファームウェアのアップロードはArduino IDEまたはPlatformIOを通して行います。"
 
 #: ../../step-series/submodules/technical-information.rst:17
 msgid ""
@@ -1988,26 +1992,28 @@ msgid ""
 " The code itself lives in this `GitHub Repository`_ where it can be "
 "downloaded for use throughout this module."
 msgstr ""
+"最新のファームウェアは `GitHub Releases`_ ページから確認できます。"
+"ファームウェアのコード自体は `GitHubリポジトリ`_ にあります。"
 
 #: ../../step-series/submodules/technical-information.rst:23
 msgid "Checking the Version"
-msgstr ""
+msgstr "バージョンの確認"
 
 #: ../../step-series/submodules/technical-information.rst:25
 msgid "Two methods exist to check the current version of the firmware:"
-msgstr ""
+msgstr "基板に書き込まれているファームウェアのバージョンを確認するには2つの方法があります。"
 
 #: ../../step-series/submodules/technical-information.rst:27
 msgid "Using the OSC command ``/getVersion``"
-msgstr ""
+msgstr "OSCコマンド ``/getVersion`` を使用する"
 
 #: ../../step-series/submodules/technical-information.rst:28
 msgid "Connecting a USB cable to the board and typing ``s`` in the Serial Monitor"
-msgstr ""
+msgstr "基板とPCをUSBで接続し、シリアルモニタから ``s`` を送信する"
 
 #: ../../step-series/submodules/technical-information.rst:33
 msgid "Method 1: OSC Command"
-msgstr ""
+msgstr "方法 1: OSCコマンド"
 
 #: ../../step-series/submodules/technical-information.rst:35
 msgid ""
@@ -2015,30 +2021,31 @@ msgid ""
 "board. The resulting response will tell you the current version of the "
 "firmware."
 msgstr ""
+"基板へ ``/getVersion`` コマンドを送信します。返答メッセージに現在のバージョン番号が含まれています。"
 
 #: ../../step-series/submodules/technical-information.rst:39
 #: ../../step-series/submodules/technical-information.rst:53
 msgid "For example:"
-msgstr ""
+msgstr "返答例:"
 
 #: ../../step-series/submodules/technical-information.rst:47
 msgid "Method 2: Over USB"
-msgstr ""
+msgstr "方法 2: USB経由"
 
 #: ../../step-series/submodules/technical-information.rst:49
 msgid ""
 "Connect the USB-C cable to the board and to your PC. Then open Serial "
 "Monitor in the IDE you're using. Send the command ``s`` and you should "
 "receive a response containing the version."
-msgstr ""
+msgstr "本デバイスとPCをUSBで接続し、シリアルモニタから ``s`` を送信すると得られるステータスから現在のファームウェアバージョンを確認できます。"
 
 #: ../../step-series/submodules/technical-information.rst:64
 msgid "Uploading New Versions"
-msgstr ""
+msgstr "新しいバージョンのアップロード"
 
 #: ../../step-series/submodules/technical-information.rst:68
 msgid "Compiling with PlatformIO"
-msgstr ""
+msgstr "PlatformIOでコンパイルする"
 
 #: ../../step-series/submodules/technical-information.rst:70
 msgid ""
@@ -2047,10 +2054,13 @@ msgid ""
 " PlatformIO. All dependencies are automatically installed when you "
 "compile the project for the first-time."
 msgstr ""
+"STEPシリーズのファームウェアは `PlatformIO`_ を使って開発しています。"
+"クローンまたはダウンロードしたフォルダをPlatfromIOの\"Open Project\"メニューから開けます。"
+"初回コンパイル時に必要なファイルはすべて自動でインストールされます。"
 
 #: ../../step-series/submodules/technical-information.rst:77
 msgid "Compiling with Arduino"
-msgstr ""
+msgstr "純正Arduino環境でコンパイルする"
 
 #: ../../step-series/submodules/technical-information.rst:79
 msgid ""
@@ -2058,13 +2068,14 @@ msgid ""
 "begin, the Arduino Zero board must be first installed in the IDE using "
 "the Board Manager. This `Quickstart Page`_ is a great resource for how to"
 " do this procedure."
-msgstr ""
+msgstr "Arduino IDEを使う場合はPlatfromIOと比べると多少の手作業のセットアップが必要です。"
+"まずボードマネージャからArduino Zeroをインストールします。この手順は公式サイトの `Quickstart Page`_ で詳しく説明されています。"
 
 #: ../../step-series/submodules/technical-information.rst:84
 msgid ""
 "Next, the following libraries need to be installed. Here's a page "
 "describing how to `install libraries`_."
-msgstr ""
+msgstr "以下のライブラリをArduino IDEの「ライブラリを管理...」よりインストールします。ライブラリをインストールする詳しい手順は公式サイトの `install libraries`_ を参照してください。"
 
 #: ../../step-series/submodules/technical-information.rst:87
 msgid "`OSC Library`_"
@@ -2091,11 +2102,11 @@ msgid ""
 "There many OSC libraries that may be listed in the Library Manager. This "
 "project uses the library made by CNMAT and is listed as **OSC**. Note "
 "that the creators are listed as Adrian Freed and Yotam Mann, not CNMAT."
-msgstr ""
+msgstr "OSCのためのライブラリはいくつか種類がありますが、CNMATのOSC Libraryをインストールします。Arduino IDEの「ライブラリを管理」から \"OSC\" という名称のライブラリをインストールしてください。製作者が組織名のCNMATではなく、Adrian Freed, Yotam Mann という個人名で表示されていますのでご注意ください。"
 
 #: ../../step-series/submodules/technical-information.rst:103
 msgid "Compiling/Uploading the Sketch"
-msgstr ""
+msgstr "スケッチのコンパイルとアップロード"
 
 #: ../../step-series/submodules/technical-information.rst:105
 msgid ""
@@ -2103,27 +2114,27 @@ msgid ""
 "\"Arduino Zero (Native USB Port)\" in Tools **>** Boards is selected for "
 "the Arduino IDE."
 msgstr ""
-
+"Arduino IDEでは、コンパイルを行う前に、 ``.ino`` ファイルを開いていること、Arduino IDEで “Tools” -> “Boards” から “Arduino Zero (Native USB port)” を選択していることを確認してください。"
 #: ../../step-series/submodules/technical-information.rst:109
 msgid ""
 "PlatformIO should already be configured for this project, so no action "
 "should be taken."
-msgstr ""
+msgstr "PlatformIOでは必要な設定は完了しているはずですので、特別な操作は必要ありません。"
 
 #: ../../step-series/submodules/technical-information.rst:112
 msgid "Now the firmware can be compiled and uploaded using either IDE."
-msgstr ""
+msgstr "これでコンパイルとアップロードが行えるはずです。"
 
 #: ../../step-series/submodules/technical-information.rst:116
 msgid "Extra Notes"
-msgstr ""
+msgstr "留意点"
 
 #: ../../step-series/submodules/technical-information.rst:118
 msgid ""
-"As a safety precaution, the electromagnetic brake should be disconnected "
+"As a safety precacution, the electromagnetic brake should be disconnected "
 "from the board. While uploading the firmware, defaults are sometimes "
 "reset which may lead to the load being held by the brake to be dropped."
-msgstr ""
+msgstr "電磁ブレーキ基板を接続している場合は、スケッチ書き込み時は取り外してください。書き込み中にブレーキが解放され、負荷の落下が起こる可能性があります。"
 
 #: ../../step-series/submodules/technical-information.rst:122
 msgid ""
@@ -2131,7 +2142,7 @@ msgid ""
 "chips on either board. So, while you can upload sketches and perform some"
 " basic commands on the board, no movement will be possible unless "
 "additional power is provided."
-msgstr ""
+msgstr "基板にUSB-Cケーブルのみを接続した場合、スケッチの書き込みはできますが、外部電源がないためモータドライバのチップが起動しないので、ドライバとメッセージのやり取りが発生する操作はできません。"
 
 #: ../../step-series/submodules/technical-information.rst:126
 msgid ""
@@ -2140,24 +2151,24 @@ msgid ""
 "mode. Then try uploading again. In this mode, the sketch will not boot "
 "and the LED ``L`` will begin to fade. You also have to reselect a "
 "different serial port."
-msgstr ""
+msgstr "Arduino Zero の癖なのか、書き込みに失敗することがあるようです。その場合はRESETスイッチをダブルクリックして、bootloaderモードにして再試行してみてください。bootloaderモードではスケッチは起動せず、 ``L`` がゆっくりフェードする状態になります。また普通に起動した時とは別のシリアルポートになりますので、Arduino IDEのToolsメニューから選択しなおしてください。"
 
 #: ../../step-series/submodules/technical-information.rst:135
 msgid "Diagnosing via USB"
-msgstr ""
+msgstr "USB経由での診断"
 
 #: ../../step-series/submodules/technical-information.rst:137
 msgid ""
 "Apart from uploading new firmware, the USB-C port on the device is also "
 "used to debug and monitor."
-msgstr ""
+msgstr "ファームウェアアップデート以外にも、USBを使ってPCから動作状況や設定を確認できます。ネットワークからうまく接続できないときなどに問題を調べることができます。"
 
 #: ../../step-series/submodules/technical-information.rst:140
 msgid ""
 "The USB-C port only powers the Arduino portion of the device. If you wish"
 " to run any motors, be sure to also connect (only) one of the primary "
 "power inputs."
-msgstr ""
+msgstr "USB端子からはマイコンと周辺回路の制御電源のみ供給されます。この状態ではモータドライバが起動していないため、モータドライバと通信ができません。必ずモータ電源を供給してください。"
 
 #: ../../step-series/submodules/technical-information.rst:144
 msgid ""
@@ -2165,22 +2176,22 @@ msgid ""
 "(or press RESET after doing so). Because the motor controllers will be in"
 " an unknown state if this process is flipped, you may encounter undefined"
 " behavior."
-msgstr ""
+msgstr "またUSBで給電をした後にモータ電源を接続した場合、モータドライバの初期設定が行われていない状態になるため、予想外の動作になる可能性があります。モータ電源を通電した後にUSBを差し込むか、あるいはモータ電源を通電した後に基板上のRESETスイッチを押して全体をリセットしてください。"
 
 #: ../../step-series/submodules/technical-information.rst:151
 msgid "Serial Monitor"
-msgstr ""
+msgstr "シリアルモニタ"
 
 #: ../../step-series/submodules/technical-information.rst:153
 msgid ""
 "This portion of the tutorial assumes you're using the Arduino IDE. Any "
 "serial port terminal client that can send and receive text strings can "
 "also be used."
-msgstr ""
+msgstr "本デバイスはPCからはArduino Zeroとして認識され、仮想シリアルポートになっています。例えばArduino IDEのシリアルモニタを使う場合は、以下の手順で接続してください。 Arduino IDEでなくても、シリアルポートと通信して文字列を入出力できるソフトウェアであればどのようなもので使えます。"
 
 #: ../../step-series/submodules/technical-information.rst:159
 msgid "Selecting the Port"
-msgstr ""
+msgstr "ポートの選択"
 
 #: ../../step-series/submodules/technical-information.rst:161
 msgid "**Tools** > **Port** > **COMXXX (Arduino Zero (Native USB Port))**"
@@ -2188,42 +2199,42 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:168
 msgid "Open Serial Monitor"
-msgstr ""
+msgstr "シリアルモニタを開く"
 
 #: ../../step-series/submodules/technical-information.rst:170
 msgid ""
 "The Serial Monitor is what you use to communicate the with device. "
 "Opening this tool can be done in a few ways."
-msgstr ""
+msgstr "シリアルモニタは、本デバイスとやり取りするために使用します。開き方はいくつかの方法があります。"
 
 #: ../../step-series/submodules/technical-information.rst:173
 msgid "First way: Click the magnifying glass"
-msgstr ""
+msgstr "1. 右上の虫眼鏡マークをクリックする。"
 
 #: ../../step-series/submodules/technical-information.rst:177
 msgid "Second way: **Tools** > **Serial Monitor**"
-msgstr ""
+msgstr "2. **Tools** > **Serial Monitor**"
 
 #: ../../step-series/submodules/technical-information.rst:179
 msgid "Third way: **CTRL + SHIFT + M**"
-msgstr ""
+msgstr "3. **CTRL + SHIFT + M**"
 
 #: ../../step-series/submodules/technical-information.rst:183
 msgid "Diagnosis Menu"
-msgstr ""
+msgstr "診断ツールのメニュー"
 
 #: ../../step-series/submodules/technical-information.rst:185
 msgid ""
 "With the Serial Monitor now open, ensure that the baud rate is set to "
 "115200. Changing the baud rate may cause the board to reset, so keep that"
 " in mind if a load is connected to your board--it may fall."
-msgstr ""
+msgstr "シリアルモニタを開きます。ボーレートを変更すると基板がリセットされますので、電磁ブレーキを使用している場合は負荷が落下する可能性がありますので注意してください。"
 
 #: ../../step-series/submodules/technical-information.rst:189
 msgid ""
 "Next, type the letter *m* and press *Enter* or click **Send**. You should"
 " now see something like the following:"
-msgstr ""
+msgstr "問題なく接続できていれば、上の送信フォームに *m* と入力してSendを押せば（あるいはリターンキーを押せば）、診断ツールのメニューが表示されるはずです。"
 
 #: ../../step-series/submodules/technical-information.rst:197
 msgid "Status"
@@ -2231,24 +2242,24 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:199
 msgid "Sending *s* allows you to retrieve it's hardware status."
-msgstr ""
+msgstr "*s* を送信すると、主にハードウェアの状態を取得できます。"
 
 #: ../../step-series/submodules/technical-information.rst:201
 msgid ""
 "The first output block you will see is the firmware information on the "
 "MCU."
-msgstr ""
+msgstr "最初のセクションは主に書き込まれているファームウェアについての情報です。"
 
 #: ../../step-series/submodules/technical-information.rst:214
 msgid ""
 "``Loaded config version`` shows the config.txt version number read from "
 "the microSD card. Depending on the version of the config and the "
 "firmware, you'll get one of the following messages:"
-msgstr ""
+msgstr "``Loaded config version``: microSDから読み込まれているconfig.txtファイルのバージョン番号が表示されます。configとファームウェアの新旧に応じて以下のうちどれかが表示されます。"
 
 #: ../../step-series/submodules/technical-information.rst:219
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 #: ../../step-series/submodules/technical-information.rst:221
 msgid "CONFIG_VERSION_UNDEFINED"
@@ -2256,7 +2267,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:221
 msgid "Unknown config version"
-msgstr ""
+msgstr "configのバージョン未定義"
 
 #: ../../step-series/submodules/technical-information.rst:222
 #: ../../step-series/submodules/technical-information.rst:223
@@ -2265,11 +2276,11 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:222
 msgid "The config could not be read from the microSD card"
-msgstr ""
+msgstr "configがmicroSDから読み込まれていない"
 
 #: ../../step-series/submodules/technical-information.rst:223
 msgid "The config version is old"
-msgstr ""
+msgstr "configのバージョンが古い"
 
 #: ../../step-series/submodules/technical-information.rst:224
 msgid "CONFIG_VERSION_APPLICABLE"
@@ -2277,7 +2288,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:224
 msgid "The config and firmware versions matched"
-msgstr ""
+msgstr "configとファームウェアのバージョンが合っている"
 
 #: ../../step-series/submodules/technical-information.rst:225
 msgid "CONFIG_VERSION_NEW"
@@ -2285,68 +2296,68 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:225
 msgid "The config file's version is newer than the firmware (the firmware is old)"
-msgstr ""
+msgstr "configのバージョンが新しい（ファームウェアが古い）"
 
 #: ../../step-series/submodules/technical-information.rst:228
 msgid "Next output is the DIP Switch."
-msgstr ""
+msgstr "次のセクションはDIPスイッチについてです。"
 
 #: ../../step-series/submodules/technical-information.rst:236
 msgid ""
 "``BIN``: The current positions of all switches on the board. Please note "
 "that on the board, the left-most position is the right-most position here"
 " in tool."
-msgstr ""
+msgstr "``BIN``: スイッチの位置を0/1であらわしたものです。基板では左側が小さい桁ですが、診断ツールでは右側が小さい桁になっていることに注意してください。"
 
 #: ../../step-series/submodules/technical-information.rst:239
 msgid "``DEC``: The decimal representation of the switch."
-msgstr ""
+msgstr "``DEC``: IDを10進数で表示したものです。"
 
 #: ../../step-series/submodules/technical-information.rst:241
 msgid "Ethernet status is shown next."
-msgstr ""
+msgstr "次はイーサネットの状態です。"
 
 #: ../../step-series/submodules/technical-information.rst:250
 msgid ""
 "``Ethernet hardare status``: The status of the built-in ethernet "
 "controller. If everything is worker, ``EthernetW5500`` will be shown. "
 "``EthernetNoHardware`` indicates an issue is present."
-msgstr ""
+msgstr "``Ethernet hardware status``: イーサネットコントローラIC, W5500への接続状況を示しています。 ``EthernetW5500`` が正しい反応で、 ``EthernetNoHardware`` となる場合はW5500との通信に何らかの問題が生じています。"
 
 #: ../../step-series/submodules/technical-information.rst:253
 msgid ""
 "``Ethernet link status``: The status of the ethernet cable. ``LinkOn`` "
 "and ``LinkOff`` are self-explanatory. If ``Unknown`` is present, that "
 "indicates an issue with the controller is likely present."
-msgstr ""
+msgstr "``Ethernet link status``: Ethernetのリンク状況に応じて ``LinkOn`` ``LinkOff`` が表示されます。もし ``Unknown`` となる場合は、ハードウェアの問題が生じている可能性があります。"
 
 #: ../../step-series/submodules/technical-information.rst:256
 msgid "``isDestIpSet``: Shows if ``/setDestIp`` has been recieved."
-msgstr ""
+msgstr "``isDestIpSet`` : ``/setDestIp`` を受信したかどうかを示しています。"
 
 #: ../../step-series/submodules/technical-information.rst:258
 msgid "And finally, the status for the microSD card is shown."
-msgstr ""
+msgstr "次はSDカードについてです。"
 
 #: ../../step-series/submodules/technical-information.rst:267
 msgid "``SD library initialize succeeded``: ``No`` if the card is not inserted."
-msgstr ""
+msgstr "``SD library initialize succeeded``: microSDカードがささっていないと ``No`` になります。"
 
 #: ../../step-series/submodules/technical-information.rst:269
 msgid ""
 "``SD config file open succeeded``: Shows if ``config.txt`` was "
 "successfully opened on the card."
-msgstr ""
+msgstr "``SD config file open succeeded``: SDカードの ``config.txt`` ファイルが開けたかどうかを示しています。"
 
 #: ../../step-series/submodules/technical-information.rst:271
 msgid ""
 "``SD config JSON parse succeeded``: Shows if the content of "
 "``config.txt`` (JSON) was read correctly."
-msgstr ""
+msgstr "``SD config JSON parse succeeded``: ``config.txt`` の内容(JSON)が読み込めたかどうかを示しています。"
 
 #: ../../step-series/submodules/technical-information.rst:274
 msgid "We now move into status information for the motor driver chips."
-msgstr ""
+msgstr "この先は各モータドライバチップの状態についてです。"
 
 #: ../../step-series/submodules/technical-information.rst:301
 msgid ""
@@ -2354,20 +2365,21 @@ msgid ""
 "because the chips are unpowered, for example, ``PowerSTEP01 ID#<1-4>`` "
 "will not be shown."
 msgstr ""
+"モータ電源が供給されていない等の理由でPowerSTEP01と通信が成功しなかった場合、 ``PowerSTEP01 ID#<1-4>`` は表示されません。"
 
 #: ../../step-series/submodules/technical-information.rst:305
 msgid "``STEP800 Only``"
-msgstr ""
+msgstr "``STEP800のみ``"
 
 #: ../../step-series/submodules/technical-information.rst:337
 msgid ""
 "Like the STEP800 above, ``L6470 ID#<1-8>`` will only be shown if "
 "connection to the driver chips was successful."
 msgstr ""
-
+"上記STEP400と同じく、モータドライバと通信が成功しなかった場合は ``L6470 ID#<1-8>`` は表示されません。"
 #: ../../step-series/submodules/technical-information.rst:340
 msgid "Next are the modes and electromagnetic brake and homing statuses."
-msgstr ""
+msgstr "現在のモードと電磁ブレーキの状態、原点復帰の状態についてです。"
 
 #: ../../step-series/submodules/technical-information.rst:356
 msgid "Brake status"
@@ -2379,7 +2391,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:358
 msgid "Brake is engaged"
-msgstr ""
+msgstr "ブレーキ保持状態"
 
 #: ../../step-series/submodules/technical-information.rst:359
 msgid "BRAKE_DISENGAGE_WAITING"
@@ -2387,7 +2399,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:359
 msgid "In transition to brake release"
-msgstr ""
+msgstr "ブレーキ開放状態へ移行中"
 
 #: ../../step-series/submodules/technical-information.rst:360
 msgid "BRAKE_DISENGAGED"
@@ -2395,7 +2407,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:360
 msgid "Brake released"
-msgstr ""
+msgstr "ブレーキ開放状態"
 
 #: ../../step-series/submodules/technical-information.rst:361
 msgid "BRAKE_MOTORHIZ_WAITING"
@@ -2403,7 +2415,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:361
 msgid "In transition to brake engage"
-msgstr ""
+msgstr "ブレーキ保持状態へ移行中"
 
 #: ../../step-series/submodules/technical-information.rst:365
 msgid "ID"
@@ -2419,7 +2431,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:367
 msgid "Not homing yet"
-msgstr ""
+msgstr "原点復帰を行っていない状態"
 
 #: ../../step-series/submodules/technical-information.rst:368
 msgid "HOMING_GOUNTIL"
@@ -2427,7 +2439,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:368
 msgid "Moving towards sensor"
-msgstr ""
+msgstr "センサへ向かって移動中"
 
 #: ../../step-series/submodules/technical-information.rst:369
 msgid "HOMING_RELEASESW"
@@ -2435,7 +2447,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:369
 msgid "Leaving from sensor active area"
-msgstr ""
+msgstr "センサ反応範囲から脱出中"
 
 #: ../../step-series/submodules/technical-information.rst:370
 msgid "HOMING_COMPLETED"
@@ -2443,7 +2455,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:370
 msgid "Homing completed"
-msgstr ""
+msgstr "原点復帰完了済み"
 
 #: ../../step-series/submodules/technical-information.rst:371
 msgid "HOMING_TIMEOUT"
@@ -2451,7 +2463,7 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:371
 msgid "Time out was detected while homing"
-msgstr ""
+msgstr "原点復帰中にタイムアウトした"
 
 #: ../../step-series/submodules/technical-information.rst:376
 msgid "Config"
@@ -2464,12 +2476,14 @@ msgid ""
 "settings on the device, not what is loaded on the microSD card if you "
 "have one inserted."
 msgstr ""
+"*c* を送信すると、現在の設定値を読み出します。これはconfigToolのファイル内の値ではなく、IDスイッチの設定や、"
+"その後のOSCメッセージでの設定を反映した値になっていることに注意してください。"
 
 #: ../../step-series/submodules/technical-information.rst:383
 msgid ""
 "For example, the following output may shown if the STEP400 is booted "
 "without a microSD card:"
-msgstr ""
+msgstr "例えばSTEP400でmicroSDカードを差し込まずに起動した場合の反応は以下のようになります。"
 
 #: ../../step-series/submodules/technical-information.rst:472
 msgid "Test Motion"
@@ -2481,20 +2495,22 @@ msgid ""
 "*t*. All motors will rotate 25600 steps, or one rotation at 200 steps "
 "with 1/128 microstepping enabled."
 msgstr ""
+"*t* を送信すると、すべてのモータが25600step正方向に動きます。 これは1周200stepのステッピングモータを"
+"1/128マイクロステッピングモードで動かした場合の1回転のステップ数に相当します。"
 
 #: ../../step-series/submodules/technical-information.rst:481
 msgid "Hardware - STEP400"
-msgstr ""
+msgstr "ハードウェア-STEP400"
 
 #: ../../step-series/submodules/technical-information.rst:485
 #: ../../step-series/submodules/technical-information.rst:647
 msgid "PCB Dimensions"
-msgstr ""
+msgstr "基板のサイズ"
 
 #: ../../step-series/submodules/technical-information.rst:487
 #: ../../step-series/submodules/technical-information.rst:649
 msgid "``120x84x1.6mm``"
-msgstr ""
+msgstr "120x84mm, 板厚1.6mm"
 
 #: ../../step-series/submodules/technical-information.rst:489
 #: ../../step-series/submodules/technical-information.rst:651
@@ -2503,45 +2519,47 @@ msgid ""
 "the middle. The extraneous material at the top and bottom of the picture "
 "below is removed during production."
 msgstr ""
+"M3用取付穴が基板の各隅+中央付近の5か所にあります。"
+"この画像の上下の細長い部分は捨て基板で、製造終了後に切り離されています。"
 
 #: ../../step-series/submodules/technical-information.rst:496
 msgid ""
 "We also provide a `PDF drawing "
 "<https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_dimension.pdf>`_"
 " of the board and it's components for your convenience."
-msgstr ""
+msgstr "原寸PDF: `step400_r1_dimension.pdf <https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_dimension.pdf>`_"
 
 #: ../../step-series/submodules/technical-information.rst:501
 #: ../../step-series/submodules/technical-information.rst:663
 msgid "System"
-msgstr ""
+msgstr "構成"
 
 #: ../../step-series/submodules/technical-information.rst:505
 msgid ""
 "Like above, we also provide the `wiring schematics "
 "<https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_schematics.pdf>`_"
 " of the board."
-msgstr ""
+msgstr "回路図: `step400_r1_schematics.pdf <https://github.com/ponoor/STEP400/blob/master/hardware/step400_r1_schematics.pdf>`_"
 
 #: ../../step-series/submodules/technical-information.rst:508
 #: ../../step-series/submodules/technical-information.rst:670
 msgid "The primary components of the board are as follows:"
-msgstr ""
+msgstr "主な構成要素は以下のとおりです。"
 
 #: ../../step-series/submodules/technical-information.rst:511
 #: ../../step-series/submodules/technical-information.rst:673
 msgid "Components"
-msgstr ""
+msgstr "部品"
 
 #: ../../step-series/submodules/technical-information.rst:511
 #: ../../step-series/submodules/technical-information.rst:673
 msgid "Manufacturer"
-msgstr ""
+msgstr "メーカー"
 
 #: ../../step-series/submodules/technical-information.rst:511
 #: ../../step-series/submodules/technical-information.rst:673
 msgid "Model number"
-msgstr ""
+msgstr "型番"
 
 #: ../../step-series/submodules/technical-information.rst:513
 #: ../../step-series/submodules/technical-information.rst:675
@@ -2609,12 +2627,12 @@ msgstr ""
 #: ../../step-series/submodules/technical-information.rst:766
 #: ../../step-series/submodules/technical-information.rst:778
 msgid "Pin"
-msgstr ""
+msgstr "ピン"
 
 #: ../../step-series/submodules/technical-information.rst:525
 #: ../../step-series/submodules/technical-information.rst:688
 msgid "Notes"
-msgstr ""
+msgstr "備考"
 
 #: ../../step-series/submodules/technical-information.rst:527
 #: ../../step-series/submodules/technical-information.rst:690
@@ -2779,7 +2797,7 @@ msgstr ""
 #: ../../step-series/submodules/technical-information.rst:542
 #: ../../step-series/submodules/technical-information.rst:548
 msgid "Pad on PCB"
-msgstr ""
+msgstr "はんだ面にパッド有"
 
 #: ../../step-series/submodules/technical-information.rst:542
 #: ../../step-series/submodules/technical-information.rst:705
@@ -2907,11 +2925,13 @@ msgid ""
 "independently to their respective chip's reset pins, be sure to set "
 "``pinMode`` to ``OUTPUT`` and set each of the state pins' to ``HIGH``."
 msgstr ""
+"``PowerSTEP01_RESET`` と ``W5500_RESET`` はそれぞれPowerSTEP01とW5500のリセットピンに接続されていますので、"
+"必ず ``pinMode`` を ``OUTPUT`` に設定したうえで、 ``HIGH`` 状態にしてください。"
 
 #: ../../step-series/submodules/technical-information.rst:564
 #: ../../step-series/submodules/technical-information.rst:727
 msgid "Pads on the PCB's Rear Side"
-msgstr ""
+msgstr "基板裏面のパッド"
 
 #: ../../step-series/submodules/technical-information.rst:566
 #: ../../step-series/submodules/technical-information.rst:729
@@ -2921,6 +2941,9 @@ msgid ""
 " sockets. R35 and R36 can be used for the pull-up of the I2C data (SDA) "
 "and clock (SCL) pins. The chip size is 1608 (0603)."
 msgstr ""
+"使用していないピンと電源のパッドが裏面にあります。"
+"2.54mmピッチですので、表面実装のピンヘッダやピンソケットを取り付けることができます。"
+"裏面のR35, R36はi2cピン(SDA, SCL)のプルアップに使用できます。サイズは1608(0603)サイズです。"
 
 #: ../../step-series/submodules/technical-information.rst:571
 #: ../../step-series/submodules/technical-information.rst:734
@@ -2928,12 +2951,12 @@ msgid ""
 "Since these pins are not implemented or controlled in the firmware we "
 "provide, it is on you to customize the firmware to implement the "
 "functionality you need."
-msgstr ""
+msgstr "これらのピンはファームウェアでは何も処理を行っていませんので、使用方法に応じたファームウェアの追加・書き換えが必要です。"
 
 #: ../../step-series/submodules/technical-information.rst:579
 #: ../../step-series/submodules/technical-information.rst:742
 msgid "SPI Assignment"
-msgstr ""
+msgstr "SPIの割り振り"
 
 #: ../../step-series/submodules/technical-information.rst:581
 msgid ""
@@ -2942,6 +2965,9 @@ msgid ""
 "firmware. Here is a very informative guide about `SPI allocation`_ on the"
 " ATSAMD21."
 msgstr ""
+"STEP400ではファームウェアの処理を簡単にするためにPowerSTEP01とW5500で別々のSPIポートを使用しています。 "
+"ATSAMD21におけるSPIの割り振り方法はこちらが大変参考になります。"
+"https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports"
 
 #: ../../step-series/submodules/technical-information.rst:588
 #: ../../step-series/submodules/technical-information.rst:751
@@ -3037,11 +3063,14 @@ msgid ""
 "gradual shifts in movement may occur during constant speed operation of "
 "the motors."
 msgstr ""
+"motor ID 1のPowerSTEP01のOSCINに16MHzの水晶発振器が接続されています。そこからIDの順に、"
+"OSCOUTとOSCINがデイジーチェーンされていますので、各PowerSTEP01は「外部16MHz入力、反転出力 (``EXT_16MHZ_OSCOUT_INVERT``)」に設定してください。""
+"内部クロックを使うと、一定速運転時などに動きが徐々にずれてくる現象が発生します。"
 
 #: ../../step-series/submodules/technical-information.rst:623
 #: ../../step-series/submodules/technical-information.rst:798
 msgid "Unavailable PowerSTEP01 Features Due to Hardware Design"
-msgstr ""
+msgstr "ハードウェア的に使えないPowerSTEP01の機能"
 
 #: ../../step-series/submodules/technical-information.rst:627
 #: ../../step-series/submodules/technical-information.rst:802
@@ -3051,7 +3080,7 @@ msgstr ""
 #: ../../step-series/submodules/technical-information.rst:629
 #: ../../step-series/submodules/technical-information.rst:804
 msgid "Since it is not wired, Step Clock operation is not possible."
-msgstr ""
+msgstr "配線されていないので、Step Clock動作はできません。"
 
 #: ../../step-series/submodules/technical-information.rst:633
 #: ../../step-series/submodules/technical-information.rst:808
@@ -3065,24 +3094,26 @@ msgid ""
 "``UVLO_ADC`` which will raise an alarm based on the value of the ADC "
 "input."
 msgstr ""
+"リミットセンサ入力して使われていますので、本来の機能である電源電圧補正用には使用できません。"
+"ADC入力の値をもとにアラームを発生させる ``UVLO_ADC`` は必ず無効にしてください。"
 
 #: ../../step-series/submodules/technical-information.rst:643
 msgid "Hardware - STEP800"
-msgstr ""
+msgstr "ハードウェア-STEP800"
 
 #: ../../step-series/submodules/technical-information.rst:658
 msgid ""
 "We also provide a `PDF drawing <https://ponoor.com/cms/wp-"
 "content/uploads/2021/09/step800_r1_0_0_dimension.pdf>`_ of the board and "
 "it's components for your convenience."
-msgstr ""
+msgstr "原寸PDF: `step800_r1_0_0_dimension.pdf <https://ponoor.com/cms/wp-content/uploads/2021/09/step800_r1_0_0_dimension.pdf>`_"
 
 #: ../../step-series/submodules/technical-information.rst:667
 msgid ""
 "Like above, we also provide the `wiring schematics "
 "<https://github.com/ponoor/STEP800/blob/main/hardware/step800_r1_0_0_schematics.pdf>`_"
 " of the board."
-msgstr ""
+msgstr "回路図: `step800_r1_0_0_schematics.pdf <https://github.com/ponoor/STEP800/blob/main/hardware/step800_r1_0_0_schematics.pdf>`_"
 
 #: ../../step-series/submodules/technical-information.rst:677
 msgid "`L6470`_"
@@ -3105,7 +3136,7 @@ msgstr ""
 #: ../../step-series/submodules/technical-information.rst:711
 #: ../../step-series/submodules/technical-information.rst:713
 msgid "Pad exposed in soldering side"
-msgstr ""
+msgstr "はんだ面にパッド有"
 
 #: ../../step-series/submodules/technical-information.rst:692
 msgid "Shift Register MOSI"
@@ -3149,6 +3180,8 @@ msgid ""
 " to their respective chip's reset pins, be sure to set ``pinMode`` to "
 "``OUTPUT`` and set each of the state pins' to ``HIGH``."
 msgstr ""
+"``L6470_RESET`` と ``W5500_RESET`` はそれぞれL6470とW5500のリセットピンに接続されていますので、"
+"必ず ``pinMode`` を ``OUTPUT`` に設定したうえで、HIGH状態にしてください。"
 
 #: ../../step-series/submodules/technical-information.rst:744
 msgid ""
@@ -3157,6 +3190,9 @@ msgid ""
 "firmware. Here is a very informative guide about `SPI allocation`_ on the"
 " ATSAMD21."
 msgstr ""
+"STEP800ではファームウェアの処理を簡単にするためにL6470, W5500, シフトレジスタで別々のSPIポートを使用しています。"
+"ATSAMD21におけるSPIの割り振り方法はこちらが大変参考になります。"
+"https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports"
 
 #: ../../step-series/submodules/technical-information.rst:763
 msgid "Shift registers (DIP switch, brake output)"
@@ -3180,11 +3216,11 @@ msgstr ""
 
 #: ../../step-series/submodules/technical-information.rst:810
 msgid "This is wired directly to GND and is therefore unusable."
-msgstr ""
+msgstr "GNDに直結されていて使用できません。"
 
 #: ../../step-series/index.rst:3
 msgid "STEPXXX Series"
-msgstr ""
+msgstr "STEPシリーズ"
 
 #~ msgid "Overview"
 #~ msgstr ""

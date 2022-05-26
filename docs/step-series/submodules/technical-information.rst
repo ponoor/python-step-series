@@ -813,6 +813,8 @@ This is wired directly to GND and is therefore unusable.
 
 .. _GitHub Releases: https://github.com/ponoor/step-series-universal-firmware/releases/
 .. _GitHub Repository: https://github.com/ponoor/step-series-universal-firmware
+.. _GitHubリポジトリ: https://github.com/ponoor/step-series-universal-firmware
+
 .. _PlatformIO: https://platformio.org/
 .. _Quickstart Page: https://docs.arduino.cc/hardware/zero
 .. _install libraries: https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries
