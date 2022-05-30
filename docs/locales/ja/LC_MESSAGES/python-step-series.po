@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../python-step-series/about.rst:5
 msgid "API Documentation"
-msgstr ""
+msgstr "APIドキュメント"
 
 #: ../../python-step-series/about.rst:7
 msgid ""
@@ -29,16 +29,20 @@ msgid ""
 "to learn how to install and develop your first application to configure "
 "and control a STEP-series device."
 msgstr ""
+"``python-step-series`` へそうこそ！"
+"このページでは、インストールについてや、STEPシリーズを構成・制御するための最初の"
+"アプリケーションを開発する方法を説明しています。"
 
 #: ../../python-step-series/about.rst:10
 msgid ""
 "Before you begin, please make sure to read the STEP400/STEP800 tutorial "
 "on the side!"
 msgstr ""
+"始める前に、サイドバーにあるSTEP400/STEP800のチュートリアルを必ずお読みください。"
 
 #: ../../python-step-series/about.rst:14
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 #: ../../python-step-series/about.rst:16
 msgid ""
@@ -48,16 +52,20 @@ msgid ""
 "are other third-party applications that can be used to perform the same "
 "actions that this library does."
 msgstr ""
+"``python-step-series`` はSTEP400やSTEP800を使ってモータを制御するための使いやすい"
+"プログラムのインタフェイスを提供するために構築されたライブラリです。"
+"``STEP400/STEP800`` のチュートリアルで述べたように、他のサードパーティアプリケーションを使って"
+"このライブラリと同じ動作を行うことも可能です。"
 
 #: ../../python-step-series/about.rst:21
 msgid ""
 "By the end of this tutorial, you'll have installed the library and "
 "learned how to properly use it."
-msgstr ""
+msgstr "このチュートリアルを通して、ライブラリをインストールし、その正しい使い方を学ぶことができます。"
 
 #: ../../python-step-series/about.rst:25
 msgid "Installation"
-msgstr ""
+msgstr "インストール"
 
 #: ../../python-step-series/about.rst:27
 msgid ""
@@ -65,32 +73,37 @@ msgid ""
 "contributors should review the CONTRIBUTING guide found on the Github for"
 " this library."
 msgstr ""
+"このセクションは、このライブラリのエンドユーザーに向けて書かれています。"
+"ライブラリへコントリビュートしたい方は、本ライブラリのGithubにあるCONTRIBUTINGガイドをご覧ください。"
 
 #: ../../python-step-series/about.rst:30
 msgid ""
 "The recommended method of installing ``python-step-series`` is using "
 "Python's ``pip`` in a ``virtualenv``:"
 msgstr ""
+"おすすめのインストール方は、Pythonの ``virtualenv`` 内で ``pip`` を使用する方法です。"
 
 #: ../../python-step-series/about.rst:42
 msgid ""
 "And that is it! You can verify the installation by merely importing the "
 "library:"
-msgstr ""
+msgstr "以上です！ライブラリをインポートするだけでインストールを確認することができます。"
 
 #: ../../python-step-series/about.rst:48
 msgid ""
 "New terminals will not have your virtualenv active. You'll need to rerun "
 "the `activate` command above in order to reactivate the environment."
 msgstr ""
+"新しいターミナル画面では、virtualenv がアクティブ状態になっていません。上記の ``activate`` コマンドを再度実行する必要があります。"
+
 
 #: ../../python-step-series/about.rst:51
 msgid "To deactivate the environment, simply run the command:"
-msgstr ""
+msgstr "virtualenvを終了するには、以下のコマンドを実行してください。"
 
 #: ../../python-step-series/about.rst:59
 msgid "First-Steps"
-msgstr ""
+msgstr "最初のステップ"
 
 #: ../../python-step-series/about.rst:61
 msgid ""
@@ -98,16 +111,18 @@ msgid ""
 "possible. For example, it takes four lines of code to establish "
 "communication with either device:"
 msgstr ""
+"前述したように、 ``python-step-series`` はできるだけ簡単に使えるように努めています。"
+"例えば、どちらのデバイスともわずか4行のコードで通信を確立できます。"
 
 #: ../../python-step-series/about.rst:81
 msgid ""
 "Sending ``commands.SetDestIP()`` is required each time you establish "
 "communication with the device."
-msgstr ""
+msgstr "デバイスとの通信を確立するには、必ず ``commands.SetDestIP()`` を送信する必要があります。"
 
 #: ../../python-step-series/about.rst:85
 msgid "Understanding Commands and Responses"
-msgstr ""
+msgstr "CommandsとResponsesを理解する"
 
 #: ../../python-step-series/about.rst:87
 msgid ""
@@ -116,6 +131,8 @@ msgid ""
 " give you what is essentially a template to fill or a structured "
 "response."
 msgstr ""
+"``Commands`` はデバイスを制御するために使用し、 ``Responses`` はデバイスから送信されます。"
+"このライブラリは、データクラスオブジェクトとして両方を提供し、テンプレートや構造化された応答を提供します。"
 
 #: ../../python-step-series/about.rst:92
 msgid ""
@@ -123,10 +140,11 @@ msgid ""
 "had to import it above. Likewise, responses exist in the ``responses`` "
 "module."
 msgstr ""
+"Commandsはライブラリの ``commands`` モジュールにあるので、上ではそれをインポートしました。同様に、Responsesは ``responses`` モジュールに存在します。"
 
 #: ../../python-step-series/about.rst:97
 msgid "Using Callbacks"
-msgstr ""
+msgstr "コールバックを使う"
 
 #: ../../python-step-series/about.rst:99
 msgid ""
@@ -134,20 +152,24 @@ msgid ""
 "application. You can \"bind\" callbacks, or multiple callbacks, to a "
 "response which will then be called when it is sent by a device."
 msgstr ""
+"``python-step-series`` はコールバックを用いたプログラミングをサポートします。"
+"コールバックをレスポンスにバインドして、デバイスからレスポンスが送信された際に呼び出すことができます。"
 
 #: ../../python-step-series/about.rst:103
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: ../../python-step-series/about.rst:128
 msgid "You can also bind all responses to a callback:"
-msgstr ""
+msgstr "あるいは、すべてのレスポンスをコールバックにバインドすることもできます。"
 
 #: ../../python-step-series/about.rst:146
 msgid ""
 "The callback API of ``python-step-series`` allows you to be as simple or "
 "complex as you need. The possibilities are virtually endless."
 msgstr ""
+"``python-step-series`` のコールバックAPIは必要に応じてシンプルにも複雑にもすることができます。"
+"可能性はほぼ無限大です。"
 
 #: ../../python-step-series/about.rst:149
 msgid ""
@@ -155,24 +177,28 @@ msgid ""
 "library offers. We recommend you check out the Modules page to see what "
 "commands and responses you have available to you."
 msgstr ""
+"この短いチュートリアルで、ライブラリが提供するものの概要をご理解いただけたと思います。"
+"どのようなコマンドやレスポンスが利用できるかは、モジュールのページで確認されることをお勧めします。"
 
 #: ../../python-step-series/api/module.rst:2
 msgid "Module Reference"
-msgstr ""
+msgstr "モジュール・リファレンス"
 
 #: ../../python-step-series/api/stepseries.rst:2
 msgid "``stepseries.commands`` -- Device Commands"
-msgstr ""
+msgstr "``stepseries.commands`` -- デバイスコマンド"
 
 #: of stepseries.commands:1
 msgid "Messages to send to the device."
-msgstr ""
+msgstr "デバイスへ送信されるメッセージです。"
 
 #: of stepseries.commands:3
 msgid ""
 "This module provides dataclass objects that act as templates for you to "
 "'fill in' with data. This allows you to focus on WHAT to send, not how."
 msgstr ""
+"このモジュールは、データで「埋める」ためのテンプレートとして機能するデータクラス・オブジェクトを提供します。"
+"これにより、どのように送信するかではなく、何を送信するかに集中することができます。"
 
 #: of stepseries.commands:6
 msgid ""
@@ -180,6 +206,9 @@ msgid ""
 "attribute is used internally in the library, but may be useful for you. "
 "It holds the response type, not the actual device response."
 msgstr ""
+"いくつかのコマンドは、追加の ``response_cls`` 属性を持っています。"
+"この属性はライブラリ内部で使用されるものですが、もしすると何かの役に立つかもしれません。"
+"これはレスポンス・タイプを保持し、実際のデバイス・レスポンスは保持しません。"
 
 #: of stepseries.commands:10
 msgid ""
@@ -188,16 +217,19 @@ msgid ""
 "shortcut to automatically register a callback to handle incoming "
 "responses from the device."
 msgstr ""
+"デバイスの内部状態の自動報告を制御するすべてのコマンドには、追加の ``callback`` 属性があります。"
+"この属性は、デバイスから送られてくるレスポンスを処理するためのコールバックを自動的に登録するためのショートカットです。"
 
 #: of stepseries.commands.Activate:1
 msgid "Enables or disables the electromagnetic brake."
-msgstr ""
+msgstr "電磁ブレーキを有効化・無効化します。"
 
 #: of stepseries.commands.Activate:3 stepseries.commands.Free:6
 msgid ""
 ":py:class:`stepseries.commands.EnableElectromagnetBrake` must be enabled "
 "for this command to have an effect."
 msgstr ""
+"このコマンドを実行するためには、 :py:class:`stepseries.commands.EnableElectromagnetBrake` が有効になっている必要があります。"
 
 #: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
 #: stepseries.commands.EnableDirReport:4
@@ -271,7 +303,7 @@ msgstr ""
 #: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
 #: stepseries.commands.SoftStop:10
 msgid "Executable Timing"
-msgstr ""
+msgstr "実行可能タイミング"
 
 #: of stepseries.commands.Activate:7 stepseries.commands.EnableBusyReport:4
 #: stepseries.commands.EnableDirReport:4
@@ -336,7 +368,7 @@ msgstr ""
 #: stepseries.commands.SetVoltageMode:9 stepseries.commands.SoftHiZ:10
 #: stepseries.commands.SoftStop:10
 msgid "Always"
-msgstr ""
+msgstr "常時"
 
 #: ../../docstring of stepseries.commands.Activate.motorID:2
 #: stepseries.commands.EnableBusyReport.motorID:2
@@ -782,7 +814,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.Activate.state:2
 msgid "Motor engaged, brake released"
-msgstr ""
+msgstr "モータ励磁, 電磁ブレーキ開放"
 
 #: ../../docstring of stepseries.commands.Activate.state:4
 #: stepseries.commands.EnableThermalStatusReport:26
@@ -804,11 +836,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.Activate.state:4
 msgid "Motor released, brake engaged"
-msgstr ""
+msgstr "モータ励磁解除, 電磁ブレーキ保持"
 
 #: of stepseries.commands.EnableBusyReport:1
 msgid "Enable or disable the automatic reporting of busy status changes."
-msgstr ""
+msgstr "BUSY状態の自動報告を有効化・無効化します。"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:1
 #: stepseries.commands.EnableDirReport.enable:1
@@ -823,7 +855,7 @@ msgstr ""
 #: stepseries.commands.EnableUvloReport.enable:1
 #: stepseries.commands.ReportError.enable:1
 msgid "If True, enable the reporting."
-msgstr ""
+msgstr "True で報告が有効"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
 #: stepseries.commands.EnableDirReport.enable:4
@@ -881,7 +913,7 @@ msgstr ""
 #: stepseries.commands.SetTval.runTVAL:6
 #: stepseries.commands.SetTval.setDecTVAL:6
 msgid "Default"
-msgstr ""
+msgstr "初期値"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:4
 #: stepseries.commands.EnableDirReport.enable:4
@@ -905,11 +937,11 @@ msgstr ""
 
 #: of stepseries.commands.EnableDirReport:1
 msgid "Enable or disable the automatic reporting of direction changes."
-msgstr ""
+msgstr "モータ回方向変化時の自動報告を有効化・無効化します。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:1
 msgid "Enable or disable electromagnetic brake operation."
-msgstr ""
+msgstr "電磁ブレーキ操作を有効化・無効化します。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:3
 msgid ""
