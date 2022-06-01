@@ -840,7 +840,7 @@ msgstr "モータ励磁解除, 電磁ブレーキ保持"
 
 #: of stepseries.commands.EnableBusyReport:1
 msgid "Enable or disable the automatic reporting of busy status changes."
-msgstr "BUSY状態の自動報告を有効化・無効化します。"
+msgstr "BUSY状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: ../../docstring of stepseries.commands.EnableBusyReport.enable:1
 #: stepseries.commands.EnableDirReport.enable:1
@@ -937,44 +937,45 @@ msgstr ""
 
 #: of stepseries.commands.EnableDirReport:1
 msgid "Enable or disable the automatic reporting of direction changes."
-msgstr "モータ回方向変化時の自動報告を有効化・無効化します。"
+msgstr "モータ回転方向に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:1
 msgid "Enable or disable electromagnetic brake operation."
-msgstr "電磁ブレーキ操作を有効化・無効化します。"
+msgstr "電磁ブレーキモードの有効・無効を切り替えます。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:3
 msgid ""
 "Not to be confused with :py:class:`stepseries.commands.Activate` which "
 "activates or deactivates the brake."
-msgstr ""
+msgstr "実際にブレーキを動作させる :py:class:`stepseries.commands.Activate` と混同しないように注意してください。"
 
 #: of stepseries.commands.EnableElectromagnetBrake:6
 msgid ""
 "While enabled, the controller will reply with ``ERROR_BRAKE_ENGAGED`` if "
 "a movement command is sent without releasing the brake."
 msgstr ""
-
+"電磁ブレーキモードが有効になると、電磁ブレーキを開放しないままモータを回すコマンドを送るとデバイスから "
+"``ERROR_BRAKE_ENGAGED`` が送られます。"
 #: ../../docstring of stepseries.commands.EnableElectromagnetBrake.enable:1
 msgid "If True, enable the brake."
-msgstr ""
+msgstr "True で有効"
 
 #: of stepseries.commands.EnableHiZReport:1
 msgid "Enable or disable the automatic reporting of HiZ status changes."
-msgstr ""
+msgstr "HiZ状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableHomeSwReport:1
 #: stepseries.commands.EnableSwEventReport:1
 msgid "Enable or disable the automatic reporting of home switch changes."
-msgstr ""
+msgstr "HOMEスイッチの状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableHomeSwReport:3
 msgid "Also see :py:class:`stepseries.commands.EnableSwEventReport`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.EnableSwEventReport` もご参照ください。"
 
 #: of stepseries.commands.EnableLimitSwReport:1
 msgid "Enable or disable automatic reporting of limit switch changes."
-msgstr ""
+msgstr "LIMITスイッチの状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableLimitSwReport:3 stepseries.commands.GetAdcVal:7
 #: stepseries.commands.GetDecayModeParam:3 stepseries.commands.GetLimitSw:3
@@ -986,11 +987,11 @@ msgstr ""
 #: stepseries.commands.SetProhibitMotionOnLimitSw:7
 #: stepseries.commands.SetTval:3 stepseries.commands.SetVoltageMode:3
 msgid "``STEP400 Only``"
-msgstr ""
+msgstr "``STEP400のみ``"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:1
 msgid "Enable or disable low speed optimization."
-msgstr ""
+msgstr "低速回転時の相電流ひずみ補正の有効無効を切り替えます。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:3
 msgid ""
@@ -999,10 +1000,12 @@ msgid ""
 "This optimizer attempts to compensate for that. When enabled, the minimum"
 " speed of the speed profile is forced to zero."
 msgstr ""
+"低い電圧で非常にゆっくり回転させると、相電流の歪みにより、モータはスムーズな回転を維持するのがむずかしくなります。その影響を減らすための補正です。この補正が電圧モードでのみ有効で、有効時は"
+" ``Min Speed`` が強制的に0になります。"
 
 #: of stepseries.commands.EnableLowSpeedOptimize:8
 msgid "See the datasheet for more details."
-msgstr ""
+msgstr "詳しくはデータシートを参照してください。"
 
 #: ../../docstring of stepseries.commands.EnableLowSpeedOptimize:11
 #: stepseries.commands.Move:7 stepseries.commands.SetAcc:4
@@ -1011,21 +1014,21 @@ msgstr ""
 #: stepseries.commands.SetSpeedProfile:7
 #: stepseries.responses.MotorStatus.MOT_STATUS:4
 msgid "Stopped"
-msgstr ""
+msgstr "モータ停止時"
 
 #: ../../docstring of stepseries.commands.EnableLowSpeedOptimize.enable:1
 msgid "If True, enable the optimizer."
-msgstr ""
+msgstr "True で補正有効"
 
 #: of stepseries.commands.EnableMotorStatusReport:1
 msgid "Enable or disable the automatic reporting of motor op changes."
-msgstr ""
+msgstr "モータの回転状態に変化があったら自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableMotorStatusReport:3
 msgid ""
 "The reports are sent when the motor changes its current op like "
 "acceleration, constant speed, deceleration or stopping."
-msgstr ""
+msgstr "有効になっている場合、モータに停止中、加速中、一定速運転中、減速中という状態の変化に発生したら、報告のメッセージを送信します。"
 
 #: of stepseries.commands.EnableOverCurrentReport:1
 msgid "Enable or disable the automatic reporting of overcurrent events."
@@ -1037,18 +1040,20 @@ msgid ""
 "configured threshold. This threshold can be set using "
 ":py:class:`stepseries.commands.SetOverCurrentThreshold`."
 msgstr ""
+"指定した電流閾値を越えて電流が流れた場合に報告のメッセージを送信します。この閾値は "
+":py:class:`stepseries.commands.SetOverCurrentThreshold` で指定します。"
 
 #: of stepseries.commands.EnableOverCurrentReport:7
 msgid ""
 "When overcurrent draw is detected, the device automatically enters a HiZ "
 "state with or without notification."
-msgstr ""
+msgstr "モータドライバが過電流状態になった場合は、通知の有無にかかわらず自動でHiZ状態になります。"
 
 #: of stepseries.commands.EnableOverCurrentReport:10
 #: stepseries.commands.EnableThermalStatusReport:13
 #: stepseries.commands.EnableUvloReport:8
 msgid "This report is enabled by default."
-msgstr ""
+msgstr "この設定は初期状態で有効になっています。"
 
 #: ../../docstring of stepseries.commands.EnableOverCurrentReport.enable:4
 #: stepseries.commands.EnableThermalStatusReport.enable:4
@@ -1062,7 +1067,7 @@ msgstr ""
 
 #: of stepseries.commands.EnableServoMode:1
 msgid "Enable or disable servo mode (position tracking mode)."
-msgstr ""
+msgstr "サーボモード（位置追従モード）の有効無効を切り替えます。"
 
 #: of stepseries.commands.EnableServoMode:3
 msgid ""
@@ -1070,20 +1075,23 @@ msgid ""
 ":py:class:`stepseries.commands.Run` or "
 ":py:class:`stepseries.commands.GoTo` when in this mode."
 msgstr ""
+"このモードで動作している間は、 :py:class:`stepseries.commands.SetOverCurrentThreshold` "
+"や:py:class:`stepseries.commands.GoTo` など、他のモータ回転コマンドを送ることはできません。"
 
 #: ../../docstring of stepseries.commands.EnableServoMode.enable:1
 msgid "If True, enable servo mode."
-msgstr ""
+msgstr "True で有効"
 
 #: of stepseries.commands.EnableStallReport:1
 msgid "Enable or disable the automatic reporting of stall events."
-msgstr ""
+msgstr "モータのストールを検出した際に自動でメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableStallReport:3
 msgid ""
 "The threshold can be set with "
 ":py:class:`stepseries.commands.SetStallThreshold`."
 msgstr ""
+"検出の閾値は :py:class:`stepseries.commands.SetStallThreshold` で設定できます。"
 
 #: of stepseries.commands.EnableSwEventReport:3
 msgid ""
@@ -1093,10 +1101,17 @@ msgid ""
 "chip. This report is able to detect the closure of the home switch in "
 "under 1ms."
 msgstr ""
+"指定したモータのHOMEスイッチ端子の状態がHIGHレベルからLOWレベルに遷移した際(Falling Edge)に"
+"自動でメッセージを送信する設定を行います。 :py:class:`stepseries.commands.EnableHomeSwReport` は"
+"マイコンのファームウェア上から約1ms毎にモータドライバICのSTATUSレジスタをポーリングすることによって"
+"状態を監視していますが、 ``enableSwEventReport`` はドライバIC内でハードウェアによってイベントが"
+"検出されるため、1ms以下のごくわずかな時間だけセンサが反応した場合でももとり逃しません。"
 
 #: of stepseries.commands.EnableThermalStatusReport:1
 msgid "Enable or disable the automatic reporting of thermal statuses."
-msgstr ""
+msgstr "温度状態 (Thermal Status) に変化があったら自動でメッセージを送信する設定を行います。"
+
+msgstr "指定したモータドライバの温度状態(thermalStatus)に変化があったら自動でメッセージを送信するかどうかを指定します。"
 
 #: of stepseries.commands.EnableThermalStatusReport:3
 msgid ""
@@ -1104,6 +1119,8 @@ msgid ""
 "temperature thresholds. Note that these thresholds are different between "
 "the STEP400 and STEP800."
 msgstr ""
+"これはモータドライバがある温度を超えると送信されるものです。"
+"。STEP400とSTEP800では Thermal statusの種類や発生条件が異なります。"
 
 #: of stepseries.commands.EnableThermalStatusReport:7
 msgid ""
@@ -1113,6 +1130,8 @@ msgid ""
 "included heatsinks on each motor driver chip to avoid hitting these "
 "thermal thresholds."
 msgstr ""
+"Bridge shutdown, Device shutdown 状態では、通知の有無にかかわらずモータはHiZ状態になります。"
+"ドライバの温度上昇を防ぐために、ドライバチップへの放熱器の取り付けを強くお勧めします。"
 
 #: ../../docstring of stepseries.commands.EnableThermalStatusReport:19
 #: stepseries.commands.GetThermalStatus:10
@@ -1177,14 +1196,14 @@ msgstr ""
 #: stepseries.commands.GetThermalStatus:13
 #: stepseries.commands.GetThermalStatus:27
 msgid "Enable Threshold"
-msgstr ""
+msgstr "発生条件"
 
 #: of stepseries.commands.EnableThermalStatusReport:22
 #: stepseries.commands.EnableThermalStatusReport:36
 #: stepseries.commands.GetThermalStatus:13
 #: stepseries.commands.GetThermalStatus:27
 msgid "Disable Threshold"
-msgstr ""
+msgstr "解除条件"
 
 #: ../../docstring of stepseries.commands.EnableThermalStatusReport:24
 #: stepseries.commands.EnableThermalStatusReport:38
@@ -1193,7 +1212,7 @@ msgstr ""
 #: stepseries.responses.ThermalStatus.thermalStatus:6
 #: stepseries.responses.ThermalStatus.thermalStatus:17
 msgid "Normal"
-msgstr ""
+msgstr "通常"
 
 #: ../../docstring of stepseries.commands.EnableThermalStatusReport:26
 #: stepseries.commands.EnableThermalStatusReport:40
@@ -1202,7 +1221,7 @@ msgstr ""
 #: stepseries.responses.ThermalStatus.thermalStatus:7
 #: stepseries.responses.ThermalStatus.thermalStatus:18
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: ../../docstring of stepseries.commands.EnableThermalStatusReport:26
 #: stepseries.commands.GetThermalStatus:17
@@ -1294,7 +1313,7 @@ msgstr ""
 
 #: of stepseries.commands.EnableUvloReport:1
 msgid "Enable or disable the automatic reporting of undervoltage events."
-msgstr ""
+msgstr " UVLO (Undervoltage Lockout) が発生した際に自動で通知メッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableUvloReport:3
 msgid ""
@@ -1303,20 +1322,22 @@ msgid ""
 "be operated. UVLO will be reset when the voltage supply again rises above"
 " that threshold."
 msgstr ""
+"UVLOはモータドライバへ供給されている電圧がUVLO発生条件電圧を下回ったら通知の有無にかかわらず発生します。"
+"この状態ではモータを動かすことはできません。供給電圧がUVLO解除条件電圧を上回ったら解除されます。"
 
 #: of stepseries.commands.Free:1
 msgid "Releases both the motor and brake."
-msgstr ""
+msgstr "モータ軸と電磁ブレーキ両方を解放します。"
 
 #: of stepseries.commands.Free:3
 msgid ""
 "If **any** load is attached to the motor, it will no longer be held when "
 "this command is sent."
-msgstr ""
+msgstr "このコマンドが送られると、モータの保持力は無くなります。"
 
 #: of stepseries.commands.GetAdcVal:1
 msgid "Retrieves ``ADC_OUT`` register values for a motor."
-msgstr ""
+msgstr "モータドライバの ``ADC_OUT`` レジスタの値を取り出します。"
 
 #: of stepseries.commands.GetAdcVal:3
 msgid ""
@@ -1324,71 +1345,74 @@ msgid ""
 "pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ resistor "
 "wired directly to the LIMITSW connector."
 msgstr ""
+"``ADC_OUT`` はモータドライバのADCピンの電圧を 5bitでAD変換したものです。"
+"STEP400の場合はこのピンは10kΩの抵抗でプルアップされて LIMITSW コネクタに接続されています。"
+"STEP800の場合はGNDに直結されています。"
 
 #: of stepseries.commands.GetAdcVal:9 stepseries.commands.GetConfigRegister:6
 #: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:3
 msgid ""
 "This command is only meant for debugging purposes. Most users should "
 "avoid this command."
-msgstr ""
+msgstr "このコマンドはデバッグ目的のために設けられています。通常このコマンドを使用する必要はありません。"
 
 #: of stepseries.commands.GetBemfParam:1
 msgid "Retrieves the BEMF compensation register."
-msgstr ""
+msgstr "BEMF補償設定レジスタの値を読み出します。"
 
 #: of stepseries.commands.GetBrakeTransitionDuration:1
 msgid "Retrieve the brake transition duration."
-msgstr ""
+msgstr "電磁ブレーキの遷移時間を取得します。"
 
 #: of stepseries.commands.GetBrakeTransitionDuration:3
 msgid ""
 "Due to the physical transition time of the brake, the motor needs to be "
 "engaged to cover this period which this command retrieves."
 msgstr ""
-
+"ブレーキの動作には物理的にある時間が必要なため、その間モータを励磁しておくのがこの遷移時間です。"
 #: of stepseries.commands.GetBusy:1
 msgid "Retrieve the busy status of a motor."
-msgstr ""
+msgstr "モータのBUSY状態を取得します。"
 
 #: of stepseries.commands.GetConfigName:1
 msgid "Retrieve the status of the microSD config file on the controller."
-msgstr ""
+msgstr "起動時にmicroSDカードから読み込まれたコンフィギュレーションファイルの名称を取得します。"
 
 #: of stepseries.commands.GetConfigRegister:1
 msgid "Retrieves the CONFIG register values for a motor."
-msgstr ""
+msgstr "モータドライバの CONFIG レジスタの値を取得します。"
 
 #: of stepseries.commands.GetConfigRegister:3
 msgid "This register stores information about motor, alaram, and switch statuses."
-msgstr ""
+msgstr "CONFIGレジスタにはモータやアラーム、スイッチの状態などが含まれます。"
 
 #: of stepseries.commands.GetDecayModeParam:1
 msgid "Retrieves the current control algorithm parameters."
-msgstr ""
+msgstr "電流制御アルゴリズムのパラメータを設定するレジスタ値を取得します。"
 
 #: of stepseries.commands.GetDir:1
 msgid "Retrieve the current direction of a motor."
-msgstr ""
+msgstr "モータの回転方向を取得します。"
 
 #: of stepseries.commands.GetElPos:1
 msgid "Retrieve the current electrical position of the motor."
-msgstr ""
+msgstr "モータの電気的位置 (electrical postion)を取得します。"
 
 #: of stepseries.commands.GetFullstepSpeed:1
 msgid "Retrieves the switch threshold of microstepping to fullstepping."
-msgstr ""
+msgstr "マイクロステッピングモードが自動でフルステップモードに切り替わる閾値を取得します。"
 
 #: of stepseries.commands.GetGoUntilTimeout:1
 msgid "Retrieve the timeout for :py:class:`stepseries.commands.GoUntil`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.GoUntil` 実行時のタイムアウト時間を取得します。"
 
 #: of stepseries.commands.GetHiZ:1
 msgid "Retrieve the HiZ status of a motor."
-msgstr ""
+msgstr "モータのHiZ状態を取得します。"
 
 #: of stepseries.commands.GetHomeSw:1
 msgid "Retrieve the status of the home switch."
-msgstr ""
+msgstr "HOMEスイッチの状態を取得します。"
 
 #: of stepseries.commands.GetHomeSwMode:1
 msgid "Retrieve the configured mode for the home switch."
