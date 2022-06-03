@@ -132,7 +132,7 @@ msgid ""
 "response."
 msgstr ""
 "``Commands`` はデバイスを制御するために使用し、 ``Responses`` はデバイスから送信されます。"
-"このライブラリは、データクラスオブジェクトとして両方を提供し、テンプレートや構造化された応答を提供します。"
+"このライブラリは、データクラスオブジェクトとして両方を提供し、値を入れるテンプレートや構造化された応答を提供します。"
 
 #: ../../python-step-series/about.rst:92
 msgid ""
@@ -153,7 +153,7 @@ msgid ""
 "response which will then be called when it is sent by a device."
 msgstr ""
 "``python-step-series`` はコールバックを用いたプログラミングをサポートします。"
-"コールバックをレスポンスにバインドして、デバイスからレスポンスが送信された際に呼び出すことができます。"
+"単一または複数のコールバックを単一のレスポンスにバインドして、デバイスからレスポンスが送信された際に呼び出すことができます。"
 
 #: ../../python-step-series/about.rst:103
 msgid "For example:"
@@ -161,7 +161,7 @@ msgstr "例えば："
 
 #: ../../python-step-series/about.rst:128
 msgid "You can also bind all responses to a callback:"
-msgstr "あるいは、すべてのレスポンスをコールバックにバインドすることもできます。"
+msgstr "あるいは、すべてのレスポンスを単一のコールバックにバインドすることもできます。"
 
 #: ../../python-step-series/about.rst:146
 msgid ""
@@ -208,7 +208,7 @@ msgid ""
 msgstr ""
 "いくつかのコマンドは、追加の ``response_cls`` 属性を持っています。"
 "この属性はライブラリ内部で使用されるものですが、もしすると何かの役に立つかもしれません。"
-"これはレスポンス・タイプを保持し、実際のデバイス・レスポンスは保持しません。"
+"これはレスポンスのタイプを保持し、デバイスからの実際のレスポンスは保持しません。"
 
 #: of stepseries.commands:10
 msgid ""
@@ -1416,69 +1416,70 @@ msgstr "HOMEスイッチの状態を取得します。"
 
 #: of stepseries.commands.GetHomeSwMode:1
 msgid "Retrieve the configured mode for the home switch."
-msgstr ""
+msgstr "HOMEスイッチの動作モードを取得します。"
 
 #: of stepseries.commands.GetHomingDirection:1
 msgid "Retrieve the homing direction for a motor."
-msgstr ""
+msgstr "モータの原点復帰方向を取得します。"
 
 #: of stepseries.commands.GetHomingSpeed:1
 msgid "Retrieve the homing speed for a motor."
-msgstr ""
+msgstr "モータの原点復帰速さを取得します。"
 
 #: of stepseries.commands.GetHomingStatus:1
 msgid "Retrieve the homing status of a motor."
-msgstr ""
+msgstr "モータの原点復帰ステータスを取得します。"
 
 #: of stepseries.commands.GetKval:1
 msgid "Retrieves the four KVAL parameters for a specified motor."
-msgstr ""
+msgstr "指定モータはKVALパラメータ群を取得します。"
 
 #: of stepseries.commands.GetLimitSw:1
 msgid "Retrieve the status of the limit switch."
-msgstr ""
+msgstr "LIMITスイッチの状態を取得します。"
 
 #: of stepseries.commands.GetLimitSwMode:1
 msgid "Retrieve the configured mode for the limit switch."
-msgstr ""
+msgstr "LIMITスイッチの動作モードを取得します。"
 
 #: of stepseries.commands.GetLowSpeedOptimizeThreshold:1
 msgid "Retrieve the low speed optimization threshold."
-msgstr ""
+msgstr "Low speed optimization threshold の現在の設定値を取得します。"
 
 #: of stepseries.commands.GetMark:1
 msgid "Retrieve the MARK position."
-msgstr ""
+msgstr "MARKの位置を取得します。"
 
 #: of stepseries.commands.GetMicrostepMode:1
 msgid "Retrieves the configured microstepping mode for a motor."
-msgstr ""
+msgstr "モータのマイクロステッピングモードを取得します。"
 
 #: of stepseries.commands.GetMinSpeed:1
 msgid "Retrieve the minimum speed of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの最低速さを取得します。"
 
 #: of stepseries.commands.GetMotorStatus:1
 msgid "Retrieve the current op status of a motor."
-msgstr ""
+msgstr "モータの動作ステータスを取得します。"
 
 #: of stepseries.commands.GetOverCurrentThreshold:1
 msgid "Retrieve the overcurrent threshold for a motor."
-msgstr ""
+msgstr "過電流アラームの閾値を取得します。"
 
 #: of stepseries.commands.GetPosition:1
 msgid "Retrieve the current position of the motor."
-msgstr ""
+msgstr "モータの現在位置を取得します。"
 
 #: of stepseries.commands.GetPosition:3
 msgid ""
 "Alternatively, :py:class:`stepseries.commands.SetPositionReportInterval` "
 "can be configured to periodically send the current position."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.SetPositionReportInterval` で、"
+"指定間隔で自動送信させることもできます。"
 
 #: of stepseries.commands.GetPositionList:1
 msgid "Retrieve the current positions for ALL motors."
-msgstr ""
+msgstr "全モータの現在位置を取得します。"
 
 #: of stepseries.commands.GetPositionList:3
 msgid ""
@@ -1486,91 +1487,96 @@ msgid ""
 ":py:class:`stepseries.commands.SetPositionListReportInterval` can be "
 "configured to periodically send the current position."
 msgstr ""
+msgstr ":py:class:`stepseries.commands.SetPositionReportInterval` で、"
+"指定間隔で自動送信させることもできます。"
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
 msgid ""
 "Retrieve if motion towards the origin point is disabled when the home "
 "switch is activated."
 msgstr ""
-
+"Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドが禁止されているかどうかを返します。"
 #: of stepseries.commands.GetProhibitMotionOnLimitSw:1
 msgid ""
 "Retrieve if motion towards the origin point is disabled when the limit "
 "switch is activated."
 msgstr ""
+"Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドが"
+"禁止されているかどうかを返します。"
 
 #: of stepseries.commands.GetReleaseSwTimeout:1
 msgid "Retrieve the timeout for :py:class:`stepseries.commands.ReleaseSw`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.ReleaseSw` のタイムアウト時間を取得します。"
 
 #: of stepseries.commands.GetServoParam:1
 msgid "Retrieve the servo PID control parameters."
-msgstr ""
+msgstr "サーボモードのPIDパラメータを取得します。"
 
 #: of stepseries.commands.GetSpeed:1
 msgid "Retrieve the current motor speed."
-msgstr ""
+msgstr "モータの現在速度を取得します。"
 
 #: of stepseries.commands.GetSpeedProfile:1
 msgid "Retrieves all three speed profile settings."
-msgstr ""
+msgstr "全モータのスピードプロファイル設定を取得します。"
 
 #: of stepseries.commands.GetStallThreshold:1
 msgid "Retrieve the stall threshold for a motor."
-msgstr ""
+msgstr "ストール検出の閾値を取得します。"
 
 #: of stepseries.commands.GetStatus:1
 msgid "Retrieves the status of the motor driver chip on the device."
-msgstr ""
+msgstr "モータドライバのSTATUSレジスタの値を返します。"
 
 #: of stepseries.commands.GetStatus:3
 msgid "This status includes the op status of the motor, alarms and, switches."
-msgstr ""
+msgstr "ステータスレジスタにはモータやアラーム、スイッチの状態などが含まれます。"
 
 #: of stepseries.commands.GetThermalStatus:1
 msgid "Retrieves the thermal status of motor."
-msgstr ""
+msgstr "ThermalStatusの現在の状態を取得します。"
 
 #: of stepseries.commands.GetThermalStatus:3
 #: stepseries.commands.SetOverCurrentThreshold:3
 #: stepseries.commands.SetStallThreshold:3
 msgid "Note that these thresholds are different between the STEP400 and STEP800."
-msgstr ""
+msgstr "STEP400とSTEP800では Thermal statusの種類や発生条件が異なります。"
 
 #: of stepseries.commands.GetTval:1 stepseries.commands.GetTval_mA:1
 msgid "Retrieves the configuration for all four TVAL parameters."
-msgstr ""
+msgstr "4つのTVALパラメータを取得します。"
 
 #: of stepseries.commands.GetTval_mA:3
 msgid ""
 "Unlike :py:class:`stepseries.commands.GetTval`, this returns the actual "
 "current values (in mA), not the register values."
 msgstr ""
-
+":py:class:`stepseries.commands.GetTval` とは異なり、"
+"レジスタの値ではなく単位[mA]の設定値で返します。"
 #: of stepseries.commands.GetUvlo:1
 msgid "Retrieves the current state of UVLO."
-msgstr ""
+msgstr "UVLOの状態を取得します。"
 
 #: of stepseries.commands.GetVersion:1
 msgid "Retrieve the current firmware version of the controller."
-msgstr ""
+msgstr "基板に書き込まれているファームウェアのバージョンを取得します。"
 
 #: of stepseries.commands.GoHome:1
 msgid "Send this motor to its origin (zero) point."
-msgstr ""
+msgstr "HOME位置までスピードプロファイルに従って移動します。"
 
 #: of stepseries.commands.GoHome:4 stepseries.commands.GoMark:4
 #: stepseries.commands.GoTo:15 stepseries.commands.GoToDir:15
 msgid "Not Busy"
-msgstr ""
+msgstr "BUSY状態でないとき"
 
 #: of stepseries.commands.GoMark:1
 msgid "Send this motor to its MARK positon."
-msgstr ""
+msgstr "MARK位置までスピードプロファイルに従って移動します。"
 
 #: of stepseries.commands.GoTo:1
 msgid "Moves to the specified position in the shortest route possible."
-msgstr ""
+msgstr "事前に設定したスピードプロファイルにしたがって、指定位置まで最短経路で移動します。"
 
 #: of stepseries.commands.GoTo:3
 msgid ""
@@ -1579,18 +1585,21 @@ msgid ""
 "motor is currently at -2097000, then the motor will move to -2097152, "
 "then 2097151, and finally 2097000."
 msgstr ""
+"※例えば円における0度と360度のように、ドライバ内部では -2,097,152 と 2,097,151 は1周して隣り合った位置になっています。"
+"すなわち、モータの現在地が-2097000のときに2097000を指定した場合は、モータは-2097152, "
+"さらに2097151を経由し、最終的に2097000に到着します。"
 
 #: of stepseries.commands.GoTo:8
 msgid ""
 "Alternatively, :py:class:`stepseries.commands.GoToDir` can be used to "
 "specific the direction in addition to the position."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.GoToDir` でモータ回転方向を指定することもできます。"
 
 #: of stepseries.commands.GoTo:11 stepseries.commands.GoToDir:11
 msgid ""
 "Keeps the motor in the 'BUSY' state until the specified position has been"
 " reached."
-msgstr ""
+msgstr "指定位置まで移動し終わるまではBUSY状態になります。"
 
 #: ../../docstring of stepseries.commands.GoTo.position:2
 #: stepseries.commands.GoToDir.position:2 stepseries.commands.GoUntil.speed:6
@@ -1637,7 +1646,7 @@ msgstr ""
 #: stepseries.commands.SetTval.runTVAL:4
 #: stepseries.commands.SetTval.setDecTVAL:4
 msgid "Valid Range"
-msgstr ""
+msgstr "有効な範囲"
 
 #: ../../docstring of stepseries.commands.GoTo.position:2
 #: stepseries.commands.GoToDir.position:2
@@ -1656,7 +1665,8 @@ msgstr ""
 
 #: of stepseries.commands.GoToDir:1
 msgid "Moves to specified position in the specified direction."
-msgstr ""
+msgstr "事前に設定したスピードプロファイルにしたがって、指定位置まで指定方向で移動します。"
+"指定位置まで移動し終わるまではBUSY状態になります。"
 
 #: of stepseries.commands.GoToDir:3
 msgid ""
@@ -2713,7 +2723,7 @@ msgstr ""
 
 #: of stepseries.exceptions:1
 msgid "Custom exceptions raised by this library."
-msgstr ""
+msgstr "このライブラリが発生させるカスタムの例外情報 (exceptions) です。"
 
 #: of stepseries.exceptions.ClientClosedError:1
 msgid "The client's connection is not open."
