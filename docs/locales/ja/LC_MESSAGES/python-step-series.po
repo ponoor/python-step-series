@@ -1032,7 +1032,7 @@ msgstr "有効になっている場合、モータに停止中、加速中、一
 
 #: of stepseries.commands.EnableOverCurrentReport:1
 msgid "Enable or disable the automatic reporting of overcurrent events."
-msgstr ""
+msgstr "指定した電流閾値を越えて電流が流れた場合に報告のメッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableOverCurrentReport:3
 msgid ""
@@ -1040,8 +1040,7 @@ msgid ""
 "configured threshold. This threshold can be set using "
 ":py:class:`stepseries.commands.SetOverCurrentThreshold`."
 msgstr ""
-"指定した電流閾値を越えて電流が流れた場合に報告のメッセージを送信します。この閾値は "
-":py:class:`stepseries.commands.SetOverCurrentThreshold` で指定します。"
+"この閾値は :py:class:`stepseries.commands.SetOverCurrentThreshold` で指定します。"
 
 #: of stepseries.commands.EnableOverCurrentReport:7
 msgid ""
@@ -1189,7 +1188,7 @@ msgstr ""
 #: stepseries.responses.Tval_mA.holdTVAL_mA:2
 #: stepseries.responses.Tval_mA.runTVAL_mA:2 stepseries.responses.Uvlo.state:2
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: of stepseries.commands.EnableThermalStatusReport:22
 #: stepseries.commands.EnableThermalStatusReport:36
@@ -1675,40 +1674,43 @@ msgid ""
 "and the motor is currently at -2097000, then the motor will move to "
 "-2000000, then 0, and finally 2097000."
 msgstr ""
+"※例えば円における0度と360度のように、ドライバ内部では -2,097,152 と 2,097,151 は1周して隣り合った位置になっています。"
 
 #: of stepseries.commands.GoToDir:8
 msgid ""
 "Alternatively, :py:class:`stepseries.commands.GoTo` will automatically "
 "determine the shortest route (around that 'circle')."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.GoTo` によって自動的に先ほどの「円」に沿って回転方向を決定させることもできます。"
 
 #: ../../docstring of stepseries.commands.GoToDir.DIR:1
 #: stepseries.commands.ReleaseSw.DIR:1
 #: stepseries.commands.SetHomingDirection.direction:1
 msgid "True or False, depending on your environment."
-msgstr ""
+msgstr "True: 正転方向, False: 逆転方向"
 
 #: of stepseries.commands.GoUntil:1
 msgid "Run a motor until the HOME switch activates or times out."
-msgstr ""
+msgstr "HOMEスイッチが反応するか、タイムアウトするまでモータを回転させます。"
 
 #: of stepseries.commands.GoUntil:3
 msgid ""
 "The motor will run at the speed and direction according to the ``speed`` "
 "parameter."
-msgstr ""
+msgstr "モータは ``speed`` パラメータの値に応じた速さと方向で回転します。"
 
 #: of stepseries.commands.GoUntil:6
 msgid ""
 "By default, the motor will soft stop unless if "
 ":py:class:`stepseries.commands.SetSwMode` is set to 0."
 msgstr ""
-
+"初期状態ではモータは softStop しますが、 :py:class:`stepseries.commands.SetSwMode` が"
+"0に設定されていると hardStop になります。"
 #: of stepseries.commands.GoUntil:9
 msgid ""
 "The timeout for this command can be set using "
 ":py:class:`stepseries.commands.SetGoUntilTimeout`."
 msgstr ""
+"タイムアウトの時間は :py:class:`stepseries.commands.SetGoUntilTimeout` を使って設定します。"
 
 #: of stepseries.commands.GoUntil:12 stepseries.commands.ReleaseSw:9
 msgid ""
@@ -1716,32 +1718,35 @@ msgid ""
 ":py:class:`stepseries.commands.SetHomingSpeed` or "
 ":py:class:`stepseries.commands.SetHomingDirection`."
 msgstr ""
+"このコマンドは "
+":py:class:`stepseries.commands.SetHomingSpeed` や "
+":py:class:`stepseries.commands.SetHomingDirection` の影響は受けません。"
 
 #: of stepseries.commands.GoUntil:16 stepseries.commands.ReleaseSw:13
 msgid "The motor is kept in a BUSY state until this command finishes."
-msgstr ""
+msgstr "このコマンドは、モータが停止するまでBUSY状態を保ちます。"
 
 #: ../../docstring of stepseries.commands.GoUntil.ACT:1
 msgid "The action to take when the HOME switch activates."
-msgstr ""
+msgstr "HOMEスイッチが反応した際の動作を指定します。"
 
 #: ../../docstring of stepseries.commands.GoUntil.ACT:4
 #: stepseries.commands.ReleaseSw.ACT:4
 msgid "Set the origin (home) position here"
-msgstr ""
+msgstr "その位置をHOMEに設定します。"
 
 #: ../../docstring of stepseries.commands.GoUntil.ACT:6
 #: stepseries.commands.ReleaseSw.ACT:6
 msgid "Copy the current position to the MARK register"
-msgstr ""
+msgstr "その位置を MARK レジスタにコピーします。"
 
 #: ../../docstring of stepseries.commands.GoUntil.speed:1
 msgid "The direction and speed to run."
-msgstr ""
+msgstr "回転速度"
 
 #: ../../docstring of stepseries.commands.GoUntil.speed:3
 msgid "Direction can be set by specifying a positive or negative value."
-msgstr ""
+msgstr "回転方向は、値の正負によって指定します。"
 
 #: ../../docstring of stepseries.commands.GoUntil.speed:6
 #: stepseries.commands.Run.speed:7
@@ -1754,7 +1759,7 @@ msgstr ""
 
 #: of stepseries.commands.HardHiZ:1 stepseries.commands.HardStop:1
 msgid "Immediately stops the motor."
-msgstr ""
+msgstr "モータを即時停止します。"
 
 #: of stepseries.commands.HardHiZ:3 stepseries.commands.SoftHiZ:3
 msgid ""
@@ -1763,6 +1768,10 @@ msgid ""
 "excitation is released. Transitions to HiZ after excitation is released. "
 "Remains in the BUSY state until the motor stops."
 msgstr ""
+"スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。"
+"励磁が解除されるとHiZ状態になります。モータが停止するまではBUSY状態になります。"
+"サーボモードだった場合は解除されます。"
+"電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
 
 #: of stepseries.commands.HardStop:3
 msgid ""
@@ -1770,14 +1779,16 @@ msgid ""
 "originally in a HiZ state. Remains in the BUSY state until the motor "
 "stops."
 msgstr ""
+"モータを即時停止し、励磁したままにします。モータが停止するまではBUSY状態になります。"
+"もともとHiZ状態だった場合は、停止したままモータが励磁します。"
 
 #: of stepseries.commands.HardStop:7 stepseries.commands.SoftStop:7
 msgid "If it was in servo mode, then the mode will be released."
-msgstr ""
+msgstr "サーボモードだった場合は解除されます。"
 
 #: of stepseries.commands.Homing:1
 msgid "Start homing the motor."
-msgstr ""
+msgstr "原点復帰動作を開始します。"
 
 #: of stepseries.commands.Homing:3
 msgid ""
@@ -1785,6 +1796,8 @@ msgid ""
 "the HOME switch activates. The motor will then slowly reverse until the "
 "HOME switch releases. The home point will be set to this point."
 msgstr ""
+"原点復帰方向に移動し、HOMEセンサが反応すると停止します。その後方向を反転してゆっくり移動し、"
+"HOMEセンサが反応しなくなった時点で停止し、現在位置を0 (HOME)にします。"
 
 #: of stepseries.commands.Homing:8
 msgid ""
@@ -1792,6 +1805,8 @@ msgid ""
 ":py:class:`stepseries.commands.GoUntil` and "
 ":py:class:`stepseries.commands.ReleaseSw`."
 msgstr ""
+"これは :py:class:`stepseries.commands.GoUntil` コマンドを実行し、"
+"HOMEセンサが反応すると停止して :py:class:`stepseries.commands.ReleaseSw` コマンドを実行することに相当します。"
 
 #: of stepseries.commands.Homing:12
 msgid ""
@@ -1800,6 +1815,8 @@ msgid ""
 ":py:class:`stepseries.commands.SetHomingSpeed`, respectively; or "
 "configured with the `Config Tool`_."
 msgstr ""
+"原点復帰方向と原点復帰スピードはそれぞれ :py:class:`stepseries.commands.SetHomingDirection` と "
+":py:class:`stepseries.commands.SetHomingSpeed` で設定できるほか、 `Config Tool`_ からも設定できます。"
 
 #: of stepseries.commands.Homing:17
 msgid ""
@@ -1808,117 +1825,125 @@ msgid ""
 "switch before :py:class:`stepseries.commands.SetReleaseSwTimeout`, then "
 "the controller will halt the motor's movements."
 msgstr ""
+"もし :py:class:`stepseries.commands.SetGoUntilTimeout` までにHOMEスイッチが反応しなかった場合や、"
+" :py:class:`stepseries.commands.SetReleaseSwTimeout` までにHOMEスイッチが解除されなかった場合は、"
+"タイムアウトとして動作を停止します。"
 
 #: of stepseries.commands.Move:1
 msgid "Move the motor the specified number of steps."
-msgstr ""
+msgstr "指定ステップ数移動します。"
 
 #: of stepseries.commands.Move:3
 msgid ""
 "Keeps the motor in the 'BUSY' state until the specified steps has been "
 "reached."
-msgstr ""
+msgstr "指定ステップ数を移動し終わるまではBUSY状態になります。"
 
 #: of stepseries.commands.OSCCommand:1
 msgid "An abstract class meant to be implemented by OSC command objects."
-msgstr ""
+msgstr "OSCコマンドオブジェクトによって実装されることを目的とした抽象クラスです。"
 
 #: of stepseries.commands.OSCCommand:3
 msgid "If implementing your own command, it must inherit this class."
-msgstr ""
+msgstr "もし独自のコマンドを実装する場合は、このクラスを継承する必要があります。"
 
 #: of stepseries.commands.OSCCommand.build:1
 msgid "Converts the builder to a usable OSC message."
-msgstr ""
+msgstr "ビルダを使用可能なOSCメッセージに変換します。"
 
 #: of stepseries.commands.OSCCommand.stringify:1
 msgid "Converts the builder to an OSC message string."
-msgstr ""
+msgstr "ビルダをOSCメッセージ文字列へ変換します。"
 
 #: of stepseries.commands.OSCGetCommand:1
 msgid "A command that only performs get functions on the device."
-msgstr ""
+msgstr "デバイス上で get 機能のみを実行するコマンドです。"
 
 #: of stepseries.commands.OSCSetCommand:1
 msgid "A command that only performs set functions on the device."
-msgstr ""
+msgstr "デバイス上で set 機能のみを実行するコマンドです。"
 
 #: of stepseries.commands.ReleaseSw:1
 msgid "Move at a minimum speed until the HOME switch releases."
-msgstr ""
+msgstr "HOMEスイッチが解放されるまで最小スピードで移動します。"
 
 #: of stepseries.commands.ReleaseSw:3
 msgid ""
 "On release, the controller will hard stop the motor and then process the "
 "motor's position according to ``ACT``."
 msgstr ""
+"スイッチが解放されると hardStop し、 ``ACT`` に応じた処理を行います。"
 
 #: of stepseries.commands.ReleaseSw:6
 msgid ""
 "The timeout for this command can be set using "
 ":py:class:`stepseries.commands.SetReleaseSwTimeout`."
 msgstr ""
+"このコマンドのタイムアウトは :py:class:`stepseries.commands.SetReleaseSwTimeout` "
+"で設定できます。"
 
 #: ../../docstring of stepseries.commands.ReleaseSw.ACT:1
 msgid "The action to take when the HOME switch releases."
-msgstr ""
+msgstr "スイッチが解放された際の処理"
 
 #: of stepseries.commands.ReportError:1
 msgid "Enable or disable automatic reports for command errors."
-msgstr ""
+msgstr "コマンドエラーの自動送信の有効・無効を切り替えます。"
 
 #: of stepseries.commands.ResetDevice:1
 msgid "Resets the entire device."
-msgstr ""
+msgstr "デバイス全体をリセットします。"
 
 #: of stepseries.commands.ResetDevice:3
 msgid "A programmatic version of physically pressing the RESET button."
-msgstr ""
+msgstr "基板上のRESETボタンを物理的に押下した場合と同じ動作です。"
 
 #: of stepseries.commands.ResetMotorDriver:1
 msgid "Resets the specified motor driver chip and resets defaults."
-msgstr ""
+msgstr "指定したモータドライバ (PowerSTEP01/L6470) をリセットし、初期設定値を再度書き込みます。"
 
 #: of stepseries.commands.ResetMotorDriver:10
 msgid "``Deprecated``"
-msgstr ""
+msgstr "``非推奨``"
 
 #: of stepseries.commands.ResetPos:1
 msgid "Resets the motor's position to 0."
-msgstr ""
+msgstr "モータの現在位置を0にリセットします。"
 
 #: of stepseries.commands.Run:1
 msgid "Run the motor at a constant speed."
-msgstr ""
+msgstr "モータを一定速度で回転させます。"
 
 #: of stepseries.commands.Run:3
 msgid ""
 "The motor follows the configured speed profile set with "
 ":py:class:`stepseries.commands.SetSpeedProfile`."
 msgstr ""
-
+":py:class:`stepseries.commands.SetSpeedProfile` で設定したスピードプロファイル"
+"に従って加速・減速します。"
 #: of stepseries.commands.Run:6
 msgid "Keeps the motor in the 'BUSY' state until ``speed`` has been reached."
-msgstr ""
+msgstr "``speed`` に到達するまではBUSY状態になります。"
 
 #: ../../docstring of stepseries.commands.Run.speed:1
 msgid "Speed to run the motor at."
-msgstr ""
+msgstr "モータの回転速さ"
 
 #: ../../docstring of stepseries.commands.Run.speed:3
 msgid ""
 "Negative values run the motor in reverse. Limited by the maximum and "
 "minimum speed set in the speed profile."
 msgstr ""
-
+"マイナスの値を指定するとモータの回転が逆転します。"
+"またスピードはスピードプロファイルの最大・最小速さによって上下がリミットされます。"
 #: of stepseries.commands.SetAcc:1
 msgid "Sets the acceleration of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの、加速度を設定します。"
 
 #: ../../docstring of stepseries.commands.SetAcc.acc:1
 #: stepseries.commands.SetSpeedProfile.acc:1
 msgid "Acceleration."
-msgstr ""
+msgstr "加速度"
 
 #: ../../docstring of stepseries.commands.SetAcc.acc:4
 #: stepseries.commands.SetDec.dec:4 stepseries.commands.SetSpeedProfile.acc:4
@@ -1934,17 +1959,19 @@ msgstr ""
 
 #: of stepseries.commands.SetBemfParam:1
 msgid "Sets the BEMF compensation register."
-msgstr ""
+msgstr "BEMF補償レジスタを設定します。"
 
 #: of stepseries.commands.SetBemfParam:3
 msgid ""
 "BEMF only applies when the motor controller is in voltage mode. This goes"
 " without saying BEMF always applies on the STEP800."
 msgstr ""
+"BEMFはドライバが電圧モードになっているときだけ有効です。"
+"すなわち、STEP800ではBEMF補償は常時有効になっています。"
 
 #: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_ACC:1
 msgid "FN_SLP_ACC register."
-msgstr ""
+msgstr "FN_SLP_ACCレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_ACC:4
 #: stepseries.commands.SetBemfParam.FN_SLP_DEC:4
@@ -1969,11 +1996,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetBemfParam.FN_SLP_DEC:1
 msgid "FN_SLP_DEC register."
-msgstr ""
+msgstr "FN_SLP_DECレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetBemfParam.INT_SPEED:1
 msgid "INT_SPEED register."
-msgstr ""
+msgstr "INT_SPEEDレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetBemfParam.INT_SPEED:4
 msgid "0-16383"
@@ -1985,7 +2012,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetBemfParam.ST_SLP:1
 msgid "ST_SLP register."
-msgstr ""
+msgstr "ST_SLPレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetBemfParam.ST_SLP:6
 #: stepseries.commands.SetDecayModeParam.T_FAST:6
@@ -2001,6 +2028,9 @@ msgid ""
 "Due to the physical transition time of the brake, the motor needs to be "
 "engaged to cover this period."
 msgstr ""
+"電磁ブレーキの保持・開放時に、モータを励磁したままにしておく遷移時間を指定します。"
+"これは物理的にブレーキ機構が動作する時間がかかるため、"
+"ブレーキの動作が完了するまでモータ軸を保持しておくために必要な時間です。"
 
 #: ../../docstring of stepseries.commands.SetBrakeTransitionDuration.duration:2
 msgid "0-10000  [ms]"
@@ -2012,30 +2042,31 @@ msgstr ""
 
 #: of stepseries.commands.SetCurrentMode:1
 msgid "Switch a specific motor into current mode."
-msgstr ""
+msgstr "指定したモータを電流モードに切り替えます。"
 
 #: of stepseries.commands.SetCurrentMode:5 stepseries.commands.SetVoltageMode:5
 msgid "The STEP800 is always in voltage mode and cannot be switched."
-msgstr ""
+msgstr "STEP800では常に電圧モードで動作しますので、電流モードには切り替えられません。"
 
 #: of stepseries.commands.SetDec:1
 msgid "Sets the deceleration of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの減速度を設定します。"
 
 #: ../../docstring of stepseries.commands.SetDec.dec:1
 #: stepseries.commands.SetSpeedProfile.dec:1
 msgid "Deceleration."
-msgstr ""
+msgstr "減速度"
 
 #: of stepseries.commands.SetDecayModeParam:1
 msgid "Sets the current control algorithm parameters."
-msgstr ""
+msgstr "電流制御アルゴリズムのパラメータのレジスタを設定します。"
 
 #: of stepseries.commands.SetDecayModeParam:5
 msgid ""
 "Decay mode only applies when the motor controller is in current mode. "
 "This goes without saying decay mode never applies on the STEP800."
-msgstr ""
+msgstr "Decayモードは電流モードにのみ適用されます。"
+"すなわちSTEP800では常に無効です。"
 
 #: of stepseries.commands.SetDecayModeParam:10
 #: stepseries.commands.SetHomeSwMode:4
@@ -2044,19 +2075,19 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetDecayModeParam.TOFF_MIN:1
 msgid "TOFF_MIN register value."
-msgstr ""
+msgstr "TOFF_MINレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetDecayModeParam.TON_MIN:1
 msgid "TON_MIN register value."
-msgstr ""
+msgstr "TON_MINレジスタの値"
 
 #: ../../docstring of stepseries.commands.SetDecayModeParam.T_FAST:1
 msgid "T_FAST register value."
-msgstr ""
+msgstr "T_FASTレジスタの値"
 
 #: of stepseries.commands.SetDestIP:1
 msgid "Set the destination IP address for the device's responses."
-msgstr ""
+msgstr "デバイスが返答を送信する相手のIPアドレスを指定します。"
 
 #: of stepseries.commands.SetDestIP:3
 msgid ""
@@ -2065,6 +2096,9 @@ msgid ""
 "receipt, the device will reply with a "
 ":py:class:`stepseries.responses.DestIP`. object."
 msgstr ""
+"モータの状態に変化があったときに通知するメッセージや、問い合わせへ返答するメッセージなどは"
+"このIPアドレスに送信されるようになります。通常は制御に使うコンピュータのIPアドレスを指定することになります。"
+"このメッセージを受信すると、デバイス側は :py:class:`stepseries.responses.DestIP` の返答を送信します。 "
 
 #: of stepseries.commands.SetDestIP:8
 msgid ""
@@ -2072,6 +2106,9 @@ msgid ""
 "with the exception being ``responses.Booted``. The `Config Tool`_ allows "
 "you to configure whether the device should wait for this command."
 msgstr ""
+"また、このメッセージが受信されるまでは、本デバイスからOSCメッセージの送信は行いませんので、"
+"一番最初にこのコマンドを送信してください。唯一の例外は ``responses.Booted`` メッセージです。"
+"`Config Tool`_ を用いて、デバイス側がこのメッセージを待つかどうかを変更できます。"
 
 #: of stepseries.commands.SetDestIP:13
 msgid ""
@@ -2079,6 +2116,8 @@ msgid ""
 ":py:class:`stepseries.responses.DestIP` is received. This behavior will "
 "be changed in a future update."
 msgstr ""
+"Note: ライブラリは :py:class:`stepseries.responses.DestIP` を受信するまでは return します。"
+"この挙動は将来のアップデートで変更される可能性があります。"
 
 #: of stepseries.commands.SetElPos:1
 msgid "Set the electrical position of the motor."
