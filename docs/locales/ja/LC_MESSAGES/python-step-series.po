@@ -2121,14 +2121,14 @@ msgstr ""
 
 #: of stepseries.commands.SetElPos:1
 msgid "Set the electrical position of the motor."
-msgstr ""
+msgstr "モータの電気的位置(electrical postion)を設定します。"
 
 #: of stepseries.commands.SetElPos:3
 msgid ""
 "Microstepping is expressed as step/128 and the value must match the "
 "current microstep mode."
 msgstr ""
-
+"マイクロステップは0-127の128段階で表現されていますので、設定時は現在のマイクロステップと齟齬のない値を設定する必要があります。"
 #: ../../docstring of stepseries.commands.SetElPos.newFullstep:2
 msgid "0 - 3"
 msgstr ""
@@ -2139,11 +2139,11 @@ msgstr ""
 
 #: of stepseries.commands.SetFullstepSpeed:1
 msgid "Sets the threshold when microstepping switches to full stepping."
-msgstr ""
+msgstr "マイクロステッピングモードが自動でフルステップモードに切り替わる閾値を設定します。"
 
 #: ../../docstring of stepseries.commands.SetFullstepSpeed.fullstepSpeed:1
 msgid "Full-step speed."
-msgstr ""
+msgstr "切り替わる閾値"
 
 #: ../../docstring of stepseries.commands.SetFullstepSpeed.fullstepSpeed:4
 msgid "7.63 - 15625 [steps/s]"
@@ -2155,29 +2155,31 @@ msgstr ""
 
 #: of stepseries.commands.SetGoUntilTimeout:1
 msgid "Set the timeout for :py:class:`stepseries.commands.GoUntil`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.GoUntil` 実行時のタイムアウトを設定します。"
 
 #: of stepseries.commands.SetGoUntilTimeout:3
 msgid ""
 "If the HOME switch is not activated before this timeout, then the "
 "controller stops the motor's movements. Specify 0 to disable the timeout."
 msgstr ""
+"この時間内にHOMEセンサに反応がなかった場合にはtimeoutとして動作を中止します。"
+"0を指定するとタイムアウトが無効になります。"
 
 #: of stepseries.commands.SetGoUntilTimeout:7
 #: stepseries.commands.SetHomingDirection:3
 #: stepseries.commands.SetHomingSpeed:3
 #: stepseries.commands.SetReleaseSwTimeout:7
 msgid "Can also be configured with the `Config Tool`_."
-msgstr ""
+msgstr "`Config Tool`_. からも設定できます。"
 
 #: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:1
 #: stepseries.commands.SetReleaseSwTimeout.timeOut:1
 msgid "How long to wait for the HOME switch to activate."
-msgstr ""
+msgstr "HOMEスイッチは反応するまでの待ち時間"
 
 #: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:4
 #: stepseries.commands.SetReleaseSwTimeout.timeOut:4
-msgid "0 - 65535 [ms]"
+msgid "0 - 4294967295 [ms]"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:6
@@ -2187,34 +2189,34 @@ msgstr ""
 
 #: of stepseries.commands.SetHomeSwMode:1
 msgid "Configure whether to stop immediately on home switch release."
-msgstr ""
+msgstr "HOMEスイッチ端子に入力があった際に即時停止するかどうか(Switch mode)を指定します。"
 
 #: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:1
 #: stepseries.commands.SetLimitSwMode.SW_MODE:1
 msgid "If True, do not stop."
-msgstr ""
+msgstr "Trueの場合、停止しない"
 
 #: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:4
 #: stepseries.commands.SetLimitSwMode.SW_MODE:4
 msgid "Hard stop the motor"
-msgstr ""
+msgstr "モータを即時停止する"
 
 #: ../../docstring of stepseries.commands.SetHomeSwMode.SW_MODE:6
 #: stepseries.commands.SetLimitSwMode.SW_MODE:6
 msgid "Do not stop"
-msgstr ""
+msgstr "停止しない"
 
 #: of stepseries.commands.SetHomingDirection:1
 msgid "Sets the homing direction for homing."
-msgstr ""
+msgstr "原点復帰の方向を設定します。"
 
 #: of stepseries.commands.SetHomingSpeed:1
 msgid "Set the homing speed for a motor."
-msgstr ""
+msgstr "原点復帰の速さを指定します。"
 
 #: ../../docstring of stepseries.commands.SetHomingSpeed.speed:1
 msgid "Speed to run at."
-msgstr ""
+msgstr "回転の速さ"
 
 #: ../../docstring of stepseries.commands.SetHomingSpeed.speed:4
 msgid "0.0 - 15625.0 [steps/s]"
@@ -2226,17 +2228,18 @@ msgstr ""
 
 #: of stepseries.commands.SetKval:1
 msgid "Sets the configuration for all four KVAL parameters."
-msgstr ""
+msgstr "KVALパラメータ4種をまとめて設定します。"
 
 #: of stepseries.commands.SetKval:3
 msgid ""
 "KVAL only applies when the motor controller is in voltage mode. This goes"
 " without saying KVAL always applies on the STEP800."
 msgstr ""
+"KVALは電圧モードでののみ有効です。すなわち、STEP800では常時有効となります。"
 
 #: ../../docstring of stepseries.commands.SetKval.accKVAL:1
 msgid "KVAL for accelerating the motor's speed."
-msgstr ""
+msgstr "モータ加速時のKVAL"
 
 #: ../../docstring of stepseries.commands.SetKval.accKVAL:6
 #: stepseries.commands.SetKval.decKVAL:6 stepseries.commands.SetKval.holdKVAL:6
@@ -2248,40 +2251,41 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetKval.decKVAL:1
 msgid "KVAL for decelerating the motor's speed."
-msgstr ""
+msgstr "モータ減速時のKVAL"
 
 #: ../../docstring of stepseries.commands.SetKval.holdKVAL:1
 msgid "KVAL for holding the motor's position."
-msgstr ""
+msgstr "モータ停止時のKVAL"
 
 #: ../../docstring of stepseries.commands.SetKval.runKVAL:1
 msgid "KVAL for maintaining the motor's speed."
-msgstr ""
+msgstr "モータが一定速運転時のKVAL"
 
 #: of stepseries.commands.SetLimitSwMode:1
 msgid "Configure whether to stop immediately on limit switch activated."
-msgstr ""
+msgstr "LIMITスイッチ端子に入力があった際に即時停止するかどうか(Switch mode)を指定します。"
 
 #: of stepseries.commands.SetLowSpeedOptimizeThreshold:1
 msgid "Set the threshold for phase current distortion compensation."
-msgstr ""
+msgstr "低速回転時の相電流ひずみ補正を行う閾値を設定します。"
 
 #: of stepseries.commands.SetLowSpeedOptimizeThreshold:3
 msgid ""
 "At very low speeds with minimal drive voltage, motors tend to have "
 "difficulty maintaining smooth operation due to phase current distortion. "
 "This optimizer attempts to compensate for that."
-msgstr ""
+msgstr "低い電圧で非常に遅く回転した際に、相電流の歪みにより"
+"滑らかな回転を維持するのが難しくなる傾向があり、それを補正するためのパラメータです。"
 
 #: of stepseries.commands.SetLowSpeedOptimizeThreshold:7
 msgid ""
 "Make sure to enable this optimizer with "
 ":py:class:`stepseries.commands.EnableLowSpeedOptimize`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.EnableLowSpeedOptimize` でこの補正が有効になっていることを確認してください。"
 
 #: of stepseries.commands.SetLowSpeedOptimizeThreshold:11
 msgid "Motor is stopped"
-msgstr ""
+msgstr "モータ停止時"
 
 #: ../../docstring of
 #: stepseries.commands.SetLowSpeedOptimizeThreshold.lowSpeedOptimizationThreshold:2
@@ -2296,26 +2300,26 @@ msgstr ""
 
 #: of stepseries.commands.SetMark:1
 msgid "Set the MARK register to an arbitrary position."
-msgstr ""
+msgstr "MARKを任意の位置に設定します。"
 
 #: of stepseries.commands.SetMark:3
 msgid ""
 "This register allows you store one position. Each write overwrites the "
 "last position set to this register."
-msgstr ""
+msgstr "このレジスタは位置座標をひとつ保存できます。書き込むと、前回保存した値を上書きします。"
 
 #: ../../docstring of stepseries.commands.SetMark.MARK:1
 msgid "Point to be set."
-msgstr ""
+msgstr "設定する位置座標"
 
 #: of stepseries.commands.SetMaxSpeed:1
 msgid "Set the maximum speed of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの、最大回転速さを設定します。"
 
 #: ../../docstring of stepseries.commands.SetMaxSpeed.maxSpeed:1
 #: stepseries.commands.SetSpeedProfile.maxSpeed:1
 msgid "Maximum speed."
-msgstr ""
+msgstr "最大回転速さ"
 
 #: ../../docstring of stepseries.commands.SetMaxSpeed.maxSpeed:4
 #: stepseries.commands.SetSpeedProfile.maxSpeed:4
@@ -2329,17 +2333,19 @@ msgstr ""
 
 #: of stepseries.commands.SetMicrostepMode:1
 msgid "Sets the microstepping mode."
-msgstr ""
+msgstr "マイクロステッピングモードを設定します。"
 
 #: of stepseries.commands.SetMicrostepMode:3
 msgid ""
 "Voltage mode allows microstepping up to 1/128 which is also the default. "
 "Current mode only allows microstepping up to 1/16."
 msgstr ""
+"電圧モードでは、初期値である1/128まで設定できます。"
+"電流モードでは、1/16までしか設定できません。"
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:1
 msgid "The microstep mode to run the motor at."
-msgstr ""
+msgstr "マイクロステッピングモード"
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:4
 msgid "STEP_SEL"
@@ -2347,11 +2353,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:4
 msgid "Mode Description"
-msgstr ""
+msgstr "モード"
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:6
 msgid "1/1 microstep (full-step)"
-msgstr ""
+msgstr "1/1 microstep （フルステップ）"
 
 #: ../../docstring of stepseries.commands.SetMicrostepMode.STEP_SEL:8
 msgid "1/2 microstep"
@@ -2404,23 +2410,25 @@ msgstr ""
 
 #: of stepseries.commands.SetMinSpeed:1
 msgid "Sets the minimum speed of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの最小速さを設定します。"
 
 #: of stepseries.commands.SetMinSpeed:3
 msgid ""
 "Also used for the motor speed of "
 ":py:class:`stepseries.commands.ReleaseSw`."
-msgstr ""
+msgstr "この値は :py:class:`stepseries.commands.ReleaseSw` 時のモータ回転速さにも使用されます。"
 
 #: of stepseries.commands.SetMinSpeed:6
 msgid ""
 "If :py:class:`stepseries.commands.EnableLowSpeedOptimize` is enabled, the"
 " this is automatically set to zero."
 msgstr ""
+":py:class:`stepseries.commands.EnableLowSpeedOptimize` が有効になっている場合は、"
+"この値は強制的に0になります。"
 
 #: ../../docstring of stepseries.commands.SetMinSpeed.minSpeed:1
 msgid "Minimum speed."
-msgstr ""
+msgstr "最小速さ"
 
 #: ../../docstring of stepseries.commands.SetMinSpeed.minSpeed:4
 msgid "0 - 976.3 [steps/s]"
@@ -2428,11 +2436,11 @@ msgstr ""
 
 #: of stepseries.commands.SetOverCurrentThreshold:1
 msgid "Sets the overcurrent detection threshold."
-msgstr ""
+msgstr "過電流検出の閾値を設定します。STEP400とSTEP800では設定値の範囲と対応する電流が異なっています。"
 
 #: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:1
 msgid "The overcurrent threshold."
-msgstr ""
+msgstr "過電流検出の閾値"
 
 #: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:6
 #: stepseries.commands.SetOverCurrentThreshold.OCD_TH:24
@@ -2444,7 +2452,7 @@ msgstr ""
 #: stepseries.commands.SetStallThreshold.STALL_TH:6
 #: stepseries.commands.SetStallThreshold.STALL_TH:24
 msgid "Threshold"
-msgstr ""
+msgstr "閾値"
 
 #: ../../docstring of stepseries.commands.SetOverCurrentThreshold.OCD_TH:8
 #: stepseries.commands.SetStallThreshold.STALL_TH:8
@@ -2511,33 +2519,33 @@ msgstr ""
 
 #: of stepseries.commands.SetPosition:1
 msgid "Overwrites the motor's current position."
-msgstr ""
+msgstr "モータの位置座標を指定した値で上書きします。"
 
 #: ../../docstring of stepseries.commands.SetPosition.newPosition:1
 msgid "Position to override with."
-msgstr ""
+msgstr "上書きする位置"
 
 #: of stepseries.commands.SetPositionListReportInterval:1
 msgid "Periodically send the current positions of all motors."
-msgstr ""
+msgstr "すべてのモータの現在位置を指定間隔で自動送信します。"
 
 #: of stepseries.commands.SetPositionListReportInterval:3
 msgid ""
 "When enabled, :py:class:`stepseries.commands.SetPositionReportInterval` "
 "will be disabled."
-msgstr ""
+msgstr "有効化された場合、 :py:class:`stepseries.commands.SetPositionReportInterval` は無効になり自動停止します。"
 
 #: ../../docstring of
 #: stepseries.commands.SetPositionListReportInterval.interval:1
 #: stepseries.commands.SetPositionReportInterval.interval:1
 msgid "Time interval between reports."
-msgstr ""
+msgstr "自動送信の間隔"
 
 #: ../../docstring of
 #: stepseries.commands.SetPositionListReportInterval.interval:3
 #: stepseries.commands.SetPositionReportInterval.interval:3
 msgid "When set to 0, this reporting is disabled."
-msgstr ""
+msgstr "0を指定すると無効化され、送信を停止します。"
 
 #: ../../docstring of
 #: stepseries.commands.SetPositionListReportInterval.interval:6
@@ -2553,7 +2561,7 @@ msgstr ""
 
 #: of stepseries.commands.SetPositionReportInterval:1
 msgid "Periodically send the current position of a motor."
-msgstr ""
+msgstr "指定したモータの現在位置を指定間隔で自動送信します。"
 
 #: of stepseries.commands.SetPositionReportInterval:3
 msgid ""
@@ -2561,10 +2569,11 @@ msgid ""
 ":py:class:`stepseries.commands.SetPositionListReportInterval` will be "
 "disabled."
 msgstr ""
+"いずれかのモータで有効化された場合、 :py:class:`stepseries.commands.SetPositionListReportInterval` は無効になり自動停止します。 "
 
 #: of stepseries.commands.SetProhibitMotionOnHomeSw:1
 msgid "Prohibit motion to the origin when the home sensor is activated."
-msgstr ""
+msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
 
 #: of stepseries.commands.SetProhibitMotionOnHomeSw:3
 #: stepseries.commands.SetProhibitMotionOnLimitSw:3
@@ -2572,10 +2581,10 @@ msgid ""
 "The direction to the origin point can be configured using the `Config "
 "Tool`_ or with :py:class:`stepseries.commands.SetHomingDirection`."
 msgstr ""
-
+"原点復帰方向は `Config Tool`_ や :py:class:`stepseries.commands.SetHomingDirection` で設定できます。"
 #: ../../docstring of stepseries.commands.SetProhibitMotionOnHomeSw.enable:1
 msgid "If True, disable motion in the origin direction."
-msgstr ""
+msgstr "Trueで禁止"
 
 #: of stepseries.commands.SetProhibitMotionOnLimitSw:1
 msgid "Prohibit motion to the origin when the limit sensor is activated."
