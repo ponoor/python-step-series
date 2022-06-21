@@ -129,7 +129,7 @@ class GetVersion(OSCGetCommand):
 
 @dataclass
 class GetConfigName(OSCGetCommand):
-    """Retrieve the status of the microSD config file on the controller.
+    """Retrieve the name of the microSD config file on the controller.
 
     +-----------------+------+
     |Executable Timing|Always|
@@ -631,10 +631,9 @@ class GetAdcVal(OSCGetCommand):
     """Retrieves ``ADC_OUT`` register values for a motor.
 
     ``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the
-    ADC pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ
+    ADC pin on the motor driver chip. In STEP400, this pin is pulled up with a 10kΩ
     resistor wired directly to the LIMITSW connector.
-
-    ``STEP400 Only``
+    In STEP800, this pin is tied with GND and will always 0V.
 
     .. note:: This command is only meant for debugging purposes. Most
         users should avoid this command.
@@ -1218,7 +1217,7 @@ class GetProhibitMotionOnHomeSw(OSCGetCommand):
 
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCSetCommand):
-    """Prohibit motion to the origin when the limit sensor is activated.
+    """Prohibit motion to the counter origin direction when the limit sensor is activated.
 
     The direction to the origin point can be configured using the
     `Config Tool`_ or with
@@ -1252,7 +1251,7 @@ class SetProhibitMotionOnLimitSw(OSCSetCommand):
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCGetCommand):
     """
-    Retrieve if motion towards the origin point is disabled when the
+    Retrieve if motion towards the counter origin direction is disabled when the
     limit switch is activated.
 
     ``STEP400 Only``
@@ -2939,7 +2938,7 @@ class GoToDir(OSCSetCommand):
 
     -2097152 and 2097151 are next to each other in the driver chip, like
     how 0 and 360 are on a circle. As an example, if you specify
-    2097000, False and the motor is currently at -2097000, then the
+    2097000, True (forward) and the motor is currently at -2097000, then the
     motor will move to -2000000, then 0, and finally 2097000.
 
     Alternatively, :py:class:`stepseries.commands.GoTo` will
@@ -2963,7 +2962,7 @@ class GoToDir(OSCSetCommand):
     +-------+--------+
     """
     DIR: bool
-    """True or False, depending on your environment."""
+    """True for forward, False for backward."""
     position: int
     """
     +-----------+------------------+
@@ -3003,8 +3002,7 @@ class HardStop(OSCSetCommand):
     """Immediately stops the motor.
 
     After stopping, the motor is kept in an excited state if it was
-    originally in a HiZ state. Remains in the BUSY state until the motor
-    stops.
+    originally in a HiZ state. 
 
     If it was in servo mode, then the mode will be released.
 
