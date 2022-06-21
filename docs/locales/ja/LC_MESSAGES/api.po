@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-22 17:34-0500\n"
+"POT-Creation-Date: 2022-06-21 19:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr ""
 #: stepseries.commands.EnableSwEventReport:11
 #: stepseries.commands.EnableThermalStatusReport:16
 #: stepseries.commands.EnableUvloReport:11 stepseries.commands.Free:10
-#: stepseries.commands.GetAdcVal:13 stepseries.commands.GetBemfParam:4
+#: stepseries.commands.GetAdcVal:12 stepseries.commands.GetBemfParam:4
 #: stepseries.commands.GetBrakeTransitionDuration:7
 #: stepseries.commands.GetBusy:4 stepseries.commands.GetConfigName:4
 #: stepseries.commands.GetConfigRegister:10
@@ -162,7 +162,7 @@ msgstr ""
 #: stepseries.commands.GetVersion:4 stepseries.commands.GoHome:4
 #: stepseries.commands.GoMark:4 stepseries.commands.GoTo:15
 #: stepseries.commands.GoToDir:15 stepseries.commands.GoUntil:19
-#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
+#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:9
 #: stepseries.commands.Homing:24 stepseries.commands.Move:7
 #: stepseries.commands.ReleaseSw:16 stepseries.commands.ReportError:4
 #: stepseries.commands.ResetDevice:6 stepseries.commands.ResetMotorDriver:7
@@ -207,7 +207,7 @@ msgstr ""
 #: stepseries.commands.EnableSwEventReport:11
 #: stepseries.commands.EnableThermalStatusReport:16
 #: stepseries.commands.EnableUvloReport:11 stepseries.commands.Free:10
-#: stepseries.commands.GetAdcVal:13 stepseries.commands.GetBemfParam:4
+#: stepseries.commands.GetAdcVal:12 stepseries.commands.GetBemfParam:4
 #: stepseries.commands.GetBrakeTransitionDuration:7
 #: stepseries.commands.GetBusy:4 stepseries.commands.GetConfigName:4
 #: stepseries.commands.GetConfigRegister:10
@@ -233,7 +233,7 @@ msgstr ""
 #: stepseries.commands.GetThermalStatus:7 stepseries.commands.GetTval:6
 #: stepseries.commands.GetTval_mA:9 stepseries.commands.GetUvlo:4
 #: stepseries.commands.GetVersion:4 stepseries.commands.GoUntil:19
-#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
+#: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:9
 #: stepseries.commands.Homing:24 stepseries.commands.ReleaseSw:16
 #: stepseries.commands.ReportError:4 stepseries.commands.ResetDevice:6
 #: stepseries.commands.ResetMotorDriver:7 stepseries.commands.ResetPos:4
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Enable or disable automatic reporting of limit switch changes."
 msgstr ""
 
-#: of stepseries.commands.EnableLimitSwReport:3 stepseries.commands.GetAdcVal:7
+#: of stepseries.commands.EnableLimitSwReport:3
 #: stepseries.commands.GetDecayModeParam:3 stepseries.commands.GetLimitSw:3
 #: stepseries.commands.GetLimitSwMode:3
 #: stepseries.commands.GetProhibitMotionOnLimitSw:4
@@ -1239,11 +1239,12 @@ msgstr ""
 #: of stepseries.commands.GetAdcVal:3
 msgid ""
 "``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the ADC "
-"pin on the PowerSTEP01 chip. This pin is pulled up with a 10kΩ resistor "
-"wired directly to the LIMITSW connector."
+"pin on the motor driver chip. In STEP400, this pin is pulled up with a "
+"10kΩ resistor wired directly to the LIMITSW connector. In STEP800, this "
+"pin is tied with GND and will always 0V."
 msgstr ""
 
-#: of stepseries.commands.GetAdcVal:9 stepseries.commands.GetConfigRegister:6
+#: of stepseries.commands.GetAdcVal:8 stepseries.commands.GetConfigRegister:6
 #: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:3
 msgid ""
 "This command is only meant for debugging purposes. Most users should "
@@ -1269,7 +1270,7 @@ msgid "Retrieve the busy status of a motor."
 msgstr ""
 
 #: of stepseries.commands.GetConfigName:1
-msgid "Retrieve the status of the microSD config file on the controller."
+msgid "Retrieve the name of the microSD config file on the controller."
 msgstr ""
 
 #: of stepseries.commands.GetConfigRegister:1
@@ -1389,8 +1390,8 @@ msgstr ""
 
 #: of stepseries.commands.GetProhibitMotionOnLimitSw:1
 msgid ""
-"Retrieve if motion towards the origin point is disabled when the limit "
-"switch is activated."
+"Retrieve if motion towards the counter origin direction is disabled when "
+"the limit switch is activated."
 msgstr ""
 
 #: of stepseries.commands.GetReleaseSwTimeout:1
@@ -1555,9 +1556,9 @@ msgstr ""
 #: of stepseries.commands.GoToDir:3
 msgid ""
 "-2097152 and 2097151 are next to each other in the driver chip, like how "
-"0 and 360 are on a circle. As an example, if you specify 2097000, False "
-"and the motor is currently at -2097000, then the motor will move to "
-"-2000000, then 0, and finally 2097000."
+"0 and 360 are on a circle. As an example, if you specify 2097000, True "
+"(forward) and the motor is currently at -2097000, then the motor will "
+"move to -2000000, then 0, and finally 2097000."
 msgstr ""
 
 #: of stepseries.commands.GoToDir:8
@@ -1567,9 +1568,7 @@ msgid ""
 msgstr ""
 
 #: ../../docstring of stepseries.commands.GoToDir.DIR:1
-#: stepseries.commands.ReleaseSw.DIR:1
-#: stepseries.commands.SetHomingDirection.direction:1
-msgid "True or False, depending on your environment."
+msgid "True for forward, False for backward."
 msgstr ""
 
 #: of stepseries.commands.GoUntil:1
@@ -1651,11 +1650,10 @@ msgstr ""
 #: of stepseries.commands.HardStop:3
 msgid ""
 "After stopping, the motor is kept in an excited state if it was "
-"originally in a HiZ state. Remains in the BUSY state until the motor "
-"stops."
+"originally in a HiZ state."
 msgstr ""
 
-#: of stepseries.commands.HardStop:7 stepseries.commands.SoftStop:7
+#: of stepseries.commands.HardStop:6 stepseries.commands.SoftStop:7
 msgid "If it was in servo mode, then the mode will be released."
 msgstr ""
 
@@ -1754,6 +1752,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.ReleaseSw.ACT:1
 msgid "The action to take when the HOME switch releases."
+msgstr ""
+
+#: ../../docstring of stepseries.commands.ReleaseSw.DIR:1
+#: stepseries.commands.SetHomingDirection.direction:1
+msgid "True or False, depending on your environment."
 msgstr ""
 
 #: of stepseries.commands.ReportError:1
@@ -2432,7 +2435,9 @@ msgid "If True, disable motion in the origin direction."
 msgstr ""
 
 #: of stepseries.commands.SetProhibitMotionOnLimitSw:1
-msgid "Prohibit motion to the origin when the limit sensor is activated."
+msgid ""
+"Prohibit motion to the counter origin direction when the limit sensor is "
+"activated."
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetProhibitMotionOnLimitSw.enable:1
@@ -4218,5 +4223,45 @@ msgstr ""
 #~ "Documentation: https://ponoor.com/en/docs/step-series"
 #~ "/osc-command-reference/voltage-and-current-"
 #~ "mode-settings/#gettval_ma_intmotorid"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``ADC_OUT`` stores the 5-bit AD-"
+#~ "converted voltage reading from the ADC"
+#~ " pin on the PowerSTEP01 chip. This"
+#~ " pin is pulled up with a 10kΩ"
+#~ " resistor wired directly to the "
+#~ "LIMITSW connector."
+#~ msgstr ""
+
+#~ msgid "Retrieve the status of the microSD config file on the controller."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Retrieve if motion towards the origin"
+#~ " point is disabled when the limit "
+#~ "switch is activated."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "-2097152 and 2097151 are next to "
+#~ "each other in the driver chip, "
+#~ "like how 0 and 360 are on a"
+#~ " circle. As an example, if you "
+#~ "specify 2097000, False and the motor "
+#~ "is currently at -2097000, then the "
+#~ "motor will move to -2000000, then "
+#~ "0, and finally 2097000."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After stopping, the motor is kept "
+#~ "in an excited state if it was "
+#~ "originally in a HiZ state. Remains "
+#~ "in the BUSY state until the motor"
+#~ " stops."
+#~ msgstr ""
+
+#~ msgid "Prohibit motion to the origin when the limit sensor is activated."
 #~ msgstr ""
 
