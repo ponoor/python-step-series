@@ -36,7 +36,7 @@ def test_activate() -> None:
 
 
 def test_free() -> None:
-    builder = commands.Free(1, False)
+    builder = commands.Free(1)
     osc_message = builder.build()
     osc_message_str = builder.stringify()
     params = osc_message.params
