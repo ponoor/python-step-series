@@ -272,7 +272,8 @@ class STEPXXX(object):
                 f"'{type(command).__name__}' found"
             )
 
-        self._check_status()
+        if not isinstance(command, SetDestIP):
+            self._check_status()
 
         # Prepare for get request
         if wait:
@@ -319,6 +320,11 @@ class STEPXXX(object):
             `TypeError`:
                 `command` is not an `OSCSetCommand`.
         """
+        # Because SetDestIP has "set" in the name, allow this method
+        # support it
+        if isinstance(command, SetDestIP):
+            self.get(command)
+            return
 
         if not isinstance(command, OSCSetCommand):
             raise TypeError(
@@ -326,8 +332,7 @@ class STEPXXX(object):
                 f"'{type(command).__name__}' found"
             )
 
-        if not isinstance(command, SetDestIP):
-            self._check_status()
+        self._check_status()
 
         if isinstance(command, ResetDevice):
             self._is_closed = True

@@ -86,7 +86,7 @@ class OSCGetCommand(OSCCommand):
 
 
 @dataclass
-class SetDestIP(OSCSetCommand):  # TODO: Convert to GET command
+class SetDestIP(OSCGetCommand):
     """Set the destination IP address for the device's responses.
 
     Query replies, internal state reports, or command errors are sent to
