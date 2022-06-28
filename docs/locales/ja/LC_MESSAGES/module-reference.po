@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 19:08-0500\n"
+"POT-Creation-Date: 2022-03-25 09:56-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.1\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: ../../module-reference.rst:2
 msgid "``stepseries.commands`` -- Device Commands"
@@ -105,7 +105,7 @@ msgstr ""
 #: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
 #: stepseries.commands.Homing:24 stepseries.commands.Move:7
 #: stepseries.commands.ReleaseSw:16 stepseries.commands.ReportError:4
-#: stepseries.commands.ResetDevice:6 stepseries.commands.ResetMotorDriver:7
+#: stepseries.commands.ResetDevice:6 stepseries.commands.ResetMotorDriver:8
 #: stepseries.commands.ResetPos:4 stepseries.commands.Run:10
 #: stepseries.commands.SetAcc:4 stepseries.commands.SetBemfParam:7
 #: stepseries.commands.SetBrakeTransitionDuration:7
@@ -176,7 +176,7 @@ msgstr "実行可能タイミング"
 #: stepseries.commands.HardHiZ:10 stepseries.commands.HardStop:10
 #: stepseries.commands.Homing:24 stepseries.commands.ReleaseSw:16
 #: stepseries.commands.ReportError:4 stepseries.commands.ResetDevice:6
-#: stepseries.commands.ResetMotorDriver:7 stepseries.commands.ResetPos:4
+#: stepseries.commands.ResetMotorDriver:8 stepseries.commands.ResetPos:4
 #: stepseries.commands.Run:10 stepseries.commands.SetBemfParam:7
 #: stepseries.commands.SetBrakeTransitionDuration:7
 #: stepseries.commands.SetCurrentMode:9 stepseries.commands.SetDestIP:18
@@ -1019,7 +1019,7 @@ msgid ""
 msgstr ""
 
 #: of stepseries.commands.GetAdcVal:9 stepseries.commands.GetConfigRegister:6
-#: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:3
+#: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:4
 msgid ""
 "This command is only meant for debugging purposes. Most users should "
 "avoid this command."
@@ -1536,10 +1536,12 @@ msgid "A programmatic version of physically pressing the RESET button."
 msgstr ""
 
 #: of stepseries.commands.ResetMotorDriver:1
-msgid "Resets the specified motor driver chip and resets defaults."
+msgid ""
+"Resets the specified motor driver chip and resets defaults. Here is "
+"another line needing translation."
 msgstr ""
 
-#: of stepseries.commands.ResetMotorDriver:10
+#: of stepseries.commands.ResetMotorDriver:11
 msgid "``Deprecated``"
 msgstr ""
 
@@ -2807,3 +2809,7 @@ msgstr ""
 
 #~ msgid "モータ励磁解除、電磁ブレーキ保持"
 #~ msgstr ""
+
+#~ msgid "Resets the specified motor driver chip and resets defaults."
+#~ msgstr ""
+

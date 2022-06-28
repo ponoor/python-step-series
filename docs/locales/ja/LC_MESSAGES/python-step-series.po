@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-21 19:50+0900\n"
+"POT-Creation-Date: 2022-06-28 08:43-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.1\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: ../../python-step-series/about.rst:5
 msgid "API Documentation"
@@ -284,7 +284,7 @@ msgstr ""
 #: stepseries.commands.SetPositionListReportInterval:8
 #: stepseries.commands.SetPositionReportInterval:8
 #: stepseries.commands.SetProhibitMotionOnHomeSw:8
-#: stepseries.commands.SetProhibitMotionOnLimitSw:10
+#: stepseries.commands.SetProhibitMotionOnLimitSw:11
 #: stepseries.commands.SetReleaseSwTimeout:10
 #: stepseries.commands.SetServoParam:4 stepseries.commands.SetSpeedProfile:7
 #: stepseries.commands.SetStallThreshold:7
@@ -350,7 +350,7 @@ msgstr "実行可能タイミング"
 #: stepseries.commands.SetPositionListReportInterval:8
 #: stepseries.commands.SetPositionReportInterval:8
 #: stepseries.commands.SetProhibitMotionOnHomeSw:8
-#: stepseries.commands.SetProhibitMotionOnLimitSw:10
+#: stepseries.commands.SetProhibitMotionOnLimitSw:11
 #: stepseries.commands.SetReleaseSwTimeout:10
 #: stepseries.commands.SetServoParam:4 stepseries.commands.SetStallThreshold:7
 #: stepseries.commands.SetTargetPosition:7 stepseries.commands.SetTval:9
@@ -974,7 +974,7 @@ msgstr "LIMITスイッチの状態に変化があったら自動でメッセー�
 #: stepseries.commands.GetTval:3 stepseries.commands.GetTval_mA:6
 #: stepseries.commands.SetCurrentMode:3 stepseries.commands.SetDecayModeParam:3
 #: stepseries.commands.SetLimitSwMode:3
-#: stepseries.commands.SetProhibitMotionOnLimitSw:7
+#: stepseries.commands.SetProhibitMotionOnLimitSw:8
 #: stepseries.commands.SetTval:3 stepseries.commands.SetVoltageMode:3
 msgid "``STEP400 Only``"
 msgstr "``STEP400のみ``"
@@ -1326,9 +1326,9 @@ msgstr "モータドライバの ``ADC_OUT`` レジスタの値を取り出し�
 #: of stepseries.commands.GetAdcVal:3
 msgid ""
 "``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the ADC "
-"pin on the motor driver chip. In STEP400, this pin is pulled up with a "
-"10kΩ resistor wired directly to the LIMITSW connector. In STEP800, this "
-"pin is tied with GND and will always 0V."
+"pin on the motor driver chip. In the STEP400, this pin is pulled up with "
+"a 10kΩ resistor wired directly to the LIMITSW connector. In the STEP800, "
+"this pin is tied to GND and will always be 0V."
 msgstr ""
 
 #: of stepseries.commands.GetAdcVal:8 stepseries.commands.GetConfigRegister:6
@@ -1481,8 +1481,8 @@ msgstr "Homeセンサが反応している状態で、原点復帰方向への�
 #: of stepseries.commands.GetProhibitMotionOnLimitSw:1
 #, fuzzy
 msgid ""
-"Retrieve if motion towards the counter origin direction is disabled when "
-"the limit switch is activated."
+"Retrieve if motion in the opposite direction of the origin is disabled "
+"when the limit switch is activated."
 msgstr "Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドが禁止されているかどうかを返します。"
 
 #: of stepseries.commands.GetReleaseSwTimeout:1
@@ -2546,7 +2546,7 @@ msgid "Prohibit motion to the origin when the home sensor is activated."
 msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
 
 #: of stepseries.commands.SetProhibitMotionOnHomeSw:3
-#: stepseries.commands.SetProhibitMotionOnLimitSw:3
+#: stepseries.commands.SetProhibitMotionOnLimitSw:4
 msgid ""
 "The direction to the origin point can be configured using the `Config "
 "Tool`_ or with :py:class:`stepseries.commands.SetHomingDirection`."
@@ -2561,8 +2561,8 @@ msgstr "Trueで禁止"
 #: of stepseries.commands.SetProhibitMotionOnLimitSw:1
 #, fuzzy
 msgid ""
-"Prohibit motion to the counter origin direction when the limit sensor is "
-"activated."
+"Prohibit motion in the opposite direction of the origin when the limit "
+"sensor is activated."
 msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
 
 #: ../../docstring of stepseries.commands.SetProhibitMotionOnLimitSw.enable:1
@@ -4198,5 +4198,16 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Prohibit motion to the origin when the limit sensor is activated."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``ADC_OUT`` stores the 5-bit AD-"
+#~ "converted voltage reading from the ADC"
+#~ " pin on the motor driver chip. "
+#~ "In STEP400, this pin is pulled up"
+#~ " with a 10kΩ resistor wired directly"
+#~ " to the LIMITSW connector. In "
+#~ "STEP800, this pin is tied with GND"
+#~ " and will always 0V."
 #~ msgstr ""
 

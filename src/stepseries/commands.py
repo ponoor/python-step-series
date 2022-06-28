@@ -631,9 +631,9 @@ class GetAdcVal(OSCGetCommand):
     """Retrieves ``ADC_OUT`` register values for a motor.
 
     ``ADC_OUT`` stores the 5-bit AD-converted voltage reading from the
-    ADC pin on the motor driver chip. In STEP400, this pin is pulled up with a 10kΩ
-    resistor wired directly to the LIMITSW connector.
-    In STEP800, this pin is tied with GND and will always 0V.
+    ADC pin on the motor driver chip. In the STEP400, this pin is pulled
+    up with a 10kΩ resistor wired directly to the LIMITSW connector. In
+    the STEP800, this pin is tied to GND and will always be 0V.
 
     .. note:: This command is only meant for debugging purposes. Most
         users should avoid this command.
@@ -1217,7 +1217,9 @@ class GetProhibitMotionOnHomeSw(OSCGetCommand):
 
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCSetCommand):
-    """Prohibit motion to the counter origin direction when the limit sensor is activated.
+    """
+    Prohibit motion in the opposite direction of the origin when the
+    limit sensor is activated.
 
     The direction to the origin point can be configured using the
     `Config Tool`_ or with
@@ -1251,8 +1253,8 @@ class SetProhibitMotionOnLimitSw(OSCSetCommand):
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCGetCommand):
     """
-    Retrieve if motion towards the counter origin direction is disabled when the
-    limit switch is activated.
+    Retrieve if motion in the opposite direction of the origin is
+    disabled when the limit switch is activated.
 
     ``STEP400 Only``
 
@@ -2938,8 +2940,8 @@ class GoToDir(OSCSetCommand):
 
     -2097152 and 2097151 are next to each other in the driver chip, like
     how 0 and 360 are on a circle. As an example, if you specify
-    2097000, True (forward) and the motor is currently at -2097000, then the
-    motor will move to -2000000, then 0, and finally 2097000.
+    2097000, True (forward) and the motor is currently at -2097000, then
+    the motor will move to -2000000, then 0, and finally 2097000.
 
     Alternatively, :py:class:`stepseries.commands.GoTo` will
     automatically determine the shortest route (around that 'circle').
@@ -3002,7 +3004,7 @@ class HardStop(OSCSetCommand):
     """Immediately stops the motor.
 
     After stopping, the motor is kept in an excited state if it was
-    originally in a HiZ state. 
+    originally in a HiZ state.
 
     If it was in servo mode, then the mode will be released.
 
