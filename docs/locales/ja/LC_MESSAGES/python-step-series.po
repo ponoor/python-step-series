@@ -1330,6 +1330,9 @@ msgid ""
 "a 10kΩ resistor wired directly to the LIMITSW connector. In the STEP800, "
 "this pin is tied to GND and will always be 0V."
 msgstr ""
+"``ADC_OUT`` はモータドライバのADCピンの電圧を5bitでAD変換した値です。"
+"STEP400では、個のピンは10kΩの抵抗でプルアップされていて、LIMITSWコネクタに接続されています。"
+"STEP800では、このピンはGNDに接続されていて、常時0Vになります。"
 
 #: of stepseries.commands.GetAdcVal:8 stepseries.commands.GetConfigRegister:6
 #: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:3
@@ -1471,6 +1474,9 @@ msgid ""
 ":py:class:`stepseries.commands.SetPositionListReportInterval` can be "
 "configured to periodically send the current position."
 msgstr ""
+msgstr ""
+":py:class:`stepseries.commands.SetPositionReportInterval` "
+"で、指定間隔で自動送信させることもできます。"
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
 msgid ""
@@ -1664,7 +1670,7 @@ msgstr ":py:class:`stepseries.commands.GoTo` によって自動的に先ほど�
 
 #: ../../docstring of stepseries.commands.GoToDir.DIR:1
 msgid "True for forward, False for backward."
-msgstr ""
+msgstr "True: 正転, False: 逆転"
 
 #: of stepseries.commands.GoUntil:1
 msgid "Run a motor until the HOME switch activates or times out."
@@ -1744,7 +1750,8 @@ msgid ""
 "brake is enabled, then the brake is put into a hold state before "
 "excitation is released. Transitions to HiZ after excitation is released. "
 "Remains in the BUSY state until the motor stops."
-msgstr "スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。励磁が解除されるとHiZ状態になります。モータが停止するまではBUSY状態になります。サーボモードだった場合は解除されます。電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
+msgstr "スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。励磁が解除されるとHiZ状態になります。"
+"モータが停止するまではBUSY状態になります。サーボモードだった場合は解除されます。電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
 
 #: of stepseries.commands.HardStop:3
 #, fuzzy
@@ -2563,29 +2570,31 @@ msgstr "Trueで禁止"
 msgid ""
 "Prohibit motion in the opposite direction of the origin when the limit "
 "sensor is activated."
-msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
+msgstr "Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドを禁止します。"
 
 #: ../../docstring of stepseries.commands.SetProhibitMotionOnLimitSw.enable:1
 msgid "If True, disable motion in the LIMIT switch direction."
-msgstr ""
+msgstr "Trueで禁止"
 
 #: of stepseries.commands.SetReleaseSwTimeout:1
 msgid "Set the timeout for :py:class:`stepseries.commands.ReleaseSw`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.ReleaseSw` のタイムアウト時間を設定します。"
 
 #: of stepseries.commands.SetReleaseSwTimeout:3
 msgid ""
 "If the HOME switch is not releaseed before this timeout, then the "
 "controller stops the motor's movements. Specify 0 to disable the timeout."
 msgstr ""
+"もしHOMEスイッチがこの時間内に解放されたなかった場合は、モータの動作を停止します。"
+"0を指定すると無効になります。"
 
 #: of stepseries.commands.SetServoParam:1
 msgid "Configure the servo PID control parameters."
-msgstr ""
+msgstr "PID制御のパラメータを設定します。"
 
 #: ../../docstring of stepseries.commands.SetServoParam.kD:1
 msgid "Derivative gain."
-msgstr ""
+msgstr "微分ゲイン"
 
 #: ../../docstring of stepseries.commands.SetServoParam.kD:4
 #: stepseries.commands.SetServoParam.kI:4
@@ -2600,11 +2609,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetServoParam.kI:1
 msgid "Integral gain."
-msgstr ""
+msgstr "積分ゲイン"
 
 #: ../../docstring of stepseries.commands.SetServoParam.kP:1
 msgid "Proportional gain."
-msgstr ""
+msgstr "比例ゲイン"
 
 #: ../../docstring of stepseries.commands.SetServoParam.kP:6
 msgid "0.06"
@@ -2612,21 +2621,21 @@ msgstr ""
 
 #: of stepseries.commands.SetSpeedProfile:1
 msgid "Sets multiple speed profile settings at once."
-msgstr ""
+msgstr "複数のスピードプロファイルを一度に設定します。"
 
 #: of stepseries.commands.SetSpeedProfile:3
 msgid ""
 "Acceleration, deceleration and max speed can all be set at once using "
 "this command."
-msgstr ""
+msgstr "このコマンドで、加速度、減速度、最大速さを設定できます。"
 
 #: of stepseries.commands.SetStallThreshold:1
 msgid "Sets the stall detection threshold."
-msgstr ""
+msgstr "ストール検出の閾値を設定します。"
 
 #: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:1
 msgid "The stall threshold."
-msgstr ""
+msgstr "ストール検出の閾値"
 
 #: ../../docstring of stepseries.commands.SetStallThreshold.STALL_TH:6
 #: stepseries.commands.SetStallThreshold.STALL_TH:24
@@ -2667,42 +2676,42 @@ msgstr ""
 
 #: of stepseries.commands.SetTargetPosition:1
 msgid "Set the target position to go to when in servo mode."
-msgstr ""
+msgstr "サーボモード時の目標位置を設定します。"
 
 #: of stepseries.commands.SetTargetPosition:3
 msgid ""
 ":py:class:`stepseries.commands.EnableServoMode` must be enabled for this "
 "command to have an effect."
-msgstr ""
+msgstr "あらかじめ :py:class:`stepseries.commands.EnableServoMode` が有効になっている必要があります。"
 
 #: of stepseries.commands.SetTargetPositionList:1
 msgid "Set the target positions of all motors at once."
-msgstr ""
+msgstr "全モータの目標位置を一度に設定します。"
 
 #: of stepseries.commands.SetTargetPositionList:3
 msgid "If using the STEP400, positions 5-8 do not need to be configured."
-msgstr ""
+msgstr "STEP400では、position 5-8 は設定する必要はありません。"
 
 #: ../../docstring of stepseries.commands.SetTargetPositionList.position5:1
 #: stepseries.commands.SetTargetPositionList.position6:1
 #: stepseries.commands.SetTargetPositionList.position7:1
 #: stepseries.commands.SetTargetPositionList.position8:1
 msgid "``STEP800 only``"
-msgstr ""
+msgstr "``STEP800 のみ``"
 
 #: of stepseries.commands.SetTval:1
 msgid "Sets the configuration for all four TVAL parameters."
-msgstr ""
+msgstr "TVALパラメータ4つをまとめて設定します。"
 
 #: of stepseries.commands.SetTval:5
 msgid ""
 "TVAL only applies when the motor controller is in current mode. This goes"
 " without saying TVAL never applies on the STEP800."
-msgstr ""
+msgstr "TVALは電流モードでのみ有効です。すなわちSTEP800では使用しません。"
 
 #: ../../docstring of stepseries.commands.SetTval.accTVAL:1
 msgid "TVAL for accelerating the motor's speed."
-msgstr ""
+msgstr "モータ加速時のTVAL"
 
 #: ../../docstring of stepseries.commands.SetTval.accTVAL:4
 #: stepseries.commands.SetTval.holdTVAL:4 stepseries.commands.SetTval.runTVAL:4
@@ -2715,34 +2724,34 @@ msgstr ""
 
 #: ../../docstring of stepseries.commands.SetTval.holdTVAL:1
 msgid "TVAL for holding the motor's position."
-msgstr ""
+msgstr "モータ停止時のTVAL"
 
 #: ../../docstring of stepseries.commands.SetTval.runTVAL:1
 msgid "TVAL for maintaining the motor's speed."
-msgstr ""
+msgstr "モータが一定速運転時のTVAL"
 
 #: ../../docstring of stepseries.commands.SetTval.setDecTVAL:1
 msgid "TVAL for decelerating the motor's speed."
-msgstr ""
+msgstr "モータ減速時のTVAL"
 
 #: of stepseries.commands.SetVoltageMode:1
 msgid "Switch a specific motor into voltage mode."
-msgstr ""
+msgstr "指定したモータを電圧モードに変更します。"
 
 #: of stepseries.commands.SoftHiZ:1 stepseries.commands.SoftStop:1
 msgid "Stops the motor according to the speed profile."
-msgstr ""
+msgstr "スピードプロファイルに従ってモータを停止します。"
 
 #: of stepseries.commands.SoftStop:3
 msgid ""
 "After decelerating and stopping, the motor is kept in an excited state if"
 " it was originally in a HiZ state. Remains in the BUSY state until the "
 "motor stops."
-msgstr ""
+msgstr "減速停止後、モータは保持された状態になります。モータが停止するまではＢUSYj応対になります。"
 
 #: ../../python-step-series/api/stepseries.rst:8
 msgid "``stepseries.exceptions`` -- Device Errors"
-msgstr ""
+msgstr "``stepseries.exceptions`` -- デバイスエラー"
 
 #: of stepseries.exceptions:1
 msgid "Custom exceptions raised by this library."
@@ -2750,19 +2759,19 @@ msgstr "このライブラリが発生させるカスタムの例外情報 (exce
 
 #: of stepseries.exceptions.ClientClosedError:1
 msgid "The client's connection is not open."
-msgstr ""
+msgstr "クライアントとの接続がオープンしていない。"
 
 #: of stepseries.exceptions.ClientNotFoundError:1
 msgid "The requested client could not be found."
-msgstr ""
+msgstr "指定されたクライアントが見つからない。"
 
 #: of stepseries.exceptions.InvalidCommandError:1
 msgid "The command cannot be executed."
-msgstr ""
+msgstr "コマンドが実行できない。"
 
 #: of stepseries.exceptions.ParseError:1
 msgid "Failed to parse the message from the device."
-msgstr ""
+msgstr "デバイスからのメッセージを解読できない。"
 
 #: of stepseries.exceptions.StepSeriesException:1
 msgid "Base exception for the library."
@@ -2770,11 +2779,11 @@ msgstr ""
 
 #: ../../python-step-series/api/stepseries.rst:14
 msgid "``stepseries.responses`` -- Device Responses"
-msgstr ""
+msgid "``stepseries.responses`` -- デバイスレスポンス"
 
 #: of stepseries.responses:1
 msgid "Messages received from the device."
-msgstr ""
+msgstr "デバイスからの受信メッセージです。"
 
 #: of stepseries.responses.AdcVal:1
 msgid "The ADC_OUT register value from the PowerSTEP01 chip."
@@ -2819,7 +2828,7 @@ msgstr ""
 #: stepseries.responses.Tval_mA.holdTVAL_mA:2
 #: stepseries.responses.Tval_mA.runTVAL_mA:2 stepseries.responses.Uvlo.state:2
 msgid "Range"
-msgstr ""
+msgstr "範囲"
 
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
 #: stepseries.responses.Status.status:4
@@ -2829,7 +2838,7 @@ msgstr ""
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
 #: stepseries.responses.Status.status:4
 msgid "5-bit read out of the ADC_OUT register"
-msgstr ""
+msgstr "ADC_OUTレジスタの5bit読み出し値。"
 
 #: ../../docstring of stepseries.responses.AdcVal.motorID:2
 #: stepseries.responses.BemfParam.motorID:2
@@ -2872,7 +2881,7 @@ msgstr ""
 #: stepseries.responses.Tval.motorID:2 stepseries.responses.Tval_mA.motorID:2
 #: stepseries.responses.Uvlo.motorID:2
 msgid "Controller"
-msgstr ""
+msgstr "機種"
 
 #: ../../docstring of stepseries.responses.AdcVal.motorID:2
 #: stepseries.responses.BemfParam.motorID:2
@@ -2913,7 +2922,7 @@ msgstr ""
 #: stepseries.responses.Tval.motorID:2 stepseries.responses.Tval_mA.motorID:2
 #: stepseries.responses.Uvlo.motorID:2
 msgid "Motor Range"
-msgstr ""
+msgstr "モータ番号の範囲"
 
 #: ../../docstring of stepseries.responses.AdcVal.motorID:4
 #: stepseries.responses.BemfParam.motorID:4
@@ -2999,7 +3008,7 @@ msgstr ""
 
 #: of stepseries.responses.BemfParam:1
 msgid "Register values for the BEMF parameter."
-msgstr ""
+msgstr "BEMFパラメータのレジスタ値。"
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
 #: stepseries.responses.BemfParam.FN_SLP_DEC:4
@@ -3011,12 +3020,12 @@ msgid "0-255 (0xFF)"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
-msgid "FN_SLP_ACC register value"
-msgstr ""
+msgid "FN_SLPe_ACC register value"
+msgstr "FN_SLP_ACCレジスタの値。"
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_DEC:4
 msgid "FN_SLP_DEC register value"
-msgstr ""
+msgstr "FN_SLP_DECレジスタの値。"
 
 #: ../../docstring of stepseries.responses.BemfParam.INT_SPEED:4
 msgid "0-16383 (0x3FFF)"
@@ -3024,15 +3033,15 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.BemfParam.INT_SPEED:4
 msgid "INT_SPEED register value"
-msgstr ""
+msgstr "INT_SPEEDレジスタの値。"
 
 #: ../../docstring of stepseries.responses.BemfParam.ST_SLP:4
 msgid "ST_SLP register value"
-msgstr ""
+msgstr "ST_SLPレジスタの値。"
 
 #: of stepseries.responses.Booted:1
 msgid "Sent when the device (re)starts."
-msgstr ""
+msgstr "デバイスが（再）起動した際に送信されます。"
 
 #: of stepseries.responses.Booted:3
 msgid ""
@@ -3041,12 +3050,14 @@ msgid ""
 "for this message, you can determine when the device restarts even if "
 "unexpectedly."
 msgstr ""
+"このメッセージは :py:class:`stepseries.commands.SetDestIP` が受信されたかどうかに関わらず送信されます。"
+"このメッセージを監視することによって、何らかの理由で本デバイスがリセットされたことを検出できます。"
 
 #: of stepseries.responses.Booted:8
 msgid ""
 "When the firmware has started and an ethernet uplink is confirmed, this "
 "message will be sent."
-msgstr ""
+msgstr "ファームウェアが起動して、Ethernetがリンク状態になった1秒後に送信されます。"
 
 #: of stepseries.responses.Booted:11
 msgid ""
@@ -3054,14 +3065,16 @@ msgid ""
 "subnet (address ``255.255.255.255``). If this is unacceptable for your "
 "network, you can disable it via the `Config Tool`_."
 msgstr ""
+"サブネット内のすべてのノード (255.255.255.255) へブロードキャストされます。 "
+"`Config Tool`_ の設定を用いて、このメッセージを送信しないようにも設定できます"
 
 #: ../../docstring of stepseries.responses.Booted.deviceID:4
 msgid "The device ID set by the DIP switch"
-msgstr ""
+msgstr "DIPスイッチによって設定されたデバイスIDの値。"
 
 #: of stepseries.responses.BrakeTransitionDuration:1
 msgid "The transitional duration when switching the brake mode."
-msgstr ""
+msgstr "ブレーキモードにおける電磁ブレーキの保持・開放時に、モータを励磁したままにしておく遷移時間を指定します。"
 
 #: ../../docstring of stepseries.responses.BrakeTransitionDuration.duration:1
 #: stepseries.responses.ReleaseSwTimeout.timeout:1
@@ -3070,7 +3083,7 @@ msgstr ""
 
 #: of stepseries.responses.Busy:1
 msgid "The BUSY state of a motor."
-msgstr ""
+msgstr "モータのBUSY状態。"
 
 #: ../../docstring of stepseries.responses.Busy.state:4
 #: stepseries.responses.Dir.direction:4 stepseries.responses.HiZ.state:4
@@ -3090,32 +3103,32 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.Busy.state:4
 msgid "1: BUSY, 0: Not BUSY"
-msgstr ""
+msgstr "1: BUSY, 0: BUSYではない"
 
 #: of stepseries.responses.ConfigName:1
 msgid "Metadata about the configuration file."
-msgstr ""
+msgstr "設定ファイルのメタデータ。"
 
 #: ../../docstring of stepseries.responses.ConfigName.configFileOpenSucceeded:1
 msgid "If the device could open the configuration file."
-msgstr ""
+msgstr "デバイスが設定ファイルを開くことができたか。"
 
 #: ../../docstring of
 #: stepseries.responses.ConfigName.configFileParseSucceeded:1
 msgid "If the configuration was successfully parsed."
-msgstr ""
+msgstr "設定ファイルの内容の読み出しに成功したかどうか。"
 
 #: ../../docstring of stepseries.responses.ConfigName.configName:1
 msgid "Name of the configuration."
-msgstr ""
+msgstr "設定の名称。"
 
 #: ../../docstring of stepseries.responses.ConfigName.sdInitializeSucceeded:1
 msgid "If the microSD card was successfully read."
-msgstr ""
+msgstr "microSDカードを読み出しできたか。"
 
 #: of stepseries.responses.ConfigRegister:1
 msgid "The 16-bit CONFIG register value from the motor driver."
-msgstr ""
+msgstr "モータドライバの16bitの CONFIG レジスタの値。"
 
 #: ../../docstring of stepseries.responses.ConfigRegister.CONFIG:1
 msgid "0-65535 (0xFFFF)"
@@ -3123,58 +3136,58 @@ msgstr ""
 
 #: of stepseries.responses.DecayModeParam:1
 msgid "Register values (parameters) for the current control algorithm."
-msgstr ""
+msgstr "電流制御の制御パラメータのレジスタ値。"
 
 #: ../../docstring of stepseries.responses.DecayModeParam.TOFF_MIN:4
 msgid "TOFF_MIN register value"
-msgstr ""
+msgstr "TOFF_MINレジスタの値。"
 
 #: ../../docstring of stepseries.responses.DecayModeParam.TON_MIN:4
 msgid "TON_MIN register value"
-msgstr ""
+msgstr "TON_MINレジスタの値。"
 
 #: ../../docstring of stepseries.responses.DecayModeParam.T_FAST:4
 msgid "T_FAST register value"
-msgstr ""
+msgstr "T_FASTレジスタの値。"
 
 #: of stepseries.responses.DestIP:1
 msgid "Confirmation :py:class:`stepseries.commands.SetDestIP` has been recieved."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.SetDestIP` が受信されたことを示す確認メッセージ。"
 
 #: ../../docstring of stepseries.responses.DestIP.destIp0:1
 msgid "The first octet of the IP address set."
-msgstr ""
+msgstr "destIpの1桁目。"
 
 #: ../../docstring of stepseries.responses.DestIP.destIp1:1
 msgid "The second octet of the IP address set."
-msgstr ""
+msgstr "destIpの2桁目。"
 
 #: ../../docstring of stepseries.responses.DestIP.destIp2:1
 msgid "The third octet of the IP address set."
-msgstr ""
+msgstr "destIpの3桁目。"
 
 #: ../../docstring of stepseries.responses.DestIP.destIp3:1
 msgid "The fourth octet of the IP address set."
-msgstr ""
+msgstr "destIpの4桁目。"
 
 #: ../../docstring of stepseries.responses.DestIP.isNewDestIp:1
 msgid "Indicates if the IP address has changed from what is already set."
-msgstr ""
+msgstr "それまでのdestIp設定値が変化したかどうかを示します。"
 
 #: of stepseries.responses.Dir:1
 msgid "The direction of a motor."
-msgstr ""
+msgstr "モータの回転方向。"
 
 #: ../../docstring of stepseries.responses.Dir.direction:4
 #: stepseries.responses.HomeSw.direction:4
 #: stepseries.responses.HomingDirection.homingDirection:4
 #: stepseries.responses.LimitSw.direction:4
 msgid "1: Forward, 0: Reverse"
-msgstr ""
+msgstr "1: 正転, 0: 逆転"
 
 #: of stepseries.responses.ElPos:1
 msgid "The electrical position of the motor."
-msgstr ""
+msgstr "モータの電気的位置。"
 
 #: ../../docstring of stepseries.responses.ElPos.fullstep:4
 msgid "0-3"
@@ -3182,26 +3195,26 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ElPos.fullstep:4
 msgid "Fullstep position"
-msgstr ""
+msgstr "フルステップでの位置"
 
 #: ../../docstring of stepseries.responses.ElPos.microstep:4
 msgid "Microstep position"
-msgstr ""
+msgstr "マイクロステップでの位置"
 
 #: of stepseries.responses.ErrorCommand:1
 msgid "Sent if an error is detected while executing a command."
-msgstr ""
+msgstr "コマンド実行時にエラーを検出すると送信されます。"
 
 #: of stepseries.responses.ErrorCommand:3
 msgid ""
 "Can be enabled or disabled with "
 ":py:class:`stepseries.commands.ReportError`."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.ReportError` で有効・無効を切り替えられます。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:2
 #: stepseries.responses.ErrorOSC.errorText:2
 msgid "errorText"
-msgstr ""
+msgstr "エラーテキスト"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
 msgid "CommandIgnored"
@@ -3209,7 +3222,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
 msgid "The command is currently not executable. Also refer Timing section."
-msgstr ""
+msgstr "コマンドが実行可能なタイミングでない。コマンドの実行可能タイミングを確認してください。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:5
 msgid "MotorIdNotMatch"
@@ -3217,7 +3230,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:5
 msgid "Motor ID is not appropriate."
-msgstr ""
+msgstr "モータIDが適切でない値になっている。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
 msgid "BrakeEngaging"
@@ -3225,7 +3238,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
 msgid "A motion command was sent while the electromagnet brake was active."
-msgstr ""
+msgstr "電磁ブレーキが効いた状態のままモーションコマンドを送信した。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
 msgid "HomeSwActivating"
@@ -3233,7 +3246,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
 msgid "Movement from home sensor position towards the origin point."
-msgstr ""
+msgstr "ホームセンサ上から原点復帰方向に移動しようとした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
 msgid "LimitSwActivating"
@@ -3243,7 +3256,7 @@ msgstr ""
 msgid ""
 "Movement from limit sensor position towards the opposite direction from "
 "origin."
-msgstr ""
+msgstr "リミットセンサ上から原点復帰方向の逆向きに移動しようとした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
 msgid "GoUntilTimeout"
@@ -3251,7 +3264,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
 msgid "Timeout while executing /goUntil command."
-msgstr ""
+msgstr "/goUntilコマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
 msgid "ReleaseSwTimeout"
@@ -3259,7 +3272,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
 msgid "Timeout while executing /releaseSw command."
-msgstr ""
+msgstr "/releaseSwコマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
 msgid "InServoMode"
@@ -3267,11 +3280,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
 msgid "Received a command which can not be executed while servo mode."
-msgstr ""
+msgstr "サーボモードでは実行できないコマンドを送信した。"
 
 #: of stepseries.responses.ErrorOSC:1
 msgid "Sent if any error is detected in the OSC command."
-msgstr ""
+msgstr "受け取ったOSCメッセージに何らかのエラーがあった場合に送信されます。"
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:4
 msgid "messageNotMatch"
@@ -3279,7 +3292,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:4
 msgid "There is no corresponding command"
-msgstr ""
+msgstr "該当するコマンドがない。"
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:5
 msgid "oscSyntaxError"
@@ -3287,7 +3300,7 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:5
 msgid "The OSC format is out of standard"
-msgstr ""
+msgstr "OSCのフォーマットが規格に沿っていなかった。"
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:6
 msgid "WrongDataType"
@@ -3295,11 +3308,11 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorOSC.errorText:6
 msgid "Wrong datatype of in argument(s)"
-msgstr ""
+msgstr "SCメッセージの引数の型が異なっている。"
 
 #: of stepseries.responses.FullstepSpeed:1
 msgid "The threshold when microstepping switches to full-step mode."
-msgstr ""
+msgstr "マイクロステップからフルステップへ自動で切り替わる閾値。"
 
 #: ../../docstring of stepseries.responses.FullstepSpeed.fullstepSpeed:1
 msgid "7.63-15625.0 steps/s"
@@ -3309,7 +3322,7 @@ msgstr ""
 msgid ""
 "The timeout duration for the :py:class:`stepseries.commands.GoUntil` "
 "command."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.GoUntil` コマンドのタイムアウト時間。"
 
 #: ../../docstring of stepseries.responses.GoUntilTimeout.timeout:1
 msgid "0.0-65535.0 ms"
@@ -3317,31 +3330,31 @@ msgstr ""
 
 #: of stepseries.responses.HiZ:1
 msgid "The high-impedance (HiZ) state of a motor."
-msgstr ""
+msgstr "モータがハイ・インピーダンス (HiZ) 状態かどうか"
 
 #: ../../docstring of stepseries.responses.HiZ.state:4
 msgid "1: HiZ, 0: Not HiZ"
-msgstr ""
+msgstr "1:HiZ, 0: HiZではない"
 
 #: of stepseries.responses.HomeSw:1
 msgid "The status of the HomeSw, whether open or closed."
-msgstr ""
+msgstr "HOMESWが押されているかどうかの状態。"
 
 #: ../../docstring of stepseries.responses.HomeSw.swState:4
 #: stepseries.responses.LimitSw.swState:4
 msgid "1: Open, 0: Closed (detected)"
-msgstr ""
+msgstr "1: オープン, 0: クローズ（反応している）"
 
 #: of stepseries.responses.HomeSwMode:1 stepseries.responses.LimitSwMode:1
 msgid ""
 "The switch mode as described in "
 ":py:class:`stepseries.commands.SetHomeSwMode.`"
-msgstr ""
+msgstr "スイッチモードは :py:class:`stepseries.commands.SetHomeSwMode.` で説明されています。"
 
 #: ../../docstring of stepseries.responses.HomeSwMode.swMode:4
 #: stepseries.responses.LimitSwMode.swMode:4
 msgid "1: HardStop interrupt, 0: Notification (no stop)"
-msgstr ""
+msgstr "1: モータが即時停止する, 0: 通知のみ（停止しない）"
 
 #: of stepseries.responses.HomingDirection:1
 msgid "In which direction the origin (home) is."
@@ -3349,7 +3362,7 @@ msgstr ""
 
 #: of stepseries.responses.HomingSpeed:1
 msgid "The speed the motor will run when homing."
-msgstr ""
+msgstr "原点復帰時のモータ回転速さ。"
 
 #: ../../docstring of stepseries.responses.HomingSpeed.homingSpeed:1
 msgid "0.0-15625.0 steps/s"
@@ -3363,21 +3376,22 @@ msgstr ""
 
 #: of stepseries.responses.Kval:1
 msgid "All four KVALs together."
-msgstr ""
+msgstr "KVAL4種の値。"
 
 #: ../../docstring of stepseries.responses.Kval.accKVAL:4
 #: stepseries.responses.Kval.decKVAL:4 stepseries.responses.Kval.holdKVAL:4
 #: stepseries.responses.Kval.runKVAL:4
 msgid "KVAL when stopped"
-msgstr ""
+msgstr "停止時のKVAL"
 
 #: of stepseries.responses.LimitSw:1
 msgid "The status of the LimitSw, whether open or closed."
-msgstr ""
+msgstr "LIMITSWが押されているかどうかの状態。"
+
 
 #: of stepseries.responses.LowSpeedOptimizeThreshold:1
 msgid "The threshold to enable low speed optimization."
-msgstr ""
+msgstr "Low speed optimization threshold の現在の設定値。"
 
 #: ../../docstring of
 #: stepseries.responses.LowSpeedOptimizeThreshold.lowSpeedOptimizeThreshold:1
@@ -3387,11 +3401,11 @@ msgstr ""
 #: ../../docstring of
 #: stepseries.responses.LowSpeedOptimizeThreshold.optimizationEnabled:4
 msgid "1: Enabled, 0: Disabled"
-msgstr ""
+msgstr "1: 有効, 0: 無効"
 
 #: of stepseries.responses.Mark:1
 msgid "The latest MARK position."
-msgstr ""
+msgstr "現在のMARK位置。"
 
 #: ../../docstring of stepseries.responses.Mark.MARK:1
 #: stepseries.responses.Position.ABS_POS:1
@@ -3408,7 +3422,7 @@ msgstr ""
 
 #: of stepseries.responses.MicrostepMode:1
 msgid "The microstep mode of the motor."
-msgstr ""
+msgstr "モータのマイクロステップモード。"
 
 #: ../../docstring of stepseries.responses.MicrostepMode.STEP_SEL:4
 msgid "Full-step"
@@ -3444,7 +3458,7 @@ msgstr ""
 
 #: of stepseries.responses.MinSpeed:1
 msgid "Minimum speed of the profile."
-msgstr ""
+msgstr "スピードプロファイルのモータの最小回転速さ"
 
 #: ../../docstring of stepseries.responses.MinSpeed.minSpeed:1
 msgid "0.0-976.3 steps/s"
@@ -3452,23 +3466,23 @@ msgstr ""
 
 #: of stepseries.responses.MotorStatus:1
 msgid "The operating status of a motor."
-msgstr ""
+msgstr "モータの動作状況。"
 
 #: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:5
 msgid "Acceleration"
-msgstr ""
+msgstr "加速中"
 
 #: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:6
 msgid "Deceleration"
-msgstr ""
+msgstr "減速中"
 
 #: ../../docstring of stepseries.responses.MotorStatus.MOT_STATUS:7
 msgid "Constant Speed"
-msgstr ""
+msgstr "一定速運転中"
 
 #: of stepseries.responses.OSCResponse:1
 msgid "An abstract class meant to be implemented by OSC resp objects."
-msgstr ""
+msgstr "OSCレスポンスオブジェクトによって実装されることを想定した抽象クラス。"
 
 #: of stepseries.responses.OverCurrent:1
 msgid ""
@@ -3478,7 +3492,7 @@ msgstr ""
 
 #: of stepseries.responses.OverCurrentThreshold:1
 msgid "The threshold of over current in mA."
-msgstr ""
+msgstr "過電流検出の閾値[mA]"
 
 #: ../../docstring of
 #: stepseries.responses.OverCurrentThreshold.overCurrentThreshold:4
@@ -3493,26 +3507,26 @@ msgstr ""
 
 #: of stepseries.responses.Position:1
 msgid "The ABS_POS register value aka \"the motor's current position\"."
-msgstr ""
+msgstr "モータの ABS_POS レジスタの値＝モータの現在位置・"
 
 #: of stepseries.responses.PositionList:1
 msgid "The current position of all motors at once."
-msgstr ""
+msgstr "全モータの現在位置をまとめたもの。"
 
 #: of stepseries.responses.PositionList:3
 msgid ""
 "STEP400 users: ``position5-8`` will be None since there are only four "
 "drivers on the board."
-msgstr ""
+msgstr "STEP400ではモータ数は4軸ですので、 ``position5-8`` はありません。"
 
 #: of stepseries.responses.ProhibitMotionOnHomeSw:1
 msgid "Whether motion towards origin is permitted when HomeSw is active."
-msgstr ""
+msgstr "HOMESWが押されている状態で原点復帰方向への動作を許可するかどうか。"
 
 #: ../../docstring of stepseries.responses.ProhibitMotionOnHomeSw.enable:4
 #: stepseries.responses.ProhibitMotionOnLimitSw.enable:4
 msgid "1: Prohibited, 0: Allowed"
-msgstr ""
+msgstr "1: 許可されている, 0: 禁止されている"
 
 #: of stepseries.responses.ProhibitMotionOnLimitSw:1
 msgid "Whether motion away from origin is permitted when LimitSw is active."
