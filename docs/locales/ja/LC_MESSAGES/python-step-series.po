@@ -3536,11 +3536,11 @@ msgstr ""
 msgid ""
 "The timeout duration for the :py:class:`stepseries.commands.ReleaseSw` "
 "command."
-msgstr ""
+msgstr ":py:class:`stepseries.commands.ReleaseSw` のタイムアウト時間。"
 
 #: of stepseries.responses.ServoParam:1
 msgid "The PID control gain."
-msgstr ""
+msgstr "PID制御ゲイン"
 
 #: ../../docstring of stepseries.responses.ServoParam.kD:4
 #: stepseries.responses.ServoParam.kI:4 stepseries.responses.ServoParam.kP:4
@@ -3549,19 +3549,19 @@ msgstr ""
 
 #: ../../docstring of stepseries.responses.ServoParam.kD:4
 msgid "Derivative gain"
-msgstr ""
+msgstr "微分ゲイン"
 
 #: ../../docstring of stepseries.responses.ServoParam.kI:4
 msgid "Integral gain"
-msgstr ""
+msgstr "積分ゲイン"
 
 #: ../../docstring of stepseries.responses.ServoParam.kP:4
 msgid "Proportional gain"
-msgstr ""
+msgstr "比例ゲイン"
 
 #: of stepseries.responses.Speed:1
 msgid "The current motor speed."
-msgstr ""
+msgstr "現在のモータの速度"
 
 #: ../../docstring of stepseries.responses.Speed.speed:1
 msgid "-15625.0-15625.0 steps/s"
@@ -3569,7 +3569,7 @@ msgstr ""
 
 #: of stepseries.responses.SpeedProfile:1
 msgid "The acc, dec, and maxSpeed of the speed profile."
-msgstr ""
+msgstr "スピードプロファイルの加速度、減速度、最大速さ。"
 
 #: ../../docstring of stepseries.responses.SpeedProfile.acc:1
 msgid "14.55-59590.0 steps/s/s"
@@ -3591,7 +3591,7 @@ msgstr ""
 
 #: of stepseries.responses.StallThreshold:1
 msgid "The stall detection threshold in mA."
-msgstr ""
+msgstr "ストール検出の閾値 [mA]"
 
 #: ../../docstring of stepseries.responses.StallThreshold.stallThreshold:5
 msgid "31.25-4000.0"
@@ -3599,7 +3599,7 @@ msgstr ""
 
 #: of stepseries.responses.Status:1
 msgid "The STATUS of a motor."
-msgstr ""
+msgstr "モータドライバのSTATUSレジスタの値。"
 
 #: of stepseries.responses.Status:3
 msgid ""
@@ -3609,6 +3609,11 @@ msgid ""
 " immediately reset. It is possible to setup event to be reported "
 "depending on the data read, so please use those commands."
 msgstr ""
+"STATUSの各ビットに含まれる情報についてはデータシートを参照してください。"
+"このうち、一部の値はラッチされていて、ステータスレジスタを読み出すとリセットされます。"
+"本デバイスではファームウェアによって常時ステータスレジスタを繰り返し取得しているため、"
+"これらの値はすぐにリセットされてしまいます。これらの事象を個別に報告する設定が可能ですので、"
+"そちらを利用してください。"
 
 #: of stepseries.responses.Status:11
 msgid "STEP400 Bits"
@@ -3620,7 +3625,7 @@ msgstr ""
 
 #: of stepseries.responses.Status:11
 msgid "Configuration Command"
-msgstr ""
+msgstr "対応する設定コマンド"
 
 #: of stepseries.responses.Status:13
 msgid "UVLO"
@@ -3642,7 +3647,7 @@ msgstr ""
 
 #: of stepseries.responses.Status:14
 msgid "Not implemented"
-msgstr ""
+msgstr "実装されていません。"
 
 #: of stepseries.responses.Status:15
 msgid "OCD"
@@ -3722,15 +3727,15 @@ msgstr ""
 
 #: of stepseries.responses.SwEvent:1
 msgid "Sent when the specified motor's HomeSw drops from HIGH to LOW."
-msgstr ""
+msgstr "指定したモータのHOMESWがHIGHからLOWに変化した際に送信されます。"
 
 #: of stepseries.responses.ThermalStatus:1
 msgid "The thermal status of a motor."
-msgstr ""
+msgstr "モータドライバの温度状態 (Thermal Status)。"
 
 #: of stepseries.responses.ThermalStatus:3
 msgid "The thresholds between the STEP400 and STEP800 do vary."
-msgstr ""
+msgstr "STEP400とSTEP800ではステータスや閾値が異なります。"
 
 #: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:1
 msgid "**STEP400**:"
@@ -3739,12 +3744,12 @@ msgstr ""
 #: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
 msgid "Set Threshold"
-msgstr ""
+msgstr "発生条件"
 
 #: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:4
 #: stepseries.responses.ThermalStatus.thermalStatus:15
 msgid "Release Threshold"
-msgstr ""
+msgstr "解除条件"
 
 #: ../../docstring of stepseries.responses.ThermalStatus.thermalStatus:8
 #: stepseries.responses.ThermalStatus.thermalStatus:19
@@ -3761,31 +3766,31 @@ msgstr ""
 
 #: of stepseries.responses.Tval:1
 msgid "All four TVALs together."
-msgstr ""
+msgstr "4種のTVALレジスタ値をまとめたもの。"
 
 #: ../../docstring of stepseries.responses.Tval.accTVAL:4
 #: stepseries.responses.Tval_mA.accTVAL_mA:4
 msgid "TVAL during acceleration"
-msgstr ""
+msgstr "加速時のTVAL"
 
 #: ../../docstring of stepseries.responses.Tval.decTVAL:4
 #: stepseries.responses.Tval_mA.decTVAL_mA:4
 msgid "TVAL during deceleration"
-msgstr ""
+msgstr "減速時のTVAL"
 
 #: ../../docstring of stepseries.responses.Tval.holdTVAL:4
 #: stepseries.responses.Tval_mA.holdTVAL_mA:4
 msgid "TVAL when stopped"
-msgstr ""
+msgstr "停止時のTVAL"
 
 #: ../../docstring of stepseries.responses.Tval.runTVAL:4
 #: stepseries.responses.Tval_mA.runTVAL_mA:4
 msgid "TVAL in constant speed mode"
-msgstr ""
+msgstr "一定速運転時のTVAL"
 
 #: of stepseries.responses.Tval_mA:1
 msgid "All four TVALs together but in mA, not register values."
-msgstr ""
+msgstr "4種のTVALをレジスタ値ではなくmAでまとめたもの。"
 
 #: ../../docstring of stepseries.responses.Tval_mA.accTVAL_mA:4
 #: stepseries.responses.Tval_mA.decTVAL_mA:4
@@ -3796,134 +3801,136 @@ msgstr ""
 
 #: of stepseries.responses.Uvlo:1
 msgid "The current state of undervoltage lockout of a motor."
-msgstr ""
+msgstr "電圧低下による強制停止(UVLO)の現在の状態。"
 
 #: ../../docstring of stepseries.responses.Uvlo.state:4
 msgid "1: UVLO, 0: No UVLO"
-msgstr ""
+msgstr "1: UVLO状態, 0:UVLO状態ではない"
 
 #: of stepseries.responses.Version:1
 msgid "The firmware version burnt onto the chip."
-msgstr ""
+msgstr "基板に書き込まれているファームウェアのバージョン。"
 
 #: ../../docstring of stepseries.responses.Version.compile_date:1
 msgid "Compile date of the firmware"
-msgstr ""
+msgstr "ファームウェアのコンパイル日時"
 
 #: ../../docstring of stepseries.responses.Version.firmware_name:1
 msgid "Name of the firmware."
-msgstr ""
+msgstr "ファームウェアの名称"
 
 #: ../../docstring of stepseries.responses.Version.firmware_version:1
 msgid "Version of the firmware."
-msgstr ""
+msgstr "ファームウェアのバージョン"
 
 #: ../../python-step-series/api/stepseries.rst:20
 msgid "``stepseries.step400`` -- STEP400 Device"
-msgstr ""
+msgstr "``stepseries.step400`` -- STEP400 デバイス"
 
 #: of stepseries.step400:1
 msgid "4 axis stepper motor driver with and Ethernet interface."
-msgstr ""
+msgstr "Ethernet接続可能な4軸ステッピングモータドライバ。"
 
 #: of stepseries.step400.STEP400:1
 msgid "Send and receive data from a STEP400 motor driver."
-msgstr ""
+msgstr "STEP400モータドライバとデータを送受信します。"
 
 #: of stepseries.step400.STEP400:5 stepseries.step800.STEP800:5
 msgid ""
 "It is recommended to create a default message handler for this driver. "
 "Here is an example:"
 msgstr ""
-
+"デフォルトメッセージハンドラを作成することを推奨します。例："
 #: of stepseries.step400.STEP400 stepseries.step800.STEP800
 #: stepseries.step800.STEP800.get stepseries.step800.STEP800.set
 msgid "Parameters"
-msgstr ""
+msgstr "パラメータ"
 
 #: of stepseries.step400.STEP400:16 stepseries.step800.STEP800:16
 msgid "The id set by the DIP switches on the device."
-msgstr ""
+msgstr "デバイスのDIPスイッチで設定されたID"
 
 #: of stepseries.step400.STEP400:18 stepseries.step800.STEP800:18
 msgid "The ip address of the device. Defaults to `10.0.0.100`."
-msgstr ""
+msgstr "デバイスのIPアドレス。初期値は `10.0.0.100` です。"
 
 #: of stepseries.step400.STEP400:20 stepseries.step800.STEP800:20
 msgid "The local port the device is listening on. Defaults to `50000`."
-msgstr ""
+msgstr "デバイスが受信するローカルポート番号。初期値は `50000` です。"
 
 #: of stepseries.step400.STEP400:23 stepseries.step800.STEP800:23
 msgid ""
 "The ip address of the server (this machine). Should always be `0.0.0.0`. "
 "Defaults to `0.0.0.0`."
-msgstr ""
+msgstr "サーバ（制御PC）のIPアドレス。常時 `0.0.0.0` に設定します。"
 
 #: of stepseries.step400.STEP400:26 stepseries.step800.STEP800:26
 msgid "The port the server is listening on. Defaults to `50100`."
-msgstr ""
+msgstr "サーバが受信するポート番号。初期値は `50100` です。"
 
 #: of stepseries.step400.STEP400:28 stepseries.step800.STEP800:28
 msgid ""
 "Whether to add `id` to `address` and `server_port` (the default behavior "
 "on the device). Defaults to `True`."
 msgstr ""
-
+"`address` と `server_port` に `id` を加算するかどうか。初期値は `True` です。"
 #: ../../python-step-series/api/stepseries.rst:26
 msgid "``stepseries.step800`` -- STEP800 Device"
-msgstr ""
+msgstr "``stepseries.step800`` -- STEP800 デバイス"
 
 #: of stepseries.step800:1
 msgid "8 axis stepper motor driver with Ethernet interface."
-msgstr ""
+msgstr "Ethernet接続可能な8軸ステッピングモータドライバ。"
 
 #: of stepseries.step800.STEP800:1
 msgid "Send and receive data from a STEP800 motor driver."
-msgstr ""
+msgstr "STEP800モータドライバとデータを送受信します。"
 
 #: of stepseries.step800.STEP800.get:1
 msgid "Send a 'get' command to the device and return the response."
-msgstr ""
+msgstr "デバイスに 'get' コマンドを送り、レスポンスを返します。"
 
 #: of stepseries.step800.STEP800.get:5
 msgid "The responses are also sent to each applicable callback."
-msgstr ""
+msgstr "レスポンスは該当する各コールバックにも送信されます。"
 
 #: of stepseries.step800.STEP800.get:7
 msgid ""
 "If a `ParseError` is received, then it will be raised. The raw response "
 "can be retrieved via the `response` attribute of the error."
 msgstr ""
+"もし `ParseError` を受信した場合は、そのエラーが発生します。"
+"生のレスポンスは、エラーの response 属性で取得できます。"
 
 #: of stepseries.step800.STEP800.get:11 stepseries.step800.STEP800.set:3
 msgid "The completed command template (`stepseries.commands`)."
-msgstr ""
+msgstr "完成したコマンドのテンプレート  (`stepseries.commands`) 。"
 
 #: of stepseries.step800.STEP800.get:13
 msgid "Send the response to callbacks as well (defaults to `True`)."
-msgstr ""
+msgstr "レスポンスをコールバックにも送るかどうか（初期値は `True` ）。"
 
 #: of stepseries.step800.STEP800.get:16
 msgid ""
 "Wait for a response from the device if `True`, otherwise return without "
 "waiting for a response (defaults to `True`)."
 msgstr ""
-
+"`True` の場合はデバイスからのレスポンスを待ち、相でない場合はレスポンスを待たずに戻ります。初期値は `True` です。"
 #: of stepseries.step800.STEP800.get stepseries.step800.STEP800.set
 msgid "Raises"
 msgstr ""
 
 #: of stepseries.step800.STEP800.get:21 stepseries.step800.STEP800.set:6
 msgid "`command` is not an `OSCSetCommand`."
-msgstr ""
+msgstr "`command` が ``OSCSetCommand` ではない。"
 
 #: of stepseries.step800.STEP800.get:22
 msgid "`command` cannot run on a STEP800."
-msgstr ""
+msgstr "`command` がSTEP800で実行できない。"
 
 #: of stepseries.step800.STEP800.set:1
 msgid "Send a 'set' command to the device."
-msgstr ""
+msgstr "'set' コマンドをデバイスに送信します。"
 
 #: ../../python-step-series/index.rst:3
 msgid "python-step-series"
