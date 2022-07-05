@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-28 08:43-0500\n"
+"POT-Creation-Date: 2022-07-05 10:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.10.1\n"
 
 #: ../../python-step-series/about.rst:5
 msgid "API Documentation"
@@ -1330,9 +1330,8 @@ msgid ""
 "a 10kΩ resistor wired directly to the LIMITSW connector. In the STEP800, "
 "this pin is tied to GND and will always be 0V."
 msgstr ""
-"``ADC_OUT`` はモータドライバのADCピンの電圧を5bitでAD変換した値です。"
-"STEP400では、個のピンは10kΩの抵抗でプルアップされていて、LIMITSWコネクタに接続されています。"
-"STEP800では、このピンはGNDに接続されていて、常時0Vになります。"
+"``ADC_OUT`` "
+"はモータドライバのADCピンの電圧を5bitでAD変換した値です。STEP400では、個のピンは10kΩの抵抗でプルアップされていて、LIMITSWコネクタに接続されています。STEP800では、このピンはGNDに接続されていて、常時0Vになります。"
 
 #: of stepseries.commands.GetAdcVal:8 stepseries.commands.GetConfigRegister:6
 #: stepseries.commands.GetStatus:6 stepseries.commands.ResetMotorDriver:3
@@ -1474,9 +1473,6 @@ msgid ""
 ":py:class:`stepseries.commands.SetPositionListReportInterval` can be "
 "configured to periodically send the current position."
 msgstr ""
-msgstr ""
-":py:class:`stepseries.commands.SetPositionReportInterval` "
-"で、指定間隔で自動送信させることもできます。"
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
 msgid ""
@@ -1750,8 +1746,7 @@ msgid ""
 "brake is enabled, then the brake is put into a hold state before "
 "excitation is released. Transitions to HiZ after excitation is released. "
 "Remains in the BUSY state until the motor stops."
-msgstr "スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。励磁が解除されるとHiZ状態になります。"
-"モータが停止するまではBUSY状態になります。サーボモードだった場合は解除されます。電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
+msgstr "スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。励磁が解除されるとHiZ状態になります。モータが停止するまではBUSY状態になります。サーボモードだった場合は解除されます。電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
 
 #: of stepseries.commands.HardStop:3
 #, fuzzy
@@ -2584,9 +2579,7 @@ msgstr ":py:class:`stepseries.commands.ReleaseSw` のタイムアウト時間を
 msgid ""
 "If the HOME switch is not releaseed before this timeout, then the "
 "controller stops the motor's movements. Specify 0 to disable the timeout."
-msgstr ""
-"もしHOMEスイッチがこの時間内に解放されたなかった場合は、モータの動作を停止します。"
-"0を指定すると無効になります。"
+msgstr "もしHOMEスイッチがこの時間内に解放されたなかった場合は、モータの動作を停止します。0を指定すると無効になります。"
 
 #: of stepseries.commands.SetServoParam:1
 msgid "Configure the servo PID control parameters."
@@ -3020,8 +3013,9 @@ msgid "0-255 (0xFF)"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
-msgid "FN_SLPe_ACC register value"
-msgstr "FN_SLP_ACCレジスタの値。"
+#, fuzzy
+msgid "FN_SLP_ACC register value"
+msgstr "T_FASTレジスタの値。"
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_DEC:4
 msgid "FN_SLP_DEC register value"
@@ -3050,8 +3044,8 @@ msgid ""
 "for this message, you can determine when the device restarts even if "
 "unexpectedly."
 msgstr ""
-"このメッセージは :py:class:`stepseries.commands.SetDestIP` が受信されたかどうかに関わらず送信されます。"
-"このメッセージを監視することによって、何らかの理由で本デバイスがリセットされたことを検出できます。"
+"このメッセージは :py:class:`stepseries.commands.SetDestIP` "
+"が受信されたかどうかに関わらず送信されます。このメッセージを監視することによって、何らかの理由で本デバイスがリセットされたことを検出できます。"
 
 #: of stepseries.responses.Booted:8
 msgid ""
@@ -3065,8 +3059,8 @@ msgid ""
 "subnet (address ``255.255.255.255``). If this is unacceptable for your "
 "network, you can disable it via the `Config Tool`_."
 msgstr ""
-"サブネット内のすべてのノード (255.255.255.255) へブロードキャストされます。 "
-"`Config Tool`_ の設定を用いて、このメッセージを送信しないようにも設定できます"
+"サブネット内のすべてのノード (255.255.255.255) へブロードキャストされます。 `Config Tool`_ "
+"の設定を用いて、このメッセージを送信しないようにも設定できます"
 
 #: ../../docstring of stepseries.responses.Booted.deviceID:4
 msgid "The device ID set by the DIP switch"
@@ -3388,7 +3382,6 @@ msgstr "停止時のKVAL"
 msgid "The status of the LimitSw, whether open or closed."
 msgstr "LIMITSWが押されているかどうかの状態。"
 
-
 #: of stepseries.responses.LowSpeedOptimizeThreshold:1
 msgid "The threshold to enable low speed optimization."
 msgstr "Low speed optimization threshold の現在の設定値。"
@@ -3608,12 +3601,7 @@ msgid ""
 "read out. Because the firmware constantly reads these registers, they are"
 " immediately reset. It is possible to setup event to be reported "
 "depending on the data read, so please use those commands."
-msgstr ""
-"STATUSの各ビットに含まれる情報についてはデータシートを参照してください。"
-"このうち、一部の値はラッチされていて、ステータスレジスタを読み出すとリセットされます。"
-"本デバイスではファームウェアによって常時ステータスレジスタを繰り返し取得しているため、"
-"これらの値はすぐにリセットされてしまいます。これらの事象を個別に報告する設定が可能ですので、"
-"そちらを利用してください。"
+msgstr "STATUSの各ビットに含まれる情報についてはデータシートを参照してください。このうち、一部の値はラッチされていて、ステータスレジスタを読み出すとリセットされます。本デバイスではファームウェアによって常時ステータスレジスタを繰り返し取得しているため、これらの値はすぐにリセットされてしまいます。これらの事象を個別に報告する設定が可能ですので、そちらを利用してください。"
 
 #: of stepseries.responses.Status:11
 msgid "STEP400 Bits"
@@ -3839,8 +3827,8 @@ msgstr "STEP400モータドライバとデータを送受信します。"
 msgid ""
 "It is recommended to create a default message handler for this driver. "
 "Here is an example:"
-msgstr ""
-"デフォルトメッセージハンドラを作成することを推奨します。例："
+msgstr "デフォルトメッセージハンドラを作成することを推奨します。例："
+
 #: of stepseries.step400.STEP400 stepseries.step800.STEP800
 #: stepseries.step800.STEP800.get stepseries.step800.STEP800.set
 msgid "Parameters"
@@ -3872,8 +3860,8 @@ msgstr "サーバが受信するポート番号。初期値は `50100` です。
 msgid ""
 "Whether to add `id` to `address` and `server_port` (the default behavior "
 "on the device). Defaults to `True`."
-msgstr ""
-"`address` と `server_port` に `id` を加算するかどうか。初期値は `True` です。"
+msgstr "`address` と `server_port` に `id` を加算するかどうか。初期値は `True` です。"
+
 #: ../../python-step-series/api/stepseries.rst:26
 msgid "``stepseries.step800`` -- STEP800 Device"
 msgstr "``stepseries.step800`` -- STEP800 デバイス"
@@ -3898,9 +3886,7 @@ msgstr "レスポンスは該当する各コールバックにも送信されま
 msgid ""
 "If a `ParseError` is received, then it will be raised. The raw response "
 "can be retrieved via the `response` attribute of the error."
-msgstr ""
-"もし `ParseError` を受信した場合は、そのエラーが発生します。"
-"生のレスポンスは、エラーの response 属性で取得できます。"
+msgstr "もし `ParseError` を受信した場合は、そのエラーが発生します。生のレスポンスは、エラーの response 属性で取得できます。"
 
 #: of stepseries.step800.STEP800.get:11 stepseries.step800.STEP800.set:3
 msgid "The completed command template (`stepseries.commands`)."
@@ -3914,8 +3900,8 @@ msgstr "レスポンスをコールバックにも送るかどうか（初期値
 msgid ""
 "Wait for a response from the device if `True`, otherwise return without "
 "waiting for a response (defaults to `True`)."
-msgstr ""
-"`True` の場合はデバイスからのレスポンスを待ち、相でない場合はレスポンスを待たずに戻ります。初期値は `True` です。"
+msgstr "`True` の場合はデバイスからのレスポンスを待ち、相でない場合はレスポンスを待たずに戻ります。初期値は `True` です。"
+
 #: of stepseries.step800.STEP800.get stepseries.step800.STEP800.set
 msgid "Raises"
 msgstr ""
@@ -4231,4 +4217,7 @@ msgstr ""
 #~ "STEP800, this pin is tied with GND"
 #~ " and will always 0V."
 #~ msgstr ""
+
+#~ msgid "FN_SLPe_ACC register value"
+#~ msgstr "FN_SLP_ACCレジスタの値。"
 
