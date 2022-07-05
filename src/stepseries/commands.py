@@ -1159,7 +1159,7 @@ class GetStallThreshold(OSCGetCommand):
 
 @dataclass
 class SetProhibitMotionOnHomeSw(OSCSetCommand):
-    """Prohibit motion to the origin when the home sensor is activated.
+    """Prohibit motion towards the homing direction when the home sensor is activated.
 
     The direction to the origin point can be configured using the
     `Config Tool`_ or with
@@ -1193,7 +1193,7 @@ class SetProhibitMotionOnHomeSw(OSCSetCommand):
 @dataclass
 class GetProhibitMotionOnHomeSw(OSCGetCommand):
     """
-    Retrieve if motion towards the origin point is disabled when the
+    Retrieve if motion towards the homing direction is disabled when the
     home switch is activated.
 
     +-----------------+------+
@@ -1218,7 +1218,7 @@ class GetProhibitMotionOnHomeSw(OSCGetCommand):
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCSetCommand):
     """
-    Prohibit motion in the opposite direction of the origin when the
+    Prohibit motion in the opposite of homing direction when the
     limit sensor is activated.
 
     The direction to the origin point can be configured using the
@@ -1253,7 +1253,7 @@ class SetProhibitMotionOnLimitSw(OSCSetCommand):
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCGetCommand):
     """
-    Retrieve if motion in the opposite direction of the origin is
+    Retrieve if motion in the opposite of homing direction is
     disabled when the limit switch is activated.
 
     ``STEP400 Only``
@@ -2216,11 +2216,11 @@ class SetGoUntilTimeout(OSCSetCommand):
     timeOut: int
     """How long to wait for the HOME switch to activate.
 
-    +-----------+--------------+
-    |Valid Range|0 - 65535 [ms]|
-    +-----------+--------------+
-    |Default    |10000 [ms]    |
-    +-----------+--------------+
+    +-----------+-------------------+
+    |Valid Range|0 - 4294967295 [ms]|
+    +-----------+-------------------+
+    |Default    |10000 [ms]         |
+    +-----------+-------------------+
     """
 
 
@@ -2319,11 +2319,11 @@ class SetReleaseSwTimeout(OSCSetCommand):
     timeOut: int
     """How long to wait for the HOME switch to activate.
 
-    +-----------+--------------+
-    |Valid Range|0 - 65535 [ms]|
-    +-----------+--------------+
-    |Default    |10000 [ms]    |
-    +-----------+--------------+
+    +-----------+-------------------+
+    |Valid Range|0 - 4294967295 [ms]|
+    +-----------+-------------------+
+    |Default    |10000 [ms]         |
+    +-----------+-------------------+
     """
 
 

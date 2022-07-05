@@ -147,8 +147,8 @@ class ErrorCommand(OSCResponse, Exception):
     CommandIgnored	  The command is currently not executable. Also refer Timing section.
     MotorIdNotMatch	  Motor ID is not appropriate.
     BrakeEngaging	  A motion command was sent while the electromagnet brake was active.
-    HomeSwActivating  Movement from home sensor position towards the origin point.
-    LimitSwActivating Movement from limit sensor position towards the opposite direction from origin.
+    HomeSwActivating  Movement from home sensor position towards the homing direction.
+    LimitSwActivating Movement from limit sensor position towards the opposite of the homing direction.
     GoUntilTimeout    Timeout while executing /goUntil command.
     ReleaseSwTimeout  Timeout while executing /releaseSw command.
     InServoMode       Received a command which can not be executed while servo mode.
@@ -309,7 +309,7 @@ class Uvlo(OSCResponse):
 
 @dataclass
 class ThermalStatus(OSCResponse):
-    """The thermal status of a motor.
+    """The thermal status of a motor driver chip.
 
     The thresholds between the STEP400 and STEP800 do vary.
     """
@@ -524,7 +524,7 @@ class Dir(OSCResponse):
 
 @dataclass
 class AdcVal(OSCResponse):
-    """The ADC_OUT register value from the PowerSTEP01 chip."""
+    """The ADC_OUT register value from the motor driver chip."""
 
     address: str = field(default="/adcVal", init=False)
     motorID: int
@@ -586,11 +586,11 @@ class Status(OSCResponse):
     """
     status: int
     """
-    ===== ======================================
-    Range Description
-    ===== ======================================
-    0-31  5-bit read out of the ADC_OUT register
-    ===== ======================================
+    ======= =====================
+    Range   Description
+    ======= =====================
+    0-65535 STATUS register value
+    ======= =====================
     """
 
 
@@ -667,7 +667,7 @@ class StallThreshold(OSCResponse):
 
 @dataclass
 class ProhibitMotionOnHomeSw(OSCResponse):
-    """Whether motion towards origin is permitted when HomeSw is active."""
+    """Whether motion towards the homing direction is permitted when HomeSw is active."""
 
     address: str = field(default="/prohibitMotionOnHomeSw", init=False)
     motorID: int
@@ -692,7 +692,7 @@ class ProhibitMotionOnHomeSw(OSCResponse):
 @dataclass
 class ProhibitMotionOnLimitSw(OSCResponse):
     """
-    Whether motion away from origin is permitted when LimitSw is active.
+    Whether motion to the opposite of the homing direction is permitted when LimitSw is active.
     """
 
     address: str = field(default="/prohibitMotionOnLimitSw", init=False)
@@ -1034,7 +1034,7 @@ class Speed(OSCResponse):
 
 @dataclass
 class HomingDirection(OSCResponse):
-    """In which direction the origin (home) is."""
+    """The motor rotating direction when homing."""
 
     address: str = field(default="/homingDirection", init=False)
     motorID: int
