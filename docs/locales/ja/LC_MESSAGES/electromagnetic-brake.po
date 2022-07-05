@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../../electromagnetic-brake/about.rst:5
 msgid "Electromagnetic Brake"
-msgstr ""
+msgstr "電磁ブレーキ"
 
 #: ../../electromagnetic-brake/about.rst:13
 msgid "About"
-msgstr ""
+msgstr "概要"
 
 #: ../../electromagnetic-brake/about.rst:15
 msgid ""
@@ -34,6 +34,9 @@ msgid ""
 "when stopped; however, when power is lost, the holding force is lost and "
 "the suspended load will fall."
 msgstr ""
+"ステッピングモータの中には電磁ブレーキが取り付けられているものがあります。"
+"ステッピングモータは通常、停止時にも保持トルクがあり負荷を保持できますが、"
+"停電などで電源が落ちた場合には保持力がなくなり、負荷を吊り下げている場合には負荷が落下してしまいます。"
 
 #: ../../electromagnetic-brake/about.rst:20
 msgid ""
@@ -43,6 +46,7 @@ msgid ""
 "prevents the load from moving or falling. Vertically moving loads should "
 "especially consider using one of these devices."
 msgstr ""
+"電磁ブレーキはモータの軸をロックする装置で、通電しているときだけ軸が解放されますので、予期しない電源断が発生した場合にただちに軸がロックされ、負荷が動いたり落下したりするのを防ぎます。特に負荷を上下に移動させる場合には必要です。"
 
 #: ../../electromagnetic-brake/about.rst:26
 msgid ""
@@ -51,21 +55,23 @@ msgid ""
 "brake add-on board is designed to be controlled in conjunction with the "
 "STEP400 motor controller."
 msgstr ""
+"電磁ブレーキがついたステッピングモータを使用する場合には、モータの状態に応じで電磁ブレーキを開放/ロックする必要があります。"
+"この電磁ブレーキ用制御基板は、STEP400に連動して電磁ブレーキを制御するための基板です。"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:3
 msgid "Operation"
-msgstr ""
+msgstr "電磁ブレーキの動作"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:7
 msgid "What is an electromagnetic brake?"
-msgstr ""
+msgstr "電磁ブレーキとは"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:9
 msgid ""
 "Some stepper motors have an EM brake built-in. In operation, stepper "
 "motors maintain a holding torque even when stopped. However, if power is "
 "lost, then that torque is lost and any suspended load will move or drop."
-msgstr ""
+msgstr "ステッピングモータの中には電磁ブレーキが取り付けられているものがあります。ステッピングモータは通常、停止時にも保持トルクがあり負荷を保持できますが、停電などで電源が落ちた場合には保持力がなくなり、負荷を吊り下げている場合には負荷が落下してしまいます。"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:13
 msgid ""
@@ -74,10 +80,11 @@ msgid ""
 "device is especially necessary in situations of vertically suspended "
 "loads."
 msgstr ""
+"電磁ブレーキはモータの軸をロックする装置で、通電しているときだけ軸が解放されますので、予期しない電源断が発生した場合にただちに軸がロックされ、負荷が動いたり落下したりするのを防ぎます。特に負荷を上下に移動させる場合には必要です。"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:20
 msgid "Response Timing"
-msgstr ""
+msgstr "動作タイミング"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:22
 msgid ""
@@ -85,7 +92,7 @@ msgid ""
 " this mechanism is not instant and requires a slight amount of time to "
 "engage. This means there must be a duration of time in which the brake "
 "and the motor are both engaged."
-msgstr ""
+msgstr "電磁ブレーキの電源を切ると軸がロックされますが、ブレーキ機構が物理的に動作する時間が必要ですので、その間に負荷が動かないようにモータの励磁を切るまでに、モータ、ブレーキ双方がオーバーラップして保持する時間 (brakeTransitionDuration) を置く必要があります。"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:27
 msgid ""
@@ -96,10 +103,12 @@ msgid ""
 " configured using the command ``/setBrakeTransitionDuration`` or from the"
 " config tool."
 msgstr ""
+"このオーバーラップ時間はブレーキがかかるまでの時間には影響しませんが、ブレーキ操作の後、モータを動作・解放させるまでの待ち時間に影響します。STEP400ではこのオーバーラップ時間の初期値は100ms(0.1秒)になっていますが、"
+"``/setBrakeTransitionDuration`` コマンドや　Config Tool で変更できます。"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:38
 msgid "Built-in EM Brake Examples"
-msgstr ""
+msgstr "電磁ブレーキのついたステッピングモータの例"
 
 #: ../../electromagnetic-brake/submodules/operation.rst:42
 msgid "`STEPPER ONLINE`_"
@@ -111,65 +120,68 @@ msgstr ""
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:3
 msgid "Wiring"
-msgstr ""
+msgstr "接続"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:7
 msgid "Wiring the Power Source"
-msgstr ""
+msgstr "電源の接続"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:11
 msgid "Power Source Voltage"
-msgstr ""
+msgstr "電源電圧"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:13
 msgid ""
 "Supply power for the electromagnetic brake. Many EM brakes use 24V, but "
 "please refer to the datasheet of your motor."
 msgstr ""
+"電磁ブレーキに印加する電圧を電磁ブレーキ基板に供給します。電磁ブレーキの多くは24Vですが、使用するモータのデータシートで確認してください。"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:18
 msgid "Power Supply Terminals"
-msgstr ""
+msgstr "電源端子"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:20
 msgid ""
 "There are two types of power supply terminals: the DC barrel jack and the"
 " Euro-style terminal block."
-msgstr ""
+msgstr "DCジャックとユーロブロックの2種類の電源端子があります。"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:23
 msgid "As these are connected on the PCB, **DO NOT SUPPLY BOTH AT THE SAME TIME**"
-msgstr ""
+msgstr "この2つの端子は基板上で並列接続されていますので、**同時に給電することは危険ですので絶対に行わないでください。**"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:28
 msgid "DC Jack"
-msgstr ""
+msgstr "DCジャック"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:30
 msgid "Outer diameter 5.5mm"
-msgstr ""
+msgstr "外形5.5mm"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:31
 msgid "Inner diameter 2.1mm"
-msgstr ""
+msgstr "内径2.1mm"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:32
 msgid "Center positive"
-msgstr ""
+msgstr "センタープラス"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:36
 msgid "Euro-style Terminal Block"
-msgstr ""
+msgstr "ユーロブロック"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:38
 msgid ""
 "A 3.81mm pitch, 2pin Euro-style terminal block is built-in. Refer to the "
 "polarity described on the PC for connecting your DC supply correctly."
 msgstr ""
+"3.81mmピッチ、2ピンのユーロブロックを使用します。"
+"基板上に表示してある極性通りに接続してください。"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:45
 msgid "Connecting the Motor"
-msgstr ""
+msgstr "ブレーキとの接続"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:47
 msgid ""
@@ -177,28 +189,29 @@ msgid ""
 " motor. Note how each terminal on the brake is numbered just like the "
 "STEP400--make sure these match in terms of wiring."
 msgstr ""
+"ブレーキ用端子へ電磁ブレーキへの線を接続します。モータとブレーキは、それぞれ同じ番号のコネクタへ接続してください。"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:51
 msgid ""
 "Like most EM brakes, this brake has a polarity requirement, so wire your "
 "motor as stated on the PCB."
-msgstr ""
+msgstr "電磁ブレーキの多くは極性がありますので、基板上に書かれた正負の記号をみて接続してください。"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:56
 msgid "Connecting the STEP400"
-msgstr ""
+msgstr "STEP400との接続"
 
 #: ../../electromagnetic-brake/submodules/wiring.rst:58
 msgid "Connect the STEP400 using the provided 6-pin ribbon cable."
-msgstr ""
+msgstr "STEP400とは6ピンリボンケーブルで接続します。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:3
 msgid "Sending Commands"
-msgstr ""
+msgstr "コマンドの送り方"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:7
 msgid "Brake Mode"
-msgstr ""
+msgstr "電磁ブレーキモード"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:9
 msgid ""
@@ -206,16 +219,20 @@ msgid ""
 "do this, send the command ``/enableElectromagnetBrake`` or from the "
 "config tool under ``Electromagnetic brake enable``."
 msgstr ""
+"電磁ブレーキを使用する場合は、まずSTEP400を電磁ブレーキモードにする必要があります。"
+"それには  ``/enableElectromagnetBrake`` コマンドを送るか、あるいは Config Tool の"
+" ``Electromagnetic brake enable`` から設定できます。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:13
 msgid ""
 "If the mode is enabled, the brake will be controlled according to the "
 "motors' excitation state."
 msgstr ""
+"このモードがオンになっていると、モータの励磁に合わせて電磁ブレーキが自動的に制御されます。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:18
 msgid "Switching States"
-msgstr ""
+msgstr "励磁と無励磁の切替"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:20
 msgid ""
@@ -223,6 +240,8 @@ msgid ""
 "the motor. The brake will be released when the motor is excited and "
 "engage when the motor is not excited."
 msgstr ""
+"``/activate`` コマンドによって、モータの励磁と無励磁を切り替えます。"
+"モータ励磁時にはブレーキ開放、モータ無励磁のときにはブレーキが保持状態になります。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:24
 msgid ""
@@ -230,10 +249,13 @@ msgid ""
 "``/setBrakeTransitionDuration`` or from the config tool under ``Brake "
 "transition duration``."
 msgstr ""
-
+"ブレーキとモータの保持力が重なる ``Brake Transition Duration`` は"
+" ``/setBrakeTransitionDuration`` コマンドか、"
+"Config Toolの ``Brake transition duration`` 空設定できます。
+"
 #: ../../electromagnetic-brake/submodules/commands.rst:30
 msgid "Releasing the Hold"
-msgstr ""
+msgstr "軸の解放"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:32
 msgid ""
@@ -241,6 +263,8 @@ msgid ""
 "However, there are cases where this behavior is desired. To do this, the "
 "command ``/free`` can be sent."
 msgstr ""
+"電磁ブレーキを開放したままモータを無励磁にすると負荷が落下しますが、メンテナンスなどの理由により軸を開放する必要があるときは"
+" ``/free`` コマンドを利用します。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:36
 msgid ""
@@ -248,10 +272,13 @@ msgid ""
 " is still attached to the motor! Ensure the load is safed before sending "
 "this command!"
 msgstr ""
+"このコマンドは十分注意して送ってください。負荷が吊り下げられたままの状態では危険ですので、"
+"モータの保持力がなくなっても問題ない状態かどうかを確認してください！"
+
 
 #: ../../electromagnetic-brake/submodules/commands.rst:42
 msgid "Command Behaviors"
-msgstr ""
+msgstr "各コマンドの挙動"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:44
 msgid ""
@@ -259,63 +286,65 @@ msgid ""
 "and ``/move`` are not executed. Instead, the error "
 "``ERROR_BRAKE_ENGAGED`` message will be raised."
 msgstr ""
+"電磁ブレーキが保持状態のときは、 ``/run``, ``/goTo``, ``/move`` などのモーションコマンドは"
+"実行されず、 ``ERROR_BRAKE_ENGAGED`` が発生します。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:48
 msgid "Python users: This message will raise an error!"
-msgstr ""
+msgstr "Pythonユーザの方へ：このメッセージはエラーを発生させます！"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:50
 msgid ""
 "Commands that put the motor into a non-excited state (torque hold "
 "released) will behave as follows:"
-msgstr ""
+msgstr "またモータを無励磁にする以下のコマンドは、次のような挙動になります。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:53
 msgid ""
 "``/softHiZ``: Decelerate the motor to a stop, engage the brake, then "
 "release the motor (HiZ state)."
-msgstr ""
+msgstr "``/softHiZ``: モータを減速停止し、停止したら電磁ブレーキを保持状態にしたのち、モータをHiZ状態にする。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:54
 msgid ""
 "``/hardHiZ``: Stop the motor immediately, engage the brake, thenrelease "
 "the motor (HiZ state)."
-msgstr ""
+msgstr "``/hardHiZ``: モータを瞬間停止し、電磁ブレーキを保持状態にしたのち、モータをHiZ状態にする。"
 
 #: ../../electromagnetic-brake/submodules/commands.rst:56
 msgid ""
 "``/softStop`` and ``/hardStop`` have no change in behavior and will "
 "operate like normal. The brake is not engaged when these commands are "
 "sent and the motor is kept excited."
-msgstr ""
+msgstr "``/softStop`` と ``/hardStop`` は停止後もモータは励磁したままですので、電磁ブレーキモードでも通常時と同じ挙動です。"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:3
 msgid "Specifications"
-msgstr ""
+msgstr "仕様"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:7
 msgid "Basic Specifications"
-msgstr ""
+msgstr "基本仕様"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:9
 msgid "Input voltage: 5-48V"
-msgstr ""
+msgstr "入力可能電源電圧 : 5 - 48V"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:10
 msgid "Control channels: 4 channels"
-msgstr ""
+msgstr "制御可能チャンネル数 : 4ch"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:11
 msgid "PCB size: 45x56mm"
-msgstr ""
+msgstr "基板サイズ : 45 x 56mm"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:13
 msgid "When supplying voltage under 12V, the indicator LED may not be visible."
-msgstr ""
+msgstr "12V以下で動かす場合、インジケータのLEDが視認できない可能性があります。"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:18
 msgid "Driving Current"
-msgstr ""
+msgstr "駆動可能電流"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:20
 msgid ""
@@ -324,32 +353,34 @@ msgid ""
 "source terminal block which is 7A. Within this range, you can control "
 "other loads like LEDs or motors."
 msgstr ""
+"ON/OFFを切り替えているMOSFETの `データシート`_ 上の定格は60V28Aです。"
+"実際は電源ターミナルブロックの定格7Aに制限されますが、その範囲内でLEDやモータなど別の負荷を動かすことも可能です。"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:27
 msgid "Drawings"
-msgstr ""
+msgstr "基板外形図"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:31
 msgid "`PCB PDF`_"
-msgstr ""
+msgstr "`基板外形 PDF_`"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:35
 msgid "`Circuit PDF`_"
-msgstr ""
+msgstr "`回路図 PDF`_"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:39
 msgid "Accessories"
-msgstr ""
+msgstr "付属品"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:41
 msgid "3.81mm pitch 2pin Euro-style terminal block x5"
-msgstr ""
+msgstr "3.81mmピッチ 2ピンユーロスタイル ターミナルブロック x 5"
 
 #: ../../electromagnetic-brake/submodules/specifications.rst:42
 msgid "6 pin ribbon cable"
-msgstr ""
+msgstr "6ピンリボンケーブル"
 
 #: ../../electromagnetic-brake/index.rst:3
 msgid "Electromagnetic Brake (STEP400)"
-msgstr ""
+msgstr "電磁ブレーキ (STEP400)"
 
