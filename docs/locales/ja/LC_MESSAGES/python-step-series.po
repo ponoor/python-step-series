@@ -2779,7 +2779,7 @@ msgstr ""
 
 #: ../../python-step-series/api/stepseries.rst:14
 msgid "``stepseries.responses`` -- Device Responses"
-msgid "``stepseries.responses`` -- デバイスレスポンス"
+msgstr "``stepseries.responses`` -- デバイスレスポンス"
 
 #: of stepseries.responses:1
 msgid "Messages received from the device."
