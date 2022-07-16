@@ -22,7 +22,7 @@ The differences can be described as follows:
 -  Voltage mode is quiet and smooth, but is limited to lower speeds
 -  Current mode is noisy, but can reach higher speeds
 
-To better illustrate this point, here is a demostration video to show
+To better illustrate this point, here is a demonstration video to show
 the differences between these two modes.
 
 .. container:: voltage-vs-current-mode-video
@@ -134,10 +134,6 @@ While we provide some example defaults, you need to set these values
 according to your actual environment. This requires some trial and error
 on your part.
 
-You can also set the minimum speed (minSpeed) as a function of the motor
-driver, but it is fixed at 0 in the firmware because it is unlikely to
-be used for any actual application.
-
 -------------------
 Setting the Profile
 -------------------
@@ -145,6 +141,10 @@ Setting the Profile
 Use `/setSpeedProfile`_ to set the above three values. Acc and dec
 cannot be set unless the motor is stopped; however, maxSpeed can be set
 at any time.
+
+You can also set the minimum speed (minSpeed) with ``/setMinSpeed``. 
+It is unlikely to be used for any actual application, but this speed 
+will be used for ``/releaseSw`` speed as a part of the homing procedure.
 
 ========================
 Types of Motor Operation
@@ -181,6 +181,13 @@ at a relatively slow rate. It remains in the BUSY state until the motor
 stops. It's not possible to interrupt the current positioning motion
 with another positioning motion.
 
+Typical commands for positioning operation are ``/goTo`` and ``/move``. 
+Other commands include ``/goHome``, ``/goMark``, and ``/goToDir``.
+
+NOTE: With `STEP-series Universal Firmware`_, positioning motions 
+(except /move) can interrupt another positioning motions.
+
+
 ----------
 Servo Mode
 ----------
@@ -211,7 +218,7 @@ HiZ              SoftHiZ           HardHiZ
 
 The excited state is the state in which voltage or current (torque) is
 maintained to hold the motor's position according to ``KVAL_HOLD`` or
-``TVAL_HOLD``, respectively. The high impedence (HiZ) state is when
+``TVAL_HOLD``, respectively. The high impedance (HiZ) state is when
 the current is cut off and no holding torque is maintained. **Any loads
 the motor is moving may fall or lose their positioning during HiZ.**
 
@@ -310,9 +317,9 @@ command.
 Homing Commands
 ===============
 
-The homing command on the STEP400 is `/homing`_. This command consists
+The homing command is `/homing`_. This command consists
 of two commands, ``/goUntil`` and ``/releaseSw``, which are inherited
-from the powerSTEP01 motor driver chip. Let's look closer at those
+from the powerSTEP01/L6470 motor driver chip. Let's look closer at those
 commands.
 
 ------------
@@ -439,7 +446,7 @@ Rotary Tables
 
 In the left example on the picture above, the response position of the
 home sensor will differ between clockwise and counterclockwise,
-depending on the size of the hole. The STEP400 can notify both HIGH to
+depending on the size of the hole. The controller can notify both HIGH to
 LOW and LOW to HIGH changes of the home sensor by OSC messages. The
 message also includes the rotation direction, so you can align the home
 position if you write a conditional sequence for each rotation
@@ -532,7 +539,7 @@ Differential Gain (kD)
 
 In case an overshoot or oscillation related errors occurs, this
 parameter is used to eliminate steep changes in deviation--that is to
-say, it acts like a spring that continually decreases each oscillation.
+say, it acts like a damper that continually decreases each oscillation.
 
 ======================================
 Methods for Determining PID Parameters
@@ -581,7 +588,7 @@ value. Yet for example, when the target position is sent at 60fps, the
 acceleration towards the each new target position would cause the
 vibration and loose smooth transition. Depending on the priority of the
 quickly response to the target position or smooth movement for the whole
-operation, the preferrable values may change.
+operation, the preferable values may change.
 
 -----
 3. kD
@@ -609,7 +616,7 @@ approaching the target.
 .. _/run: https://ponoor.com/en/docs/step400/osc-command-reference/motor-control/#run_intmotorid_floatspeed
 .. _/goUntil: https://ponoor.com/en/docs/step400/osc-command-reference/homing/#gountil_intmotorid_boolact_floatspeed
 .. _/releaseSw: https://ponoor.com/en/docs/step400/osc-command-reference/homing/#releasesw_intmotorid_boolact_booldir
-
+.. _STEP-series Universal Firmware: https://github.com/ponoor/step-series-universal-firmware
 .. _pre-made connection cables: https://ponoor.com/en/products/sensor-cable/
 .. _コネクタ取り付け済みケーブル: https://ponoor.com/en/products/sensor-cable/
 
