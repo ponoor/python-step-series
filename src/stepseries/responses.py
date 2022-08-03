@@ -141,18 +141,18 @@ class ErrorCommand(OSCResponse, Exception):
     address: str = field(default="/error/command", init=False)
     errorText: str
     """
-    ================= ===============================================================================
+    ================= ===========================================================================================================
     errorText	      Description
-    ================= ===============================================================================
-    CommandIgnored	  The command is currently not executable. Also refer Timing section.
+    ================= ===========================================================================================================
+    CommandIgnored	  The command is currently not executable. Also refer to the ``Timing`` section.
     MotorIdNotMatch	  Motor ID is not appropriate.
-    BrakeEngaging	  A motion command was sent while the electromagnet brake was active.
-    HomeSwActivating  Movement from home sensor position towards the homing direction.
-    LimitSwActivating Movement from limit sensor position towards the opposite of the homing direction.
-    GoUntilTimeout    Timeout while executing /goUntil command.
-    ReleaseSwTimeout  Timeout while executing /releaseSw command.
+    BrakeEngaging	  A motion command was sent while the electromagnetic brake was active.
+    HomeSwActivating  A motion command to move in the homing direction was sent while the home sensor is active.
+    LimitSwActivating A motion command to move in the opposite of the homing direction was sent while the limit sensor is active.
+    GoUntilTimeout    Timed out while executing ``/goUntil`` command.
+    ReleaseSwTimeout  Timed out while executing ``/releaseSw`` command.
     InServoMode       Received a command which can not be executed while servo mode.
-    ================= ===============================================================================
+    ================= ===========================================================================================================
     """
     motorID: int = None
     """

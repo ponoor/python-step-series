@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: Step-Series Documentation "
 "0.0.2.post1.dev77+gb05b782.d20220327\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 10:11+0900\n"
+"POT-Creation-Date: 2022-08-03 11:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.1\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: ../../python-step-series/about.rst:5
 msgid "API Documentation"
@@ -283,7 +283,7 @@ msgstr ""
 #: stepseries.commands.SetPosition:4
 #: stepseries.commands.SetPositionListReportInterval:8
 #: stepseries.commands.SetPositionReportInterval:8
-#: stepseries.commands.SetProhibitMotionOnHomeSw:8
+#: stepseries.commands.SetProhibitMotionOnHomeSw:9
 #: stepseries.commands.SetProhibitMotionOnLimitSw:11
 #: stepseries.commands.SetReleaseSwTimeout:10
 #: stepseries.commands.SetServoParam:4 stepseries.commands.SetSpeedProfile:7
@@ -349,7 +349,7 @@ msgstr "実行可能タイミング"
 #: stepseries.commands.SetOverCurrentThreshold:7
 #: stepseries.commands.SetPositionListReportInterval:8
 #: stepseries.commands.SetPositionReportInterval:8
-#: stepseries.commands.SetProhibitMotionOnHomeSw:8
+#: stepseries.commands.SetProhibitMotionOnHomeSw:9
 #: stepseries.commands.SetProhibitMotionOnLimitSw:11
 #: stepseries.commands.SetReleaseSwTimeout:10
 #: stepseries.commands.SetServoParam:4 stepseries.commands.SetStallThreshold:7
@@ -1475,15 +1475,16 @@ msgid ""
 msgstr ""
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
+#, fuzzy
 msgid ""
-"Retrieve if motion towards the origin point is disabled when the home "
-"switch is activated."
+"Retrieve if motion towards the homing direction is disabled when the home"
+" switch is activated."
 msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドが禁止されているかどうかを返します。"
 
 #: of stepseries.commands.GetProhibitMotionOnLimitSw:1
 #, fuzzy
 msgid ""
-"Retrieve if motion in the opposite direction of the origin is disabled "
+"Retrieve if motion in the opposite of the homing direction is disabled "
 "when the limit switch is activated."
 msgstr "Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドが禁止されているかどうかを返します。"
 
@@ -2149,7 +2150,7 @@ msgstr "HOMEスイッチは反応するまでの待ち時間"
 
 #: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:4
 #: stepseries.commands.SetReleaseSwTimeout.timeOut:4
-msgid "0 - 65535 [ms]"
+msgid "0 - 4294967295 [ms]"
 msgstr ""
 
 #: ../../docstring of stepseries.commands.SetGoUntilTimeout.timeOut:6
@@ -2544,10 +2545,13 @@ msgstr ""
 "は無効になり自動停止します。 "
 
 #: of stepseries.commands.SetProhibitMotionOnHomeSw:1
-msgid "Prohibit motion to the origin when the home sensor is activated."
+#, fuzzy
+msgid ""
+"Prohibit motion towards the homing direction when the home sensor is "
+"activated."
 msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
 
-#: of stepseries.commands.SetProhibitMotionOnHomeSw:3
+#: of stepseries.commands.SetProhibitMotionOnHomeSw:4
 #: stepseries.commands.SetProhibitMotionOnLimitSw:4
 msgid ""
 "The direction to the origin point can be configured using the `Config "
@@ -2563,8 +2567,8 @@ msgstr "Trueで禁止"
 #: of stepseries.commands.SetProhibitMotionOnLimitSw:1
 #, fuzzy
 msgid ""
-"Prohibit motion in the opposite direction of the origin when the limit "
-"sensor is activated."
+"Prohibit motion in the opposite direction of the homing direction when "
+"the limit sensor is activated."
 msgstr "Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドを禁止します。"
 
 #: ../../docstring of stepseries.commands.SetProhibitMotionOnLimitSw.enable:1
@@ -2779,8 +2783,9 @@ msgid "Messages received from the device."
 msgstr "デバイスからの受信メッセージです。"
 
 #: of stepseries.responses.AdcVal:1
-msgid "The ADC_OUT register value from the PowerSTEP01 chip."
-msgstr ""
+#, fuzzy
+msgid "The ADC_OUT register value from the motor driver chip."
+msgstr "モータドライバの16bitの CONFIG レジスタの値。"
 
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:2
 #: stepseries.responses.BemfParam.FN_SLP_ACC:2
@@ -2824,12 +2829,10 @@ msgid "Range"
 msgstr "範囲"
 
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
-#: stepseries.responses.Status.status:4
 msgid "0-31"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.AdcVal.ADC_OUT:4
-#: stepseries.responses.Status.status:4
 msgid "5-bit read out of the ADC_OUT register"
 msgstr "ADC_OUTレジスタの5bit読み出し値。"
 
@@ -3215,7 +3218,10 @@ msgid "CommandIgnored"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
-msgid "The command is currently not executable. Also refer Timing section."
+#, fuzzy
+msgid ""
+"The command is currently not executable. Also refer to the ``Timing`` "
+"section."
 msgstr "コマンドが実行可能なタイミングでない。コマンドの実行可能タイミングを確認してください。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:5
@@ -3231,7 +3237,8 @@ msgid "BrakeEngaging"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
-msgid "A motion command was sent while the electromagnet brake was active."
+#, fuzzy
+msgid "A motion command was sent while the electromagnetic brake was active."
 msgstr "電磁ブレーキが効いた状態のままモーションコマンドを送信した。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
@@ -3239,25 +3246,30 @@ msgid "HomeSwActivating"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
-msgid "Movement from home sensor position towards the origin point."
-msgstr "ホームセンサ上から原点復帰方向に移動しようとした。"
+#, fuzzy
+msgid ""
+"A motion command to move in the homing direction was sent while the home "
+"sensor is active."
+msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドを禁止します。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
 msgid "LimitSwActivating"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
+#, fuzzy
 msgid ""
-"Movement from limit sensor position towards the opposite direction from "
-"origin."
-msgstr "リミットセンサ上から原点復帰方向の逆向きに移動しようとした。"
+"A motion command to move in the opposite of the homing direction was sent"
+" while the limit sensor is active."
+msgstr "Limitセンサが反応している状態で、原点復帰方向の逆方向へのモーションコマンドを禁止します。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
 msgid "GoUntilTimeout"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
-msgid "Timeout while executing /goUntil command."
+#, fuzzy
+msgid "Timed out while executing ``/goUntil`` command."
 msgstr "/goUntilコマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
@@ -3265,7 +3277,8 @@ msgid "ReleaseSwTimeout"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
-msgid "Timeout while executing /releaseSw command."
+#, fuzzy
+msgid "Timed out while executing ``/releaseSw`` command."
 msgstr "/releaseSwコマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
@@ -3351,8 +3364,9 @@ msgid "1: HardStop interrupt, 0: Notification (no stop)"
 msgstr "1: モータが即時停止する, 0: 通知のみ（停止しない）"
 
 #: of stepseries.responses.HomingDirection:1
-msgid "In which direction the origin (home) is."
-msgstr ""
+#, fuzzy
+msgid "The motor rotating direction when homing."
+msgstr "原点復帰の方向を設定します。"
 
 #: of stepseries.responses.HomingSpeed:1
 msgid "The speed the motor will run when homing."
@@ -3513,7 +3527,10 @@ msgid ""
 msgstr "STEP400ではモータ数は4軸ですので、 ``position5-8`` はありません。"
 
 #: of stepseries.responses.ProhibitMotionOnHomeSw:1
-msgid "Whether motion towards origin is permitted when HomeSw is active."
+#, fuzzy
+msgid ""
+"Whether motion towards the homing direction is permitted when HomeSw is "
+"active."
 msgstr "HOMESWが押されている状態で原点復帰方向への動作を許可するかどうか。"
 
 #: ../../docstring of stepseries.responses.ProhibitMotionOnHomeSw.enable:4
@@ -3522,8 +3539,11 @@ msgid "1: Prohibited, 0: Allowed"
 msgstr "1: 許可されている, 0: 禁止されている"
 
 #: of stepseries.responses.ProhibitMotionOnLimitSw:1
-msgid "Whether motion away from origin is permitted when LimitSw is active."
-msgstr ""
+#, fuzzy
+msgid ""
+"Whether motion to the opposite of the homing direction is permitted when "
+"LimitSw is active."
+msgstr "HOMESWが押されている状態で原点復帰方向への動作を許可するかどうか。"
 
 #: of stepseries.responses.ReleaseSwTimeout:1
 msgid ""
@@ -3713,12 +3733,22 @@ msgstr ""
 msgid ":py:class:`stepseries.commands.EnableHiZReport`"
 msgstr ""
 
+#: ../../docstring of stepseries.responses.Status.status:4
+msgid "0-65535"
+msgstr ""
+
+#: ../../docstring of stepseries.responses.Status.status:4
+#, fuzzy
+msgid "STATUS register value"
+msgstr "T_FASTレジスタの値。"
+
 #: of stepseries.responses.SwEvent:1
 msgid "Sent when the specified motor's HomeSw drops from HIGH to LOW."
 msgstr "指定したモータのHOMESWがHIGHからLOWに変化した際に送信されます。"
 
 #: of stepseries.responses.ThermalStatus:1
-msgid "The thermal status of a motor."
+#, fuzzy
+msgid "The thermal status of a motor driver chip."
 msgstr "モータドライバの温度状態 (Thermal Status)。"
 
 #: of stepseries.responses.ThermalStatus:3
@@ -4220,4 +4250,25 @@ msgstr ""
 
 #~ msgid "FN_SLPe_ACC register value"
 #~ msgstr "FN_SLP_ACCレジスタの値。"
+
+#~ msgid "0 - 65535 [ms]"
+#~ msgstr ""
+
+#~ msgid "The ADC_OUT register value from the PowerSTEP01 chip."
+#~ msgstr ""
+
+#~ msgid "In which direction the origin (home) is."
+#~ msgstr ""
+
+#~ msgid "Whether motion away from origin is permitted when LimitSw is active."
+#~ msgstr ""
+
+#~ msgid "Movement from the home sensor position in the homing direction."
+#~ msgstr "ホームセンサ上から原点復帰方向に移動しようとした。"
+
+#~ msgid ""
+#~ "Movement from the limit sensor position"
+#~ " in the opposite of the homing "
+#~ "direction."
+#~ msgstr "リミットセンサ上から原点復帰方向の逆向きに移動しようとした。"
 

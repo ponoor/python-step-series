@@ -1159,7 +1159,9 @@ class GetStallThreshold(OSCGetCommand):
 
 @dataclass
 class SetProhibitMotionOnHomeSw(OSCSetCommand):
-    """Prohibit motion towards the homing direction when the home sensor is activated.
+    """
+    Prohibit motion towards the homing direction when the home sensor is
+    activated.
 
     The direction to the origin point can be configured using the
     `Config Tool`_ or with
@@ -1218,8 +1220,8 @@ class GetProhibitMotionOnHomeSw(OSCGetCommand):
 @dataclass
 class SetProhibitMotionOnLimitSw(OSCSetCommand):
     """
-    Prohibit motion in the opposite of homing direction when the
-    limit sensor is activated.
+    Prohibit motion in the opposite direction of the homing direction
+    when the limit sensor is activated.
 
     The direction to the origin point can be configured using the
     `Config Tool`_ or with
@@ -1253,7 +1255,7 @@ class SetProhibitMotionOnLimitSw(OSCSetCommand):
 @dataclass
 class GetProhibitMotionOnLimitSw(OSCGetCommand):
     """
-    Retrieve if motion in the opposite of homing direction is
+    Retrieve if motion in the opposite of the homing direction is
     disabled when the limit switch is activated.
 
     ``STEP400 Only``
