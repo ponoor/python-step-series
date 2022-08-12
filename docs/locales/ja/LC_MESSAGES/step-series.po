@@ -683,8 +683,8 @@ msgstr ""
 "本デバイスに設定コマンドを送る前に、まずメッセージの返信先アドレスを教えるコマンドである ``/setDestIp`` "
 "を送る必要があります。このコマンドが届くまでは、本デバイス側からはOSCメッセージの返送を行いません (``/booted`` "
 "を除く)。これは存在しないあて先にOSCメッセージを送り続けると本デバイスの動作が不安定になることがあるためです。``/setDestIp`` "
-"が問題なく受信されると、次のような応答があるはずです。``/destIp octet1 octet2 octet3 octet4 "
-"isNewDestIp````octed<N>`` は制御PCのIPアドレスの各桁に対応し、 ``isNewDestIp`` "
+"が問題なく受信されると、``/destIp octet1 octet2 octet3 octet4 isNewDestIp`` という応答があるはずです。"
+" ``octed<N>`` は制御PCのIPアドレスの各桁に対応し、 ``isNewDestIp`` "
 "はdestIpが変更されたかどうかを示します。変更されていると ``1``, すでに同じアドレスが設定されていた場合は ``0`` です。"
 
 #: ../../step-series/submodules/getting-started.rst:278
@@ -1173,7 +1173,8 @@ msgstr "電流モードは音がうるさいが、高速まで回せる。"
 msgid ""
 "To better illustrate this point, here is a demonstration video to show "
 "the differences between these two modes."
-msgstr "このデモ映像では、各モードの動作の違いをとらえています。"
+msgstr ""
+"このデモ映像では、各モードの動作の違いをとらえています。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:34
 msgid ""
@@ -1362,7 +1363,7 @@ msgid ""
 " used for ``/releaseSw`` speed as a part of the homing procedure."
 msgstr ""
 "``/setMinSpeed`` によって最低速さを設定することも可能です。これは実際の"
-"滋養時に使うことはほぼありませんが、この速さは原点復帰時の ``/releaseSw`` の速さに適用されます。"
+"使用時に使うことはほぼありませんが、この速さは原点復帰時の ``/releaseSw`` の速さに適用されます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:151
 msgid "Types of Motor Operation"
@@ -1382,11 +1383,11 @@ msgid ""
 "profile. Sending a speed to run faster than this profile setting will "
 "cause the motor's speed to be truncated to that setting. The motor will "
 "be kept in the BUSY state during the acceleration and deceleration."
-msgstr "あらかじめ設定されたスピードプロファイルの加速度・減速度で指定された速度へ到達し、その後一定速を維持するコマンドです。速度に0を指定するか、停止コマンドを送るまで回り続けます。指定できる速度の範囲は、スピードプロファイルの最大速さに制限されます。加速中と減速中はBUSY状態になります。"
+msgstr "`/run`_ コマンドはあらかじめ設定されたスピードプロファイルの加速度・減速度で指定された速度へ到達し、その後一定速を維持するコマンドです。速度に0を指定するか、停止コマンドを送るまで回り続けます。指定できる速度の範囲は、スピードプロファイルの最大速さに制限されます。加速中と減速中はBUSY状態になります。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:166
 msgid "`/goUntil`_ and `/releaseSw`_ are also considered constant speed commands."
-msgstr "一定速運転をする代表的なコマンドが `/run`_ です。そのほかにも `/goUntil`_ や `/releaseSw`_ なども含まれます。"
+msgstr "そのほかにも `/goUntil`_ や `/releaseSw`_ なども一定速運転の一種です。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:171
 msgid "Positioning"
@@ -1421,7 +1422,7 @@ msgid ""
 "NOTE: With `STEP-series Universal Firmware`_, positioning motions (except"
 " /move) can interrupt another positioning motions."
 msgstr ""
-"NOTE: `STEP-series Universal Firmware`_ では、 /move 以外の位置決めコマンドは、実行中のモーションコマンドに割り込むことができます。"
+"備考: `STEP-series Universal Firmware`_ では、 /move 以外の位置決めコマンドは、実行中のモーションコマンドに割り込むことができます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:193
 msgid "Servo Mode"
@@ -1499,8 +1500,8 @@ msgid ""
 "current is cut off and no holding torque is maintained. **Any loads the "
 "motor is moving may fall or lose their positioning during HiZ.**"
 msgstr ""
-"励磁状態とは、 ``KVAL_HOLD`` に応じた電圧や ``TVAL_HOLD`` "
-"の値に応じた電流が流れて、モータの位置を保持するトルクがかかっている状態です。ハイ・インピーダンス状態は、電流が遮断されて保持トルクがない状態です。"
+"励磁状態とは、 ``KVAL_HOLD`` に応じた電圧や ``TVAL_HOLD`` の値に応じた電流が流れて、"
+"モータの位置を保持するトルクがかかっている状態です。ハイ・インピーダンス状態は、電流が遮断されて保持トルクがない状態です。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:227
 msgid "Homing"
@@ -1944,7 +1945,7 @@ msgid ""
 "In case an overshoot or oscillation related errors occurs, this parameter"
 " is used to eliminate steep changes in deviation--that is to say, it acts"
 " like a damper that continually decreases each oscillation."
-msgstr "オーバーシュートや振動が発生している場合などに、偏差の急な変化を打ち消す用に作用するパラメータです。"
+msgstr "オーバーシュートや振動が発生している場合などに、偏差の急な変化を打ち消すように作用するパラメータです。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:546
 msgid "Methods for Determining PID Parameters"
@@ -3169,9 +3170,8 @@ msgid ""
 "the motors."
 msgstr ""
 "motor ID "
-"1のPowerSTEP01のOSCINに16MHzの水晶発振器が接続されています。そこからIDの順に、OSCOUTとOSCINがデイジーチェーンされていますので、各PowerSTEP01は「外部16MHz入力、反転出力"
-" "
-"(``EXT_16MHZ_OSCOUT_INVERT``)」に設定してください。\"内部クロックを使うと、一定速運転時などに動きが徐々にずれてくる現象が発生します。"
+"1のPowerSTEP01のOSCINに16MHzの水晶発振器が接続されています。そこからIDの順に、OSCOUTとOSCINがデイジーチェーンされていますので、"
+"各PowerSTEP01は「外部16MHz入力、反転出力(``EXT_16MHZ_OSCOUT_INVERT``)」に設定してください。内部クロックを使うと、一定速運転時などに動きが徐々にずれてくる現象が発生します。"
 
 #: ../../step-series/submodules/technical-information.rst:623
 #: ../../step-series/submodules/technical-information.rst:798

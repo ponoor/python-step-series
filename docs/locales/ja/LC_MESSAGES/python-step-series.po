@@ -30,7 +30,7 @@ msgid ""
 "and control a STEP-series device."
 msgstr ""
 "``python-step-series`` "
-"へそうこそ！このページでは、インストールについてや、STEPシリーズを構成・制御するための最初のアプリケーションを開発する方法を説明しています。"
+"へようこそ！このページでは、インストールについてや、STEPシリーズを構成・制御するための最初のアプリケーションを開発する方法を説明しています。"
 
 #: ../../python-step-series/about.rst:10
 msgid ""
