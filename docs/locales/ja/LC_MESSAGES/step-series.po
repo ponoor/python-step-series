@@ -1361,6 +1361,8 @@ msgid ""
 "is unlikely to be used for any actual application, but this speed will be"
 " used for ``/releaseSw`` speed as a part of the homing procedure."
 msgstr ""
+"``/setMinSpeed`` によって最低速さを設定することも可能です。これは実際の"
+"滋養時に使うことはほぼありませんが、この速さは原点復帰時の ``/releaseSw`` の速さに適用されます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:151
 msgid "Types of Motor Operation"
@@ -1403,21 +1405,23 @@ msgid ""
 " It's not possible to interrupt the current positioning motion with "
 "another positioning motion."
 msgstr ""
-"指定された位置へ向かって、スピードプロファイルに従って台形運転を行います。すなわち、スピードプロファイルの加速度に従って加速し、最大速さまで到達したら一定速で運転し、その後指定の減速度で減速しますが、指定位置で停止するように逆算したタイミングで減速を開始します。移動距離に比べてゆっくり加減速した場合などには、最大速さに達する前に減速を開始することもあります。モータが停止するまでBUSY状態になります。位置決め運転の途中で割り込んで次の位置決め運転をすることはできません。位置決め運転をする代表的なコマンドが"
-" `/goTo`_ や `/move`_ です。その他にも `/goHome`_, `/goMark`_, `/goToDir`_ "
-"などが含まれます。"
+"指定された位置へ向かって、スピードプロファイルに従って台形運転を行います。すなわち、スピードプロファイルの加速度に従って加速し、最大速さまで到達したら一定速で運転し、その後指定の減速度で減速しますが、指定位置で停止するように逆算したタイミングで減速を開始します。移動距離に比べてゆっくり加減速した場合などには、最大速さに達する前に減速を開始することもあります。モータが停止するまでBUSY状態になります。位置決め運転の途中で割り込んで次の位置決め運転をすることはできません。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:184
 msgid ""
 "Typical commands for positioning operation are ``/goTo`` and ``/move``. "
 "Other commands include ``/goHome``, ``/goMark``, and ``/goToDir``."
 msgstr ""
+"位置決め運転をする代表的なコマンドが"
+" `/goTo`_ や `/move`_ です。その他にも `/goHome`_, `/goMark`_, `/goToDir`_ "
+"などが含まれます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:187
 msgid ""
 "NOTE: With `STEP-series Universal Firmware`_, positioning motions (except"
 " /move) can interrupt another positioning motions."
 msgstr ""
+"NOTE: `STEP-series Universal Firmware`_ では、 /move 以外の位置決めコマンドは、実行中のモーションコマンドに割り込むことができます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:193
 msgid "Servo Mode"

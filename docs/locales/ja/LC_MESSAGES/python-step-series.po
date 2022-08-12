@@ -3270,7 +3270,7 @@ msgstr ""
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
 #, fuzzy
 msgid "Timed out while executing ``/goUntil`` command."
-msgstr "/goUntilコマンド実行中にタイムアウトした。"
+msgstr "``/goUntil`` コマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
 msgid "ReleaseSwTimeout"
@@ -3279,7 +3279,7 @@ msgstr ""
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
 #, fuzzy
 msgid "Timed out while executing ``/releaseSw`` command."
-msgstr "/releaseSwコマンド実行中にタイムアウトした。"
+msgstr "``/releaseSw`` コマンド実行中にタイムアウトした。"
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:11
 msgid "InServoMode"
@@ -3930,7 +3930,7 @@ msgstr "レスポンスをコールバックにも送るかどうか（初期値
 msgid ""
 "Wait for a response from the device if `True`, otherwise return without "
 "waiting for a response (defaults to `True`)."
-msgstr "`True` の場合はデバイスからのレスポンスを待ち、相でない場合はレスポンスを待たずに戻ります。初期値は `True` です。"
+msgstr "`True` の場合はデバイスからのレスポンスを待ち、そうでない場合はレスポンスを待たずに戻ります。初期値は `True` です。"
 
 #: of stepseries.step800.STEP800.get stepseries.step800.STEP800.set
 msgid "Raises"
@@ -3938,7 +3938,7 @@ msgstr ""
 
 #: of stepseries.step800.STEP800.get:21 stepseries.step800.STEP800.set:6
 msgid "`command` is not an `OSCSetCommand`."
-msgstr "`command` が ``OSCSetCommand` ではない。"
+msgstr "`command` が ``OSCSetCommand`` ではない。"
 
 #: of stepseries.step800.STEP800.get:22
 msgid "`command` cannot run on a STEP800."
