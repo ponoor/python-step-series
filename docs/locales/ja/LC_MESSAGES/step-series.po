@@ -1414,7 +1414,7 @@ msgid ""
 "Other commands include ``/goHome``, ``/goMark``, and ``/goToDir``."
 msgstr ""
 "位置決め運転をする代表的なコマンドが"
-" `/goTo`_ や `/move`_ です。その他にも `/goHome`_, `/goMark`_, `/goToDir`_ "
+" ``/goTo`` や ``/move`` です。その他にも ``/goHome``, ``/goMark``, ``/goToDir`` "
 "などが含まれます。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:187
