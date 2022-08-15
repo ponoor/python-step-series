@@ -4,7 +4,7 @@
 # Documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: Step-Series Documentation "
@@ -1169,7 +1169,7 @@ msgid "Current mode is noisy, but can reach higher speeds"
 msgstr "電流モードは音がうるさいが、高速まで回せる。"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:25
-#, fuzzy
+
 msgid ""
 "To better illustrate this point, here is a demonstration video to show "
 "the differences between these two modes."
@@ -1492,7 +1492,7 @@ msgid "HardHiZ"
 msgstr ""
 
 #: ../../step-series/submodules/functionality-descriptions.rst:219
-#, fuzzy
+
 msgid ""
 "The excited state is the state in which voltage or current (torque) is "
 "maintained to hold the motor's position according to ``KVAL_HOLD`` or "
@@ -1640,7 +1640,7 @@ msgid "Homing Commands"
 msgstr "原点復帰コマンド"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:320
-#, fuzzy
+
 msgid ""
 "The homing command is `/homing`_. This command consists of two commands, "
 "``/goUntil`` and ``/releaseSw``, which are inherited from the "
@@ -1819,7 +1819,7 @@ msgid "Rotary Tables"
 msgstr "回転テーブル"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:447
-#, fuzzy
+
 msgid ""
 "In the left example on the picture above, the response position of the "
 "home sensor will differ between clockwise and counterclockwise, depending"
@@ -1940,7 +1940,7 @@ msgid "Differential Gain (kD)"
 msgstr "微分ゲイン(kD)"
 
 #: ../../step-series/submodules/functionality-descriptions.rst:540
-#, fuzzy
+
 msgid ""
 "In case an overshoot or oscillation related errors occurs, this parameter"
 " is used to eliminate steep changes in deviation--that is to say, it acts"
@@ -2010,7 +2010,7 @@ msgid "2. kI"
 msgstr ""
 
 #: ../../step-series/submodules/functionality-descriptions.rst:585
-#, fuzzy
+
 msgid ""
 "In case when the target position only changing once every couple of "
 "seconds, you set the movement to quick and responsive by raising the kI "
@@ -2210,7 +2210,7 @@ msgid "Extra Notes"
 msgstr "留意点"
 
 #: ../../step-series/submodules/technical-information.rst:118
-#, fuzzy
+
 msgid ""
 "As a safety precaution, the electromagnetic brake should be disconnected "
 "from the board. While uploading the firmware, defaults are sometimes "

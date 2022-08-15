@@ -4,7 +4,7 @@
 # Documentation package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: Step-Series Documentation "
@@ -1359,7 +1359,7 @@ msgid "Retrieve the busy status of a motor."
 msgstr "モータのBUSY状態を取得します。"
 
 #: of stepseries.commands.GetConfigName:1
-#, fuzzy
+
 msgid "Retrieve the name of the microSD config file on the controller."
 msgstr "起動時にmicroSDカードから読み込まれたコンフィギュレーションファイルの名称を取得します。"
 
@@ -1475,14 +1475,14 @@ msgid ""
 msgstr ""
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
-#, fuzzy
+
 msgid ""
 "Retrieve if motion towards the homing direction is disabled when the home"
 " switch is activated."
 msgstr "Homeセンサが反応している状態で、原点復帰方向へのモーションコマンドが禁止されているかどうかを返します。"
 
 #: of stepseries.commands.GetProhibitMotionOnLimitSw:1
-#, fuzzy
+
 msgid ""
 "Retrieve if motion in the opposite of the homing direction is disabled "
 "when the limit switch is activated."
@@ -1651,7 +1651,7 @@ msgid "Moves to specified position in the specified direction."
 msgstr "事前に設定したスピードプロファイルにしたがって、指定位置まで指定方向で移動します。指定位置まで移動し終わるまではBUSY状態になります。"
 
 #: of stepseries.commands.GoToDir:3
-#, fuzzy
+
 msgid ""
 "-2097152 and 2097151 are next to each other in the driver chip, like how "
 "0 and 360 are on a circle. As an example, if you specify 2097000, True "
@@ -1750,7 +1750,7 @@ msgid ""
 msgstr "スピードプロファイルに従って減速したのち、モータを停止して励磁を解除します。励磁が解除されるとHiZ状態になります。モータが停止するまではBUSY状態になります。サーボモードだった場合は解除されます。電磁ブレーキモードが有効になっている場合は、電磁ブレーキを保持状態にしてからHiZ状態に移行します。"
 
 #: of stepseries.commands.HardStop:3
-#, fuzzy
+
 msgid ""
 "After stopping, the motor is kept in an excited state if it was "
 "originally in a HiZ state."
@@ -2545,7 +2545,7 @@ msgstr ""
 "は無効になり自動停止します。 "
 
 #: of stepseries.commands.SetProhibitMotionOnHomeSw:1
-#, fuzzy
+
 msgid ""
 "Prohibit motion towards the homing direction when the home sensor is "
 "activated."
@@ -2565,7 +2565,7 @@ msgid "If True, disable motion in the origin direction."
 msgstr "Trueで禁止"
 
 #: of stepseries.commands.SetProhibitMotionOnLimitSw:1
-#, fuzzy
+
 msgid ""
 "Prohibit motion in the opposite direction of the homing direction when "
 "the limit sensor is activated."
@@ -2783,7 +2783,7 @@ msgid "Messages received from the device."
 msgstr "デバイスからの受信メッセージです。"
 
 #: of stepseries.responses.AdcVal:1
-#, fuzzy
+
 msgid "The ADC_OUT register value from the motor driver chip."
 msgstr "モータドライバの16bitの CONFIG レジスタの値。"
 
@@ -3016,7 +3016,7 @@ msgid "0-255 (0xFF)"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.BemfParam.FN_SLP_ACC:4
-#, fuzzy
+
 msgid "FN_SLP_ACC register value"
 msgstr "T_FASTレジスタの値。"
 
@@ -3218,7 +3218,7 @@ msgid "CommandIgnored"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:4
-#, fuzzy
+
 msgid ""
 "The command is currently not executable. Also refer to the ``Timing`` "
 "section."
@@ -3237,7 +3237,7 @@ msgid "BrakeEngaging"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:6
-#, fuzzy
+
 msgid "A motion command was sent while the electromagnetic brake was active."
 msgstr "電磁ブレーキが効いた状態のままモーションコマンドを送信した。"
 
@@ -3246,7 +3246,7 @@ msgid "HomeSwActivating"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:7
-#, fuzzy
+
 msgid ""
 "A motion command to move in the homing direction was sent while the home "
 "sensor is active."
@@ -3257,7 +3257,7 @@ msgid "LimitSwActivating"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:8
-#, fuzzy
+
 msgid ""
 "A motion command to move in the opposite of the homing direction was sent"
 " while the limit sensor is active."
@@ -3268,7 +3268,7 @@ msgid "GoUntilTimeout"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:9
-#, fuzzy
+
 msgid "Timed out while executing ``/goUntil`` command."
 msgstr "``/goUntil`` コマンド実行中にタイムアウトした。"
 
@@ -3277,7 +3277,7 @@ msgid "ReleaseSwTimeout"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.ErrorCommand.errorText:10
-#, fuzzy
+
 msgid "Timed out while executing ``/releaseSw`` command."
 msgstr "``/releaseSw`` コマンド実行中にタイムアウトした。"
 
@@ -3364,7 +3364,7 @@ msgid "1: HardStop interrupt, 0: Notification (no stop)"
 msgstr "1: モータが即時停止する, 0: 通知のみ（停止しない）"
 
 #: of stepseries.responses.HomingDirection:1
-#, fuzzy
+
 msgid "The motor rotating direction when homing."
 msgstr "原点復帰の方向を設定します。"
 
@@ -3527,7 +3527,7 @@ msgid ""
 msgstr "STEP400ではモータ数は4軸ですので、 ``position5-8`` はありません。"
 
 #: of stepseries.responses.ProhibitMotionOnHomeSw:1
-#, fuzzy
+
 msgid ""
 "Whether motion towards the homing direction is permitted when HomeSw is "
 "active."
@@ -3539,7 +3539,7 @@ msgid "1: Prohibited, 0: Allowed"
 msgstr "1: 許可されている, 0: 禁止されている"
 
 #: of stepseries.responses.ProhibitMotionOnLimitSw:1
-#, fuzzy
+
 msgid ""
 "Whether motion to the opposite of the homing direction is permitted when "
 "LimitSw is active."
@@ -3738,7 +3738,7 @@ msgid "0-65535"
 msgstr ""
 
 #: ../../docstring of stepseries.responses.Status.status:4
-#, fuzzy
+
 msgid "STATUS register value"
 msgstr "T_FASTレジスタの値。"
 
@@ -3747,7 +3747,7 @@ msgid "Sent when the specified motor's HomeSw drops from HIGH to LOW."
 msgstr "指定したモータのHOMESWがHIGHからLOWに変化した際に送信されます。"
 
 #: of stepseries.responses.ThermalStatus:1
-#, fuzzy
+
 msgid "The thermal status of a motor driver chip."
 msgstr "モータドライバの温度状態 (Thermal Status)。"
 
