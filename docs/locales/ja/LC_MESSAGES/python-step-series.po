@@ -1299,7 +1299,7 @@ msgstr ""
 
 #: of stepseries.commands.EnableUvloReport:1
 msgid "Enable or disable the automatic reporting of undervoltage events."
-msgstr " UVLO (Undervoltage Lockout) が発生した際に自動で通知メッセージを送信する設定を行います。"
+msgstr "UVLO (Undervoltage Lockout) が発生した際に自動で通知メッセージを送信する設定を行います。"
 
 #: of stepseries.commands.EnableUvloReport:3
 msgid ""
@@ -1473,6 +1473,8 @@ msgid ""
 ":py:class:`stepseries.commands.SetPositionListReportInterval` can be "
 "configured to periodically send the current position."
 msgstr ""
+"他の方法として、 :py:class:`stepseries.commands.SetPositionListReportInterval` を使用して、"
+"一定間隔で現在位置を自動で送信させることもできます。"
 
 #: of stepseries.commands.GetProhibitMotionOnHomeSw:1
 
@@ -1999,13 +2001,13 @@ msgstr ""
 
 #: of stepseries.commands.SetBrakeTransitionDuration:1
 msgid "Duration to keep the motor activated while the brake transitions."
-msgstr ""
+msgstr "電磁ブレーキの保持・開放時に、モータを励磁したままにしておく遷移時間を指定します。"
 
 #: of stepseries.commands.SetBrakeTransitionDuration:3
 msgid ""
 "Due to the physical transition time of the brake, the motor needs to be "
 "engaged to cover this period."
-msgstr "電磁ブレーキの保持・開放時に、モータを励磁したままにしておく遷移時間を指定します。これは物理的にブレーキ機構が動作する時間がかかるため、ブレーキの動作が完了するまでモータ軸を保持しておくために必要な時間です。"
+msgstr "これは物理的にブレーキ機構が動作する時間がかかるため、ブレーキの動作が完了するまでモータ軸を保持しておくために必要な時間です。"
 
 #: ../../docstring of stepseries.commands.SetBrakeTransitionDuration.duration:2
 msgid "0-10000  [ms]"
