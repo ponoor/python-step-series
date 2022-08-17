@@ -6,15 +6,16 @@ Changelog
 Development version
 ===================
 
-Version 1.0.0, 2022-04-XX
--------------------------
-
-- Add documentation for both English and Japanese
-- Update responses module to reflect upstream changes (always return int instead of bool)
-- Make ``SetDestIp`` a get command instead of a set
 
 Current versions
 ================
+
+Version 1.0.0, 2022-08-17
+-------------------------
+
+- Add documentation for both English and Japanese
+- Update responses module to reflect upstream firmware changes (always return int instead of bool)
+- Make ``SetDestIp`` a get command instead of a set (compatible with both)
 
 Version 0.0.2, 2022-01-21
 -------------------------
