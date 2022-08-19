@@ -42,10 +42,9 @@ def test_free() -> None:
     params = osc_message.params
 
     assert osc_message.address == builder.address
-    assert len(params) == 2
+    assert len(params) == 1
     assert params[0] == builder.motorID
-    assert params[1] == builder.state
-    assert osc_message_str == "/free 1 0"
+    assert osc_message_str == "/free 1"
 
 
 def test_set_break_transition_duration() -> None:
