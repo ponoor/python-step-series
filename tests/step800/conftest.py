@@ -103,6 +103,12 @@ def device(wait_for) -> STEP800:
         TestPresets.server_port,
     )
 
+    # Ensure no communications with the device are made if presets have
+    # not been configured
+    if not TestPresets.is_configured:
+        device.close()
+        return device
+
     # Send the start-up command
     try:
         wait_for(device, commands.SetDestIP(), responses.DestIP)
