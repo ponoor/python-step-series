@@ -268,7 +268,7 @@ class MotorStatus(OSCResponse):
 
 @dataclass
 class HomingStatus(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#homingstatus"""  # noqa
+    """The current state of homing movements."""
 
     address: str = field(default="/homingStatus", init=False)
     motorID: int
@@ -281,6 +281,17 @@ class HomingStatus(OSCResponse):
     ========== ===========
     """
     homingStatus: int
+    """
+    ============ ================ =================================================
+    homingStatus Name             Description
+    ============ ================ =================================================
+    0            HOMING_UNDEFINED Not yet executing homing movements
+    1            HOMING_GOUNTIL   Executing :class:`~stepseries.commands.GoUntil`
+    2            HOMING_RELEASESW Executing :class:`~stepseries.commands.ReleaseSw`
+    3            HOMING_COMPLETED Homing finished
+    4            HOMING_TIMEOUT   Homing timed-out
+    ============ ================ =================================================
+    """
 
 
 @dataclass
@@ -351,7 +362,7 @@ class ThermalStatus(OSCResponse):
 
 @dataclass
 class OverCurrent(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#overcurrent"""  # noqa
+    """Notification of an over current event being detected."""
 
     address: str = field(default="/overCurrent", init=False)
     motorID: int
@@ -367,7 +378,7 @@ class OverCurrent(OSCResponse):
 
 @dataclass
 class Stall(OSCResponse):
-    """Documentation: https://ponoor.com/en/docs/step-series/osc-command-reference/automatically-sent-messages-from-step-400/#stall"""  # noqa
+    """Notification of a motor getting stalled."""
 
     address: str = field(default="/stall", init=False)
     motorID: int
